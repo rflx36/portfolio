@@ -1,1 +1,183 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+
+
+
+body {
+    background-color: oklch(0.95 0 0);
+    font-family: 'Manrope', sans-serif;
+}
+
+
+
+@theme {
+    --color-bg: oklch(0.95 0 0);
+    --color-container-bg: oklch(0.93 0 0);
+    --color-container-soft-shadow: oklch(0.88 0 0);
+    --color-container-stroke: oklch(0.73 0 0);
+    --color-text: oklch(0.22 0 0);
+
+    --color-accent-1: oklch(0.63 0.24 303);
+    --color-accent-2: oklch(0.75 0.17 5);
+    --color-accent-3: oklch(0.81 0.14 75);
+
+
+    --timing-smooth: cubic-bezier(0.405, 1.070, 0.435, 0.780);
+    --timing-bezier-in: cubic-bezier(0.405, 1.070, 0.435, 0.780);
+    --timing-bezier-in-2: cubic-bezier(0.130, 0.835, 0.130, 0.830);
+
+    --breakpoint-xs: 475px;
+
+}
+
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInQuadrant {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleOut {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes fadeScaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes SlideUp {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+
+}
+
+@keyframes SlideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes SlideUpFadeIn {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes SlideText {
+    0% {
+        transform: translateY(100%);
+    }
+
+    30% {
+        transform: translateY(0%);
+    }
+
+    80% {
+        transform: translateY(0%);
+    }
+
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
