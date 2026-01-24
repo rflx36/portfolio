@@ -1,0 +1,32 @@
+.skill-state-hover:hover>.skill-state-default {
+    background-color: red;
+}
+
+
+
+.skill-card-container-selected {
+    /* enabled animation of selected card */
+    color: var(--color-text);
+}
+
+.skill-card-container-disabled {
+    /* disabled animation of selected card */
+    color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+
+.skill-state-container:hover>.skill-card-container {
+    /* Set disabled animation of selected or hover of a card */
+  
+    color: color-mix(in srgb, var(--color-text) 50%, transparent);
+    .skill-card-item p{
+        display: none;
+    }
+}
+
+.skill-card-container:hover {
+    /* Set enabled animation of hover of a card */
+    color: var(--color-text) !important;
+    .skill-card-item p{
+        display: block !important;
+    }
+}

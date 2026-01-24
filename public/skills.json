@@ -1,0 +1,126 @@
+{
+    "Design": [
+        {
+            "name": "Figma",
+            "imgUrl": ""
+        },
+        {
+            "name": "Blender3D",
+            "imgUrl": ""
+        },
+        {
+            "name": "Photoshop",
+            "imgUrl": ""
+        },
+        {
+            "name": "After Effects",
+            "imgUrl": ""
+        }
+    ],
+    "Frontend": [
+        {
+            "name": "HTML",
+            "imgUrl": ""
+        },
+        {
+            "name": "CSS",
+            "imgUrl": ""
+        },
+        {
+            "name": "Javascript",
+            "imgUrl": ""
+        },
+        {
+            "name": "Typescript",
+            "imgUrl": ""
+        },
+        {
+            "name": "React",
+            "imgUrl": ""
+        },
+        {
+            "name": "Next",
+            "imgUrl": ""
+        },
+        {
+            "name": "Vite",
+            "imgUrl": ""
+        },
+        {
+            "name": "Zustand",
+            "imgUrl": ""
+        },
+        {
+            "name": "Tailwind",
+            "imgUrl": ""
+        },
+        {
+            "name": "DaisyUI",
+            "imgUrl": ""
+        }
+    ],
+    "Backend": [
+        {
+            "name": "MySQL",
+            "imgUrl": ""
+        },
+        {
+            "name": "PHP",
+            "imgUrl": ""
+        },
+        {
+            "name": "MongoDB",
+            "imgUrl": ""
+        },
+        {
+            "name": "Mongoose",
+            "imgUrl": ""
+        },
+        {
+            "name": "Firebase",
+            "imgUrl": ""
+        },
+        {
+            "name": "AWS S3",
+            "imgUrl": ""
+        }
+    ],
+    "Other" : [
+        {
+            "name": "Git",
+            "imgUrl": ""
+        },
+        {
+            "name": "Linux",
+            "imgUrl": ""
+        },
+        {
+            "name": "Unity",
+            "imgUrl": ""
+        },
+        {
+            "name": "C#",
+            "imgUrl": ""
+        },
+        {
+            "name": "Electron",
+            "imgUrl": ""
+        },
+        {
+            "name": "React Native",
+            "imgUrl": ""
+        },
+        {
+            "name": "Visual Basic",
+            "imgUrl": ""
+        },
+        {
+            "name": "Java",
+            "imgUrl": ""
+        },
+        {
+            "name": "Python",
+            "imgUrl": ""
+        }
+    ]
+}

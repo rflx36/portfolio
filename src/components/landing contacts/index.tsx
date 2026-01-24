@@ -20,15 +20,15 @@ export default function LandingContacts() {
                 </div>
                 <div className="flex gap-3 p-2 font-bold text-sm ease-bezier-in duration-150 cursor-pointer items-center text-text hover:text-accent-1">
                     <svg className="stroke-current" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.75 10.25V12.25C0.75 13.3546 1.64543 14.25 2.75 14.25H12.75C13.8546 14.25 14.75 13.3546 14.75 12.25V10.25M7.75 11.75L4.25 8.75M7.75 11.75L11.25 8.75M7.75 11.75V0.75" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M0.75 10.25V12.25C0.75 13.3546 1.64543 14.25 2.75 14.25H12.75C13.8546 14.25 14.75 13.3546 14.75 12.25V10.25M7.75 11.75L4.25 8.75M7.75 11.75L11.25 8.75M7.75 11.75V0.75" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                     <p className="text-current">Download CV</p>
                 </div>
             </div>
             <div className="w-full h-[0.0625rem] relative">
-                <div className="bg-text/50 w-full h-full " />
-                <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 " />
-                <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 " />
+                <div className="bg-text/25 w-full h-full " />
+                <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 -translate-y-1/2" />
+                <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 -translate-y-1/2" />
             </div>
         </div>
     )
