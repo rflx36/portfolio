@@ -16,9 +16,14 @@
 
 .skill-state-container:hover>.skill-card-container {
     /* Set disabled animation of selected or hover of a card */
-  
+
     color: color-mix(in srgb, var(--color-text) 50%, transparent);
-    .skill-card-item p{
+
+    .skill-card-item .skill-image-container {
+        --image-disabled-url: 'image-disabled';
+        background-image: var(--image-disabled-url) ;
+    }
+    .skill-card-item p {
         display: none;
     }
 }
@@ -26,7 +31,13 @@
 .skill-card-container:hover {
     /* Set enabled animation of hover of a card */
     color: var(--color-text) !important;
-    .skill-card-item p{
+
+    .skill-card-item .skill-image-container {
+        --image-name-url: 'image';
+        background-image: var(--image-name-url) !important;
+    }
+    .skill-card-item p {
         display: block !important;
     }
+
 }

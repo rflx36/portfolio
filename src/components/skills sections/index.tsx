@@ -33,10 +33,10 @@ export default function SkillsSection() {
     }, []);
 
     return (
-        <div className="h-screen w-[calc(100%-2rem)] mx-auto max-w-270 " >
+        <div className="h-screen w-[calc(100%-2rem)] mx-auto max-w-270 flex items-center flex-col" >
             <h1 className="text-text">Skills Section</h1>
             {/* <div className="animate-pulse bg-gray-300 rounded">sKELETON</div> */}
-            <div className="skill-state-container flex justify-center ">
+            <div className="skill-state-container flex justify-center w-max ">
 
                 <SkillsItemContainer
                     isActiveState={skillsActiveState === "design"}
@@ -45,7 +45,7 @@ export default function SkillsSection() {
                 >
                     {
                         skillDataState?.design?.map((skill, index) => (
-                            <SkillsItem key={index} skill={skill} styleState={skillsActiveState === "design"} />
+                            <SkillsItem index={index} skill={skill} styleState={skillsActiveState === "design"} />
                         ))
                     }
                 </SkillsItemContainer>
@@ -57,7 +57,7 @@ export default function SkillsSection() {
                 >
                     {
                         skillDataState?.frontend?.map((skill, index) => (
-                            <SkillsItem key={index} skill={skill} styleState={skillsActiveState === "frontend"} />
+                            <SkillsItem index={index} skill={skill} styleState={skillsActiveState === "frontend"} />
                         ))
                     }
                 </SkillsItemContainer>
@@ -68,7 +68,7 @@ export default function SkillsSection() {
                 >
                     {
                         skillDataState?.backend?.map((skill, index) => (
-                            <SkillsItem key={index} skill={skill} styleState={skillsActiveState === "backend"} />
+                            <SkillsItem index={index} skill={skill} styleState={skillsActiveState === "backend"} />
                         ))
                     }
                 </SkillsItemContainer>
@@ -79,7 +79,7 @@ export default function SkillsSection() {
                 >
                     {
                         skillDataState?.other?.map((skill, index) => (
-                            <SkillsItem key={index} skill={skill} styleState={skillsActiveState === "other"} />
+                            <SkillsItem index={index} skill={skill} styleState={skillsActiveState === "other"} />
                         ))
                     }
                 </SkillsItemContainer>

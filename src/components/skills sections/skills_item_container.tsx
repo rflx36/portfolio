@@ -14,7 +14,7 @@ export default function SkillsItemContainer(props: {
                 <div className="h-6.25 w-full">
                     {props.text.toUpperCase()}
                 </div>
-                <div className="grid grid-cols-2  bg-green-500 gap-9 ">
+                <div className="grid grid-cols-2  gap-9 ">
                     {props.children}
                 </div>
             

@@ -12,7 +12,7 @@ export type skillActiveStateType = "frontend" | "backend" | "other" | "design";
 
  interface skillInfo {
     name: string,
-    url: string,
+    imgUrl: string,
 }
 
 export interface skillDataType {

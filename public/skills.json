@@ -2,125 +2,125 @@
     "Design": [
         {
             "name": "Figma",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/figma.png"
         },
         {
             "name": "Blender3D",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/blender.png"
         },
         {
             "name": "Photoshop",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/photoshop.png"
         },
         {
             "name": "After Effects",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/aftereffects.png"
         }
     ],
     "Frontend": [
         {
             "name": "HTML",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/html.png"
         },
         {
             "name": "CSS",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/css.png"
         },
         {
             "name": "Javascript",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/javascript.png"
         },
         {
             "name": "Typescript",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/typescript.png"
         },
         {
             "name": "React",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/react.png"
         },
         {
             "name": "Next",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/next.png"
         },
         {
             "name": "Vite",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/vite.png"
         },
         {
             "name": "Zustand",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/zustand.png"
         },
         {
             "name": "Tailwind",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/tailwind.png"
         },
         {
             "name": "DaisyUI",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/daisyui.png"
         }
     ],
     "Backend": [
         {
             "name": "MySQL",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/mysql.png"
         },
         {
             "name": "PHP",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/php.png"
         },
         {
             "name": "MongoDB",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/mongodb.png"
         },
         {
             "name": "Mongoose",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/mongoose.png"
         },
         {
             "name": "Firebase",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/firebase.png"
         },
         {
             "name": "AWS S3",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/aws.png"
         }
     ],
     "Other" : [
         {
             "name": "Git",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/git.png"
         },
         {
             "name": "Linux",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/linux.png"
         },
         {
             "name": "Unity",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/unity.png"
         },
         {
             "name": "C#",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/csharp.png"
         },
         {
             "name": "Electron",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/electron.png"
         },
         {
             "name": "React Native",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/react.png"
         },
         {
             "name": "Visual Basic",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/visualbasic.png"
         },
         {
             "name": "Java",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/java.png"
         },
         {
             "name": "Python",
-            "imgUrl": ""
+            "imgUrl": "/assets/skills/python.png"
         }
     ]
 }
