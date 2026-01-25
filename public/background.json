@@ -1,0 +1,50 @@
+{
+    "Education": [
+        {
+            "schoolName": "Colegio De Montalban",
+            "schoolImageUrl": "",
+            "subInformation": "Bachelor of Science in Information Technology",
+            "startDate": 2021,
+            "endDate": 2025
+        },
+        {
+            "schoolName": "Asian Institute of Computer Studies",
+            "schoolImageUrl": "",
+            "subInformation": "Information and Communications Technology",
+            "startDate": 2019,
+            "endDate": 2020
+        },
+        {
+            "schoolName": "",
+            "schoolImageUrl": "",
+            "subInformation": "",
+            "startDate": "",
+            "endDate": ""
+        },
+        {
+            "schoolName": "",
+            "schoolImageUrl": "",
+            "subInformation": "",
+            "startDate": "",
+            "endDate": ""
+        },
+        {
+            "schoolName": "",
+            "schoolImageUrl": "",
+            "subInformation": "",
+            "startDate": "",
+            "endDate": ""
+        }
+    ],
+    "Experience": [
+        {
+            "companyName": "Creciendo Philippines",
+            "companyImageUrl": "",
+            "companyLink": "",
+            "role": "Full Stack Developer Intern",
+            "startDate": "",
+            "endDate": "",
+            "description": ""
+        }
+    ]
+}

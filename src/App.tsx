@@ -5,7 +5,7 @@ import { HoverGif } from "./components/hover_gif"
 import LandingContacts from "./components/landing contacts"
 import NavigationBar from "./components/navigation bar"
 import { useRef } from "react"
-import SkillsSection from "./components/skills sections"
+import SkillsSection from "./components/skills section"
 
 
 function App() {

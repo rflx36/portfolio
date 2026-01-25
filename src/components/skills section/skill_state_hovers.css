@@ -21,10 +21,13 @@
 
     .skill-card-item .skill-image-container {
         --image-disabled-url: 'image-disabled';
-        background-image: var(--image-disabled-url) ;
+        background-image: var(--image-disabled-url);
+        opacity: 50%;
     }
+
     .skill-card-item p {
         display: none;
+        
     }
 }
 
@@ -35,9 +38,13 @@
     .skill-card-item .skill-image-container {
         --image-name-url: 'image';
         background-image: var(--image-name-url) !important;
+        opacity: 100% !important;
+
     }
+
     .skill-card-item p {
         display: block !important;
+        
     }
 
 }

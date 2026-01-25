@@ -16,4 +16,4 @@ Implemented:
 
 
 Skills Section
-- container hover remove edge gaps, causing hidden style triggers on container hover off skills container
+- container hover remove edge gaps, causing hidden style triggers on container hover off skills container  - /
