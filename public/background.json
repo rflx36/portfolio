@@ -1,49 +1,49 @@
 {
     "Education": [
         {
-            "schoolName": "Colegio De Montalban",
-            "schoolImageUrl": "",
-            "subInformation": "Bachelor of Science in Information Technology",
-            "startDate": 2021,
-            "endDate": 2025
+            "school_name": "Colegio De Montalban",
+            "school_image_url": "/assets/organizations/CDM.png",
+            "sub_information": "Bachelor of Science in Information Technology",
+            "start_date": 2021,
+            "end_date": 2025
         },
         {
-            "schoolName": "Asian Institute of Computer Studies",
-            "schoolImageUrl": "",
-            "subInformation": "Information and Communications Technology",
-            "startDate": 2019,
-            "endDate": 2020
+            "school_name": "Asian Institute of Computer Studies",
+            "school_image_url": "/assets/organizations/AICS.png",
+            "sub_information": "Information and Communications Technology",
+            "start_date": 2019,
+            "end_date": 2020
         },
         {
-            "schoolName": "",
-            "schoolImageUrl": "",
-            "subInformation": "",
-            "startDate": "",
-            "endDate": ""
+            "school_name": "General Licerio Geronimo Memorial National High School",
+            "school_image_url": "/assets/organizations/GLGMNHS.png",
+            "sub_information": "",
+            "start_date": "",
+            "end_date": ""
         },
         {
-            "schoolName": "",
-            "schoolImageUrl": "",
-            "subInformation": "",
-            "startDate": "",
-            "endDate": ""
+            "school_name": "Batasan Hills National High School",
+            "school_image_url": "/assets/organizations/BHNHS.png",
+            "sub_information": "",
+            "start_date": "",
+            "end_date": ""
         },
         {
-            "schoolName": "",
-            "schoolImageUrl": "",
-            "subInformation": "",
-            "startDate": "",
-            "endDate": ""
+            "school_name": "St. Dominique Academy of Quezon City",
+            "school_image_url": "/assets/organizations/SDAQC.png",
+            "sub_information": "",
+            "start_date": "",
+            "end_date": ""
         }
     ],
     "Experience": [
         {
-            "companyName": "Creciendo Philippines",
-            "companyImageUrl": "",
-            "companyLink": "",
+            "company_name": "Creciendo Philippines",
+            "company_image_url": "/assets/organizations/creciendo_philippines.webp",
+            "company_link": "",
             "role": "Full Stack Developer Intern",
-            "startDate": "",
-            "endDate": "",
+            "start_date": "",
+            "end_date": "",
             "description": ""
         }
     ]

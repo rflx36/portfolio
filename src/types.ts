@@ -12,7 +12,7 @@ export type backgroundActiveStateType = "education" | "work";
 
 interface skillInfo {
     name: string,
-    imgUrl: string,
+    img_url: string,
 }
 
 export interface skillDataType {
