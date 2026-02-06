@@ -7,6 +7,7 @@ import NavigationBar from "./components/navigation bar"
 import { useRef } from "react"
 import SkillsSection from "./components/skills section"
 import BackgroundSection from "./components/background section"
+import ProjectsSection from "./components/projects section"
 
 
 function App() {
@@ -39,9 +40,9 @@ function App() {
         <LandingContacts />
       </div>
       {/* <TestComponent/> */}
-      <div className="h-screen w-full bg-accent-1" />
-      <BackgroundSection/>
+      <ProjectsSection/>
       <SkillsSection/>
+      <BackgroundSection/>
     </div>
 
   )

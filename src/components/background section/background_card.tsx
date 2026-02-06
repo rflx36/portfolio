@@ -8,6 +8,7 @@ import type { backgroundActiveStateType, backgroundEducationType, backgroundWork
 
 export default function BackgroundCard(
     props: {
+        index: number,
         type: backgroundActiveStateType,
         data: backgroundEducationType | backgroundWorkType,
         isLast: boolean,
@@ -38,7 +39,7 @@ export default function BackgroundCard(
             description: formattedType.description,
         }
     }
-
+    
 
     return (
         <div className="w-full h-max flex justify-between">
@@ -49,7 +50,7 @@ export default function BackgroundCard(
                     <img
                         src={formattedData.image_url}
                         alt={formattedData.name.replace(".png", " logo").replace(".webp", " logo")}
-                        className={`size-[50px]  aspect-square bg-container-soft-shadow border-container-stroke border object-contain ${props.type === "work" ? "rounded-sm" : "rounded-full"}`}
+                        className={`size-[50px]  aspect-square bg-container-soft-shadow border-container-stroke border object-contain rounded-full`}
                     />
                     {
                         !props.isLast &&
@@ -57,8 +58,22 @@ export default function BackgroundCard(
                     }
                 </div>
                 <div className="flex flex-col">
-                    <p className="text-text/75 font-bold text-base">{formattedData.name}</p>
-                    <p className="text-text/50 font-semibold text-base">{formattedData.sub_information}</p>
+                    <p
+                        className="text-text/75 font-bold text-base"
+                        style={{
+                            animation: `SlideUpFadeIn 0.3s ease-out ${0 + (props.index / 25)}s backwards`,
+                        }}
+                    >
+                        {formattedData.name}
+                    </p>
+                    <p
+                        className="text-text/50 font-semibold text-base"
+                        style={{
+                            animation: `SlideUpFadeIn 0.3s ease-out ${0 + (props.index / 25)}s backwards`,
+                        }}
+                    >
+                        {formattedData.sub_information}
+                    </p>
                 </div>
             </div>
             <div className="text-text/75 font-bold text-base">{formattedData.start_date} - {formattedData.end_date}</div>

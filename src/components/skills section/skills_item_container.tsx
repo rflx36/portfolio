@@ -13,7 +13,7 @@ export default function SkillsItemContainer(props: {
             className={`${props.isActiveState ? "skill-card-container-selected" : "skill-card-container-disabled"} w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg cursor-pointer skill-card-container`}
         >
             <div className="h-6.25 w-full relative">
-                {props.text.toUpperCase()}
+                <p>{props.text.toUpperCase()}</p>
 
                 {
                     props.isActiveState &&
@@ -32,7 +32,7 @@ export default function SkillsItemContainer(props: {
                     :
                     <div className="w-full h-[50px] bg-container-soft-shadow rounded-xl animate-pulse"/>
             } */}
-            <div className="grid grid-cols-2 gap-9">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-9">
                 {
                     props.isLoaded ?
                         props.children

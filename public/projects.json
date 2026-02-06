@@ -1,0 +1,122 @@
+[
+    {
+        "project_title": "SmartSched - Automated Scheduling and Realtime Room Utilization",
+        "project_img_url": "",
+        "project_video_url": "",
+        "project_description": "",
+        "project_finished_date": "",
+        "project_tech_stack": [
+            "React",
+            "Typescript",
+            "Vite",
+            "Electron",
+            "React Native",
+            "Firebase",
+            "Zustand",
+            "Tailwind"
+        ],
+        "project_live_link": "",
+        "project_github_link": "",
+        "project_is_featured": true
+    },
+    {
+        "project_title": "HHR - Statlab",
+        "project_img_url": "",
+        "project_video_url": "",
+        "project_description": "",
+        "project_finished_date": "",
+        "project_tech_stack": [
+            "React",
+            "Vite",
+            "Typescript",
+            "CSS"
+        ],
+        "project_live_link": "https://hhr-bot.xyz/statslab",
+        "project_github_link": "",
+        "project_is_featured": true
+    },
+    {
+        "project_title": "Furrpection - Pet Shop Ecommerce",
+        "project_img_url": "",
+        "project_video_url": "",
+        "project_description": "",
+        "project_finished_date": "",
+        "project_tech_stack": [
+            "HTML",
+            "CSS",
+            "Javascript",
+            "PHP",
+            "MySQL"
+        ],
+        "project_live_link": "",
+        "project_github_link": "",
+        "project_is_featured": true
+    },
+    {
+        "project_title": "ROM - Restaurant Ordering Management System",
+        "project_img_url": "",
+        "project_video_url": "",
+        "project_description": "",
+        "project_finished_date": "",
+        "project_tech_stack": [
+            "Visual Basic",
+            "Windows Forms",
+            "MySQL"
+        ],
+        "project_live_link": "",
+        "project_github_link": "",
+        "project_is_featured": true
+    },
+    {
+        "project_title": "HHR - Interactive Map",
+        "project_img_url": "",
+        "project_video_url": "",
+        "project_description": "",
+        "project_finished_date": "",
+        "project_tech_stack": [
+            "HTML",
+            "CSS",
+            "Javascript"
+        ],
+        "project_live_link": "",
+        "project_github_link": "",
+        "project_is_featured": false
+    },
+    {
+        "project_title": "REMANAGE",
+        "project_img_url": "",
+        "project_video_url": "",
+        "project_description": "",
+        "project_finished_date": "",
+        "project_tech_stack": [],
+        "project_live_link": "",
+        "project_github_link": "",
+        "project_is_featured": false
+    },
+    {
+        "project_title": "AIB inspired Group Portfolio",
+        "project_img_url": "",
+        "project_video_url": "",
+        "project_description": "",
+        "project_finished_date": "",
+        "project_tech_stack": [
+            "HTML",
+            "CSS",
+            "Javascript"
+        ],
+        "project_live_link": "",
+        "project_github_link": "",
+        "project_is_featured": false
+    },
+    {
+        "project_title": "",
+        "project_img_url": "",
+        "project_video_url": "",
+        "project_description": "",
+        "project_finished_date": "",
+        "project_tech_stack": [],
+        "project_live_link": "",
+        "project_github_link": "",
+        "project_is_featured": false
+    }
+]

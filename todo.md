@@ -17,3 +17,7 @@ Implemented:
 
 Skills Section
 - container hover remove edge gaps, causing hidden style triggers on container hover off skills container  - /
+
+
+Background Section
+- add other languages / frameworks pixelated images in the assets skills but not fully include in the skills section (C++, arduino, Windows Form)
