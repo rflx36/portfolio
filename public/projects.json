@@ -1,7 +1,7 @@
 [
     {
         "project_title": "SmartSched - Automated Scheduling and Realtime Room Utilization",
-        "project_img_url": "",
+        "project_img_url": "project_thumbnail_smartsched.png",
         "project_video_url": "",
         "project_description": "",
         "project_finished_date": "",
@@ -21,7 +21,7 @@
     },
     {
         "project_title": "HHR - Statlab",
-        "project_img_url": "",
+        "project_img_url": "project_thumbnail_statlab.png",
         "project_video_url": "",
         "project_description": "",
         "project_finished_date": "",
@@ -37,7 +37,7 @@
     },
     {
         "project_title": "Furrpection - Pet Shop Ecommerce",
-        "project_img_url": "",
+        "project_img_url": "project_thumbnail_furrpection.png",
         "project_video_url": "",
         "project_description": "",
         "project_finished_date": "",
@@ -54,7 +54,7 @@
     },
     {
         "project_title": "ROM - Restaurant Ordering Management System",
-        "project_img_url": "",
+        "project_img_url": "project_thumbnail_rom.png",
         "project_video_url": "",
         "project_description": "",
         "project_finished_date": "",

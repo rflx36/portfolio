@@ -21,17 +21,6 @@ export default function SkillsItemContainer(props: {
                     <div className="absolute bg-accent-1 -bottom-3 h-0.5 w-full" />
                 }
             </div>
-
-            {/* {
-                props.isLoaded ?
-
-
-                    <div className="grid grid-cols-2  gap-9 ">
-                        {props.children}
-                    </div>
-                    :
-                    <div className="w-full h-[50px] bg-container-soft-shadow rounded-xl animate-pulse"/>
-            } */}
             <div className="grid grid-cols-2 gap-x-8 gap-y-9">
                 {
                     props.isLoaded ?

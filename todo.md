@@ -21,3 +21,6 @@ Skills Section
 
 Background Section
 - add other languages / frameworks pixelated images in the assets skills but not fully include in the skills section (C++, arduino, Windows Form)
+
+Projects Sections
+- Implement centering and indexing from left to right featured projects cards 

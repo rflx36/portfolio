@@ -1,4 +1,4 @@
-import type { backgroundActiveStateType, nameAnimStateType, skillActiveStateType, skillDataType } from "./types";
+import type { backgroundActiveStateType, backgroundDataType, nameAnimStateType, ProjectDataType, skillActiveStateType, skillDataType } from "./types";
 
 
 
@@ -19,8 +19,13 @@ export const skillDataDefaults: skillDataType = {
     isLoaded: false,
 }
 
-export const backgroundDataDefaults = {
+export const backgroundDataDefaults:backgroundDataType = {
     education: [],
     work: [],
+    isLoaded: false,
+}
+
+export const projectsDataDefaults: ProjectDataType= {
+    projects: [],
     isLoaded: false,
 }
