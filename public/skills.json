@@ -121,6 +121,10 @@
         {
             "name": "Python",
             "img_url": "/assets/skills/python.png"
+        },
+        {
+            "name": "Rainmeter",
+            "img_url": "/assets/skills/rainmeter.png"
         }
     ]
 }
