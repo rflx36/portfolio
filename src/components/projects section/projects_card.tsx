@@ -3,23 +3,43 @@
 
 
 
+// current width * 4 %% parent width
 
-
+//  max width + dampening
 
 
 export default function ProjectsCard(props: {
     index: number,
     projectTitle: string,
-    projectImageUrl: string
+    projectImageUrl: string,
+    DisplayProperties: {
+        dampening: number,
+        featuredAmountLimit: number,
+        inverseBoolValue: boolean,
+        loadAnimation: boolean,
+    }
 }) {
 
+
+    const featuredAmountLimit = props.DisplayProperties.featuredAmountLimit;
+    const dampening = props.DisplayProperties.dampening;
+    const randomRotation = Math.floor((Math.random() * 6) + 5) * (props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? -1 : 1);
+    const randomTransform = Math.floor(Math.random() * 21) - 10;
+
+
+    console.log(randomRotation)
+    console.log(randomTransform);
+    console.log(props.DisplayProperties.loadAnimation);
     return (
-        <div 
-        className="bg-bg rounded-4xl left-[] absolute m-5 border-8 border-black/10 overflow-hidden h-max w-full max-w-[640px]"
-        style={{
-            left: `${props.index * 20}%`,
-            zIndex: 10 - props.index
-        }}
+        <div
+            className={`bg-bg rounded-4xl hover:z-20! hover:delay-300 hover:duration-150 hover:-translate-y-2 hover:rotate-[${(5 * (props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? -1 : 1)).toString()}deg]! absolute border-4 shadow-2xl ease-initial duration-300 border-black/10 overflow-hidden h-max w-full`}
+            style={{
+                // left: `${props.index * 20}%`, //    reverse formula for parent /4    current width 
+                left: `calc(${props.index * (100 / featuredAmountLimit)}% ${props.index > 0 && `- ${dampening}px`})`, //    reverse formula for parent /4    current width
+                zIndex: 10 - props.index,
+                maxWidth: `calc(${100 / featuredAmountLimit}% + ${dampening}px)`,
+                transform: props.DisplayProperties.loadAnimation ? `rotate(${randomRotation}deg) translateX(${randomTransform}px)` : "scale(90%) translateY(100px)",
+            }}
         >
             <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" />
             {/* (

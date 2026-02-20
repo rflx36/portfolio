@@ -44,7 +44,7 @@ export default function NavigationBar(props: {
 
     return (
         <nav className="p-2 w-full px-[calc(50vw-720px+3rem)]  sticky flex mx-auto justify-between top-0 z-50">
-            <ProgressiveBlur direction="top" intensity={32} offset={80} className="h-[calc(100%+2rem)]! "/>
+            <ProgressiveBlur direction="top" intensity={32} offset={65} className="h-[calc(100%+3rem)]! "/>
             <button onClick={scrollToInitial}>
                 <h1 className="p-2 mx-2 hover:backdrop-blur-xs font-semibold text-text cursor-pointer rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s]">RFLAMOSTE.DEV</h1>
             </button>

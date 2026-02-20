@@ -24,3 +24,6 @@ Background Section
 
 Projects Sections
 - Implement centering and indexing from left to right featured projects cards 
+
+Navigation Bar
+- Implement Better Hover effects  ( clarity ), cursor into aniamted icon changes
