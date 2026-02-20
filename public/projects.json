@@ -23,7 +23,7 @@
         "project_title": "HHR - Statlab",
         "project_img_url": "project_thumbnail_statlab.png",
         "project_video_url": "",
-        "project_description": "",
+        "project_description": "Character Stats Calculator, basically calculates all possible damage taken and damage dealt to a list of mobs, while also helps identifies differences and requirements of each of every items",
         "project_finished_date": "",
         "project_tech_stack": [
             "React",
