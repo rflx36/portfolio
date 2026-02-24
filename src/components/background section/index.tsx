@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { backgroundActiveStateDefaults, backgroundDataDefaults } from "../../constants";
-import type { backgroundActiveStateType, backgroundDataType } from "../../types";
+import type { backgroundActiveStateType, backgroundDataType } from "../../types/types";
 import BackgroundCard from "./background_card";
 
 

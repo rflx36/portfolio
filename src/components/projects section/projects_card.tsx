@@ -5,6 +5,9 @@
 
 // current width * 4 %% parent width
 
+import { useRef } from "react";
+import type { animationLoadStateType } from "../../types/types";
+
 //  max width + dampening
 
 
@@ -17,84 +20,74 @@ export default function ProjectsCard(props: {
         dampening: number,
         featuredAmountLimit: number,
         inverseBoolValue: boolean,
-        loadAnimation: boolean,
-
+        loadAnimation: animationLoadStateType,
     }
+    onClick: () => void,
 }) {
 
-
+    const randomizedTransforms = useRef({
+        rotation: Math.floor((Math.random() * 6) + 5) * (props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? -1 : 1),
+        transform: Math.floor(Math.random() * 21) - 10,
+    });
     const featuredAmountLimit = props.DisplayProperties.featuredAmountLimit;
     const dampening = props.DisplayProperties.dampening;
-    const randomRotation = Math.floor((Math.random() * 6) + 5) * (props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? -1 : 1);
-    const randomTransform = Math.floor(Math.random() * 21) - 10;
-
+    // const randomRotation = Math.floor((Math.random() * 6) + 5) * (props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? -1 : 1);
+    // const randomTransform = Math.floor(Math.random() * 21) - 10;
+    const randomRotation = randomizedTransforms.current.rotation;
+    const randomTransform = randomizedTransforms.current.transform;
 
     console.log(randomRotation)
     console.log(randomTransform);
     console.log(props.DisplayProperties.loadAnimation);
 
-    const rotationString = `hover:rotate-[${(5 * (props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? -1 : 1)).toString()}deg]!`
+
+    // disable hovers until animation is done
+
+    const testReScaleModal = () => {
+        const element = document.getElementById((props.index + 1).toString());
+        if (element) {
+            element.style.transform = "";
+            element.style.position = "fixed";
+            element.style.zIndex = "60";
+            element.style.maxWidth = "100%";
+            element.style.left = "0";
+            element.style.top = "0";
+
+            element.style.pointerEvents = " none";
+
+        }
+    }
+
+
+
 
     return (
         <div className=" project-card-container top-0 flex items-center justify-start w-full h-full">
             <div
-                className={`bg-bg rounded-4xl project-card pointer-events-auto select-auto hover:z-20! hover:delay-300 hover:duration-150  shadow-2xl hover:-translate-y-3 ${props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? "hover:rotate-3" : "hover:-rotate-5"} hover:scale-105 absolute border-4 ease-initial duration-300 border-black/10 overflow-hidden h-max w-full`}
+                className={`bg-bg rounded-4xl grid place-content-center aspect-268/133 project-card ${props.DisplayProperties.loadAnimation.preload ? " pointer-events-auto select-auto" : "pointer-events-none select-none"} hover:z-20! hover:delay-300! hover:shadow-2xl hover:duration-150  shadow-lg hover:-translate-y-3 ${props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? "hover:rotate-3" : "hover:-rotate-5"} hover:scale-105 absolute border-4 ease-initial duration-300 border-black/10 overflow-hidden h-max w-full`}
                 style={{
                     // left: `${props.index * 20}%`, //    reverse formula for parent /4    current width 
                     left: `calc(${props.index * (100 / featuredAmountLimit)}% ${props.index > 0 && `- ${dampening}px`})`, //    reverse formula for parent /4    current width
                     zIndex: 10 - props.index,
                     maxWidth: `calc(${100 / featuredAmountLimit}% + ${dampening}px)`,
-                    transform: props.DisplayProperties.loadAnimation ? `rotate(${randomRotation}deg) translateX(${randomTransform}px)` : "scale(90%) translateY(100px)",
+                    transform: props.DisplayProperties.loadAnimation.preload ? `rotate(${randomRotation}deg) translateX(${randomTransform}px)` : "scale(50%) translateY(300%)",
+                    transitionDelay: props.DisplayProperties.loadAnimation.postload ? "0ms" : `${props.index * 50}ms`,
                 }}
                 id={(props.index + 1).toString()}
+                // onClick={props.onClick}
+               
             >
-                <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" />
-                {/* (
-            <svg
-            width={640}
-            height={318}
-            viewBox="0 0 640 318"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            >
-            <foreignObject x={-4} y={-4} width={648} height={326}>
-            <div
-            style={{
-                backdropFilter: "blur(2px)",
-                clipPath: "url(#bgblur_0_574_41_clip_path)",
-                height: "100%",
-                width: "100%",
-                }}
-                />
-                </foreignObject>
-                
-                <path
-                dataFigmaBgBlurRadius={4}
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M640 36C640 16.1178 623.882 0 604 0H36C16.1177 0 0 16.1177 0 36L0 282C0 301.882 16.1177 318 36 318H604C623.882 318 640 301.882 640 282V36ZM604 16H36C24.9543 16 16 24.9543 16 36V283C16 293.739 24.9543 302.444 36 302.444H604C615.046 302.444 624 293.739 624 283V36C624 24.9543 615.046 16 604 16Z"
-                fill="black"
-                fillOpacity={0.1}
-                />
-                
-                <defs>
-                <clipPath id="bgblur_0_574_41_clip_path" transform="translate(4 4)">
-                <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M640 36C640 16.1178 623.882 0 604 0H36C16.1177 0 0 16.1177 0 36L0 282C0 301.882 16.1177 318 36 318H604C623.882 318 640 301.882 640 282V36ZM604 16H36C24.9543 16 16 24.9543 16 36V283C16 293.739 24.9543 302.444 36 302.444H604C615.046 302.444 624 293.739 624 283V36C624 24.9543 615.046 16 604 16Z"
-                />
-                </clipPath>
-                </defs>
-                </svg> */}
-
+                <button onClick={testReScaleModal}>
+                    <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" loading="lazy" />
+                </button>
             </div>
+
             <div className="-bottom-9 left-0 right-0 mx-auto w-full absolute translate-y-8  project-card-details">
                 <p className=" text-base font-bold text-text text-center ">
                     {props.projectTitle}
                 </p>
                 <p className="mt-4 w-full max-w-[calc(480px+2vw)] absolute left-0 right-0 mx-auto text-justify text-base font-medium text-text">{props.projectInformation}</p>
-                    
+
             </div>
 
         </div>

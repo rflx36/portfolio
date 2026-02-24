@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { type skillActiveStateType, type skillDataType } from "../../types"
+import { type skillActiveStateType, type skillDataType } from "../../types/types"
 import { skillActiveStateDefaults, skillDataDefaults } from "../../constants"
 import SkillsItem from "./skills_item";
 import "./skill_state_hovers.css"
@@ -33,7 +33,7 @@ export default function SkillsSection() {
 
     return (
         <div className="h-screen w-[calc(100%-2rem)] mx-auto max-w-270 flex items-center flex-col" >
-
+            <p>Tech Skills</p>
             {/* <div className="animate-pulse bg-gray-300 rounded">sKELETON</div> */}
             <div className="w-full h-[0.0625rem] translate-y-[calc(2.25rem)] relative">
                 <div className="bg-text/25 w-full h-full " />

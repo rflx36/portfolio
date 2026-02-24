@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { projectsDataDefaults } from "../../constants";
-import type { ProjectDataType } from "../../types";
+import { animationLoadStateDefaults, projectsDataDefaults } from "../../constants";
+import type { animationLoadStateType, projectDataType, projectInfo } from "../../types/types";
 import ProjectsCard from "./projects_card";
 import "./project_container_hovers.css";
-
-
-
+import { useModalStore } from "../../stores/modal_store";
 
 
 
 
 export default function ProjectsSection() {
-    const [projectsDataState, setProjectsDataState] = useState<ProjectDataType>(projectsDataDefaults);
-    const [triggerAnimation, setTriggerAnimation] = useState(false);
-
+    const [projectsDataState, setProjectsDataState] = useState<projectDataType>(projectsDataDefaults);
+    const [animationLoadState, setAnimationLoadState] = useState<animationLoadStateType>(animationLoadStateDefaults);
+    const modalState = useModalStore();
+    const screenWidth = useRef(window.innerWidth);
+    const persistRandomizedValue = useRef(Math.random() < 0.5);
     const handleHovers = () => {
         const projectsCard = document.getElementById("project-container-id");
         projectsCard?.addEventListener("mouseover", () => {
@@ -30,22 +30,22 @@ export default function ProjectsSection() {
         const response = await fetch("/projects.json");
         const data = await response.json();
 
-        const formattedData: ProjectDataType = {
+        const formattedData: projectDataType = {
             projects: data,
             isLoaded: true,
         }
         setProjectsDataState(formattedData);
 
         setTimeout(() => {
-            setTriggerAnimation(true);
+            setAnimationLoadState(prev => ({ ...prev, preload: true }));
             handleHovers();
         }, 100);
 
         setTimeout(() => {
+            setAnimationLoadState(prev => ({ ...prev, postload: true }));
             const projectSection = document.getElementById("project-section");
-
             projectSection!.style.overflow = "visible";
-        }, 350);
+        }, 450);
     }
 
     useEffect(() => {
@@ -53,14 +53,19 @@ export default function ProjectsSection() {
 
     }, []);
 
-    const dampening = 100;
+    const dampening = Math.min(Math.max((screenWidth.current / 1920 * 100), 0), 100);
     const featuredAmountLimit = 4;
-    const randomizedInverseBoolValue = Math.random() < 0.5;
+    const randomizedInverseBoolValue = persistRandomizedValue.current;
 
     const widthContainerStringified = `calc(${100 / featuredAmountLimit}% + ${dampening}px - 1rem)`;
     const maxWidthContainerStringified = `calc(480px + ${dampening}px)`;
 
-
+    const OpenProjectsModal = (projectInfo: projectInfo) => {
+        modalState.get.activeModal = "projects";
+        modalState.get.modalInfo = projectInfo;
+        modalState.set();
+        console.log(modalState.get);
+    }
 
     return (
         <>
@@ -92,8 +97,9 @@ export default function ProjectsSection() {
                                             dampening: dampening,
                                             featuredAmountLimit: featuredAmountLimit,
                                             inverseBoolValue: randomizedInverseBoolValue,
-                                            loadAnimation: triggerAnimation,
+                                            loadAnimation: animationLoadState,
                                         }}
+                                        onClick={()=>OpenProjectsModal(project)}
                                     />
                                 )
                             })

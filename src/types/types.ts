@@ -10,6 +10,9 @@ export interface nameAnimStateType {
 export type skillActiveStateType = "frontend" | "backend" | "other" | "design";
 export type backgroundActiveStateType = "education" | "work";
 
+export type modalActiveStateType = "projects" | "contacts" | null;
+
+
 interface skillInfo {
     name: string,
     img_url: string,
@@ -47,7 +50,7 @@ export interface backgroundWorkType {
     end_date: string,
     description: string
 }
-export interface ProjectInfo {
+export interface projectInfo {
      project_title: string,
     project_img_url: string,
     project_video_url: string,
@@ -59,7 +62,17 @@ export interface ProjectInfo {
     project_is_featured: boolean
 }
 
-export interface ProjectDataType {
-   projects: ProjectInfo[],
+export interface projectDataType {
+   projects: projectInfo[],
     isLoaded: boolean,
+}
+
+export interface animationLoadStateType {
+    preload:boolean,
+    postload:boolean
+}
+
+export interface modalStateType {
+    activeModal: modalActiveStateType,
+    modalInfo: projectInfo | null, // add contacts info type soon
 }

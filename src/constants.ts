@@ -1,4 +1,4 @@
-import type { backgroundActiveStateType, backgroundDataType, nameAnimStateType, ProjectDataType, skillActiveStateType, skillDataType } from "./types";
+import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, modalStateType, nameAnimStateType, projectDataType, skillActiveStateType, skillDataType } from "./types/types";
 
 
 
@@ -25,7 +25,17 @@ export const backgroundDataDefaults:backgroundDataType = {
     isLoaded: false,
 }
 
-export const projectsDataDefaults: ProjectDataType= {
+export const projectsDataDefaults: projectDataType= {
     projects: [],
     isLoaded: false,
+}
+
+export const animationLoadStateDefaults: animationLoadStateType = {
+    preload: false,
+    postload: false
+}   
+
+export const modalStateDefaults: modalStateType = {
+    activeModal: null,
+    modalInfo: null,
 }

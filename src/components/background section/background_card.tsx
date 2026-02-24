@@ -1,4 +1,4 @@
-import type { backgroundActiveStateType, backgroundEducationType, backgroundWorkType } from "../../types";
+import type { backgroundActiveStateType, backgroundEducationType, backgroundWorkType } from "../../types/types";
 
 
 

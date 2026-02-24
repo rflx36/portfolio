@@ -8,10 +8,12 @@ import { useRef } from "react"
 import SkillsSection from "./components/skills section"
 import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
+import { useModalStore } from "./stores/modal_store"
+import ProjectsModal from "./components/projects section/projects_modal"
 
 
 function App() {
-
+  const modalState = useModalStore();
   const sectionProjectsRef = useRef<HTMLDivElement>(null);
   const sectionSkillsRef = useRef<HTMLDivElement>(null);
   const sectionAboutRef = useRef<HTMLDivElement>(null);
@@ -40,9 +42,21 @@ function App() {
         <LandingContacts />
       </div>
       {/* <TestComponent/> */}
-      <ProjectsSection/>
-      <SkillsSection/>
-      <BackgroundSection/>
+      <ProjectsSection />
+      <SkillsSection />
+      <BackgroundSection />
+      {
+        modalState.get.activeModal != null &&
+        (
+          <div className="w-full h-full top-0 left-0 right-0 z-55 grid place-content-center fixed">
+            <div className="w-full h-full bg-black opacity-20 z-56 absolute animate-[fadeInQuadrant_0.5s_cubic-bezier(0.130,0.835,0.130,0.830)_forwards]" />
+            <div className="z-60">
+              {(modalState.get.activeModal == "projects") && <ProjectsModal/>}
+            </div>
+          </div>
+        )
+      }
+
     </div>
 
   )
