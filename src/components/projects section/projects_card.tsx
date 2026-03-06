@@ -1,14 +1,5 @@
-
-
-
-
-
-// current width * 4 %% parent width
-
 import { useRef } from "react";
 import type { animationLoadStateType } from "../../types/types";
-
-//  max width + dampening
 
 
 export default function ProjectsCard(props: {
@@ -23,6 +14,7 @@ export default function ProjectsCard(props: {
         loadAnimation: animationLoadStateType,
     }
     onClick: () => void,
+    isSelected: boolean
 }) {
 
     const randomizedTransforms = useRef({
@@ -31,55 +23,25 @@ export default function ProjectsCard(props: {
     });
     const featuredAmountLimit = props.DisplayProperties.featuredAmountLimit;
     const dampening = props.DisplayProperties.dampening;
-    // const randomRotation = Math.floor((Math.random() * 6) + 5) * (props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? -1 : 1);
-    // const randomTransform = Math.floor(Math.random() * 21) - 10;
     const randomRotation = randomizedTransforms.current.rotation;
     const randomTransform = randomizedTransforms.current.transform;
 
-    console.log(randomRotation)
-    console.log(randomTransform);
-    console.log(props.DisplayProperties.loadAnimation);
-
-
-    // disable hovers until animation is done
-
-    const testReScaleModal = () => {
-        const element = document.getElementById((props.index + 1).toString());
-        if (element) {
-            element.style.transform = "";
-            element.style.position = "fixed";
-            element.style.zIndex = "60";
-            element.style.maxWidth = "100%";
-            element.style.left = "0";
-            element.style.top = "0";
-
-            element.style.pointerEvents = " none";
-
-        }
-    }
-
-
-
-
     return (
-        <div className=" project-card-container top-0 flex items-center justify-start w-full h-full">
+        <div className="project-card-container top-0 flex items-center justify-start w-full h-full">
             <div
                 className={`bg-bg rounded-4xl grid place-content-center aspect-268/133 project-card ${props.DisplayProperties.loadAnimation.preload ? " pointer-events-auto select-auto" : "pointer-events-none select-none"} hover:z-20! hover:delay-300! hover:shadow-2xl hover:duration-150  shadow-lg hover:-translate-y-3 ${props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? "hover:rotate-3" : "hover:-rotate-5"} hover:scale-105 absolute border-4 ease-initial duration-300 border-black/10 overflow-hidden h-max w-full`}
                 style={{
-                    // left: `${props.index * 20}%`, //    reverse formula for parent /4    current width 
-                    left: `calc(${props.index * (100 / featuredAmountLimit)}% ${props.index > 0 && `- ${dampening}px`})`, //    reverse formula for parent /4    current width
-                    zIndex: 10 - props.index,
-                    maxWidth: `calc(${100 / featuredAmountLimit}% + ${dampening}px)`,
                     transform: props.DisplayProperties.loadAnimation.preload ? `rotate(${randomRotation}deg) translateX(${randomTransform}px)` : "scale(50%) translateY(300%)",
+                    left: `calc(${props.index * (100 / featuredAmountLimit)}% ${props.index > 0 && `- ${dampening}px`})`,
                     transitionDelay: props.DisplayProperties.loadAnimation.postload ? "0ms" : `${props.index * 50}ms`,
+                    maxWidth: `calc(${100 / featuredAmountLimit}% + ${dampening}px)`,
+                    zIndex: 10 - props.index,
                 }}
-                id={(props.index + 1).toString()}
-                // onClick={props.onClick}
-               
+                id={`project-${props.index + 1}`}
+                onClick={props.onClick}
             >
-                <button onClick={testReScaleModal}>
-                    <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" loading="lazy" />
-                </button>
+                <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" loading="lazy" />
+
             </div>
 
             <div className="-bottom-9 left-0 right-0 mx-auto w-full absolute translate-y-8  project-card-details">

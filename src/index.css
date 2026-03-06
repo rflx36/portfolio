@@ -54,6 +54,7 @@ body {
     --color-accent-3: oklch(0.81 0.14 75);
 
 
+
     --timing-smooth: cubic-bezier(0.405, 1.070, 0.435, 0.780);
     --timing-bezier-in: cubic-bezier(0.405, 1.070, 0.435, 0.780);
     --timing-bezier-in-2: cubic-bezier(0.130, 0.835, 0.130, 0.830);
@@ -61,6 +62,9 @@ body {
     --breakpoint-xs: 475px;
 
 }
+
+
+
 
 
 

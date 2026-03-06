@@ -1,0 +1,83 @@
+.heart-pixels-class {
+    background-color: var(--color-accent-1);
+    width: calc(var(--spacing) * 2);
+    height: calc(var(--spacing) * 2);
+    border-radius: 3px;
+    /* opacity: 100% !important; */
+    
+}
+.heart-pixels{
+    background-color: var(--color-text) !important;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 100ms;
+    animation: none !important;
+}
+
+.heart-0 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 250ms;
+}
+
+.heart-1 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 300ms;
+}
+
+.heart-2 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 350ms;
+}
+
+
+.heart-3 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 400ms;
+}
+
+.heart-4 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 450ms;
+}
+
+.heart-5 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 500ms;
+}
+
+.heart-6 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 550ms;
+}
+
+.heart-7 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 600ms;
+}
+
+.heart-8 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 650ms;
+}
+
+.heart-9 {
+    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 700ms;
+}
+
+
+
+
+
+@keyframes heartColorTransition {
+    0% {
+        background-color: transparent;
+        border-radius: 100%;
+        transform: scale(20%);
+        opacity: 100%;
+    }
+
+    50% {
+        background-color: var(--color-accent-3);
+    }
+
+    80% {
+        background-color: var(--color-accent-2);
+    }
+
+    100% {
+        background-color: var(--color-accent-1);
+
+    }
+
+}

@@ -100,6 +100,7 @@ export default function ProjectsSection() {
                                             loadAnimation: animationLoadState,
                                         }}
                                         onClick={()=>OpenProjectsModal(project)}
+                                        isSelected={modalState.get.modalInfo?.project_title == project.project_title}
                                     />
                                 )
                             })

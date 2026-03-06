@@ -1,0 +1,40 @@
+
+
+
+textarea {
+    overflow: hidden;
+}
+
+textarea.overflow{
+    overflow-y: scroll;
+}
+
+
+/* Firefox */
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-text) transparent;
+}
+
+/* Chrome, Edge, Safari */
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 99px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: var(--color-text);
+  border-radius: 99px;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text);
+}
+
+
+.textarea-fill {
+     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}

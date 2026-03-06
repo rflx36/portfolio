@@ -24,7 +24,9 @@ Background Section
 
 Projects Sections
 - Implement centering and indexing from left to right featured projects cards - /
-- Upon Hover one card grayscale all other the cards
+- Upon Hover one card grayscale all other the cards - / 
+- Upon select project card smoothly transform into modal
+
 
 Navigation Bar
 - Implement Better Hover effects  ( clarity ), cursor into aniamted icon changes

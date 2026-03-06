@@ -32,7 +32,7 @@ export default function SkillsSection() {
     }, []);
 
     return (
-        <div className="h-screen w-[calc(100%-2rem)] mx-auto max-w-270 flex items-center flex-col" >
+        <div className="h-max mb-16 w-[calc(100%-2rem)] mx-auto max-w-270 flex items-center flex-col" >
             <p>Tech Skills</p>
             {/* <div className="animate-pulse bg-gray-300 rounded">sKELETON</div> */}
             <div className="w-full h-[0.0625rem] translate-y-[calc(2.25rem)] relative">
