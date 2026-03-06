@@ -29,7 +29,7 @@ export default function AnimHeart() {
 
     return (
 
-        <div className="grid grid-cols-11 w-max gap-px mb-50">
+        <div className="grid grid-cols-11 w-max gap-px ">
             {
                 HeartPattern.split("").map((char, index) => {
 
