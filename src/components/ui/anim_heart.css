@@ -4,15 +4,17 @@
     height: calc(var(--spacing) * 2);
     border-radius: 3px;
     /* opacity: 100% !important; */
-    
+
 }
-.heart-pixels{
+
+.heart-pixels {
     background-color: var(--color-text) !important;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
     transition-delay: 100ms;
     animation: none !important;
 }
+
 
 .heart-0 {
     animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 250ms;
@@ -56,8 +58,58 @@
 }
 
 
+.heart-0-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards;
+}
 
+.heart-1-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 50ms;
+}
 
+.heart-2-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 100ms;
+}
+
+.heart-3-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 150ms;
+}
+
+.heart-4-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 200ms;
+}
+
+.heart-5-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 250ms;
+}
+
+.heart-6-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 300ms;
+}
+
+.heart-7-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 350ms;
+}
+
+.heart-8-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 400ms;
+}
+
+.heart-9-out {
+    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 450ms;
+}
+
+@keyframes heartFadeOut {
+    0% {
+        opacity: 100%;
+
+    }
+
+    100% {
+        opacity: 25%;
+        border-radius: 100% !important;
+        transform: scale(0%)
+    }
+}
 
 @keyframes heartColorTransition {
     0% {

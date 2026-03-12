@@ -138,7 +138,6 @@ body {
     100% {
         transform: translateY(0%);
     }
-
 }
 
 @keyframes SlideDown {
@@ -151,6 +150,17 @@ body {
     }
 }
 
+@keyframes SlideDown3 {
+    0% {
+        transform: translateY(-300%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
 @keyframes SlideUpFadeIn {
     0% {
         transform: translateY(50%);

@@ -10,6 +10,8 @@ export interface nameAnimStateType {
 export type skillActiveStateType = "frontend" | "backend" | "other" | "design";
 export type backgroundActiveStateType = "education" | "work";
 
+export type heartAnimActiveStateType = "idle" | "initialized" | "transformed";
+
 export type modalActiveStateType = "projects" | "contacts" | null;
 
 
@@ -76,3 +78,5 @@ export interface modalStateType {
     activeModal: modalActiveStateType,
     modalInfo: projectInfo | null, // add contacts info type soon
 }
+
+

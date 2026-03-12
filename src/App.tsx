@@ -9,9 +9,9 @@ import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
 import { useModalStore } from "./stores/modal_store"
 import ProjectsModal from "./components/projects section/projects_modal"
-import AnimHeart from "./components/ui/anim_heart"
 import LandingContacts from "./components/contact section/landing contacts"
 import ContactSection from "./components/contact section"
+import { useInView } from "react-intersection-observer"
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
   const sectionAboutRef = useRef<HTMLDivElement>(null);
   const sectionContactRef = useRef<HTMLDivElement>(null);
 
-
+  const [projectsRef, projectsInView] = useInView({ threshold: 1 });
 
   return (
     <div className="">
@@ -41,14 +41,31 @@ function App() {
             className="[image-rendering:pixelated] [image-rendering:crisp-edges] "
           />
         </div>
-        <LandingContacts />
+
+        <div className="absolute bottom-0 w-[calc(100%-2rem)] max-w-270 flex flex-col items-center">
+          <div className="h-max overflow-hidden w-full">
+
+            <div className={` duration-300 ease-in-out ${projectsInView && "translate-y-full"}`}>
+              <LandingContacts />
+            </div>
+          </div>
+          <div className="w-full h-[0.0625rem] relative">
+            <div className="bg-text/25 w-full h-full " />
+            <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 -translate-y-1/2" />
+            <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 -translate-y-1/2" />
+          </div>
+          <div className="w-full h-8 flex justify-center overflow-hidden">
+            <h1 className={`text-text font-bold text-xl ease-in-out py-2 duration-300 ${!projectsInView && "-translate-y-full"}`}>SELECTED PROJECTS</h1>
+          </div>
+
+        </div>
       </div>
-      {/* <TestComponent/> */}
-      <ProjectsSection />
-      <ContactSection/>
-     
+      <div ref={projectsRef} >
+        <ProjectsSection />
+      </div>
       <SkillsSection />
       <BackgroundSection />
+      <ContactSection />
       {
         modalState.get.activeModal != null &&
         (

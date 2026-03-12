@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { animationLoadStateDefaults, projectsDataDefaults } from "../../constants";
 import type { animationLoadStateType, projectDataType, projectInfo } from "../../types/types";
 import ProjectsCard from "./projects_card";
@@ -14,6 +14,7 @@ export default function ProjectsSection() {
     const modalState = useModalStore();
     const screenWidth = useRef(window.innerWidth);
     const persistRandomizedValue = useRef(Math.random() < 0.5);
+
     const handleHovers = () => {
         const projectsCard = document.getElementById("project-container-id");
         projectsCard?.addEventListener("mouseover", () => {
@@ -68,8 +69,9 @@ export default function ProjectsSection() {
     }
 
     return (
-        <>
+        <section>
             {/* <h1 className="font-sans font-semibold text-text text-lg w-full text-center">SELECTED PROJECTS</h1> */}
+
             <div className={`w-[calc(100%-4rem)] bg-container-soft-shadow/75   mx-auto my-6 py-[calc(2.5%+1rem)] overflow-hidden max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
                 {/* <div className={`aspect-268/133 w-[${widthContainerStringified}] max-w-[${maxWidthContainerStringified}]`} /> */}
                 <div className="aspect-268/133 relative"
@@ -99,7 +101,7 @@ export default function ProjectsSection() {
                                             inverseBoolValue: randomizedInverseBoolValue,
                                             loadAnimation: animationLoadState,
                                         }}
-                                        onClick={()=>OpenProjectsModal(project)}
+                                        onClick={() => OpenProjectsModal(project)}
                                         isSelected={modalState.get.modalInfo?.project_title == project.project_title}
                                     />
                                 )
@@ -115,6 +117,6 @@ export default function ProjectsSection() {
             </div>
             <div className="mt-9 mb-36 w-[calc(100%-8rem)] mx-auto max-w-[1920px] h-10">
             </div>
-        </>
+        </section>
     )
 }

@@ -1,12 +1,14 @@
-
+.form-container {
+  animation: formTransition 1s ease-in-out forwards 1s;
+}
 
 
 textarea {
-    overflow: hidden;
+  overflow: hidden;
 }
 
-textarea.overflow{
-    overflow-y: scroll;
+textarea.overflow {
+  overflow-y: scroll;
 }
 
 
@@ -20,21 +22,41 @@ textarea {
 textarea::-webkit-scrollbar {
   width: 6px;
 }
+
 textarea::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 99px;
 }
+
 textarea::-webkit-scrollbar-thumb {
   background: var(--color-text);
   border-radius: 99px;
 }
+
 textarea::-webkit-scrollbar-thumb:hover {
   background: var(--color-text);
 }
 
 
 .textarea-fill {
-     box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@keyframes formTransition {
+  0% {
+    transform: rotateZ(0deg) scale(1) translateX(0px);
+    
+  }
+  
+  50% {
+    transform: rotateZ(-30deg) scale(0.7) translateX(120px) ;
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateZ(0deg) scale(0.2) translateX(0px);
+    opacity: 0;
+  }
 }

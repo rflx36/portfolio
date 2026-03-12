@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import "./contact_form.css"
 import InvertedCorner from "../ui/inverted_border";
 import Loader from "../ui/loader";
@@ -9,7 +9,7 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
     const [isFocused, setIsFocused] = useState(false);
     const [result, setResult] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
 
 
@@ -20,6 +20,7 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
         e.preventDefault();
         setIsLoading(true);
 
+        // return;
         const formData = new FormData(e.target as HTMLFormElement);
         formData.append("access_key", import.meta.env.VITE_FORM_ACCESS_KEY);
 
@@ -50,11 +51,19 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
         }
     }, [])
 
+    // const tempfunct = () => {
+    //     setResult("Success");
+    //     props.onContactSubmit();
+    // }
+
     const inputStyle = ` ease-in duration-500 focus:outline-1 -outline-offset-1 place-holder-opacity-50 text-text font-medium outline-text/50 ${result === "Success" ? "bg-none" : "bg-container-soft-shadow/50"}`
 
     return (
 
-        <form className="h-[360px] flex flex-col gap-3 aspect-video w-auto border border-container-stroke bg-bg rounded-lg p-3" onSubmit={onSubmit}>
+        <form className={`h-[360px] flex flex-col gap-3 aspect-video w-auto border z-10 border-container-stroke bg-bg rounded-lg p-3 ${result === "Success" && "form-container"}`} onSubmit={onSubmit}>
+            {/* <div  onClick={tempfunct} className="absolute bg-red-500 size-10">
+                Test
+            </div> */}
             <div className="flex gap-2.5">
                 <div className="flex flex-col flex-1 gap-1">
                     <label htmlFor="name" className={`ml-3 font-semibold text-sm text-text`}>Name</label>
@@ -91,14 +100,18 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
                     aria-multiline="true"
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
-                    disabled={isLoading || result === "Success"} />
+                    disabled={isLoading || result === "Success"} 
+                    ref={textAreaRef}
+                    />
+                    
 
                 <div
                     className="w-full flex justify-end gap-1.5 h-max pt-0.75 "
                 >
                     <div
-                        className={`bg-bg absolute rounded-b-md  ${result === "Success" ? "text-bg ease-in duration-500" : "text-container-soft-shadow/50"}  h-11 bottom-0 flex left-0 w-[calc(100%-9.375rem)]`}
+                        className={`bg-bg absolute rounded-b-md  ${result === "Success" ? "text-bg ease-in duration-500" : "text-container-soft-shadow/50"} cursor-text  h-11 bottom-0 flex left-0 w-[calc(100%-9.375rem)]`}
                         id="textarea-fill"
+                        onClick={()=>{textAreaRef.current?.focus()}}
                     >
                         {/* <div className="flex w-full">
 
