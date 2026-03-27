@@ -54,11 +54,11 @@ body {
     --color-accent-3: oklch(0.81 0.14 75);
 
 
+    --animate-gradient-carousel: gradient-carousel 2s linear infinite;
 
     --timing-smooth: cubic-bezier(0.405, 1.070, 0.435, 0.780);
     --timing-bezier-in: cubic-bezier(0.405, 1.070, 0.435, 0.780);
     --timing-bezier-in-2: cubic-bezier(0.130, 0.835, 0.130, 0.830);
-
     --breakpoint-xs: 475px;
 
 }
@@ -161,6 +161,7 @@ body {
         opacity: 1;
     }
 }
+
 @keyframes SlideUpFadeIn {
     0% {
         transform: translateY(50%);
@@ -189,5 +190,15 @@ body {
 
     100% {
         transform: translateY(-100%);
+    }
+}
+
+@keyframes gradient-carousel {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 200% 50%;
     }
 }

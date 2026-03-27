@@ -36,7 +36,6 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
         setResult(data.success ? "Success" : " Error");
 
         setIsLoading(false);
-        // props.onSubmit();
     }
 
     useEffect(() => {

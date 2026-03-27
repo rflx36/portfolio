@@ -12,6 +12,8 @@ import ProjectsModal from "./components/projects section/projects_modal"
 import LandingContacts from "./components/contact section/landing contacts"
 import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
+import ProcessSection from "./components/process section"
+import Footer from "./components/footer"
 
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
   const [projectsRef, projectsInView] = useInView({ threshold: 1 });
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <NavigationBar
         SectionProjectsRef={sectionProjectsRef}
         SectionSkillsRef={sectionSkillsRef}
@@ -65,7 +67,9 @@ function App() {
       </div>
       <SkillsSection />
       <BackgroundSection />
+      <ProcessSection />
       <ContactSection />
+      <Footer/>
       {
         modalState.get.activeModal != null &&
         (
@@ -77,7 +81,6 @@ function App() {
           </div>
         )
       }
-
     </div>
 
   )
