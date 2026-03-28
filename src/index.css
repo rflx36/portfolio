@@ -53,13 +53,16 @@ body {
     --color-accent-2: oklch(0.75 0.17 5);
     --color-accent-3: oklch(0.81 0.14 75);
 
+    --color-mixed-soft-shadow-bg: color-mix(in oklch, var(--color-container-soft-shadow) 50%, var(--color-container-bg));
 
-    --animate-gradient-carousel: gradient-carousel 2s linear infinite;
 
     --timing-smooth: cubic-bezier(0.405, 1.070, 0.435, 0.780);
     --timing-bezier-in: cubic-bezier(0.405, 1.070, 0.435, 0.780);
     --timing-bezier-in-2: cubic-bezier(0.130, 0.835, 0.130, 0.830);
     --breakpoint-xs: 475px;
+
+    --ease-bouncy-1: cubic-bezier(0.26, 1.84, 0, 0.67);
+    --ease-bouncy-1: linear(0.0000, 0.1452, 0.4443, 0.7451, 0.9681, 1.0922, 1.1326, 1.1189, 1.0807, 1.0397, 1.0080, 0.9895, 0.9826, 0.9836, 0.9884, 0.9939, 0.9984, 1.0011, 1.0023, 1.0023, 1.0017, 1.0009, 1.0003, 0.9999, 0.9997, 0.9997, 0.9998, 0.9999, 0.9999, 1.0000, 1.0000, 1.0000, 1)
 
 }
 
@@ -195,10 +198,10 @@ body {
 
 @keyframes gradient-carousel {
     from {
-        background-position: 0% 50%;
+        background-position: 0% 150%;
     }
 
     to {
-        background-position: 200% 50%;
+        background-position: 300% 150%;
     }
 }

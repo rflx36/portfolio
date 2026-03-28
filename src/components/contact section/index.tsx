@@ -13,7 +13,7 @@ export default function ContactSection() {
     const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
 
     return (
-        <div className="w-full h-screen min-h-max max-h-[1000px]  flex flex-col  justify-center items-center relative">
+        <div className="w-full h-max flex flex-col  justify-center items-center relative">
             <div className="h-max w-max overflow-hidden flex flex-col pb-6 justify-center items-center relative">
 
 

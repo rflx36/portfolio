@@ -1,0 +1,128 @@
+[
+    {
+        "type": "Research",
+        "offset": {
+            "first_leg_width_multiplier": 0.575,
+            "second_leg_fixed_length": 0,
+            "rotation_on_hover": 0,
+            "rotation_on_hover_second_leg_length_offset": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "text_display": "Problem Framing Requirements Gathering Domain Understanding Community Best Practices Trend Monitoring Technology Evaluation Competitive Analysis User Behavior Analysis Data Sources Constraints Assumptions Feasibility Analysis Validation Knowledge Synthesis Documentation"
+    },
+    {
+        "type": "AI Assisted",
+        "offset": {
+            "first_leg_width_multiplier": 0.75,
+            "second_leg_fixed_length": 36,
+            "rotation_on_hover": 4,
+            "rotation_on_hover_second_leg_length_offset": [
+                0,
+                0,
+                18,
+                30,
+                -29,
+                -15,
+                0
+            ]
+        },
+        "text_display": "Prompt Engineering Context Injection Task Decomposition Iterative Prompting Code Generation Refactoring Assistance DIntegration Output Validation Retrieval Augmentation Embeddings Usage"
+    },
+    {
+        "type": "Security",
+        "offset": {
+            "first_leg_width_multiplier": 0.6,
+            "second_leg_fixed_length": 36,
+            "rotation_on_hover": 3,
+            "rotation_on_hover_second_leg_length_offset": [
+                0,
+                -8,
+                5,
+                15,
+                -15,
+                -5,
+                8
+            ]
+        },
+        "text_display":"Input Handling Validation Sanitization Authentication Authorization Session Management Token Handling Role Based Access Control Hashing Data Encryption Secure Storage API Protection Rate Limiting CSRF Protection XSS Prevention CORS Policy Logging Monitorin"
+    },
+    {
+        "type": "Testing",
+        "offset": {
+            "first_leg_width_multiplier": 0.65,
+            "second_leg_fixed_length": 156.5,
+            "rotation_on_hover": 2,
+            "rotation_on_hover_second_leg_length_offset": [
+                0,
+                -11,
+                -3,
+                3,
+                -3,
+                3,
+                11
+            ]
+        },
+        "text_display":"Unit Testing Integration Testing UI Testing End To End Testing Regression Testing Edge Case Testing Mocking Stubbing Test Coverage Snapshot Testing Performance Testing Continuous Integration Test Isolation Assertions"
+    },
+    {
+        "type": "Scalability and Maintainability ",
+        "offset": {
+            "first_leg_width_multiplier": 0.65,
+            "second_leg_fixed_length": 156.5,
+            "rotation_on_hover": -2,
+            "rotation_on_hover_second_leg_length_offset": [
+                 0,
+                11,
+                3,
+                -3,
+                3,
+                -3,
+                -11
+            ]
+        },
+        "text_display":"Modular Architecture Reusable Components Component Abstractions Design System Hooks Utilities Separation Of Concerns Code Quality Readability Naming Conventions File Structure Dependency Management Documentation Refactoring Strategies Versioning State Management Patterns Global State Partitioning Dynamic UI Components Data Handling Pagination Infinite Scrolling Load Handling Concurrency Handling"
+    },
+    {
+        "type": "Optimization",
+        "offset": {
+            "first_leg_width_multiplier": 0.6,
+            "second_leg_fixed_length": 36,
+            "rotation_on_hover": -3,
+            "rotation_on_hover_second_leg_length_offset": [
+                0,
+                8,
+                -5,
+                -15,
+                15,
+                5,
+                -8
+            ]
+        },
+        "text_display":"Performance Optimization Rendering Optimization Level of Detail Occlusion Culling Frustrum Culling Asset Optimization Lazy Loading Code Splitting Memoization Caching Strategies Network Efficiency Bundle Size Reduction Efficient Algorithms Parallelization Debouncing Throttling"
+    },
+    {
+        "type": "User Experience",
+        "offset": {
+            "first_leg_width_multiplier": 0.75,
+            "second_leg_fixed_length": 36,
+            "rotation_on_hover": -4,
+            "rotation_on_hover_second_leg_length_offset": [
+                0,
+                0,
+                -15,
+                -29,
+                30,
+                18,
+                0
+            ]
+        },
+        "text_display":"Usability Accessibility Focus Management Keyboard Navigation Responsive Design Adaptive Components Fluid Layouts Touch Usability Visual Hierarchy Consistent Spacing Typography System Color System Motion Design Micro Interactions Feedback Systems Loading States Empty States Error States Fallback UI Retry Mechanisms Navigation Flow Clarity Readability Cognitive Load Reduction"
+    }
+]

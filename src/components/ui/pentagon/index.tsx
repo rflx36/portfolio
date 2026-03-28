@@ -8,8 +8,9 @@ export default function Polygon(props: {
     cornerRadius?: number,
     strokeWidth?: number
     strokeColor?: string,
-    className?: string | undefined
-    children?: React.ReactNode
+    className?: string | undefined,
+    children?: React.ReactNode,
+    polygonClipId?: string,
 }) {
     const cx = props.size / 2;
     const cy = props.size / 2;
@@ -31,7 +32,15 @@ export default function Polygon(props: {
                 stroke={props?.strokeColor}
                 strokeWidth={props?.strokeWidth}
             />
-            {props?.children}
+            {
+                props.polygonClipId && (
+                    <defs>
+                        <clipPath id={props.polygonClipId} >
+                            <path d={path} />
+                        </clipPath>
+                    </defs>
+                )
+            }
         </svg>
     )
 }

@@ -53,7 +53,7 @@ export interface backgroundWorkType {
     description: string
 }
 export interface projectInfo {
-     project_title: string,
+    project_title: string,
     project_img_url: string,
     project_video_url: string,
     project_description: string,
@@ -65,13 +65,13 @@ export interface projectInfo {
 }
 
 export interface projectDataType {
-   projects: projectInfo[],
+    projects: projectInfo[],
     isLoaded: boolean,
 }
 
 export interface animationLoadStateType {
-    preload:boolean,
-    postload:boolean
+    preload: boolean,
+    postload: boolean
 }
 
 export interface modalStateType {
@@ -79,4 +79,18 @@ export interface modalStateType {
     modalInfo: projectInfo | null, // add contacts info type soon
 }
 
+export interface processImplementationDetailsType {
+    type: string,
+    offset: {
+        first_leg_width_multiplier: number,
+        second_leg_fixed_length: number,
+        rotation_on_hover: number,
+        rotation_on_hover_second_leg_length_offset: number[],
+    },
+    text_display: string,
+}
 
+export interface polygonRotationStateType {
+    rotation_on_hover: number,
+    rotation_on_hover_second_leg_length_offset: number[],
+}
