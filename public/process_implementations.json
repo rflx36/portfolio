@@ -15,7 +15,7 @@
                 0
             ]
         },
-        "text_display": "Problem Framing Requirements Gathering Domain Understanding Community Best Practices Trend Monitoring Technology Evaluation Competitive Analysis User Behavior Analysis Data Sources Constraints Assumptions Feasibility Analysis Validation Knowledge Synthesis Documentation"
+        "text_display": "Competitive Analysis Domain Understanding Problem Framing Requirements Gathering Constraints Assumptions Trend Monitoring Technology Evaluation User Behavior Analysis Community Best Practices Data Sources Feasibility Analysis Validation Knowledge Synthesis Documentation Iterative Validation Logic Simplification Efficiency Tradeoff Analysis Source Validation Output Verification Cross Referencing Fact Checking"
     },
     {
         "type": "AI Assisted",
@@ -33,7 +33,7 @@
                 0
             ]
         },
-        "text_display": "Prompt Engineering Context Injection Task Decomposition Iterative Prompting Code Generation Refactoring Assistance DIntegration Output Validation Retrieval Augmentation Embeddings Usage"
+        "text_display": "Prompt Engineering Context Injection Task Decomposition Iterative Prompting Code Generation Refactoring Assistance DIntegration Output Validation Retrieval Augmentation Embeddings Usage Output Validation Hallucination Detection Source Verification Cross Referencing Result Filtering Signal Extraction Noise Reduction Documentation Generation Tool Integration Prompt Engineering Context Injection Task Decomposition Iterative Prompting Code Generatio"
     },
     {
         "type": "Security",
@@ -51,7 +51,7 @@
                 8
             ]
         },
-        "text_display":"Input Handling Validation Sanitization Authentication Authorization Session Management Token Handling Role Based Access Control Hashing Data Encryption Secure Storage API Protection Rate Limiting CSRF Protection XSS Prevention CORS Policy Logging Monitorin"
+        "text_display":"Input Handling Validation Sanitization Authentication Authorization Session Management Token Handling Role Based Access Control Hashing Data Encryption Secure Storage API Protection Rate Limiting Brute Force Protection Timeout Handling Secure Defaults CSRF Protection XSS Prevention CORS Policy Logging Monitoring Input Size Limiting File Upload Validation Input Handling Validation Sanitization Authentication Authorization Session Management Token Handling "
     },
     {
         "type": "Testing",
@@ -69,7 +69,7 @@
                 11
             ]
         },
-        "text_display":"Unit Testing Integration Testing UI Testing End To End Testing Regression Testing Edge Case Testing Mocking Stubbing Test Coverage Snapshot Testing Performance Testing Continuous Integration Test Isolation Assertions"
+        "text_display":"Unit Testing Integration Testing UI Testing End To End Testing Regression Testing Edge Case Testing Mocking Stubbing Test Coverage Snapshot Testing Performance Testing Continuous Integration Test Isolation Assertions User Flow Testing Test Isolation API Testing Visual Regression Testing Accessibility Testing Unit Testing Integration Testing UI Testing End To End Testing Regression Testing Edge Case Testing Mocking Stubbing Test Coverage Snapshot Testing Performance Testing"
     },
     {
         "type": "Scalability and Maintainability ",
@@ -105,7 +105,7 @@
                 -8
             ]
         },
-        "text_display":"Performance Optimization Rendering Optimization Level of Detail Occlusion Culling Frustrum Culling Asset Optimization Lazy Loading Code Splitting Memoization Caching Strategies Network Efficiency Bundle Size Reduction Efficient Algorithms Parallelization Debouncing Throttling"
+        "text_display":"Performance Optimization Rendering Optimization Level of Detail Occlusion Culling Frustrum Culling Asset Optimization Lazy Loading Code Splitting Memoization Caching Strategies Network Efficiency Bundle Size Reduction Efficient Algorithms Parallelization Debouncing Throttling Re Render Minimization State Update Performance Profiling Bottleneck Detection Contentful Paint Largest Contentful Paint Interaction To Next Paint Object Pooling Allocation Minimization Draw Call Reduction"
     },
     {
         "type": "User Experience",
@@ -123,6 +123,6 @@
                 0
             ]
         },
-        "text_display":"Usability Accessibility Focus Management Keyboard Navigation Responsive Design Adaptive Components Fluid Layouts Touch Usability Visual Hierarchy Consistent Spacing Typography System Color System Motion Design Micro Interactions Feedback Systems Loading States Empty States Error States Fallback UI Retry Mechanisms Navigation Flow Clarity Readability Cognitive Load Reduction"
+        "text_display":" Responsive Design Adaptive Components Predictable Behavior  Error Prevention Usability Accessibility Fluid Layouts Focus Management Contrast Ratios Keyboard Navigation Visual Hierarchy Consistent Spacing Typography System Color System Motion Design Touch Usability Feedback Systems Micro Interactions  Readability Loading States Scannability Empty States Cognitive Load Reduction Fallback UI Retry Mechanisms  Navigation Flow Clarity Error States"
     }
 ]

@@ -17,85 +17,85 @@
 
 
 .heart-0 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 250ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 250ms;
 }
 
 .heart-1 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 300ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 300ms;
 }
 
 .heart-2 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 350ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 350ms;
 }
 
 
 .heart-3 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 400ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 400ms;
 }
 
 .heart-4 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 450ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 450ms;
 }
 
 .heart-5 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 500ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 500ms;
 }
 
 .heart-6 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 550ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 550ms;
 }
 
 .heart-7 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 600ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 600ms;
 }
 
 .heart-8 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 650ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 650ms;
 }
 
 .heart-9 {
-    animation: 250ms heartColorTransition var(--timing-bezier-in-2) backwards 700ms;
+    animation: 250ms heartColorTransition var(--ease-bezier-in-2) backwards 700ms;
 }
 
 
 .heart-0-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards;
 }
 
 .heart-1-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 50ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 50ms;
 }
 
 .heart-2-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 100ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 100ms;
 }
 
 .heart-3-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 150ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 150ms;
 }
 
 .heart-4-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 200ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 200ms;
 }
 
 .heart-5-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 250ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 250ms;
 }
 
 .heart-6-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 300ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 300ms;
 }
 
 .heart-7-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 350ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 350ms;
 }
 
 .heart-8-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 400ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 400ms;
 }
 
 .heart-9-out {
-    animation: 250ms heartFadeOut var(--timing-bezier-in-2) forwards 450ms;
+    animation: 250ms heartFadeOut var(--ease-bezier-in-2) forwards 450ms;
 }
 
 @keyframes heartFadeOut {
