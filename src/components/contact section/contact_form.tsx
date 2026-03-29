@@ -142,7 +142,7 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
                         type="submit"
                         disabled={isLoading || result === "Success"}
                         aria-label="Send message"
-                        className={`bg-text ${result === "Success" ? "opacity-0 ease-in duration-50" : "opacity-100 cursor-pointer "} hover:bg-text/90 group flex items-center font-medium text-lg justify-center gap-1.5 text-bg w-36 h-9 rounded-md`}>
+                        className={`bg-text ${result === "Success" ? "opacity-0 ease-in duration-50" : "opacity-100 cursor-pointer "} focus:outline-accent-2  ease-in duration-150 transition-colors focus:text-accent-2 hover:bg-text/90 group flex items-center font-medium text-lg justify-center gap-1.5 text-bg w-36 h-9 rounded-md`}>
                         {
                             isLoading ? <Loader />
                                 :

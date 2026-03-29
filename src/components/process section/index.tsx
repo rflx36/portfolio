@@ -16,6 +16,7 @@ export default function ProcessSection() {
     });
 
     const mousePositionRef = useRef({ x: 0, y: 0 });
+    const mouseLeave = useRef(false);
 
     const fetchProcessImplementationsData = async () => {
         const response = await fetch("/process_implementations.json");
@@ -25,6 +26,11 @@ export default function ProcessSection() {
 
     const updateMousePosition = (e: MouseEvent) => {
         mousePositionRef.current = { x: e.clientX, y: e.clientY };
+
+        if (mouseLeave.current){
+            onLeaveImplementation();
+             mouseLeave.current = false;
+        }
     }
 
     const onHoverImplementation = (index: number) => {
@@ -40,6 +46,9 @@ export default function ProcessSection() {
 
     const onLeaveImplementation = () => {
         if (onHoverModifiers.mouse_position.x === mousePositionRef.current.x && onHoverModifiers.mouse_position.y === mousePositionRef.current.y) {
+            setTimeout(() => {
+                mouseLeave.current = true;
+            }, 250);
             return;
         }
         setOnHoverModifiers({

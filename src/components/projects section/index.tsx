@@ -69,7 +69,7 @@ export default function ProjectsSection() {
     }
 
     return (
-        <section>
+        <>
             {/* <h1 className="font-sans font-semibold text-text text-lg w-full text-center">SELECTED PROJECTS</h1> */}
 
             <div className={`w-[calc(100%-4rem)] bg-container-soft-shadow/75   mx-auto my-6 py-[calc(2.5%+1rem)] overflow-hidden max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
@@ -117,6 +117,6 @@ export default function ProjectsSection() {
             </div>
             <div className="mt-9 mb-36 w-[calc(100%-8rem)] mx-auto max-w-[1920px] h-10">
             </div>
-        </section>
+        </>
     )
 }

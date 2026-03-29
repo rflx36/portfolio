@@ -26,7 +26,7 @@ function App() {
   const [projectsRef, projectsInView] = useInView({ threshold: 1 });
 
   return (
-    <div className="overflow-hidden">
+    <>
       <NavigationBar
         SectionProjectsRef={sectionProjectsRef}
         SectionSkillsRef={sectionSkillsRef}
@@ -62,9 +62,9 @@ function App() {
 
         </div>
       </div>
-      <div ref={projectsRef} >
+      <section ref={projectsRef} >
         <ProjectsSection />
-      </div>
+      </section>
       <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
@@ -81,7 +81,7 @@ function App() {
           </div>
         )
       }
-    </div>
+    </>
 
   )
 }

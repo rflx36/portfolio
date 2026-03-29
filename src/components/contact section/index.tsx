@@ -13,7 +13,7 @@ export default function ContactSection() {
     const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
 
     return (
-        <div className="w-full h-max flex flex-col  justify-center items-center relative">
+        <div className="w-full h-max  flex flex-col  justify-center items-center relative">
             <div className="h-max w-max overflow-hidden flex flex-col pb-6 justify-center items-center relative">
 
 
@@ -44,9 +44,9 @@ export default function ContactSection() {
 
 
             <div className={
-                ` p-2.5 bg-container-soft-shadow/50 duration-1200 ease-in-out mb-6 relative
+                ` p-2.5 bg-container-soft-shadow/50 duration-1200 ease-in-out mb-6 relative overflow-hidden
                 ${onSubmitState ?
-                    "w-[calc(100%-4rem)] mx-auto overflow-hidden  rounded-3xl flex flex-col justify-center items-center  py-[calc(2.5%+1rem)]" :
+                    "w-[calc(100%-4rem)] mx-auto  rounded-3xl flex flex-col justify-center items-center  py-[calc(2.5%+1rem)]" :
                     "w-[calc(660px)] rounded-lg "} 
                  `}
                 ref={ref}
@@ -69,7 +69,7 @@ export default function ContactSection() {
                 }
 
                 <ContactForm onContactSubmit={() => { setOnSubmitState(true) }} />
-
+                
                 <ContactEnvelope
                     transition_initialized={onSubmitState}
                 />
