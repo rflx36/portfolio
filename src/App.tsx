@@ -25,6 +25,7 @@ function App() {
 
   const [projectsRef, projectsInView] = useInView({ threshold: 1 });
 
+
   return (
     <>
       <NavigationBar

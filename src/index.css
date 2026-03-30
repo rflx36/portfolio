@@ -195,12 +195,47 @@ body {
     }
 }
 
-@keyframes gradient-carousel {
+@keyframes gradient-carousel-200 {
+    from {
+        background-position: 0% 10%;
+    }
+
+    to {
+        background-position: 200% 100%;
+    }
+}
+
+@keyframes gradient-carousel-300 {
     from {
         background-position: 0% 150%;
     }
 
     to {
         background-position: 300% 150%;
+    }
+}
+
+@keyframes gradient-carousel-400 {
+    from {
+        background-position: 0% 200%;
+    }
+
+    to {
+        background-position: 400% 200%;
+    }
+}
+
+@keyframes gradient-carousel-200-delayed {
+    0%{
+        background-position: 0% 0%;
+    }
+    50%{
+        background-position: 0% 0%;
+    }
+    51%{
+        background-position: 0% 0%;
+    }
+    100%{
+        background-position: 200% 100%;
     }
 }

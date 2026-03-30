@@ -23,7 +23,7 @@ export default function ImplementationTextReveal(props: implementationTextReveal
         <>
             {props.words.map((word, idx) => {
                 return (
-                    <span key={idx} className={`duration-100  ease-bezier-in ${revealedWords.has(idx) ? "opacity-50 blur-none" : "opacity-0 blur-sm"}`}>{word} </span>
+                    <span key={idx} className={`duration-100  ease-bezier-in ${revealedWords.has(idx) ? "opacity-50 blur-none " : "opacity-0 blur-xs "}`}>{word} </span>
                 )
             })}
         </>

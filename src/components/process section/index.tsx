@@ -3,6 +3,7 @@ import Polygon from "../ui/pentagon";
 import React, { useEffect, useRef, useState } from "react";
 import type { processImplementationDetailsType } from "../../types/types";
 import ImplementationTextReveal from "./implementation_text_reveal";
+import { useInView } from "react-intersection-observer";
 
 
 
@@ -14,7 +15,7 @@ export default function ProcessSection() {
         mouse_position: { x: 0, y: 0 },
         text_display: "",
     });
-
+    const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
     const mousePositionRef = useRef({ x: 0, y: 0 });
     const mouseLeave = useRef(false);
 
@@ -27,9 +28,9 @@ export default function ProcessSection() {
     const updateMousePosition = (e: MouseEvent) => {
         mousePositionRef.current = { x: e.clientX, y: e.clientY };
 
-        if (mouseLeave.current){
+        if (mouseLeave.current) {
             onLeaveImplementation();
-             mouseLeave.current = false;
+            mouseLeave.current = false;
         }
     }
 
@@ -73,8 +74,47 @@ export default function ProcessSection() {
     return (
         <section className="w-full h-[800px] flex justify-center mx-auto max-w-[1329px]">
             <div className="relative ">
-                <div className="mt-[200px]  pointer-events-none select-none">
-                    <div className="relative z-10 size-max">
+                <div className="h-[200px] z-30 w-full  flex flex-col items-center">
+
+
+                    <div className="h-16 flex gap-4  w-max justify-center overflow-hidden  ">
+                        {inView &&
+                            ["How", "i", "work:"].map((word, index) => {
+                                return (
+                                    <h1 key={index} className={`text-[3rem] text-text ease-in-out duration-250 font-bold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                        style={{
+                                            animationDelay: `${((index * 0.05))}s`,
+                                        }}
+                                    >
+                                        {word}
+                                    </h1>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className="relative ">
+
+                        <div className="  absolute -translate-x-1/2 flex gap-1  justify-center overflow-hidden">
+                            {inView && 
+                                ["It's", "not", "just", "about", "writing", "code,", "I", "consider", "multiple", "processes", "simultaneously", "in", "my", "workflow"].map((word, index) => {
+                                    return (
+                                        <h1 key={index} className={`text-sm text-text/50 ease-in-out duration-250 font-semibold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                            style={{
+                                                animationDelay: `${((index * 0.025) + 0.2)}s`,
+                                            }}
+                                        >
+                                            {word}
+                                        </h1>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                <div className="  pointer-events-none select-none">
+                    <div className="relative z-10 size-max"
+                        ref={ref}>
                         <div className="relative size-max z-10 ease-bouncy-1 duration-1000"
                             style={{ transform: `rotate(${onHoverModifiers.rotation_on_hover.toString()}deg)` }}
                         >
@@ -86,6 +126,7 @@ export default function ProcessSection() {
                                 fillColor="transparent"
                                 strokeColor="color-mix(in oklch, var(--color-container-soft-shadow) 50%, var(--color-container-bg))"
                                 strokeWidth={10}
+                                className=""
 
                             />
                             <div className="absolute z-10 top-0 grid place-content-center size-full  ">
@@ -132,7 +173,7 @@ export default function ProcessSection() {
                         const rotationType = (angle - offset) == (offset * -2) ? "center" : (angle - offset) > 0 ? "left" : "right";
                         return (
                             <div key={i}
-                                className="absolute inset-1/2 w-full  ease-bouncy-1 duration-1000  rounded-full h-1.5  origin-top-left animation-0  bg-[linear-gradient(90deg,var(--color-mixed-soft-shadow-bg)_67%,var(--color-accent-3)_68%,var(--color-accent-2)_69%,var(--color-accent-1)_71%,var(--color-mixed-soft-shadow-bg)_73%)] bg-size-[300%_300%] animate-[gradient-carousel_3s_linear_infinite_2s]"
+                                className="absolute inset-1/2 w-full  ease-bouncy-1 duration-1000  rounded-full h-1.5  origin-top-left animation-0  bg-[linear-gradient(90deg,var(--color-mixed-soft-shadow-bg)_67%,var(--color-accent-3)_68%,var(--color-accent-2)_69%,var(--color-accent-1)_71%,var(--color-mixed-soft-shadow-bg)_73%)] bg-size-[200%_200%] animate-[gradient-carousel-200_1.5s_linear_infinite_0.9s]"
                                 style={{
                                     transform: `rotate(${angle + onHoverModifiers.rotation_on_hover}deg) translateY(-0.188rem)`,
                                     width: `calc(100%*${details.offset.first_leg_width_multiplier})`,
@@ -145,7 +186,8 @@ export default function ProcessSection() {
                                             transform: `rotate(${rotationType == "center" ? -angle - 90 - onHoverModifiers.rotation_on_hover : rotationType == "left" ? -angle - 180 - onHoverModifiers.rotation_on_hover : -angle - onHoverModifiers.rotation_on_hover}deg )`
                                         }}
                                     >
-                                        <div className={`absolute w-[${details.offset.second_leg_fixed_length.toString()}px] h-1.5  ease-bouncy-1 duration-1000   rounded-full  bg-[linear-gradient(90deg,var(--color-mixed-soft-shadow-bg)_67%,var(--color-accent-3)_68%,var(--color-accent-2)_69%,var(--color-accent-1)_71%,var(--color-mixed-soft-shadow-bg)_73%)] bg-size-[300%_300%] animate-[gradient-carousel_3s_linear_infinite] `}
+                                        <div className={`absolute w-[${details.offset.second_leg_fixed_length.toString()}px] h-1.5  ease-bouncy-1 duration-1000   rounded-full  
+                                        ${details.offset.second_leg_fixed_length == 156.5 ? "    bg-[linear-gradient(90deg,var(--color-mixed-soft-shadow-bg)_67%,var(--color-accent-3)_68%,var(--color-accent-2)_69%,var(--color-accent-1)_71%,var(--color-mixed-soft-shadow-bg)_73%)] bg-size-[300%_300%] animate-[gradient-carousel-300_3s_linear_infinite_0.15s]" : "bg-[linear-gradient(90deg,var(--color-mixed-soft-shadow-bg)_67%,var(--color-accent-3)_71%,var(--color-accent-2)_78%,var(--color-accent-1)_83%,var(--color-mixed-soft-shadow-bg)_93%)] bg-size-[300%_300%] animate-[gradient-carousel-200-delayed_1.5s_linear_infinite]"}  `}
                                             style={{
                                                 width: (details.offset.second_leg_fixed_length + onHoverModifiers.rotation_on_hover_second_leg_length_offset[i]).toString() + "px",
                                             }} />
@@ -157,10 +199,10 @@ export default function ProcessSection() {
                                             }}
 
                                         >
-                                            <div className={`w-44 text-xl  p-2 group-hover:p-4 group-hover:w-48  group-hover:border border-dashed border-accent-1    rounded-lg ease-bouncy-1 duration-1000  text-text font-semibold ${rotationType == "center" ? "text-center translate-x-10" : rotationType == "right" ? "text-left translate-x-24" : "text-right  translate-x-24"}`}
+                                            <div className={`w-44 text-xl  p-2 group-hover:p-4 group-hover:w-48  group-hover:text-accent-1 group-hover:border border-dashed border-accent-1    rounded-lg ease-bouncy-1 duration-1000  text-text font-semibold ${rotationType == "center" ? "text-center translate-x-10" : rotationType == "right" ? "text-left translate-x-24" : "text-right  translate-x-24"}`}
                                                 style={{
 
-                                                    transform: `rotate(${rotationType == "center" ? offset : rotationType == "left" ? -180 : 0}deg) ${rotationType == "center" ? " translateY(10px)": ""}`
+                                                    transform: `rotate(${rotationType == "center" ? offset : rotationType == "left" ? -180 : 0}deg) ${rotationType == "center" ? " translateY(10px)" : ""}`
                                                 }}
                                                 onMouseEnter={() => onHoverImplementation(i)}
                                                 onMouseLeave={onLeaveImplementation}
