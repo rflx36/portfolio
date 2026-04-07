@@ -50,10 +50,12 @@ export default function NavigationBar(props: {
                 <button onClick={scrollToInitial}>
                     <h1 className="p-2 mx-2 hover:backdrop-blur-xs font-semibold text-text cursor-pointer rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s]">RFLAMOSTE.DEV</h1>
                 </button>
-                <div className="mx-1">
+                <div className="mx-1 relative">
+                    <div className="aspect-video h-auto w-full  absolute "></div>
                     <button onClick={scrollToProjects} className="focus:bg-accent-1 text-text">
                         {/* Add something like icon upon hover */}
                         <h1 className="p-2 mx-1 hover:backdrop-blur-xs font-semibold text-text cursor-pointer rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s]">Projects</h1>
+
                     </button>
                     <button onClick={scrollToSkills}>
                         <h1 className="p-2 mx-1  hover:backdrop-blur-xs font-semibold text-text cursor-pointer rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.7s]">Skills</h1>

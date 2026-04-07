@@ -94,3 +94,4 @@ export interface polygonRotationStateType {
     rotation_on_hover: number,
     rotation_on_hover_second_leg_length_offset: number[],
 }
+

@@ -37,7 +37,10 @@
 
     .skill-card-item .skill-image-container {
         --image-name-url: 'image';
-        background-image: var(--image-name-url) !important;
+        --image-name-sequence-url: 'image-sequence';
+        background-image: var(--image-name-sequence-url) !important;
+        background-size: 100% 300%;
+        animation: image-transition 0.15s steps(2) forwards;
         opacity: 100% !important;
 
     }
@@ -46,5 +49,14 @@
         display: block !important;
         
     }
+}
 
+
+@keyframes image-transition {
+    from{
+        background-position: 0 0;
+    }
+    to{
+        background-position: 0 100%;
+    }
 }

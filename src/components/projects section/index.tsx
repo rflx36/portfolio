@@ -72,7 +72,7 @@ export default function ProjectsSection() {
         <>
             {/* <h1 className="font-sans font-semibold text-text text-lg w-full text-center">SELECTED PROJECTS</h1> */}
 
-            <div className={`w-[calc(100%-4rem)] bg-container-soft-shadow/75   mx-auto my-6 py-[calc(2.5%+1rem)] overflow-hidden max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
+            <div className={`w-[calc(100%-4rem)] bg-container-soft-shadow/75   mx-auto mt-6 py-[calc(2.5%+1rem)] overflow-hidden max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
                 {/* <div className={`aspect-268/133 w-[${widthContainerStringified}] max-w-[${maxWidthContainerStringified}]`} /> */}
                 <div className="aspect-268/133 relative"
                     style={{
@@ -95,6 +95,8 @@ export default function ProjectsSection() {
                                         projectTitle={project.project_title}
                                         projectInformation={project.project_description}
                                         projectImageUrl={project.project_img_url}
+                                        projectDate={project.project_finished_date}
+                                        projectStacks={project.project_tech_stack}
                                         DisplayProperties={{
                                             dampening: dampening,
                                             featuredAmountLimit: featuredAmountLimit,
@@ -115,7 +117,7 @@ export default function ProjectsSection() {
 
                 </div>
             </div>
-            <div className="mt-9 mb-36 w-[calc(100%-8rem)] mx-auto max-w-[1920px] h-10">
+            <div className="mt-9 mb-72 w-[calc(100%-8rem)] mx-auto max-w-[1920px] h-10">
             </div>
         </>
     )

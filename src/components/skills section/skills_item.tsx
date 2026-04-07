@@ -1,5 +1,4 @@
 
-
 export default function SkillsItem(props: {
     skill: {
         name: string,
@@ -11,14 +10,22 @@ export default function SkillsItem(props: {
 
     const disabled_url = props?.skill.img_url?.replace(".png", "_disabled.png");
 
+
+
+    const imageUrl = props.skill.img_url;
+
     return (
-        <div  className="flex justify-center h-max relative skill-card-item">
+        <div className="flex justify-center h-max relative skill-card-item">
             <div
                 style={{
                     '--image-disabled-url': `url(${disabled_url})`,
-                    '--image-name-url': `url(${props.skill.img_url})`,
+                    '--image-name-url': `url(${imageUrl})`,
+                    '--image-name-sequence-url': `url(${props.skill.img_url.replace(".png", "_sequence.png")})`,
+                    // animationDelay: randomized_delay.current + "s"
+                    animationDelay: props.index / 25 + "s",
+                    // animationDelay: (randomized_delay.current / 10) + "s"
                 } as React.CSSProperties}
-                className={`size-[50px] [image-rendering:pixelated]  skill-image-container  ${props.styleState ? "bg-[image:var(--image-name-url)] " : "bg-[image:var(--image-disabled-url)] opacity-50"}`}
+                className={`size-[50px] overflow-hidden [image-rendering:pixelated]  skill-image-container  ${props.styleState ? "bg-[image:var(--image-name-url)] " : "bg-[image:var(--image-disabled-url)] opacity-50"}`}
             />
             {/* <img src={props.styleState ? props.skill.img_url : disabled_url} className="size-[50px] [image-rendering:pixelated]" /> */}
             <p

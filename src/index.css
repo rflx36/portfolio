@@ -38,7 +38,24 @@
 body {
     background-color: oklch(0.95 0 0);
     font-family: 'Manrope', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-text) transparent;
 }
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-text);
+    border-radius: 99px;
+}
+
 
 
 

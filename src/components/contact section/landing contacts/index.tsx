@@ -1,28 +1,60 @@
+import { useEffect, useState } from "react"
 
 
 
 
 export default function LandingContacts() {
+    const [githubData, setGithubData] = useState()
+
+
+
+    const fetchGithubData = async () => {
+        const response = await fetch("https://api.github.com/users/rflx36");
+        const data = await response.json();
+        setGithubData(data);
+    }
+
+    console.log(githubData);
+    useEffect(() => {
+        fetchGithubData();
+    }, []);
+
     return (
         <div className="flex w-[calc(100%-4rem)] mx-8 gap-12 justify-center ">
-            <div className="animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s] flex gap-3 p-2 font-semibold text-sm ease-bezier-in duration-150 cursor-pointer items-center text-text hover:text-accent-1">
-                <svg className="fill-current" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 0H0V9C0 9.55228 0.447715 10 1 10H13C13.5523 10 14 9.55228 14 9V0ZM14 1.08319C14 1.44373 13.8059 1.77636 13.492 1.95376L7.48879 5.34676C7.18332 5.51941 6.80972 5.51933 6.50433 5.34655L0.507586 1.95384C0.193917 1.77638 0 1.44387 0 1.08348V0L6.46657 4.04363C6.7908 4.24637 7.20226 4.24647 7.52657 4.04387L14 0V1.08319Z" />
+            <div className=" animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.9s] flex gap-3 p-2 font-semibold text-xs ease-bezier-in duration-50  items-center text-text/50 hover:text-accent-1">
+
+                <svg className="fill-current" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M4 0C1.79086 0 0 1.79086 0 4C0 5.69958 4 13.7036 4 13.7036C4 13.7036 8 5.69958 8 4C8 1.79086 6.20914 0 4 0ZM4 5.69958C4.82843 5.69958 5.5 5.02801 5.5 4.19958C5.5 3.37116 4.82843 2.69958 4 2.69958C3.17157 2.69958 2.5 3.37116 2.5 4.19958C2.5 5.02801 3.17157 5.69958 4 5.69958Z" />
                 </svg>
-                <p className="text-current">rolandfonzlamoste3608@gmail.com</p>
+
+                <p className="text-current">Based in Rizal, Philippines</p>
             </div>
-            <div className="animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.7s] flex gap-3 p-2 font-semibold text-sm ease-bezier-in duration-150 cursor-pointer items-center text-text hover:text-accent-1">
-                <svg className="fill-current" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0C3.58214 0 0 3.675 0 8.20357C0 11.8286 2.29286 14.9 5.47143 15.9857C5.51601 15.9954 5.56152 16.0002 5.60714 16C5.90357 16 6.01786 15.7821 6.01786 15.5929C6.01786 15.3964 6.01071 14.8821 6.00714 14.1964C5.74251 14.2585 5.4718 14.2908 5.2 14.2929C3.66071 14.2929 3.31071 13.0964 3.31071 13.0964C2.94643 12.15 2.42143 11.8964 2.42143 11.8964C1.725 11.4071 2.41786 11.3929 2.47143 11.3929H2.475C3.27857 11.4643 3.7 12.2429 3.7 12.2429C4.1 12.9429 4.63571 13.1393 5.11429 13.1393C5.43073 13.133 5.74227 13.0599 6.02857 12.925C6.1 12.3964 6.30714 12.0357 6.53571 11.8286C4.76071 11.6214 2.89286 10.9179 2.89286 7.775C2.89286 6.87857 3.20357 6.14643 3.71429 5.575C3.63214 5.36786 3.35714 4.53214 3.79286 3.40357C3.8513 3.38959 3.91137 3.38358 3.97143 3.38571C4.26071 3.38571 4.91429 3.49643 5.99286 4.24643C7.30341 3.87975 8.68945 3.87975 10 4.24643C11.0786 3.49643 11.7321 3.38571 12.0214 3.38571C12.0815 3.38358 12.1416 3.38959 12.2 3.40357C12.6357 4.53214 12.3607 5.36786 12.2786 5.575C12.7893 6.15 13.1 6.88214 13.1 7.775C13.1 10.925 11.2286 11.6179 9.44643 11.8214C9.73214 12.075 9.98929 12.575 9.98929 13.3393C9.98929 14.4357 9.97857 15.3214 9.97857 15.5893C9.97857 15.7821 10.0893 16 10.3857 16C10.4337 16.0002 10.4816 15.9954 10.5286 15.9857C13.7107 14.9 16 11.825 16 8.20357C16 3.675 12.4179 0 8 0Z" />
+            <button className="outline-none focus:text-accent-1 animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.8s] flex gap-3 p-2 font-semibold text-xs ease-bezier-in duration-50 cursor-pointer items-center text-text/50 hover:text-accent-1">
+
+                <svg className="fill-current" width="9" height="12" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M0 11C0 11.5523 0.447715 12 1 12H8C8.55228 12 9 11.5523 9 11V3.5H5.0625V0H1C0.447715 0 0 0.447715 0 1V11ZM9 3L5.625 0V3H9Z" />
                 </svg>
-                <p className="text-current">github.com/rflx36</p>
-            </div>
-            <div className="animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.8s] flex gap-3 p-2 font-bold text-sm ease-bezier-in duration-150 cursor-pointer items-center text-text hover:text-accent-1">
-                <svg className="stroke-current" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.75 10.25V12.25C0.75 13.3546 1.64543 14.25 2.75 14.25H12.75C13.8546 14.25 14.75 13.3546 14.75 12.25V10.25M7.75 11.75L4.25 8.75M7.75 11.75L11.25 8.75M7.75 11.75V0.75" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
+
                 <p className="text-current">Download CV</p>
-            </div>
+            </button>
+            <button className="outline-none focus:text-accent-1 animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.7s] flex gap-3 p-2 font-semibold text-xs ease-bezier-in duration-50 cursor-pointer items-center text-text/50 hover:text-accent-1">
+
+                <svg className="fill-current" width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.90491 12.2076C3.90491 12.3968 3.79063 12.6147 3.4942 12.6147H8.27277C7.97634 12.6147 7.86563 12.3968 7.86563 12.204C7.86563 11.9361 7.87634 11.0504 7.87634 9.95399C7.87634 9.1897 7.6192 8.6897 7.33349 8.43613C9.11563 8.23256 10.9871 7.5397 10.9871 4.3897C10.9871 3.49685 10.6763 2.76471 10.1656 2.18971C10.2478 1.98256 10.5228 1.14685 10.0871 0.0182773C10.0286 0.00429225 9.96854 -0.00171464 9.90849 0.000420201C9.6192 0.000420201 8.96563 0.111134 7.88706 0.861134C6.57651 0.494459 5.19046 0.494459 3.87991 0.861134C2.80134 0.111134 2.14777 0.000420201 1.85849 0.000420201C1.79843 -0.00171464 1.73836 0.00429225 1.67991 0.0182773C1.2442 1.14685 1.5192 1.98256 1.60134 2.18971C1.09063 2.76113 0.779914 3.49328 0.779914 4.3897C0.779914 7.53256 2.64777 8.23613 4.42277 8.44327C4.1942 8.65042 3.98706 9.01113 3.91563 9.5397C3.62933 9.67464 3.31778 9.74766 3.00134 9.75399C2.52277 9.75399 1.98706 9.55756 1.58706 8.85756C1.58706 8.85756 1.16563 8.07899 0.362057 8.00756H0.358486C0.304914 8.00756 -0.387943 8.02185 0.308486 8.51113C0.308486 8.51113 0.833485 8.7647 1.19777 9.71113C1.19777 9.71113 1.54777 10.9076 3.08706 10.9076C3.35885 10.9055 3.62957 10.8732 3.8942 10.8111C3.89777 11.4968 3.90491 12.0111 3.90491 12.2076Z" />
+                </svg>
+
+                <p className="text-current">github.com/rflx36</p>
+            </button>
+            <button className="outline-none focus:text-accent-1 animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s] flex gap-3 p-2  font-semibold text-xs ease-bezier-in duration-50 cursor-pointer items-center text-text/50 hover:text-accent-1">
+
+                <svg className="fill-current" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M11 8C11.5523 8 12 7.55228 12 7V0.8L6 4.4L0 0.8V7C0 7.55228 0.447715 8 1 8H11ZM0 0L6 3.5L12 0H0Z" />
+                </svg>
+
+
+                <p className="text-current ">rolandfonzlamoste3608@gmail.com</p>
+            </button>
+
         </div>
 
     )

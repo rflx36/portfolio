@@ -8,12 +8,13 @@ import SkillsSection from "./components/skills section"
 import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
 import { useModalStore } from "./stores/modal_store"
-import ProjectsModal from "./components/projects section/projects_modal"
 import LandingContacts from "./components/contact section/landing contacts"
 import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
 import ProcessSection from "./components/process section"
 import Footer from "./components/footer"
+import ModalProjects from "./components/ui/modal/modal projects"
+import StarField from "./components/ui/starfield"
 
 
 function App() {
@@ -34,10 +35,11 @@ function App() {
         SectionAboutRef={sectionAboutRef}
         SectionContactRef={sectionContactRef}
       />
-      <div className="h-[700px] max-h-[calc(80vh)] flex flex-col sm:justify-center items-center relative">
+      {/* <StarField /> */}
+      <div className="h-[900px] max-h-[calc(85vh)] flex flex-col sm:justify-center items-center relative">
         <NameIntroduction />
         <SpecializationIntroduction />
-        <div className="mt-8">
+        <div className="mt-8 opacity-0">
           <HoverGif
             staticSrc="/assets/ph_flag.png"
             animatedSrc="/assets/ph_flag_anim.gif"
@@ -52,7 +54,7 @@ function App() {
               <LandingContacts />
             </div>
           </div>
-          <div className="w-full h-[0.0625rem] relative">
+          <div className="w-full h-[0.0625rem] relative opacity-0 animate-[fadeIn_0.5s_cubic-bezier(0.130,0.835,0.130,0.830)_forwards_2.5s]">
             <div className="bg-text/25 w-full h-full " />
             <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 -translate-y-1/2" />
             <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 -translate-y-1/2" />
@@ -62,6 +64,7 @@ function App() {
           </div>
 
         </div>
+        
       </div>
       <section ref={projectsRef} >
         <ProjectsSection />
@@ -70,14 +73,17 @@ function App() {
       <BackgroundSection />
       <ProcessSection />
       <ContactSection />
-      <Footer/>
+      <Footer />
+
+
+
       {
         modalState.get.activeModal != null &&
         (
           <div className="w-full h-full top-0 left-0 right-0 z-55 grid place-content-center fixed">
             <div className="w-full h-full bg-black opacity-20 z-56 absolute animate-[fadeInQuadrant_0.5s_cubic-bezier(0.130,0.835,0.130,0.830)_forwards]" />
-            <div className="z-60 w-full h-full absolute">
-              {(modalState.get.activeModal == "projects") && <ProjectsModal />}
+            <div className="z-60 w-full h-full absolute flex justify-center items-center">
+              {(modalState.get.activeModal == "projects") && <ModalProjects />}
             </div>
           </div>
         )

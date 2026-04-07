@@ -1,7 +1,7 @@
 
 export default function SpecializationIntroduction() {
     
-    const text_style = "text-text/75 font-semibold";
+    const text_style = "text-text/75 text-lg font-semibold";
 
     return (
         <div className="w-max flex h-6 overflow-hidden relative">

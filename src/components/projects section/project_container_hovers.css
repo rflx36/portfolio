@@ -1,5 +1,5 @@
 .project-container .project-card {
-    filter: grayscale(100) blur(1.5px);
+    filter: grayscale(100) blur(2.5px);
     transition: all 0.15s cubic-bezier(0.18, 0.87, 0.22, 0.87) 0.3s!
 }
 

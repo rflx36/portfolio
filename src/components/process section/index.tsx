@@ -14,8 +14,9 @@ export default function ProcessSection() {
         rotation_on_hover_second_leg_length_offset: [0, 0, 0, 0, 0, 0, 0],
         mouse_position: { x: 0, y: 0 },
         text_display: "",
+        index: -1
     });
-    const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
+    const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true })
     const mousePositionRef = useRef({ x: 0, y: 0 });
     const mouseLeave = useRef(false);
 
@@ -40,7 +41,8 @@ export default function ProcessSection() {
             rotation_on_hover: implementation.offset.rotation_on_hover,
             rotation_on_hover_second_leg_length_offset: implementation.offset.rotation_on_hover_second_leg_length_offset,
             mouse_position: mousePositionRef.current,
-            text_display: implementation.text_display
+            text_display: implementation.text_display,
+            index: index
         });
 
     };
@@ -56,11 +58,10 @@ export default function ProcessSection() {
             rotation_on_hover: 0,
             rotation_on_hover_second_leg_length_offset: [0, 0, 0, 0, 0, 0, 0],
             mouse_position: mousePositionRef.current,
-            text_display: ""
+            text_display: "",
+            index: -1
         });
     }
-
-
 
     useEffect(() => {
         fetchProcessImplementationsData();
@@ -95,10 +96,10 @@ export default function ProcessSection() {
                     <div className="relative ">
 
                         <div className="  absolute -translate-x-1/2 flex gap-1  justify-center overflow-hidden">
-                            {inView && 
+                            {inView &&
                                 ["It's", "not", "just", "about", "writing", "code,", "I", "consider", "multiple", "processes", "simultaneously", "in", "my", "workflow"].map((word, index) => {
                                     return (
-                                        <h1 key={index} className={`text-sm text-text/50 ease-in-out duration-250 font-semibold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                        <h1 key={index} className={`text-sm text-text/50 ease-in-out duration-250 font-regular animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
                                             style={{
                                                 animationDelay: `${((index * 0.025) + 0.2)}s`,
                                             }}
@@ -118,7 +119,7 @@ export default function ProcessSection() {
                         <div className="relative size-max z-10 ease-bouncy-1 duration-1000"
                             style={{ transform: `rotate(${onHoverModifiers.rotation_on_hover.toString()}deg)` }}
                         >
-
+                            
                             <Polygon
                                 sides={implementations.length}
                                 size={400}
@@ -154,7 +155,7 @@ export default function ProcessSection() {
                                 transform: `rotate(${onHoverModifiers.rotation_on_hover.toString()}deg)`
                             } as React.CSSProperties}
                         >
-                            <p className="text-center text-text/50 text-xl font-medium">
+                            <p className="text-center text-text/50 text-xl font-normal">
                                 {onHoverModifiers.text_display != "" &&
                                     <ImplementationTextReveal
                                         words={onHoverModifiers.text_display.split(" ")}
@@ -186,20 +187,21 @@ export default function ProcessSection() {
                                             transform: `rotate(${rotationType == "center" ? -angle - 90 - onHoverModifiers.rotation_on_hover : rotationType == "left" ? -angle - 180 - onHoverModifiers.rotation_on_hover : -angle - onHoverModifiers.rotation_on_hover}deg )`
                                         }}
                                     >
-                                        <div className={`absolute w-[${details.offset.second_leg_fixed_length.toString()}px] h-1.5  ease-bouncy-1 duration-1000   rounded-full  
+                                        <div className={`absolute w-[${details.offset.second_leg_fixed_length.toString()}px] h-1.5  ease-bouncy-1 duration-1000  rounded-full  
                                         ${details.offset.second_leg_fixed_length == 156.5 ? "    bg-[linear-gradient(90deg,var(--color-mixed-soft-shadow-bg)_67%,var(--color-accent-3)_68%,var(--color-accent-2)_69%,var(--color-accent-1)_71%,var(--color-mixed-soft-shadow-bg)_73%)] bg-size-[300%_300%] animate-[gradient-carousel-300_3s_linear_infinite_0.15s]" : "bg-[linear-gradient(90deg,var(--color-mixed-soft-shadow-bg)_67%,var(--color-accent-3)_71%,var(--color-accent-2)_78%,var(--color-accent-1)_83%,var(--color-mixed-soft-shadow-bg)_93%)] bg-size-[300%_300%] animate-[gradient-carousel-200-delayed_1.5s_linear_infinite]"}  `}
                                             style={{
                                                 width: (details.offset.second_leg_fixed_length + onHoverModifiers.rotation_on_hover_second_leg_length_offset[i]).toString() + "px",
                                             }} />
 
-                                        <div className=" size-3.5 absolute rounded-full group hover:border-accent-1! hover:size-2 hover:-translate-y-[0.0625rem]  grid place-content-center ease-bouncy-1 duration-1000  -translate-y-1 border-4"
+                                        <div className={` size-3.5 absolute rounded-full ${onHoverModifiers.index == i ? "border-accent-1! size-2! -translate-y-[0.0625rem]!  " : ""}  grid place-content-center ease-bouncy-1 duration-1000  -translate-y-1 border-4`}
                                             style={{
                                                 left: ((details.offset.second_leg_fixed_length - (details.offset.second_leg_fixed_length == 0 ? -1.5 : 2.5)) + onHoverModifiers.rotation_on_hover_second_leg_length_offset[i]).toString() + "px",
-                                                borderColor: "color-mix(in oklch, var(--color-container-soft-shadow) 50%, var(--color-container-bg))"
+                                                borderColor: "color-mix(in oklch, var(--color-container-soft-shadow) 50%, var(--color-container-bg))",
+                                                // backgroundColor: "color-mix(in oklch, var(--color-container-soft-shadow) 50%, var(--color-container-bg))"
                                             }}
 
                                         >
-                                            <div className={`w-44 text-xl  p-2 group-hover:p-4 group-hover:w-48  group-hover:text-accent-1 group-hover:border border-dashed border-accent-1    rounded-lg ease-bouncy-1 duration-1000  text-text font-semibold ${rotationType == "center" ? "text-center translate-x-10" : rotationType == "right" ? "text-left translate-x-24" : "text-right  translate-x-24"}`}
+                                            <div className={`w-44 text-lg  p-2  ${onHoverModifiers.index == i ? "p-4 w-48 text-accent-1! border-accent-1! border ":""} border-dashed border-text/25    rounded-lg ease-bouncy-1 duration-1000  text-text/75 font-semibold ${rotationType == "center" ? "text-center translate-x-10" : rotationType == "right" ? "text-left translate-x-24" : "text-right  translate-x-24"}`}
                                                 style={{
 
                                                     transform: `rotate(${rotationType == "center" ? offset : rotationType == "left" ? -180 : 0}deg) ${rotationType == "center" ? " translateY(10px)" : ""}`
