@@ -4,6 +4,7 @@ import type { animationLoadStateType, projectDataType, projectInfo } from "../..
 import ProjectsCard from "./projects_card";
 import "./project_container_hovers.css";
 import { useModalStore } from "../../stores/modal_store";
+import { useNavigate } from "react-router";
 
 
 
@@ -12,6 +13,7 @@ export default function ProjectsSection() {
     const [projectsDataState, setProjectsDataState] = useState<projectDataType>(projectsDataDefaults);
     const [animationLoadState, setAnimationLoadState] = useState<animationLoadStateType>(animationLoadStateDefaults);
     const modalState = useModalStore();
+    const navigate = useNavigate();
     const screenWidth = useRef(window.innerWidth);
     const persistRandomizedValue = useRef(Math.random() < 0.5);
 
@@ -62,10 +64,17 @@ export default function ProjectsSection() {
     const maxWidthContainerStringified = `calc(480px + ${dampening}px)`;
 
     const OpenProjectsModal = (projectInfo: projectInfo) => {
-        modalState.get.activeModal = "projects";
-        modalState.get.modalInfo = projectInfo;
-        modalState.set();
-        console.log(modalState.get);
+        // modalState.get.activeModal = "projects";
+        // modalState.get.modalInfo = projectInfo;
+        // modalState.set();
+        // console.log(modalState.get);
+        encodeURIComponent
+    }
+
+
+    const handleRedirect = (projectTitle: string) => {
+        const encoded = encodeURIComponent(projectTitle);
+        navigate(`/projects/${encoded}`);
     }
 
     return (
@@ -103,7 +112,8 @@ export default function ProjectsSection() {
                                             inverseBoolValue: randomizedInverseBoolValue,
                                             loadAnimation: animationLoadState,
                                         }}
-                                        onClick={() => OpenProjectsModal(project)}
+                                        // onClick={() => OpenProjectsModal(project)}
+                                        onClick={() => handleRedirect(project.project_title)}
                                         isSelected={modalState.get.modalInfo?.project_title == project.project_title}
                                     />
                                 )
@@ -117,7 +127,7 @@ export default function ProjectsSection() {
 
                 </div>
             </div>
-            <div className="mt-9 mb-72 w-[calc(100%-8rem)] mx-auto max-w-[1920px] h-10">
+            <div className="mt-9 mb-96 w-[calc(100%-8rem)] mx-auto max-w-[1920px] h-10">
             </div>
         </>
     )

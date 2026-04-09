@@ -4,7 +4,7 @@
         "project_img_url": "project_thumbnail_smartsched.png",
         "project_video_url": "",
         "project_description": "A multi-platform scheduling system with dedicated environments for generation and viewing. The desktop application is designed for generating optimized schedules, while the mobile app enables real-time viewing and notifications. At its core is a custom-developed constraint-based algorithm that dynamically resolves scheduling conflicts across time, room, and instructor constraints. developed as part of a final-year capstone, focusing on real-world scheduling constraints",
-        "project_finished_date": "2025",
+        "project_finished_date": "Jan 2025",
         "project_tech_stack": [
             "React",
             "Typescript",
@@ -25,7 +25,7 @@
         "project_img_url": "project_thumbnail_statlab.png",
         "project_video_url": "",
         "project_description": "An advanced stat optimization tool for HHR that simulates damage output and survivability across diverse PvE scenarios. It processes multiple variables including equipment, perks, enchantments, pets, and skill-element interactions to determine optimal builds and stat thresholds. With dynamic modifiers and real-time sliders, it adapts to different in-game conditions while providing detailed comparisons across enemies and configurations. Widely adopted within the HHR community, the platform reached over 30,000 monthly active users at its peak.",
-        "project_finished_date": "",
+        "project_finished_date": "Dec 2024",
         "project_tech_stack": [
             "React",
             "Vite",
@@ -41,7 +41,7 @@
         "project_img_url": "project_thumbnail_furrpection.png",
         "project_video_url": "",
         "project_description": "A web-based e-commerce platform for pet shops, designed to handle product browsing, cart management, order processing, and an admin panel for managing inventory and orders. It focuses on delivering core commerce functionality through a clean and intuitive interface. Developed as part of a capstone project.",
-        "project_finished_date": "",
+        "project_finished_date": "Dec 2023",
         "project_tech_stack": [
             "HTML",
             "CSS",
@@ -58,7 +58,7 @@
         "project_img_url": "project_thumbnail_rom.png",
         "project_video_url": "",
         "project_description": "a Windows Forms–based restaurant ordering management system designed to streamline customer and employee interactions. It features a custom client UI for ordering, a POS interface for staff, and an admin panel for inventory management. The system emphasizes intuitive workflows and clear information presentation to improve efficiency and reduce errors.",
-        "project_finished_date": "",
+        "project_finished_date": "Jun 2023",
         "project_tech_stack": [
             "Visual Basic",
             "Windows Form",

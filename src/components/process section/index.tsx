@@ -155,7 +155,7 @@ export default function ProcessSection() {
                                 transform: `rotate(${onHoverModifiers.rotation_on_hover.toString()}deg)`
                             } as React.CSSProperties}
                         >
-                            <p className="text-center text-text/50 text-xl font-normal">
+                            <p className="text-center text-text/50 text-xl font-light">
                                 {onHoverModifiers.text_display != "" &&
                                     <ImplementationTextReveal
                                         words={onHoverModifiers.text_display.split(" ")}

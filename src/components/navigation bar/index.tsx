@@ -44,7 +44,7 @@ export default function NavigationBar(props: {
 
     return (
         <>
-
+            
             <nav className=" p-2 w-full px-[calc(50vw-720px+3rem)]  fixed flex mx-auto justify-between top-0 z-50">
                 <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! " />
                 <button onClick={scrollToInitial}>

@@ -40,7 +40,7 @@
         --image-name-sequence-url: 'image-sequence';
         background-image: var(--image-name-sequence-url) !important;
         background-size: 100% 300%;
-        animation: image-transition 0.15s steps(2) forwards;
+        animation: image-transition 0.2s steps(2) forwards;
         opacity: 100% !important;
 
     }

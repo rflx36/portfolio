@@ -1,4 +1,11 @@
 @font-face {
+     font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-Light.ttf') format('truetype');
+    font-weight: light;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Manrope';
     src: url('./assets/fonts/Manrope-Regular.ttf') format('truetype');
     font-weight: normal;
@@ -79,7 +86,7 @@ body {
     --ease-bezier-in: cubic-bezier(0.405, 1.070, 0.435, 0.780);
     --ease-bezier-in-2: cubic-bezier(0.130, 0.835, 0.130, 0.830);
     --ease-bouncy-1: cubic-bezier(0.26, 1.84, 0, 0.67);
-    --ease-bouncy-1: linear(0.0000, 0.1452, 0.4443, 0.7451, 0.9681, 1.0922, 1.1326, 1.1189, 1.0807, 1.0397, 1.0080, 0.9895, 0.9826, 0.9836, 0.9884, 0.9939, 0.9984, 1.0011, 1.0023, 1.0023, 1.0017, 1.0009, 1.0003, 0.9999, 0.9997, 0.9997, 0.9998, 0.9999, 0.9999, 1.0000, 1.0000, 1.0000, 1)
+    --ease-bouncy-1: linear(0.0000, 0.1452, 0.4443, 0.7451, 0.9681, 1.0922, 1.1326, 1.1189, 1.0807, 1.0397, 1.0080, 0.9895, 0.9826, 0.9836, 0.9884, 0.9939, 0.9984, 1.0011, 1.0023, 1.0023, 1.0017, 1.0009, 1.0003, 0.9999, 0.9997, 0.9997, 0.9998, 0.9999, 0.9999, 1.0000, 1.0000, 1.0000, 1);
 }
 
 

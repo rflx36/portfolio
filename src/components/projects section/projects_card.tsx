@@ -48,28 +48,37 @@ export default function ProjectsCard(props: {
             </div>
 
             <div className="-bottom-9 left-0 right-0 mx-auto w-full flex absolute translate-y-8   project-card-details">
-                <div className="flex flex-col flex-1  bg-red-500 relative">
+                <div className="max-w-270 w-full absolute left-0 right-0 mx-auto flex gap-12">
 
-                    <p className=" text-base font-bold text-text text-center ">
-                        {props.projectTitle}
-                    </p>
-                    <p className="w-full mt-4 max-w-[calc(480px+2vw)] absolute left-0 right-0 mx-auto text-justify text-base font-medium text-text">{props.projectInformation}</p>
+                    <div className="flex flex-col gap-4 flex-1  relative">
 
-                </div>
-                {/* <div className="flex flex-col w-max bg-blue-500 relative">
-                    <p className="text-base font-bold text-text text-right">{props.projectDate}</p>
-                    <div className="grid grid-cols-2 gap-2">
-                        {
-                            props.projectStacks.map((x, i) =>
-                                <img key={i} className="size-[25px] [image-rendering:pixelated]"
-                                    src={`/assets/skills/${x.toLowerCase().replace(" ","")}_3.png`}
-                                    alt={x}
-                                    >
-                                </img>
-                            )
-                        }
+                        <p className=" text-lg font-bold text-text text-center ">
+                            {props.projectTitle}
+                        </p>
+                        <p className=" text-justify text-base font-normal ">{props.projectInformation}</p>
+
                     </div>
-                </div> */}
+                    <div className="flex flex-col gap-4 w-max  relative">
+                        <p className="text-base font-bold text-text text-right">{props.projectDate}</p>
+                        <div className="grid grid-cols-3  gap-2">
+                            {
+                                props.projectStacks.map((x, i) => {
+
+                                    const stack_name = x.toLowerCase().replace(" ", "");
+                                    const image_source = `/assets/skills/${stack_name == "reactnative" ? "react" : stack_name}_3.png`;
+
+                                    return (
+                                        <img key={i} className={`size-[25px] [image-rendering:pixelated]  ${stack_name == "reactnative" ? "grayscale-100 " : ""}`}
+                                            src={image_source}
+                                            alt={x}
+                                        />
+                                    )
+                                }
+                                )
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

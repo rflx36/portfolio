@@ -34,7 +34,7 @@ export default function SkillsSection() {
     }, []);
 
     return (
-        <section className="min-h-max h-screen max-h-[700px] mb-16 w-[calc(100%-2rem)] mx-auto max-w-270 flex items-center flex-col" >
+        <section className="min-h-max h-screen max-h-[700px]  mb-16 w-[calc(100%-2rem)] mx-auto max-w-270 flex items-center flex-col" >
 
             <div className="mb-8 h-11  flex gap-2  w-max justify-center overflow-hidden  ">
                 {inView &&
