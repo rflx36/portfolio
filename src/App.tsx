@@ -3,7 +3,7 @@ import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
 import { HoverGif } from "./components/hover_gif"
 import NavigationBar from "./components/navigation bar"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import SkillsSection from "./components/skills section"
 import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
@@ -15,28 +15,35 @@ import ProcessSection from "./components/process section"
 import Footer from "./components/footer"
 import ModalProjects from "./components/ui/modal/modal projects"
 import StarField from "./components/ui/starfield"
+import { Navigate, useLocation, useNavigate } from "react-router"
+import { scrollDefaults } from "./constants"
+import { CustomCursor } from "./components/ui/cursor"
 
 
 function App() {
   const modalState = useModalStore();
-  const sectionProjectsRef = useRef<HTMLDivElement>(null);
-  const sectionSkillsRef = useRef<HTMLDivElement>(null);
-  const sectionAboutRef = useRef<HTMLDivElement>(null);
-  const sectionContactRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [projectsRef, projectsInView] = useInView({ threshold: 1 });
 
 
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const section = document.getElementById(location.state.scrollTo);
+      if (section) {
+        section.scrollIntoView(scrollDefaults)
+      }
+      navigate(location.pathname, { replace: true });
+    }
+  }, [])
+
   return (
     <>
-      <NavigationBar
-        SectionProjectsRef={sectionProjectsRef}
-        SectionSkillsRef={sectionSkillsRef}
-        SectionAboutRef={sectionAboutRef}
-        SectionContactRef={sectionContactRef}
-      />
+      {/* <CustomCursor/> */}
       {/* <StarField /> */}
-      <div className="h-[900px] max-h-[calc(85vh)] flex flex-col sm:justify-center items-center relative">
+      <section id="home-section-id" className="h-[900px] max-h-[calc(85vh)] flex flex-col sm:justify-center items-center relative">
         <NameIntroduction />
         <SpecializationIntroduction />
         <div className="mt-8 opacity-0">
@@ -64,8 +71,8 @@ function App() {
           </div>
 
         </div>
-        
-      </div>
+
+      </section>
       <section ref={projectsRef} >
         <ProjectsSection />
       </section>
@@ -73,7 +80,7 @@ function App() {
       <BackgroundSection />
       <ProcessSection />
       <ContactSection />
-      <Footer />
+     
 
 
 

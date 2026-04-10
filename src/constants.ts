@@ -1,4 +1,4 @@
-import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, modalStateType, nameAnimStateType, polygonRotationStateType, processImplementationDetailsType, projectDataType, skillActiveStateType, skillDataType } from "./types/types";
+import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, cursorStateType, modalStateType, nameAnimStateType, polygonRotationStateType, processImplementationDetailsType, projectDataType, skillActiveStateType, skillDataType } from "./types/types";
 
 
 
@@ -43,4 +43,15 @@ export const modalStateDefaults: modalStateType = {
 export const polygonRotationStateDefaults: polygonRotationStateType = {
     rotation_on_hover: 0,
     rotation_on_hover_second_leg_length_offset: [0, 0, 0, 0, 0, 0, 0]
+}
+
+
+export const scrollDefaults: ScrollIntoViewOptions = {
+    behavior: 'smooth',
+    block: 'start'
+}
+
+export const cursorStateDefaults: cursorStateType = {
+    tooltip: undefined,
+    type: "default"
 }

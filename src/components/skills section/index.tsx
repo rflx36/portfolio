@@ -34,28 +34,10 @@ export default function SkillsSection() {
     }, []);
 
     return (
-        <section className="min-h-max h-screen max-h-[700px]  mb-16 w-[calc(100%-2rem)] mx-auto max-w-270 flex items-center flex-col" >
+        <section id="skills-section-id" className="min-h-max h-screen max-h-[700px]  mb-32 w-[calc(100%-2rem)] mx-auto max-w-270 flex items-center flex-col-reverse " >
 
-            <div className="mb-8 h-11  flex gap-2  w-max justify-center overflow-hidden  ">
-                {inView &&
-                    ["My","Technical","Skills"].map((word, index) => {
-                        return (
-                            <h1 key={index} className={`text-[2rem] text-text ease-in-out duration-250 font-bold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
-                                style={{
-                                    animationDelay: `${((index * 0.05))}s`,
-                                }}
-                            >
-                                {word}
-                            </h1>
-                        )
-                    })
-                }
-            </div>
-            <div className="w-full h-[0.0625rem] translate-y-[calc(2.25rem)] relative">
-                <div className="bg-text/25 w-full h-full " />
-                <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 -translate-y-1/2" />
-                <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 -translate-y-1/2" />
-            </div>
+
+
 
             <div className="skill-state-container flex justify-center w-max "
                 ref={ref}
@@ -111,8 +93,26 @@ export default function SkillsSection() {
                     }
                 </SkillsItemContainer>
             </div>
-
-
+            <div className="w-full h-[0.0625rem] translate-y-[calc(2.25rem)] relative">
+                <div className="bg-text/25 w-full h-full " />
+                <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 -translate-y-1/2" />
+                <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 -translate-y-1/2" />
+            </div>
+            <div className="mb-8 h-11  flex gap-2  w-max justify-center overflow-hidden  ">
+                {inView &&
+                    ["My", "Technical", "Skills"].map((word, index) => {
+                        return (
+                            <h1 key={index} className={`text-[2rem] text-text ease-in-out duration-250 font-bold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                style={{
+                                    animationDelay: `${((index * 0.05))}s`,
+                                }}
+                            >
+                                {word}
+                            </h1>
+                        )
+                    })
+                }
+            </div>
         </section>
     )
 }

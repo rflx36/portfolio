@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import "./contact_form.css"
 import InvertedCorner from "../ui/inverted_border";
 import Loader from "../ui/loader";
+import { useCursor } from "../../hooks/use_cursor";
 
 
 
@@ -55,6 +56,7 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
     //     props.onContactSubmit();
     // }
 
+    const cursorOnHover = useCursor({ type: "pointer" })
     const inputStyle = ` ease-in duration-500 focus:outline-1 -outline-offset-1 place-holder-opacity-50 text-text font-medium outline-text/50 ${result === "Success" ? "bg-none" : "bg-container-soft-shadow/50"}`
 
     return (
@@ -73,7 +75,7 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
                         placeholder="Your full name"
                         className={`h-9 pl-3 rounded-md ${inputStyle}`}
                         required
-                    disabled={isLoading || result === "Success"}
+                        disabled={isLoading || result === "Success"}
                     />
                 </div>
                 <div className="flex flex-col flex-1 gap-1">
@@ -99,10 +101,10 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
                     aria-multiline="true"
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
-                    disabled={isLoading || result === "Success"} 
+                    disabled={isLoading || result === "Success"}
                     ref={textAreaRef}
-                    />
-                    
+                />
+
 
                 <div
                     className="w-full flex justify-end gap-1.5 h-max pt-0.75 "
@@ -110,7 +112,7 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
                     <div
                         className={`bg-bg absolute rounded-b-md  ${result === "Success" ? "text-bg ease-in duration-500" : "text-container-soft-shadow/50"} cursor-text  h-11 bottom-0 flex left-0 w-[calc(100%-9.375rem)]`}
                         id="textarea-fill"
-                        onClick={()=>{textAreaRef.current?.focus()}}
+                        onClick={() => { textAreaRef.current?.focus() }}
                     >
                         {/* <div className="flex w-full">
 
@@ -142,7 +144,10 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
                         type="submit"
                         disabled={isLoading || result === "Success"}
                         aria-label="Send message"
-                        className={`bg-text ${result === "Success" ? "opacity-0 ease-in duration-50" : "opacity-100 cursor-pointer "} focus:outline-accent-2  ease-in duration-150 transition-colors focus:text-accent-2 hover:bg-text/90 group flex items-center font-medium text-lg justify-center gap-1.5 text-bg w-36 h-9 rounded-md`}>
+                        className={`bg-text ${result === "Success" ? "opacity-0 ease-in duration-50" : "opacity-100 "} focus:outline-accent-2  ease-in duration-150 transition-colors focus:text-accent-2 hover:bg-text/90 group flex items-center font-medium text-lg justify-center gap-1.5 text-bg w-36 h-9 rounded-md`}
+                        {...(result !== "Success" && cursorOnHover)}
+                    >
+
                         {
                             isLoading ? <Loader />
                                 :

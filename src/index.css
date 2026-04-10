@@ -47,6 +47,11 @@ body {
     font-family: 'Manrope', sans-serif;
     scrollbar-width: thin;
     scrollbar-color: var(--color-text) transparent;
+   cursor: none;
+}
+
+button{
+    cursor: none;
 }
 
 ::-webkit-scrollbar {

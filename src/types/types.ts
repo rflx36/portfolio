@@ -95,3 +95,8 @@ export interface polygonRotationStateType {
     rotation_on_hover_second_leg_length_offset: number[],
 }
 
+export interface cursorStateType {
+    tooltip?: string,
+    type: "default" | "pointer" | "text",
+    
+}

@@ -77,6 +77,8 @@ export default function ProjectsSection() {
         navigate(`/projects/${encoded}`);
     }
 
+    
+
     return (
         <>
             {/* <h1 className="font-sans font-semibold text-text text-lg w-full text-center">SELECTED PROJECTS</h1> */}
@@ -120,7 +122,7 @@ export default function ProjectsSection() {
                             })
                         ) : (
                             <div className="w-full h-full flex items-center justify-center">
-                                {/* <p className="text-white text-xl">Loading Projects...</p> */}
+                                <p className="text-white text-xl">Loading Projects...</p>
                             </div>
                         )
                     }

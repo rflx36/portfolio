@@ -1,3 +1,4 @@
+import { useCursor } from "../../hooks/use_cursor"
 
 
 export default function SkillsItemContainer(props: {
@@ -7,10 +8,15 @@ export default function SkillsItemContainer(props: {
     onClick: () => void,
     text: string
 }) {
+
+
+    const cursorOnHover = useCursor({type:"pointer"})
+
     return (
         <button
             onClick={props.onClick}
-            className={`${props.isActiveState ? "skill-card-container-selected" : "skill-card-container-disabled"} w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg cursor-pointer skill-card-container`}
+            className={`${props.isActiveState ? "skill-card-container-selected" : "skill-card-container-disabled"} w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg  skill-card-container`}
+            {...cursorOnHover}
         >
             <div className="h-6.25 w-full relative">
                 <p>{props.text.toUpperCase()}</p>

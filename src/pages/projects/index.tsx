@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import type { projectDataType } from "../../types/types";
-import { projectsDataDefaults } from "../../constants";
+import { projectsDataDefaults, scrollDefaults } from "../../constants";
 
 
 
@@ -32,13 +32,17 @@ export default function PageProjects() {
 
     useEffect(() => {
         fetchProjectsData();
+        window.scrollTo({
+            
+            top: 0
+        })
     }, [])
 
 
     const current_project = projectsDataState.projects.filter((x) => x.project_title == decodeURIComponent(project_title || "")).pop();
 
 
-    if (current_project == undefined  && projectsDataState.isLoaded){
+    if (current_project == undefined && projectsDataState.isLoaded) {
         return (
             <p>
                 redirect to error 404 not found
@@ -47,10 +51,10 @@ export default function PageProjects() {
     }
 
     return (
-        <div className="w-[calc(100%-2rem)] max-w-270 h-full mx-auto">
+        <div className="w-[calc(100%-2rem)] max-w-270 h-full mx-auto mt-26">
 
             <div className="bg-container-soft-shadow w-full h-auto aspect-video rounded-2xl my-8">
-                
+
             </div>
 
             {/* <button onClick={()=>setViewType("about")} */}

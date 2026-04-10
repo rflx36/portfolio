@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import type { animationLoadStateType } from "../../types/types";
+import { useCursor } from "../../hooks/use_cursor";
 
 
 export default function ProjectsCard(props: {
@@ -28,10 +29,11 @@ export default function ProjectsCard(props: {
     const randomRotation = randomizedTransforms.current.rotation;
     const randomTransform = randomizedTransforms.current.transform;
 
+    const btnCursor = useCursor({ tooltip: `Click to view more ${props.projectTitle} `, type:"pointer" })
     return (
         <div className="project-card-container top-0 flex items-center justify-start w-full h-full">
             <div
-                className={`bg-bg rounded-4xl grid place-content-center aspect-268/133 project-card ${props.DisplayProperties.loadAnimation.preload ? " pointer-events-auto select-auto" : "pointer-events-none select-none"} hover:z-20!  hover:delay-100! hover:shadow-2xl hover:duration-150  shadow-lg hover:-translate-y-3 ${props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? "hover:rotate-3" : "hover:-rotate-5"} hover:scale-105 absolute border-4 ease-initial duration-300 border-black/10 overflow-hidden h-max w-full`}
+                className={`bg-bg rounded-4xl grid place-content-center cursor-none! aspect-268/133 project-card ${props.DisplayProperties.loadAnimation.preload ? " pointer-events-auto select-auto" : "pointer-events-none select-none"} hover:z-20!  hover:delay-100! hover:shadow-2xl hover:duration-150  shadow-lg hover:-translate-y-3 ${props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? "hover:rotate-3" : "hover:-rotate-5"} hover:scale-105 absolute border-4 ease-initial duration-300 border-black/10 overflow-hidden h-max w-full`}
                 style={{
                     transform: props.DisplayProperties.loadAnimation.preload ? `rotate(${randomRotation}deg) translateX(${randomTransform}px)` : "scale(50%) translateY(300%)",
                     left: `calc(${props.index * (100 / featuredAmountLimit)}% ${props.index > 0 && `- ${dampening}px`})`,
@@ -41,6 +43,7 @@ export default function ProjectsCard(props: {
                 }}
                 id={`project-${props.index + 1}`}
                 onClick={props.onClick}
+                {...btnCursor}
                 tabIndex={0}
             >
                 <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" loading="lazy" />

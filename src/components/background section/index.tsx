@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { backgroundActiveStateDefaults, backgroundDataDefaults } from "../../constants";
 import type { backgroundActiveStateType, backgroundDataType } from "../../types/types";
 import BackgroundCard from "./background_card";
+import { useCursor } from "../../hooks/use_cursor";
+import { useCursorStore } from "../../stores/cursor_store";
 
 
 
@@ -11,6 +13,7 @@ export default function BackgroundSection() {
     const [backgroundActiveState, setBackgroundActiveState] = useState<backgroundActiveStateType>(backgroundActiveStateDefaults);
     const [backgroundDataState, setBackgroundDataState] = useState<backgroundDataType>(backgroundDataDefaults);
     const [backgroundDockState, setBackgroundDockState] = useState<boolean>(false);
+    const cursor = useCursorStore();
     const fetchBackgroundData = async () => {
         const response = await fetch("/background.json");
         const data = await response.json();
@@ -29,26 +32,40 @@ export default function BackgroundSection() {
     }, []);
 
 
+    const handleBackgroundActiveState = (state: backgroundActiveStateType) => {
+        setBackgroundActiveState(state);
+        cursor.get.type = "default";
+        cursor.set();
+    }
 
+    const handleBackgroundDockState = (state: boolean) => {
+        setBackgroundDockState(state);
+        cursor.get.type = "default";
+        cursor.set();
+    }
+
+
+    const cursorOnHover = useCursor({ type: "pointer" })
     return (
         <section className="w-full flex flex-col items-center min-h-max h-screen max-h-[700px]">
 
-            <h1 className="font-bold text-xl uppercase text-text mb-10"></h1>           
-             <div className="w-full flex gap-8 mt-5">
+            <h1 className="font-bold text-xl uppercase text-text mb-10"></h1>
+            <div className="w-full flex gap-8 mt-5">
                 <div className=" w-[calc(100%-2rem)] mx-auto max-w-185 flex flex-col gap-8 ">
                     <div className="flex mx-auto w-full max-w-100 gap-4 bg-container-soft-shadow/50 p-1 rounded-full overflow-hidden">
                         <button
-                            onClick={() => setBackgroundActiveState("education")}
-                            className={`${backgroundActiveState === "education" ? "bg-bg  text-text/75  border border-container-stroke/40 " : "  text-container-stroke focus:text-text/50  hover:text-text/50 cursor-pointer"}  outline-text/50 font-bold  w-1/2 h-9 rounded-full`}
+                            onClick={() => handleBackgroundActiveState("education")}
+                            className={`${backgroundActiveState === "education" ? "bg-bg  text-text/75  border border-container-stroke/40 " : "  text-container-stroke focus:text-text/50  hover:text-text/50 "}  outline-text/50 font-bold  w-1/2 h-9 rounded-full`}
                             tabIndex={backgroundActiveState === "education" ? -1 : 0}
+                            {...(backgroundActiveState != "education" ? cursorOnHover : {})}
                         >
                             Education
                         </button>
                         <button
-                            onClick={() => setBackgroundActiveState("work")}
-                            className={`${backgroundActiveState === "work" ? "bg-bg    text-text/75 border border-container-stroke/40 " : "  text-container-stroke  focus:text-text/50  hover:text-text/50 cursor-pointer"}  outline-text/50 font-bold  w-1/2 h-9 rounded-full`}
+                            onClick={() => handleBackgroundActiveState("work")}
+                            className={`${backgroundActiveState === "work" ? "bg-bg    text-text/75 border border-container-stroke/40 " : "  text-container-stroke  focus:text-text/50  hover:text-text/50 "}  outline-text/50 font-bold  w-1/2 h-9 rounded-full`}
                             tabIndex={backgroundActiveState === "work" ? -1 : 0}
-
+                            {...(backgroundActiveState != "work" && cursorOnHover)}
                         >
                             Experience
                         </button>
@@ -84,8 +101,9 @@ export default function BackgroundSection() {
                                     ((!backgroundDockState && backgroundDataState.education.length > 2 && backgroundActiveState === "education") ||
                                         (!backgroundDockState && backgroundDataState.work.length > 2 && backgroundActiveState === "work")) &&
                                     <button
-                                        onClick={() => setBackgroundDockState(!backgroundDockState)}
-                                        className="text-text/50 hover:text-text/75 hover:bg-container-bg rounded-full font-bold py-2 -translate-y-10 cursor-pointer w-max px-8 mx-auto flex gap-1 items-center">
+                                        onClick={() => handleBackgroundDockState(!backgroundDockState)}
+                                        {...cursorOnHover}
+                                        className="text-text/50 hover:text-text/75 hover:bg-container-bg rounded-full font-bold py-2 -translate-y-10  w-max px-8 mx-auto flex gap-1 items-center">
                                         Show All
 
                                         <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
