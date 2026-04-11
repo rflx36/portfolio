@@ -59,14 +59,7 @@ export default function useWordReveal({
         setStatus("running");
     }, [total]);
 
-    const reset = useCallback(() => {
-        clearTimer();
-        queueRef.current = [];
-        cursorRef.current = 0;
-        setRevealedWords(new Set());
-        setStatus("idle");
-    }, []);
-
+  
 
     useEffect(() => {
         if (status !== "running") return;
@@ -75,7 +68,6 @@ export default function useWordReveal({
         return clearTimer;
     }, [status, interval, tick]);
 
-    const progress = total === 0 ? 0 : Math.round((revealedWords.size / total) * 100);
 
-    return { revealedWords, status, progress, start, reset }
+    return { revealedWords,  start  }
 }

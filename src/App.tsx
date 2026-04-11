@@ -1,7 +1,6 @@
 
 import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
-import { HoverGif } from "./components/hover_gif"
 import { useEffect } from "react"
 import SkillsSection from "./components/skills section"
 import BackgroundSection from "./components/background section"
@@ -42,13 +41,13 @@ function App() {
       <section id="home-section-id" className="h-[900px] max-h-[calc(85vh)] flex flex-col sm:justify-center items-center relative">
         <NameIntroduction />
         <SpecializationIntroduction />
-        <div className="mt-8 opacity-0">
+        {/* <div className="mt-8 opacity-0">
           <HoverGif
             staticSrc="/assets/ph_flag.png"
             animatedSrc="/assets/ph_flag_anim.gif"
             className="[image-rendering:pixelated] [image-rendering:crisp-edges] "
           />
-        </div>
+        </div> */}
 
         <div className="absolute bottom-0 w-[calc(100%-2rem)] max-w-270 flex flex-col items-center">
           <div className="h-max overflow-hidden w-full">

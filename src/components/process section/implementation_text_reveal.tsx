@@ -10,7 +10,7 @@ interface implementationTextRevealProps {
 
 export default function ImplementationTextReveal(props: implementationTextRevealProps) {
     
-    const { revealedWords, status, progress, start, reset } = useWordReveal({
+    const { revealedWords, start  } = useWordReveal({
         words: props.words,
         batchSize: Math.max(1, Math.ceil(props.words.length * (props.batchSize ?? 0.1))),
         interval: props.interval ?? 50,
