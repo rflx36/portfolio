@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { useCursor } from "../../hooks/use_cursor"
-import type { skillActiveStateType, skillDataType, skillInfo } from "../../types/types"
+import type { skillActiveStateType, skillInfo } from "../../types/types"
 import SkillsItem from "./skills_item"
 
 

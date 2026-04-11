@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { type skillActiveStateType, type skillDataType } from "../../types/types"
 import { skillActiveStateDefaults, skillDataDefaults } from "../../constants"
-import SkillsItem from "./skills_item";
 import "./skill_state_hovers.css"
 import SkillsItemContainer from "./skills_item_container";
 import { useInView } from "react-intersection-observer";
