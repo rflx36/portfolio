@@ -20,10 +20,6 @@ export default function NameIntroduction() {
     }, [])
 
 
-    const unMountName = () => {
-
-    }
-
     const base_text_style = `absolute -z-10 top-0 font-semibold delay-300 select-none  pointer-events-none ease-bezier-in opacity-0 duration-1500 ${initialize && "opacity-100"} text-text text-[4rem]`;
 
     return (

@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { animationLoadStateDefaults, projectsDataDefaults } from "../../constants";
-import type { animationLoadStateType, projectDataType, projectInfo } from "../../types/types";
+import type { animationLoadStateType, projectDataType } from "../../types/types";
 import ProjectsCard from "./projects_card";
 import "./project_container_hovers.css";
 import { useModalStore } from "../../stores/modal_store";
@@ -63,13 +63,6 @@ export default function ProjectsSection() {
     const widthContainerStringified = `calc(${100 / featuredAmountLimit}% + ${dampening}px - 1rem)`;
     const maxWidthContainerStringified = `calc(480px + ${dampening}px)`;
 
-    const OpenProjectsModal = (projectInfo: projectInfo) => {
-        // modalState.get.activeModal = "projects";
-        // modalState.get.modalInfo = projectInfo;
-        // modalState.set();
-        // console.log(modalState.get);
-        encodeURIComponent
-    }
 
 
     const handleRedirect = (projectTitle: string) => {

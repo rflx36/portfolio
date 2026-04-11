@@ -29,7 +29,7 @@ export default function ProjectsCard(props: {
     const randomRotation = randomizedTransforms.current.rotation;
     const randomTransform = randomizedTransforms.current.transform;
 
-    const btnCursor = useCursor({ tooltip: `Click to view more ${props.projectTitle} `, type:"pointer" })
+    const btnCursor = useCursor({ tooltip: `Click to view more `, type:"pointer" })
     return (
         <div className="project-card-container top-0 flex items-center justify-start w-full h-full">
             <div

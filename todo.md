@@ -31,3 +31,11 @@ Projects Sections
 Navigation Bar
 - Implement Better Hover effects  ( clarity ), cursor into aniamted icon changes
 
+
+
+Final Todo:
+-Mobile View
+-Resume
+-About and Image portrait
+-Projects section
+-projects images

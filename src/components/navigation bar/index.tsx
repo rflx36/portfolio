@@ -1,9 +1,6 @@
-import type React from "react"
 import ProgressiveBlur from "../ui/progressive_blur"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "../../constants";
-import { useEffect } from "react";
-import { useCursorStore } from "../../stores/cursor_store";
 import { useCursor } from "../../hooks/use_cursor";
 
 
@@ -35,15 +32,11 @@ export default function NavigationBar() {
         }
         else {
 
-            if (path == "/") {
-                navigate(path);
-            }
-            else {
 
                 navigate(path, {
                     state: { scrollTo: section }
                 })
-            }
+            
         }
     }
 

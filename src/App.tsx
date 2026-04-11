@@ -2,8 +2,7 @@
 import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
 import { HoverGif } from "./components/hover_gif"
-import NavigationBar from "./components/navigation bar"
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import SkillsSection from "./components/skills section"
 import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
@@ -12,12 +11,9 @@ import LandingContacts from "./components/contact section/landing contacts"
 import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
 import ProcessSection from "./components/process section"
-import Footer from "./components/footer"
 import ModalProjects from "./components/ui/modal/modal projects"
-import StarField from "./components/ui/starfield"
-import { Navigate, useLocation, useNavigate } from "react-router"
+import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
-import { CustomCursor } from "./components/ui/cursor"
 
 
 function App() {

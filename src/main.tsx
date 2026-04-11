@@ -7,15 +7,17 @@ import PageProjects from './pages/projects/index.tsx';
 import NavigationBar from './components/navigation bar/index.tsx';
 import Footer from './components/footer/index.tsx';
 import { CustomCursor } from './components/ui/cursor/index.tsx';
+import PageAbout from './pages/about/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
         <NavigationBar />
-        <CustomCursor/>
+        <CustomCursor />
         <Routes>
             <Route path='/' element={<App />} />
             <Route path="test/:value" element={<PageTest />} />
             <Route path="projects/:project_title" element={<PageProjects />} />
+            <Route path="about" element={<PageAbout />} />
         </Routes>
         <Footer />
     </BrowserRouter>

@@ -20,11 +20,11 @@ export default function LandingContacts() {
         fetchGithubData();
     }, []);
 
-    const cursorOnHoverCV = useCursor({ tooltip: 'Download CV', type: "pointer" })
+    const cursorOnHoverCV = useCursor({ tooltip: 'Download Resume', type: "pointer" })
 
     const cursorOnHoverGithub = useCursor({ tooltip: `github`, type: "pointer" })
 
-    const cursorOnHoverEmail = useCursor({ tooltip: "email", type: "pointer" })
+    const cursorOnHoverEmail = useCursor({ tooltip: "Copy to clipboard", type: "pointer" })
     return (
         <div className="flex w-[calc(100%-4rem)] mx-8 gap-12 justify-center ">
             <div className=" animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.9s] flex gap-3 p-2 font-semibold text-xs ease-bezier-in duration-50  items-center text-text/50 hover:text-accent-1">
@@ -41,7 +41,7 @@ export default function LandingContacts() {
                     <path fillRule="evenodd" clipRule="evenodd" d="M0 11C0 11.5523 0.447715 12 1 12H8C8.55228 12 9 11.5523 9 11V3.5H5.0625V0H1C0.447715 0 0 0.447715 0 1V11ZM9 3L5.625 0V3H9Z" />
                 </svg>
 
-                <p className="text-current">Download CV</p>
+                <p className="text-current">Download Resume</p>
             </button>
             <button {...cursorOnHoverGithub} className="outline-none focus:text-accent-1 animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.7s] flex gap-3 p-2 font-semibold text-xs ease-bezier-in duration-50 cursor-pointer items-center text-text/50 hover:text-accent-1">
 

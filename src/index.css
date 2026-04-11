@@ -50,9 +50,10 @@ body {
    cursor: none;
 }
 
-button{
+button, input, textarea, label{
     cursor: none;
 }
+
 
 ::-webkit-scrollbar {
     width: 6px;

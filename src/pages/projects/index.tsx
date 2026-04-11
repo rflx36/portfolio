@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import type { projectDataType } from "../../types/types";
-import { projectsDataDefaults, scrollDefaults } from "../../constants";
+import { projectsDataDefaults } from "../../constants";
 
 
 
@@ -51,13 +51,13 @@ export default function PageProjects() {
     }
 
     return (
-        <div className="w-[calc(100%-2rem)] max-w-270 h-full mx-auto mt-26">
+        <section className="w-[calc(100%-2rem)] max-w-270 h-full mx-auto mt-26">
 
             <div className="bg-container-soft-shadow w-full h-auto aspect-video rounded-2xl my-8">
 
             </div>
 
-            {/* <button onClick={()=>setViewType("about")} */}
+            <button onClick={()=>setViewType("about")}/>
 
             {
                 viewType == "about" ?
@@ -99,7 +99,7 @@ export default function PageProjects() {
                     :
                     <></>
             }
-        </div>
+        </section>
     )
 
 }
