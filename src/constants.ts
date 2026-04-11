@@ -1,4 +1,4 @@
-import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, cursorStateType, modalStateType, nameAnimStateType, polygonRotationStateType, processImplementationDetailsType, projectDataType, skillActiveStateType, skillDataType } from "./types/types";
+import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, cursorStateType, modalStateType, nameAnimStateType, polygonRotationStateType, projectDataType, skillActiveStateType, skillDataType } from "./types/types";
 
 
 
