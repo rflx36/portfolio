@@ -44,6 +44,38 @@ export default function SkillsSection() {
             >
 
                 <SkillsItemContainer
+                    isActiveState={skillsActiveState == "design"}
+                    isLoaded={skillDataState.isLoaded}
+                    data={skillDataState.design}
+                    onClick={() => setSkillsActiveState("design")}
+                    type="design"
+                />
+                <SkillsItemContainer
+                    isActiveState={skillsActiveState == "frontend"}
+                    isLoaded={skillDataState.isLoaded}
+                    data={skillDataState.frontend}
+                    onClick={() => setSkillsActiveState("frontend")}
+                    type="frontend"
+                />
+
+                <SkillsItemContainer
+                    isActiveState={skillsActiveState == "backend"}
+                    isLoaded={skillDataState.isLoaded}
+                    data={skillDataState.backend}
+                    onClick={() => setSkillsActiveState("backend")}
+                    type="backend"
+                />
+
+                <SkillsItemContainer
+                    isActiveState={skillsActiveState == "other"}
+                    isLoaded={skillDataState.isLoaded}
+                    data={skillDataState.other}
+                    onClick={() => setSkillsActiveState("other")}
+                    type="other"
+                />
+
+
+                {/* <SkillsItemContainer
                     isActiveState={skillsActiveState === "design"}
                     isLoaded={skillDataState.isLoaded}
                     onClick={() => setSkillsActiveState("design")}
@@ -51,6 +83,7 @@ export default function SkillsSection() {
                 >
                     {
                         skillDataState?.design?.map((skill, index) => (
+
                             <SkillsItem key={index} index={index} skill={skill} styleState={skillsActiveState === "design"} />
                         ))
                     }
@@ -91,7 +124,7 @@ export default function SkillsSection() {
                             <SkillsItem key={index} index={index} skill={skill} styleState={skillsActiveState === "other"} />
                         ))
                     }
-                </SkillsItemContainer>
+                </SkillsItemContainer> */}
             </div>
             <div className="w-full h-[0.0625rem] translate-y-[calc(2.25rem)] relative">
                 <div className="bg-text/25 w-full h-full " />

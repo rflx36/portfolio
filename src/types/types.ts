@@ -15,7 +15,7 @@ export type heartAnimActiveStateType = "idle" | "initialized" | "transformed";
 export type modalActiveStateType = "projects" | "contacts" | null;
 
 
-interface skillInfo {
+export interface skillInfo {
     name: string,
     img_url: string,
 }
