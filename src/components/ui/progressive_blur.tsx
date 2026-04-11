@@ -19,7 +19,6 @@ export default function ProgressiveBlur(props: ProgressiveBlurProps) {
         return `linear-gradient(${directionGradientMask[props.direction || 'bottom']},transparent 0%, black ${props.offset || 100}%)`;
     }
 
-    const elementCount = props.intensity && Math.log2(props.intensity) - 2 || 1;
 
     return (
         // <div className={`flex ${directionFlexAlignment[props.direction || 'bottom']} w-full h-full absolute top-0 left-0 ${props?.className}`}>
