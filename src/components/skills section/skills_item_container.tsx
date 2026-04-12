@@ -15,35 +15,23 @@ export default function SkillsItemContainer(props: {
     const [isLoaded, setIsLoaded] = useState(false);
 
     const cursorOnHover = useCursor({ type: "pointer" })
-    const random_skeleton_amount = useRef( Math.ceil(Math.random() * 8));
+    const random_skeleton_amount = useRef(Math.ceil(Math.random() * 8));
 
+    const [loadProgression, setLoadProgression] = useState(0);
+
+    const images = props.data.flatMap((skill) => [
+        skill.img_url,
+        skill.img_url.replace(".png", "_disabled.png"),
+        skill.img_url.replace(".png", "_sequence.png"),
+    ]);
 
     useEffect(() => {
+        if (!props.isLoaded) return;
 
-        if (!props.isLoaded) {
-            return;
+        if (loadProgression === images.length) {
+            setIsLoaded(true);
         }
-
-        const loadImage = (url: string): Promise<void> => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.src = url;
-
-                img.onload = () => resolve();
-                img.onerror = () => reject();
-            })
-        }
-
-        Promise.all(props.data.map((skill) => {
-            return [
-                `${skill.img_url}`,
-                `${skill.img_url.replace(".png", "_disabled.png")}`,
-                `${skill.img_url.replace(".png", "_sequence.png")}`
-            ]
-        }).flat().map(loadImage))
-            .then(() => setIsLoaded(true))
-            .catch(() => console.error("One or more images failed to load"))
-    }, [props.isLoaded])
+    }, [loadProgression, images.length, props.isLoaded]);
 
     return (
         <button
@@ -60,9 +48,26 @@ export default function SkillsItemContainer(props: {
                     <div className="absolute bg-accent-1 -bottom-3 h-0.5 w-full" />
                 }
             </div>
-            <div className="absolute hidden">
-                {/* <img src="" */}
-            </div>
+
+            {
+                !isLoaded &&
+                <div className="absolute hidden">
+                    {
+
+                        images.map((src, index) => (
+                            <img
+                                key={index}
+                                src={src}
+                                onLoad={() => setLoadProgression((x) => x + 1)}
+                                onError={() => {
+                                    console.error("Failed to load ", src)
+                                    setLoadProgression((x) => x + 1)
+                                }}
+                            />
+                        ))
+                    }
+                </div>
+            }
             <div className="grid grid-cols-2 gap-x-8 gap-y-9">
                 {
                     props.isLoaded && isLoaded ?
