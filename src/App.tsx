@@ -2,14 +2,14 @@
 import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
 import { useEffect } from "react"
-import SkillsSection from "./components/skills section"
-import BackgroundSection from "./components/background section"
-import ProjectsSection from "./components/projects section"
+// import SkillsSection from "./components/skills section"
+// import BackgroundSection from "./components/background section"
+// import ProjectsSection from "./components/projects section"
 import { useModalStore } from "./stores/modal_store"
 import LandingContacts from "./components/contact section/landing contacts"
-import ContactSection from "./components/contact section"
+// import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
-import ProcessSection from "./components/process section"
+// import ProcessSection from "./components/process section"
 import ModalProjects from "./components/ui/modal/modal projects"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
@@ -62,14 +62,14 @@ function App() {
         </div>
 
       </section>
-      <section ref={projectsRef} >
+      {/* <section ref={projectsRef} >
         <ProjectsSection />
       </section>
       <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
       <ContactSection />
-     
+      */}
 
 
 
