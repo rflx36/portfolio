@@ -4,6 +4,7 @@ import { useLocation } from 'react-router';
 import CursorDefault from './cursor_default';
 import CursorPointer from './cursor_pointer';
 import CursorText from './cursor_text';
+import isMobile from '../../../utils/is_mobile';
 
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
@@ -49,10 +50,6 @@ export function CustomCursor() {
     cursor.set();
   }, [location.pathname])
 
-
-  console.log(cursor.get);
-
-
   const getCursorStyle = () => {
 
     switch (cursor.get.type) {
@@ -70,6 +67,10 @@ export function CustomCursor() {
         return <></>
     }
 
+  }
+
+  if (isMobile()){
+    return;
   }
 
   return (

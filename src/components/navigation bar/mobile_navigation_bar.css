@@ -1,0 +1,18 @@
+
+
+.mobile-nav{
+    animation: backdropBlurIn 0.15s ease-in forwards;
+ 
+}
+
+@keyframes backdropBlurIn {
+    from {
+        -webkit-backdrop-filter: blur(0px);
+        backdrop-filter: blur(0px);
+    }
+
+    to {
+        -webkit-backdrop-filter: blur(0.5rem);
+        backdrop-filter: blur(0.5rem);
+    }
+}

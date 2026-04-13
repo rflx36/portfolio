@@ -38,7 +38,7 @@ function App() {
     <>
       {/* <CustomCursor/> */}
       {/* <StarField /> */}
-      <section id="home-section-id" className="h-[900px] max-h-[calc(85vh)] flex flex-col sm:justify-center items-center relative">
+      <section id="home-section-id" className="h-[900px] max-h-[calc(85vh)] max-mobile:h-[calc(100vh-300px)] flex flex-col max-mobile:mt-30  max-mobile:justify-start justify-center  items-center relative">
         <NameIntroduction />
         <SpecializationIntroduction />
         {/* <div className="mt-8 opacity-0">
@@ -49,7 +49,7 @@ function App() {
           />
         </div> */}
 
-        <div className="absolute bottom-0 w-[calc(100%-2rem)] max-w-270 flex flex-col items-center">
+        {/* <div className="absolute bottom-0 w-[calc(100%-2rem)] max-w-270 flex flex-col items-center">
           <div className="h-max overflow-hidden w-full">
 
             <div className={` duration-300 ease-in-out ${projectsInView && "translate-y-full"}`}>
@@ -65,17 +65,17 @@ function App() {
             <h1 className={`text-text font-bold text-xl ease-in-out py-2 duration-300 ${!projectsInView && "-translate-y-full"}`}>SELECTED PROJECTS</h1>
           </div>
 
-        </div>
+        </div> */}
 
       </section>
-      <section ref={projectsRef} >
+      {/* <section ref={projectsRef} >
         <ProjectsSection />
       </section>
       <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
       <ContactSection />
-     
+      */}
 
 
 

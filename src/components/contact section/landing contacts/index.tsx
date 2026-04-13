@@ -15,7 +15,6 @@ export default function LandingContacts() {
         setGithubData(data);
     }
 
-    console.log(githubData);
     useEffect(() => {
         fetchGithubData();
     }, []);

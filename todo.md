@@ -33,15 +33,15 @@ Navigation Bar
 
 
 
-
 Fixes:
 -unmount cursor when out of screen bounds - /
+- removed logs -/
 
 Feats:
--preload images in skills section before appearing
+-preload images in skills section before appearing - /
 
 Final Todo:
--Mobile View
+-Mobile View (min resolution: 320px - 430px)
 -Resume
 -About and Image portrait
 -Projects section

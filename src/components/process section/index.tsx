@@ -121,7 +121,7 @@ export default function ProcessSection() {
                         >
                             
                             <Polygon
-                                sides={implementations.length}
+                                sides={7}
                                 size={400}
                                 cornerRadius={16}
                                 fillColor="transparent"
@@ -132,7 +132,7 @@ export default function ProcessSection() {
                             />
                             <div className="absolute z-10 top-0 grid place-content-center size-full  ">
                                 <Polygon
-                                    sides={implementations.length}
+                                    sides={7}
                                     size={390}
                                     fillColor="var(--color-bg)"
                                     cornerRadius={16}
