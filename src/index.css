@@ -1,5 +1,5 @@
 @font-face {
-     font-family: 'Manrope';
+    font-family: 'Manrope';
     src: url('./assets/fonts/Manrope-Light.ttf') format('truetype');
     font-weight: light;
     font-display: swap;
@@ -47,10 +47,13 @@ body {
     font-family: 'Manrope', sans-serif;
     scrollbar-width: thin;
     scrollbar-color: var(--color-text) transparent;
-   cursor: none;
+    cursor: none;
 }
 
-button, input, textarea, label{
+button,
+input,
+textarea,
+label {
     cursor: none;
 }
 
@@ -85,8 +88,6 @@ button, input, textarea, label{
 
     --color-mixed-soft-shadow-bg: color-mix(in oklch, var(--color-container-soft-shadow) 50%, var(--color-container-bg));
 
-    --breakpoint-xs: 475px;
-
 
     --ease-smooth: cubic-bezier(0.405, 1.070, 0.435, 0.780);
     --ease-bezier-in: cubic-bezier(0.405, 1.070, 0.435, 0.780);
@@ -96,8 +97,9 @@ button, input, textarea, label{
 }
 
 
+@custom-variant max-mobile (@media (width <=27rem));
 
-
+@custom-variant max-tablet (@media (width <=40rem));
 
 
 @keyframes fadeIn {
@@ -256,16 +258,19 @@ button, input, textarea, label{
 }
 
 @keyframes gradient-carousel-200-delayed {
-    0%{
+    0% {
         background-position: 0% 0%;
     }
-    50%{
+
+    50% {
         background-position: 0% 0%;
     }
-    51%{
+
+    51% {
         background-position: 0% 0%;
     }
-    100%{
+
+    100% {
         background-position: 200% 100%;
     }
 }

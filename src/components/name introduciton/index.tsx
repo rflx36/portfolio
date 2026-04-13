@@ -23,7 +23,7 @@ export default function NameIntroduction() {
     const base_text_style = `absolute -z-10 top-0 font-semibold delay-300 select-none  pointer-events-none ease-bezier-in opacity-0 duration-1500 ${initialize && "opacity-100"} text-text text-[4rem]`;
 
     return (
-        <div className="h-max flex flex-wrap justify-center mb-7">
+        <div className="h-max flex flex-wrap  max-mobile:justify-start  max-mobile:w-74 max-mobile:translate-x-4  justify-center mb-7">
             <div className="w-56 h-16  relative" >
                 <div className="absolute z-10 left-0 h-5 w-max  overflow-hidden flex">
                     <h2 className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.1s] ">H</h2>
@@ -37,7 +37,7 @@ export default function NameIntroduction() {
                 {
                     !nameRolandState.ended &&
 
-                    <div className={`w-full h-full mt-[1.1rem] -translate-x-2 select-none pointer-events-none ${!nameRolandState.loaded && " opacity-0 "}`}>
+                    <div className={`w-full h-full mt-[1.1rem] -translate-x-2 select-none  pointer-events-none ${!nameRolandState.loaded ? " opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_roland.lottie"
                             autoplay
@@ -54,7 +54,7 @@ export default function NameIntroduction() {
                 <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75">Fonz</h1>
                 {
                     !nameFonzState.ended &&
-                    <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.4rem] select-none pointer-events-none ${!nameFonzState.loaded && " opacity-0 "}`}>
+                    <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.4rem]  select-none pointer-events-none ${!nameFonzState.loaded ? " opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_fonz.lottie"
                             autoplay
@@ -70,7 +70,7 @@ export default function NameIntroduction() {
                 <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75">Lamoste</h1>
                 {
                     !nameLamosteState.ended &&
-                    <div className={`w-full h-full mt-[1.1rem] -translate-x-[0.7rem] select-none pointer-events-none ${!nameLamosteState.loaded && "opacity-0 "}`}>
+                    <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.7rem]    select-none pointer-events-none ${!nameLamosteState.loaded ? "opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_lamoste.lottie"
                             autoplay
