@@ -62,14 +62,14 @@ function App() {
         </div>
 
       </section>
-      {/* <section ref={projectsRef} >
+      <section ref={projectsRef} >
         <ProjectsSection />
       </section>
       <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
       <ContactSection />
-      */}
+     
 
 
 
