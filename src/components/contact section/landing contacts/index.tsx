@@ -31,7 +31,7 @@ export default function LandingContacts() {
                 <div className="  animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s] flex gap-3 p-2 font-semibold text-xs ease-bezier-in duration-50  items-center text-text/50 hover:text-accent-1">
                     <div className="w-3 h-auto grid place-content-center ">
                         <svg className="fill-current" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M4 0C1.79086 0 0 1.79086 0 4C0 5.69958 4 13.7036 4 13.7036C4 13.7036 8 5.69958 8 4C8 1.79086 6.20914 0 4 0ZM4 5.69958C4.82843 5.69958 5.5 5.02801 5.5 4.19958C5.5 3.37116 4.82843 2.69958 4 2.69958C3.17157 2.69958 2.5 3.37116 2.5 4.19958C2.5 5.02801 3.17157 5.69958 4 5.69958Z" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M4 0C1.79086 0 0 1.79086  0 4C0 5.69958 4 13.7036 4 13.7036C4 13.7036 8 5.69958 8 4C8 1.79086 6.20914 0 4 0ZM4 5.69958C4.82843 5.69958 5.5 5.02801 5.5 4.19958C5.5 3.37116 4.82843 2.69958 4 2.69958C3.17157 2.69958 2.5 3.37116 2.5 4.19958C2.5 5.02801 3.17157 5.69958 4 5.69958Z" />
                         </svg>
                     </div>
                     <p className="text-current">Based in Rizal, Philippines</p>

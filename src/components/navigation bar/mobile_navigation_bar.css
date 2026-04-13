@@ -67,8 +67,9 @@
     from {}
 
     to {
-        -webkit-backdrop-filter: blur(8px) grayscale(100%);
-        backdrop-filter: blur(8px) grayscale(100%);
-        background-color: color-mix(in oklab, var(--color-bg), transparent 50%)
+        -webkit-backdrop-filter: grayscale(100%);
+        backdrop-filter: grayscale(100%);
+        /* backdrop-filter: blur(8px) grayscale(100%); */
+        background-color: color-mix(in oklab, var(--color-bg), transparent 15%)
     }
 }

@@ -93,7 +93,7 @@ export default function NavigationBar() {
                             <button className="relative text-text flex-1 w-full mobile-nav-button" onClick={() => handleNavigation("/about")}>
                                 <div className=" bg-accent-3 " style={{ animationDelay: "0.1s" }} />
                                 <div className=" bg-accent-2 " style={{ animationDelay: "0.2s" }} />
-                                <div className=" bg-accent-1 " style={{ animationDelay: "0.3s" }} />
+                                {/* <div className=" bg-accent-1 " style={{ animationDelay: "0.3s" }} /> */}
                                 <div className={` bg-text grid place-content-center delay-300 duration-1500 ease-bezier-in ${elementsInitialized ? " text-bg" : " text-accent-1"}`} style={{ animationDelay: "0.32s" }} >
                                     <h1 className="text-2xl uppercase font-bold">About</h1>
                                 </div>
@@ -102,7 +102,7 @@ export default function NavigationBar() {
 
                                 <div className=" bg-accent-3 " style={{ animationDelay: "0.25s" }} />
                                 <div className=" bg-accent-2 " style={{ animationDelay: "0.35s" }} />
-                                <div className=" bg-accent-1 " style={{ animationDelay: "0.45s" }} />
+                                {/* <div className=" bg-accent-1 " style={{ animationDelay: "0.45s" }} /> */}
                                 <div className={` bg-text grid place-content-center delay-450 duration-1500 ease-bezier-in ${elementsInitialized ? " text-bg" : "text-accent-1"}`} style={{ animationDelay: "0.47s" }}>
                                     <h1 className="text-2xl uppercase font-bold">Skills</h1>
                                 </div>
@@ -111,7 +111,7 @@ export default function NavigationBar() {
 
                                 <div className=" bg-accent-3 " style={{ animationDelay: "0.4s" }} />
                                 <div className=" bg-accent-2 " style={{ animationDelay: "0.5s" }} />
-                                <div className=" bg-accent-1 " style={{ animationDelay: "0.6s" }} />
+                                {/* <div className=" bg-accent-1 " style={{ animationDelay: "0.6s" }} /> */}
                                 <div className={` bg-text grid place-content-center delay-600 duration-1500 ease-bezier-in ${elementsInitialized ? " text-bg" : "text-accent-1"}`} style={{ animationDelay: "0.62s" }}>
                                     <h1 className="text-2xl uppercase font-bold">Projects</h1>
                                 </div>
@@ -120,7 +120,7 @@ export default function NavigationBar() {
 
                                 <div className=" bg-accent-3 " style={{ animationDelay: "0.55s" }} />
                                 <div className=" bg-accent-2 " style={{ animationDelay: "0.65s" }} />
-                                <div className=" bg-accent-1 " style={{ animationDelay: "0.75s" }} />
+                                {/* <div className=" bg-accent-1 " style={{ animationDelay: "0.75s" }} /> */}
                                 <div className={` bg-text grid place-content-center delay-750 duration-1500 ease-bezier-in ${elementsInitialized ? " text-bg" : "text-accent-1"}`} style={{ animationDelay: "0.77s" }}>
                                     <h1 className="text-2xl uppercase font-bold">Contact</h1>
                                 </div>
