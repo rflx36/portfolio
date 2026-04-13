@@ -17,6 +17,7 @@ export default function LandingContacts() {
 
     useEffect(() => {
         fetchGithubData();
+        console.log(githubData);
     }, []);
 
     const cursorOnHoverCV = useCursor({ tooltip: 'Download Resume', type: "pointer" })
