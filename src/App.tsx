@@ -62,10 +62,10 @@ function App() {
         </div>
 
       </section>
-      {/* <section ref={projectsRef} >
-        <ProjectsSection />
+      <section ref={projectsRef} >
+        {/* <ProjectsSection /> */}
       </section>
-      <SkillsSection />
+      {/* <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
       <ContactSection />
