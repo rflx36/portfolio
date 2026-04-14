@@ -81,7 +81,7 @@ export default function NavigationBar() {
                 {
                     isDocked &&
 
-                    <div className="absolute not-max-mobile:hidden  w-screen h-screen  flex flex-col left-0 top-0 mobile-nav-container">
+                    <div className="absolute not-max-mobile:hidden  w-screen h-dvh flex flex-col left-0 top-0 mobile-nav-container">
                         <div className="w-full h-1/3 flex items-center gap-2 pb-4 flex-col-reverse aspect-square  mx-auto">
                             <h1 className={`font-semibold mobile-nav-name ease-bezier-in delay-100 duration-1500 ${elementsInitialized ? "text-text" : "text-accent-1"}`}>Roland Fonz Lamoste</h1>
                             <button onClick={() => handleNavigation("/", "home-section-id")} className="size-[100px] bg-bg p-0.5 shadow-2xl rounded-full overflow-hidden animate-[scaleIn_0.3s_cubic-bezier(0.65,0.56,0.27,0.86)_backwards]">
