@@ -11,14 +11,14 @@
     overflow: hidden;
 }
 
-.mobile-nav-button > div {
+.mobile-nav-button>div {
     position: absolute;
     top: 0;
     transform-origin: top;
     width: 100%;
     height: 100%;
 
-    animation: clipReveal 0.3s cubic-bezier(0.65, 0.56, 0.27, 0.86) both;
+    animation: elementReveal 0.3s cubic-bezier(0.65, 0.56, 0.27, 0.86) both;
     border-radius: var(--radius-2xl);
 }
 
@@ -28,7 +28,7 @@
 
 .mobile-nav-name {
     animation: clipReveal 0.5s cubic-bezier(0.65, 0.56, 0.27, 0.86) backwards 0.1s;
-    
+
 }
 
 @keyframes backdropBlurIn {
@@ -43,24 +43,34 @@
     }
 }
 
-@keyframes clipReveal {
+@keyframes elementReveal {
     0% {
-        /* clip-path: ellipse(0% 0% at 50% 0%); */
-        /* border-radius : 100px; */
         border-bottom-left-radius: 100%;
         border-bottom-right-radius: 100%;
-        scale: 0%;
-        transform: translateY(-50px);
+        transform: translateY(-50px) scale(0);
+    }
+    50% {
+        border-bottom-left-radius: 100%;
+        border-bottom-right-radius: 100%;
+    }
+
+    100% {
+    }
+}
+
+@keyframes clipReveal {
+    0% {
+        clip-path: ellipse(0% 0% at 50% 0%);
+        /* border-radius : 100px; */
+        scale: 50%;
 
     }
-    60% {
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-    }
+
     100% {
-        /* clip-path: ellipse(120% 100% at 50% 20%); */
+        clip-path: ellipse(120% 100% at 50% 20%);
         scale: 100%;
-        
+
+
 
     }
 }
@@ -78,9 +88,9 @@
     from {}
 
     to {
-        -webkit-backdrop-filter: grayscale(100%);
-        backdrop-filter: grayscale(100%);
-        /* backdrop-filter: blur(8px) grayscale(100%); */
-        background-color: color-mix(in oklab, var(--color-bg), transparent 15%)
+        -webkit-backdrop-filter: blur(8px) grayscale(100%);
+        /* backdrop-filter: grayscale(100%); */
+        backdrop-filter: blur(8px) grayscale(100%);
+        background-color: color-mix(in oklab, var(--color-bg), transparent 50%)
     }
 }
