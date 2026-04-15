@@ -30,15 +30,16 @@ export default function ProjectsCard(props: {
     const dampening = props.DisplayProperties.dampening;
     const randomRotation = randomizedTransforms.current.rotation;
     const randomTransform = randomizedTransforms.current.transform;
+    const transformFocusMultiplier = props.index - (screenWidth.current <= 430 ? props.focus : props.focus - 1);
 
     const btnCursor = useCursor({ tooltip: `Click to view more `, type: "pointer" })
     return (
         <div className="project-card-container   top-0 flex items-center justify-start w-full h-full">
             <button
-                className={`bg-bg rounded-4xl max-tablet:rounded-3xl grid place-content-center cursor-none! aspect-268/133 ${props.DisplayProperties.loadAnimation.preload ? " pointer-events-auto select-auto" : "pointer-events-none select-none"}   shadow-lg  ${(props.focus != -1) ? (props.focus == props.index ? "shadow-2xl -translate-y-3 z-20! scale-105 ":"grayscale-100 blur-[2.5px]") : ` project-card  hover:z-20!  hover:delay-100! hover:shadow-2xl hover:duration-150 hover:-translate-y-3 ${props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? "hover:rotate-3" : "hover:-rotate-5"} hover:scale-105`}  absolute border-4 ease-initial duration-300 border-black/10 overflow-hidden h-max w-full`}
+                className={`bg-bg rounded-4xl max-tablet:rounded-3xl grid place-content-center cursor-none! aspect-268/133 ${props.DisplayProperties.loadAnimation.preload ? " pointer-events-auto select-auto" : "pointer-events-none select-none"}   shadow-lg  ${(props.focus != -1) ? (props.focus == props.index ? "shadow-2xl -translate-y-3 z-20! scale-105 " : "grayscale-100 blur-[2.5px]") : ` project-card  hover:z-20!  hover:delay-100! hover:shadow-2xl hover:duration-150 hover:-translate-y-3 ${props.index % 2 == (props.DisplayProperties.inverseBoolValue ? 1 : 0) ? "hover:rotate-3" : "hover:-rotate-5"} hover:scale-105`}  absolute border-4 ease-initial duration-300 border-black/10 overflow-hidden h-max w-full`}
                 style={{
                     transform: props.DisplayProperties.loadAnimation.preload ? `rotate(${randomRotation}deg) translateX(${randomTransform}px)` : "scale(50%) translateY(300%)",
-                    left: screenWidth.current <= 820 ? `calc((${props.index + props.focus}* ${screenWidth.current <= 430 ? `100%) ${props.index > 0 ? "- 67px" : ""}` : `250px) ${props.index > 0 ? "+ (100% / 2) - 400px" : "- 400px + (100% / 2)"}`})` : `calc(${props.index * (100 / featuredAmountLimit)}% ${props.index > 0 && `- ${dampening}px`})`,
+                    left: screenWidth.current <= 820 ? `calc((${transformFocusMultiplier}* ${screenWidth.current <= 430 ? `100%) ${props.index > 0 ? "- 67px" : "- 10px"}` : `250px) ${props.index > 0 ? "+ (100% / 2) - 400px" : "- 400px + (100% / 2)"}`})` : `calc(${props.index * (100 / featuredAmountLimit)}% ${props.index > 0 && `- ${dampening}px`})`,
                     transitionDelay: props.DisplayProperties.loadAnimation.postload ? "0ms" : `${props.index * 50}ms`,
                     maxWidth: screenWidth.current <= 820 ? "320px" : `calc(${100 / featuredAmountLimit}% + ${dampening}px)`,
                     zIndex: 10 - props.index,
