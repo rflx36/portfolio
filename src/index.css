@@ -101,6 +101,7 @@ label {
 
 @custom-variant max-tablet (@media (width <=40rem));
 
+@custom-variant max-laptop (@media (width <=85.375rem));
 
 @keyframes fadeIn {
     0% {

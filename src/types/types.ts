@@ -14,7 +14,7 @@ export type heartAnimActiveStateType = "idle" | "initialized" | "transformed";
 
 export type modalActiveStateType = "projects" | "contacts" | null;
 
-
+export type resizeRegion = "mobile" | "tablet" | "desktop"
 export interface skillInfo {
     name: string,
     img_url: string,

@@ -4,7 +4,7 @@ import SpecializationIntroduction from "./components/specialization introduction
 import { useEffect } from "react"
 // import SkillsSection from "./components/skills section"
 // import BackgroundSection from "./components/background section"
-// import ProjectsSection from "./components/projects section"
+import ProjectsSection from "./components/projects section"
 import { useModalStore } from "./stores/modal_store"
 import LandingContacts from "./components/contact section/landing contacts"
 // import ContactSection from "./components/contact section"
@@ -13,6 +13,7 @@ import { useInView } from "react-intersection-observer"
 import ModalProjects from "./components/ui/modal/modal projects"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
+import isMobile from "./utils/is_mobile"
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
     <>
       {/* <CustomCursor/> */}
       {/* <StarField /> */}
-      <section id="home-section-id" className="h-[900px] max-h-[calc(85vh)] max-mobile:h-[calc(100vh-200px)] flex flex-col max-mobile:mt-30  max-mobile:justify-start justify-center  items-center relative">
+      <section id="home-section-id" className=" h-[900px] max-h-[calc(85vh)] max-mobile:max-h-[640px]  max-mobile:h-[calc(100vh-200px)] max-mobile:min-h-[420px] max-tablet:min-h-[400px] flex flex-col max-mobile:mt-24  max-mobile:justify-start justify-center  items-center relative">
         <NameIntroduction />
         <SpecializationIntroduction />
        
@@ -46,7 +47,7 @@ function App() {
         <div className="absolute bottom-0 w-[calc(100%-2rem)] max-w-270 flex flex-col items-center">
           <div className="h-max overflow-hidden w-full">
 
-            <div className={` duration-300 ease-in-out ${projectsInView && "translate-y-full"}`}>
+            <div className={` duration-300 ease-in-out ${(projectsInView && !isMobile())  && "translate-y-full"}`}>
               <LandingContacts />
             </div>
           </div>
@@ -55,7 +56,7 @@ function App() {
             <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 -translate-y-1/2" />
             <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 -translate-y-1/2" />
           </div>
-          <div className="w-full h-8 flex justify-center overflow-hidden">
+          <div className="w-full h-8 flex max-mobile:hidden justify-center overflow-hidden">
             <h1 className={`text-text font-bold text-xl ease-in-out py-2 duration-300 ${!projectsInView && "-translate-y-full"}`}>SELECTED PROJECTS</h1>
           </div>
 
@@ -63,7 +64,7 @@ function App() {
 
       </section>
       <section ref={projectsRef} >
-        {/* <ProjectsSection /> */}
+        <ProjectsSection />
       </section>
       {/* <SkillsSection />
       <BackgroundSection />
