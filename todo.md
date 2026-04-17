@@ -40,6 +40,13 @@ Fixes:
 Feats:
 -preload images in skills section before appearing - /
 
+
+Optimize:
+- mobile introduction to project section transition  - / 
+
+- add mounting on intersection observer on the project section - /
+
+
 Final Todo:
 -Mobile View (min resolution: 320px - 430px)
 -Resume

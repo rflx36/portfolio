@@ -162,7 +162,7 @@ export default function ProjectsSection() {
         }
     }
 
-    const handleMobileOnClick = (type: "prev" | "next" | "redirect",e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>, projectTitle?: string) => {
+    const handleMobileOnClick = (type: "prev" | "next" | "redirect", e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>, projectTitle?: string) => {
         e.currentTarget.blur();
 
         switch (type) {
@@ -195,8 +195,9 @@ export default function ProjectsSection() {
         <>
             {/* <h1 className="font-sans font-semibold text-text text-lg w-full text-center">SELECTED PROJECTS</h1> */}
 
-            <div key={remountKey} className={`w-[calc(100%-4rem)] max-mobile:w-[calc(100%-2rem)] bg-container-soft-shadow/75 max-mobile:py-2.5 max-mobile:rounded-2xl max-mobile:mt-2   mx-auto mt-6  py-[calc(2.5%+1rem)] ${resizeRegion.current == "desktop" && animationLoadState.postload ? "overflow-visible" : " overflow-hidden"}    max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
+            <div key={remountKey} className={`w-[calc(100%-4rem)]  max-mobile:w-[calc(100%-2rem)] bg-container-soft-shadow/75 max-mobile:py-2.5 max-mobile:rounded-2xl max-mobile:mt-2   mx-auto mt-6  py-[calc(2.5%+1rem)] ${resizeRegion.current == "desktop" && animationLoadState.postload ? "overflow-visible" : " overflow-hidden"}    max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
                 {/* <div className={`aspect-268/133 w-[${widthContainerStringified}] max-w-[${maxWidthContainerStringified}]`} /> */}
+
                 <div className="aspect-268/133 relative"
                     style={{
                         width: screenWidth.current <= 820 ? 360 : widthContainerStringified,
@@ -207,13 +208,13 @@ export default function ProjectsSection() {
                     {
                         resizeRegion.current == "mobile" &&
                         <div className="absolute pointer-events-none w-full h-full z-10 flex justify-between items-center">
-                            <button onClick={(e) => handleMobileOnClick("prev", e)} className={`text-transparent w-12 -translate-x-1.5 h-[calc(100%-8px)] pointer-events-auto  ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
+                            <button onClick={(e) => handleMobileOnClick("prev", e)} className={`text-transparent w-16 -translate-x-1.5 h-[calc(100%-8px)] pointer-events-auto  ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
                                 Prev
                             </button>
-                            <button onClick={(e) => {handleMobileOnClick("redirect",e, getFocusedProjectDetails?.project_title)}} className={`text-transparent   grid place-content-center  flex-1 h-[calc(100%-8px)] pointer-events-auto ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${( MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
+                            <button onClick={(e) => { handleMobileOnClick("redirect", e, getFocusedProjectDetails?.project_title) }} className={`text-transparent   grid place-content-center  flex-1 h-[calc(100%-8px)] pointer-events-auto ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
                                 Click to View more
                             </button>
-                            <button onClick={(e) => handleMobileOnClick("next", e)} className={`text-transparent w-12 translate-x-1.5 h-[calc(100%-8px)] pointer-events-auto  ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${( MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
+                            <button onClick={(e) => handleMobileOnClick("next", e)} className={`text-transparent w-16 translate-x-1.5 h-[calc(100%-8px)] pointer-events-auto  ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
                                 Next
                             </button>
                         </div>
@@ -274,6 +275,13 @@ export default function ProjectsSection() {
                 {
                     resizeRegion.current != "desktop" &&
                     <div className="flex flex-col gap-4" ref={mobileProjectsRef}>
+                        <div key={focus} className=" flex gap-2 justify-center opacity-0 project-mobile-controls-navigation">
+                            <div className={`h-0.5 w-8 ${focus == 0 ? "bg-text w-16" : "bg-text/30"} rounded-full`} />
+                            <div className={`h-0.5 w-8 ${focus == 1 ? "bg-text  w-16" : "bg-text/30"} rounded-full`} />
+                            <div className={`h-0.5 w-8 ${focus == 2 ? "bg-text  w-16" : "bg-text/30"} rounded-full`} />
+                            <div className={`h-0.5 w-8 ${focus == 3 ? "bg-text  w-16" : "bg-text/30"} rounded-full`} />
+                           
+                        </div>
                         <p className="text-text font-semibold max-mobile:text-left text-center ">{getFocusedProjectDetails?.project_title}</p>
                         <div className="max-h  relative" >
                             <p className="text-sm  text-text/75">{getFocusedProjectDetails?.project_description_minified}</p>
@@ -297,6 +305,7 @@ export default function ProjectsSection() {
                                 })
                             }
                         </div>
+
                     </div>
 
 

@@ -5,6 +5,7 @@ import { useCursor } from "../../hooks/use_cursor";
 import { useEffect, useState } from "react";
 import "./mobile_navigation_bar.css"
 import ToggleNavigation from "../ui/toggle/navigation";
+import isMobile from "../../utils/is_mobile";
 
 
 
@@ -17,6 +18,8 @@ export default function NavigationBar() {
 
     const [isDocked, setIsDocked] = useState(false);
     const [elementsInitialized, setElementsInitialized] = useState(false);
+    const [isAtTop, setIsAtTop] = useState(true)
+
     const handleNavigation = (path: string, section?: string) => {
         if (isDocked) {
             setIsDocked(false);
@@ -46,17 +49,34 @@ export default function NavigationBar() {
         setTimeout(() => {
             setElementsInitialized(isDocked)
         }, 50);
-    }, [isDocked])
 
+        const handleScroll = () => {
+            if (window.scrollY >=350 || window.scrollY <=250){
+                return;
+            }
+
+            const scrollPastLimit = window.scrollY >= 300;
+
+            setIsAtTop(!scrollPastLimit);
+
+
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [isDocked])
 
     return (
         <>
 
             <nav className=" p-2 w-full px-[calc(50vw-720px+3rem)] pointer-events-none  fixed flex mx-auto justify-between top-0 z-50">
                 <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! select-none pointer-events-none" />
-                <button className="pointer-events-auto" onClick={() => handleNavigation("/", "home-section-id")}   {...cursorOnHover}>
-                    <h1 className="p-2 max-mobile:opacity-0 origin-top-left mx-2 hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s]">RFLAMOSTE</h1>
-                </button>
+                {
+                    (((location.pathname == "/" && !isAtTop) || location.pathname != "/") || !isMobile()) &&
+                    <button className="pointer-events-auto" onClick={() => handleNavigation("/", "home-section-id")}   {...cursorOnHover}>
+                        <h1 className={`p-2  origin-top-left mx-2 hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s] max-mobile:animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both]`}>RFLAMOSTE</h1>
+                    </button>
+                }
                 <div className="mx-1 relative max-mobile:hidden pointer-events-auto">
                     <div className="aspect-video h-auto w-full  absolute "></div>
                     <button onClick={() => handleNavigation("/projects")} className="focus:bg-accent-1 text-text"   {...cursorOnHover}>
