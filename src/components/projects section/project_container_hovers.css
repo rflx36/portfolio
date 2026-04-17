@@ -1,6 +1,6 @@
 .project-container .project-card {
     filter: grayscale(100) blur(2.5px);
-    transition: all 0.15s cubic-bezier(0.18, 0.87, 0.22, 0.87) 0.3s!
+    transition: all 0.15s cubic-bezier(0.18, 0.87, 0.22, 0.87) 0.3s !
 }
 
 
@@ -21,4 +21,38 @@
     filter: none;
     transition-duration: 0.15s;
 
+}
+
+
+
+.project-mobile-controls {
+
+    animation: fadeShow 2s ease-in-out backwards 1s
+}
+
+
+@keyframes fadeShow {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+
+    }
+
+    30% {
+
+        background-color: rgba(0, 0, 0, 0.25);
+        color: white;
+        backdrop-filter: blur(6px);
+    }
+
+    70% {
+
+        background-color: rgba(0, 0, 0, 0.25);
+        color: white;
+         backdrop-filter: blur(6px);
+    }
+
+    100% {
+
+        background-color: rgba(0, 0, 0, 0);
+    }
 }

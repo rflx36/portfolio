@@ -1,10 +1,11 @@
-import {  useEffect,  useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { animationLoadStateDefaults, projectsDataDefaults } from "../../constants";
 import { type resizeRegion, type animationLoadStateType, type projectDataType } from "../../types/types";
 import ProjectsCard from "./projects_card";
 import "./project_container_hovers.css";
 import { useNavigate } from "react-router";
 import ProjectsCardMobile from "./projects_card_mobile";
+import { useInView } from "react-intersection-observer";
 // import isMobile from "../../utils/is_mobile";
 
 
@@ -21,6 +22,7 @@ export default function ProjectsSection() {
     const resizeRegion = useRef<resizeRegion>("desktop");
 
     const persistRandomizedValue = useRef(Math.random() < 0.5);
+    const [mobileProjectsRef, MobilesProjectsInView] = useInView({ threshold: 1, triggerOnce: true });
 
     const handleHovers = () => {
         const projectsCard = document.getElementById("project-container-id");
@@ -160,6 +162,27 @@ export default function ProjectsSection() {
         }
     }
 
+    const handleMobileOnClick = (type: "prev" | "next" | "redirect",e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>, projectTitle?: string) => {
+        e.currentTarget.blur();
+
+        switch (type) {
+            case "prev":
+                setFocus(current => current < 1 ? current : current - 1)
+                break;
+            case "next":
+                setFocus(current => current > 2 ? current : current + 1);
+                break;
+            case "redirect":
+                if (projectTitle) {
+                    handleRedirect(projectTitle)
+                }
+                break;
+            default:
+                break;
+        }
+
+    }
+
     console.log("focus value:" + focus + "resize:" + resizeRegion.current);
 
 
@@ -182,6 +205,21 @@ export default function ProjectsSection() {
                 />
                 <div className="w-[calc(100%-8rem)]  max-laptop:w-[calc(100%-20px)]   mx-auto max-w-[1920px] pointer-events-none select-none h-full absolute top-0 flex  items-center justify-start " id="project-container-id">
                     {
+                        resizeRegion.current == "mobile" &&
+                        <div className="absolute pointer-events-none w-full h-full z-10 flex justify-between items-center">
+                            <button onClick={(e) => handleMobileOnClick("prev", e)} className={`text-transparent w-12 -translate-x-1.5 h-[calc(100%-8px)] pointer-events-auto  ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
+                                Prev
+                            </button>
+                            <button onClick={(e) => {handleMobileOnClick("redirect",e, getFocusedProjectDetails?.project_title)}} className={`text-transparent   grid place-content-center  flex-1 h-[calc(100%-8px)] pointer-events-auto ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${( MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
+                                Click to View more
+                            </button>
+                            <button onClick={(e) => handleMobileOnClick("next", e)} className={`text-transparent w-12 translate-x-1.5 h-[calc(100%-8px)] pointer-events-auto  ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${( MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
+                                Next
+                            </button>
+                        </div>
+
+                    }
+                    {
                         projectsDataState.isLoaded ? (
                             projectsDataState.projects?.map((project, index) => {
                                 if (!project.project_is_featured) {
@@ -198,7 +236,6 @@ export default function ProjectsSection() {
                                             projectImageUrl={project.project_img_url}
                                             projectDate={project.project_finished_date}
                                             projectStacks={project.project_tech_stack}
-                                            onClick={() => handleOnclick(project.project_title, index)}
                                             focus={focus}
                                         />
                                     )
@@ -233,37 +270,37 @@ export default function ProjectsSection() {
 
                 </div>
             </div>
-            <div className="mt-9 max-mobile:mt-4  mb-96 w-[calc(100%-2rem)] mx-auto  h-10 flex flex-col gap-4">
+            <div className="mt-9 max-mobile:mt-4  mb-96 w-[calc(100%-4rem)] max-mobile:w-[calc(100%-2rem)] mx-auto  h-10" >
                 {
                     resizeRegion.current != "desktop" &&
-                    <>
-                        <p className="text-text font-semibold ">{getFocusedProjectDetails?.project_title}</p>
-                        <div className="max-h  relative">
+                    <div className="flex flex-col gap-4" ref={mobileProjectsRef}>
+                        <p className="text-text font-semibold max-mobile:text-left text-center ">{getFocusedProjectDetails?.project_title}</p>
+                        <div className="max-h  relative" >
                             <p className="text-sm  text-text/75">{getFocusedProjectDetails?.project_description_minified}</p>
                             {/* <div className="bg-linear-to-b from-transparent bottom-0 to-bg absolute h-32 w-full"/> */}
                         </div>
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 justify-center max-mobile:justify-start">
                             {
                                 getFocusedProjectDetails?.project_tech_stack.map((x, i) => {
                                     const stack_name = x.toLowerCase().replace(" ", "");
                                     const image_source = `/assets/skills/${stack_name == "reactnative" ? "react" : stack_name}_3.png`;
-                                    
+
                                     return (
-                                        <img key={i} className={`size-[25px] [image-rendering:pixelated]  ${stack_name == "reactnative" ? "grayscale-100 " : ""}`}
+                                        <img key={i + "-" + x} className={`size-[25px] [image-rendering:pixelated]  ${stack_name == "reactnative" ? "grayscale-100 " : ""}`}
                                             src={image_source}
                                             alt={x}
+                                            style={{
+                                                animation: `SlideUpFadeIn 0.3s ease-out ${0 + (i / 25)}s backwards`,
+                                            }}
                                         />
                                     )
                                 })
                             }
                         </div>
-                    </>
+                    </div>
 
 
                 }
-
-                <button onClick={() => setFocus(x => x - 1)}>-</button>
-                <button onClick={() => setFocus(x => x + 1)}>+</button>
             </div>
         </>
     )

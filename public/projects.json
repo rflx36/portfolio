@@ -26,6 +26,7 @@
         "project_img_url": "project_thumbnail_statlab.png",
         "project_video_url": "",
         "project_description": "An advanced stat optimization tool for HHR that simulates damage output and survivability across diverse PvE scenarios. It processes multiple variables including equipment, perks, enchantments, pets, and skill-element interactions to determine optimal builds and stat thresholds. With dynamic modifiers and real-time sliders, it adapts to different in-game conditions while providing detailed comparisons across enemies and configurations. Widely adopted within the HHR community, the platform reached over 30,000 monthly active users at its peak.",
+        "project_description_minified": "An advanced HHR stat calculator that can test out every item and simulates damage and survivability, reached 30k Monthly Active Users at its peak.",
         "project_finished_date": "Dec 2024",
         "project_tech_stack": [
             "React",
@@ -42,6 +43,7 @@
         "project_img_url": "project_thumbnail_furrpection.png",
         "project_video_url": "",
         "project_description": "A web-based e-commerce platform for pet shops, designed to handle product browsing, cart management, order processing, and an admin panel for managing inventory and orders. It focuses on delivering core commerce functionality through a clean and intuitive interface. Developed as part of a capstone project.",
+        "project_description_minified": "A web-based e-commerce platform for pet shops, designed to handle product browsing, cart management, order processing, and an admin panel for managing inventory and orders.",
         "project_finished_date": "Dec 2023",
         "project_tech_stack": [
             "HTML",
@@ -58,7 +60,8 @@
         "project_title": "ROM - Restaurant Ordering Management System",
         "project_img_url": "project_thumbnail_rom.png",
         "project_video_url": "",
-        "project_description": "a Windows Forms–based restaurant ordering management system designed to streamline customer and employee interactions. It features a custom client UI for ordering, a POS interface for staff, and an admin panel for inventory management. The system emphasizes intuitive workflows and clear information presentation to improve efficiency and reduce errors.",
+        "project_description": "A Windows Forms–based restaurant ordering management system designed to streamline customer and employee interactions. It features a custom client UI for ordering, a POS interface for staff, and an admin panel for inventory management. The system emphasizes intuitive workflows and clear information presentation to improve efficiency and reduce errors.",
+        "project_description_minified":"A Windows Forms–based restaurant ordering management system designed to streamline customer and employee interactions. Custom client UI, POS, and admin panel for inventory management.",
         "project_finished_date": "Jun 2023",
         "project_tech_stack": [
             "Visual Basic",

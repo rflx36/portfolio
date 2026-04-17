@@ -7,7 +7,7 @@ export default function ProjectsCardMobile(props: {
     projectImageUrl: string,
     projectDate: string,
     projectStacks: Array<string>,
-    onClick: () => void,
+   
     focus: number
 }) {
 
@@ -15,15 +15,15 @@ export default function ProjectsCardMobile(props: {
 
     return (
         <div className=" absolute top-0 flex items-center justify-start w-full h-full">
-            <button
+            <div
                 className={`bg-bg rounded-md duration-150 ease-initial  overflow-hidden aspect-268/133 h-max w-full ${props.focus != props.index ?"opacity-0 scale-50": ""} `}
-                onClick={props.onClick}
+         
                 style={{
                     transform: `translateX(calc(${props.index - props.focus} * 100%))`
                 }}
             >
                 <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" loading="lazy" />
-            </button>
+            </div>
             
             <div className="-bottom-9 left-0 right-0 mx-auto w-full flex flex-col absolute translate-y-8">
                 <p>{props.projectTitle}</p>
