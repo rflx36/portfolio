@@ -10,13 +10,16 @@ export default function NameIntroduction() {
     const [nameRolandState, setnameRolandState] = useState<nameAnimStateType>(nameAnimStateDefaults);
     const [nameFonzState, setnameFonzState] = useState<nameAnimStateType>(nameAnimStateDefaults);
     const [nameLamosteState, setnameLamosteState] = useState<nameAnimStateType>(nameAnimStateDefaults);
-
+    const [initializeLottie, setInitializeLottie] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {
             setInitialize(true);
         }, 1000);
 
+        setTimeout(() => {
+            setInitializeLottie(true);
+        }, 300);
     }, [])
 
 
@@ -35,7 +38,7 @@ export default function NameIntroduction() {
                 </div>
                 <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75 ">Roland</h1>
                 {
-                    !nameRolandState.ended &&
+                    (!nameRolandState.ended && initializeLottie) &&
 
                     <div className={`w-full h-full mt-[1.1rem] -translate-x-2 select-none  pointer-events-none ${!nameRolandState.loaded ? " opacity-0 " : ""}`}>
                         <DotLottieReact
@@ -53,7 +56,7 @@ export default function NameIntroduction() {
             <div className="w-40 h-16 relative ">
                 <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75">Fonz</h1>
                 {
-                    !nameFonzState.ended &&
+                    (!nameFonzState.ended && initializeLottie) &&
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.4rem]  select-none pointer-events-none ${!nameFonzState.loaded ? " opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_fonz.lottie"
@@ -69,7 +72,7 @@ export default function NameIntroduction() {
             <div className="w-72 h-16 relative">
                 <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75">Lamoste</h1>
                 {
-                    !nameLamosteState.ended &&
+                    (!nameLamosteState.ended && initializeLottie) &&
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.7rem]    select-none pointer-events-none ${!nameLamosteState.loaded ? "opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_lamoste.lottie"
