@@ -66,17 +66,21 @@ function App() {
         </div>
 
       </section>
-      <section ref={projectsRef} >
-        {
-          introductionLoaded || projectsMobileInView ?
-            <div className={`max-mobile:animate-[SlideUpFadeIn_0.5s_ease-in-out_forwards]`}>
+      {
+        introductionLoaded &&
 
-              <ProjectsSection />
-            </div>
-            :
-            <div className="w-full  h-56" ref={projectsRefMobile}/>
-        }
-      </section>
+        <section ref={!isMobile() ? projectsRef : () => { }} >
+          {
+            (introductionLoaded || projectsMobileInView || !isMobile()) ?
+              <div className={`max-mobile:animate-[SlideUpFadeIn_0.5s_ease-in-out_forwards]`}>
+
+                <ProjectsSection />
+              </div>
+              :
+              <div className="w-full  h-56" ref={projectsRefMobile} />
+          }
+        </section>
+      }
       {/* <SkillsSection />
       <BackgroundSection />
       <ProcessSection />

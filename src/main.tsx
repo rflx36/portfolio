@@ -15,9 +15,9 @@ createRoot(document.getElementById('root')!).render(
         <CustomCursor />
         <Routes>
             <Route path='/' element={<App />} />
-            <Route path="test/:value" element={<PageTest />} />
-            <Route path="projects/:project_title" element={<PageProjects />} />
-            <Route path="about" element={<PageAbout />} />
+            <Route path="/test/:value" element={<PageTest />} />
+            <Route path="/projects/:project_title" element={<PageProjects />} />
+            <Route path="/about" element={<PageAbout />} />
         </Routes>
         <Footer />
     </BrowserRouter>
