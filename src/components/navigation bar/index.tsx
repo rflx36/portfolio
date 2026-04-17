@@ -51,7 +51,7 @@ export default function NavigationBar() {
         }, 50);
 
         const handleScroll = () => {
-            if (window.scrollY >=350 || window.scrollY <=250){
+            if (window.scrollY >= 350 || window.scrollY <= 250) {
                 return;
             }
 
@@ -70,7 +70,12 @@ export default function NavigationBar() {
         <>
 
             <nav className=" p-2 w-full px-[calc(50vw-720px+3rem)] pointer-events-none  fixed flex mx-auto justify-between top-0 z-50">
-                <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! select-none pointer-events-none" />
+                {
+                     (((location.pathname == "/" && !isAtTop) || location.pathname != "/") || !isMobile()) ?
+                        <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! select-none pointer-events-none" />
+                        :
+                        <div className="h-full w-full select-none pointer-events-none absolute top-0 left-0 "/>
+                }
                 {
                     (((location.pathname == "/" && !isAtTop) || location.pathname != "/") || !isMobile()) &&
                     <button className="pointer-events-auto" onClick={() => handleNavigation("/", "home-section-id")}   {...cursorOnHover}>
