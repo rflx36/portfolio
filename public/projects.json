@@ -4,6 +4,7 @@
         "project_img_url": "project_thumbnail_smartsched.png",
         "project_video_url": "",
         "project_description": "A multi-platform scheduling system with dedicated environments for generation and viewing. The desktop application is designed for generating optimized schedules, while the mobile app enables real-time viewing and notifications. At its core is a custom-developed constraint-based algorithm that dynamically resolves scheduling conflicts across time, room, and instructor constraints. developed as part of a final-year capstone, focusing on real-world scheduling constraints",
+        "project_description_minified": "A multi-platform scheduling system using a custom constraint-based algorithm to optimize schedules and resolve real-world conflicts dynamically.",
         "project_finished_date": "Jan 2025",
         "project_tech_stack": [
             "React",

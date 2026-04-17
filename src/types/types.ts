@@ -57,6 +57,7 @@ export interface projectInfo {
     project_img_url: string,
     project_video_url: string,
     project_description: string,
+    project_description_minified: string,
     project_finished_date: string,
     project_tech_stack: string[],
     project_live_link: string,

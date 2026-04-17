@@ -52,12 +52,12 @@ export default function NavigationBar() {
     return (
         <>
 
-            <nav className=" p-2 w-full px-[calc(50vw-720px+3rem)]  fixed flex mx-auto justify-between top-0 z-50">
-                <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! " />
-                <button onClick={() => handleNavigation("/", "home-section-id")}   {...cursorOnHover}>
+            <nav className=" p-2 w-full px-[calc(50vw-720px+3rem)] pointer-events-none  fixed flex mx-auto justify-between top-0 z-50">
+                <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! select-none pointer-events-none" />
+                <button className="pointer-events-auto" onClick={() => handleNavigation("/", "home-section-id")}   {...cursorOnHover}>
                     <h1 className="p-2 max-mobile:opacity-0 origin-top-left mx-2 hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s]">RFLAMOSTE</h1>
                 </button>
-                <div className="mx-1 relative max-mobile:hidden">
+                <div className="mx-1 relative max-mobile:hidden pointer-events-auto">
                     <div className="aspect-video h-auto w-full  absolute "></div>
                     <button onClick={() => handleNavigation("/projects")} className="focus:bg-accent-1 text-text"   {...cursorOnHover}>
                         {/* Add something like icon upon hover */}
@@ -74,14 +74,14 @@ export default function NavigationBar() {
                         <h1 className="p-2 mx-1 max-tablet:mx-0 max-tablet:text-sm  hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.9s]">Contact</h1>
                     </button>
                 </div>
-                <div className=" absolute right-0 top-0 z-50 hidden max-mobile:block">
+                <div className=" absolute right-0 pointer-events-auto top-0 z-50 hidden max-mobile:block">
 
                     <ToggleNavigation isChecked={isDocked} onClick={(e) => setIsDocked(e)} className="mt-1 " />
                 </div>
                 {
                     isDocked &&
 
-                    <div className="absolute not-max-mobile:hidden  w-screen h-dvh flex flex-col left-0 top-0 mobile-nav-container">
+                    <div className="pointer-events-auto absolute not-max-mobile:hidden  w-screen h-dvh flex flex-col left-0 top-0 mobile-nav-container">
                         <div className="w-full h-1/3 flex items-center gap-2 pb-4 flex-col-reverse aspect-square  mx-auto">
                             <h1 className={`font-semibold mobile-nav-name ease-bezier-in delay-100 duration-1500 ${elementsInitialized ? "text-text" : "text-accent-1"}`}>Roland Fonz Lamoste</h1>
                             <button onClick={() => handleNavigation("/", "home-section-id")} className="size-[100px] bg-bg p-0.5 shadow-2xl rounded-full overflow-hidden animate-[scaleIn_0.3s_cubic-bezier(0.65,0.56,0.27,0.86)_backwards]">

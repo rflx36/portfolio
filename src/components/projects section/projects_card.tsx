@@ -17,7 +17,7 @@ export default function ProjectsCard(props: {
         loadAnimation: animationLoadStateType,
     }
     onClick: () => void,
-    isSelected: boolean,
+    
     focus: number
 }) {
 

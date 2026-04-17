@@ -2,14 +2,14 @@
 import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
 import { useEffect } from "react"
-import SkillsSection from "./components/skills section"
-import BackgroundSection from "./components/background section"
+// import SkillsSection from "./components/skills section"
+// import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
 import { useModalStore } from "./stores/modal_store"
 import LandingContacts from "./components/contact section/landing contacts"
-import ContactSection from "./components/contact section"
+// import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
-import ProcessSection from "./components/process section"
+// import ProcessSection from "./components/process section"
 import ModalProjects from "./components/ui/modal/modal projects"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
@@ -56,8 +56,8 @@ function App() {
             <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 -translate-y-1/2" />
             <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 -translate-y-1/2" />
           </div>
-          <div className="w-full h-8 flex max-mobile:hidden justify-center overflow-hidden">
-            <h1 className={`text-text font-bold text-xl ease-in-out py-2 duration-300 ${!projectsInView && "-translate-y-full"}`}>SELECTED PROJECTS</h1>
+          <div className="w-full h-8 max-mobile:h-16  flex  justify-center overflow-hidden">
+            <h1 className={`text-text font-bold text-xl max-mobile:text-lg ease-in-out py-2  duration-300 ${!projectsInView && "-translate-y- opacity-0"}`}>SELECTED PROJECTS</h1>
           </div>
 
         </div>
@@ -66,10 +66,10 @@ function App() {
       <section ref={projectsRef} >
         <ProjectsSection />
       </section>
-      <SkillsSection />
+      {/* <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
-      <ContactSection />
+      <ContactSection /> */}
      
 
 

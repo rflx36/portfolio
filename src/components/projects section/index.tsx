@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import {  useEffect,  useRef, useState } from "react";
 import { animationLoadStateDefaults, projectsDataDefaults } from "../../constants";
 import { type resizeRegion, type animationLoadStateType, type projectDataType } from "../../types/types";
 import ProjectsCard from "./projects_card";
 import "./project_container_hovers.css";
-import { useModalStore } from "../../stores/modal_store";
 import { useNavigate } from "react-router";
+import ProjectsCardMobile from "./projects_card_mobile";
 // import isMobile from "../../utils/is_mobile";
 
 
@@ -16,7 +16,6 @@ export default function ProjectsSection() {
     // const [resizeRegion, setResizeRegion] = useState<res izeRegion>("desktop")
     const [focus, setFocus] = useState(-1);
     const [remountKey, setRemountKey] = useState(0);
-    const modalState = useModalStore();
     const navigate = useNavigate();
     const screenWidth = useRef(window.innerWidth);
     const resizeRegion = useRef<resizeRegion>("desktop");
@@ -45,6 +44,7 @@ export default function ProjectsSection() {
         }
         setProjectsDataState(formattedData);
 
+        console.log(formattedData);
         setTimeout(() => {
             setAnimationLoadState(prev => ({ ...prev, preload: true }));
             handleHovers();
@@ -53,7 +53,7 @@ export default function ProjectsSection() {
         setTimeout(() => {
             setAnimationLoadState(prev => ({ ...prev, postload: true }));
 
-            if (!(screenWidth.current <= 820)) {
+            if (screenWidth.current > 820) {
                 initializeDetailsVisibility();
             }
         }, 450);
@@ -114,6 +114,7 @@ export default function ProjectsSection() {
 
                 if (resizeRegion.current == "desktop") {
                     initializeDetailsVisibility();
+                    console.log("")
                 }
             }
         }
@@ -160,19 +161,26 @@ export default function ProjectsSection() {
     }
 
     console.log("focus value:" + focus + "resize:" + resizeRegion.current);
+
+
+
+    const getFocusedProjectDetails = projectsDataState.projects?.find((x, i) => i == focus && x.project_is_featured)
+
+
+
     return (
         <>
             {/* <h1 className="font-sans font-semibold text-text text-lg w-full text-center">SELECTED PROJECTS</h1> */}
 
-            <div key={remountKey} className={`w-[calc(100%-4rem)] bg-container-soft-shadow/75   mx-auto mt-6 py-[calc(2.5%+1rem)] overflow-hidden   max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
+            <div key={remountKey} className={`w-[calc(100%-4rem)] max-mobile:w-[calc(100%-2rem)] bg-container-soft-shadow/75 max-mobile:py-2.5 max-mobile:rounded-2xl max-mobile:mt-2   mx-auto mt-6  py-[calc(2.5%+1rem)] ${resizeRegion.current == "desktop" && animationLoadState.postload ? "overflow-visible" : " overflow-hidden"}    max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
                 {/* <div className={`aspect-268/133 w-[${widthContainerStringified}] max-w-[${maxWidthContainerStringified}]`} /> */}
                 <div className="aspect-268/133 relative"
                     style={{
                         width: screenWidth.current <= 820 ? 360 : widthContainerStringified,
-                        maxWidth: maxWidthContainerStringified
+                        maxWidth: screenWidth.current <= 430 ? `calc(100% - 20px)` : maxWidthContainerStringified
                     }}
                 />
-                <div className="w-[calc(100%-8rem)]  max-laptop:w-[calc(100%-20px)]  mx-auto max-w-[1920px] pointer-events-none select-none h-full absolute top-0 flex  items-center justify-start " id="project-container-id">
+                <div className="w-[calc(100%-8rem)]  max-laptop:w-[calc(100%-20px)]   mx-auto max-w-[1920px] pointer-events-none select-none h-full absolute top-0 flex  items-center justify-start " id="project-container-id">
                     {
                         projectsDataState.isLoaded ? (
                             projectsDataState.projects?.map((project, index) => {
@@ -180,6 +188,21 @@ export default function ProjectsSection() {
                                     return
                                 }
 
+                                if (resizeRegion.current == "mobile") {
+                                    return (
+                                        <ProjectsCardMobile
+                                            key={index}
+                                            index={index}
+                                            projectTitle={project.project_title}
+                                            projectInformation={project.project_description}
+                                            projectImageUrl={project.project_img_url}
+                                            projectDate={project.project_finished_date}
+                                            projectStacks={project.project_tech_stack}
+                                            onClick={() => handleOnclick(project.project_title, index)}
+                                            focus={focus}
+                                        />
+                                    )
+                                }
                                 return (
                                     <ProjectsCard
                                         key={index}
@@ -197,7 +220,6 @@ export default function ProjectsSection() {
                                         }}
                                         // onClick={() => OpenProjectsModal(project)}
                                         onClick={() => handleOnclick(project.project_title, index)}
-                                        isSelected={modalState.get.modalInfo?.project_title == project.project_title}
                                         focus={focus}
                                     />
                                 )
@@ -211,7 +233,35 @@ export default function ProjectsSection() {
 
                 </div>
             </div>
-            <div className="mt-9 mb-96 w-[calc(100%-8rem)] mx-auto max-w-[1920px] h-10">
+            <div className="mt-9 max-mobile:mt-4  mb-96 w-[calc(100%-2rem)] mx-auto  h-10 flex flex-col gap-4">
+                {
+                    resizeRegion.current != "desktop" &&
+                    <>
+                        <p className="text-text font-semibold ">{getFocusedProjectDetails?.project_title}</p>
+                        <div className="max-h  relative">
+                            <p className="text-sm  text-text/75">{getFocusedProjectDetails?.project_description_minified}</p>
+                            {/* <div className="bg-linear-to-b from-transparent bottom-0 to-bg absolute h-32 w-full"/> */}
+                        </div>
+                        <div className="flex gap-2">
+                            {
+                                getFocusedProjectDetails?.project_tech_stack.map((x, i) => {
+                                    const stack_name = x.toLowerCase().replace(" ", "");
+                                    const image_source = `/assets/skills/${stack_name == "reactnative" ? "react" : stack_name}_3.png`;
+                                    
+                                    return (
+                                        <img key={i} className={`size-[25px] [image-rendering:pixelated]  ${stack_name == "reactnative" ? "grayscale-100 " : ""}`}
+                                            src={image_source}
+                                            alt={x}
+                                        />
+                                    )
+                                })
+                            }
+                        </div>
+                    </>
+
+
+                }
+
                 <button onClick={() => setFocus(x => x - 1)}>-</button>
                 <button onClick={() => setFocus(x => x + 1)}>+</button>
             </div>
