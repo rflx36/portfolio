@@ -46,7 +46,7 @@ export default function NavigationBar() {
     useEffect(() => {
 
 
-        setTimeout(() => {
+        const InitializeElements = setTimeout(() => {
             setElementsInitialized(isDocked)
         }, 50);
 
@@ -63,7 +63,10 @@ export default function NavigationBar() {
         }
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => {
+            clearTimeout(InitializeElements);
+            window.removeEventListener("scroll", handleScroll);
+        }
     }, [isDocked])
 
     return (

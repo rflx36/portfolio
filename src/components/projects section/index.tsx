@@ -9,6 +9,15 @@ import { useInView } from "react-intersection-observer";
 // import isMobile from "../../utils/is_mobile";
 
 
+const getResizeRegion = (width: number): resizeRegion => {
+    if (width <= 430) {
+        return "mobile";
+    }
+    if (width <= 820) {
+        return "tablet";
+    }
+    return "desktop";
+}
 
 
 export default function ProjectsSection() {
@@ -19,7 +28,7 @@ export default function ProjectsSection() {
     const [remountKey, setRemountKey] = useState(0);
     const navigate = useNavigate();
     const screenWidth = useRef(window.innerWidth);
-    const resizeRegion = useRef<resizeRegion>("desktop");
+    const resizeRegion = useRef<resizeRegion>(getResizeRegion(window.innerWidth));
 
     const persistRandomizedValue = useRef(Math.random() < 0.5);
     const [mobileProjectsRef, MobilesProjectsInView] = useInView({ threshold: 1, triggerOnce: true });
@@ -68,15 +77,6 @@ export default function ProjectsSection() {
 
     }
 
-    const getResizeRegion = (width: number): resizeRegion => {
-        if (width <= 430) {
-            return "mobile";
-        }
-        if (width <= 820) {
-            return "tablet";
-        }
-        return "desktop";
-    }
 
     const setFocusUpdate = (region: resizeRegion) => {
         switch (region) {
@@ -128,7 +128,6 @@ export default function ProjectsSection() {
 
     }, []);
 
-    console.log(remountKey);
     const dampening = Math.min(Math.max((screenWidth.current / 1920 * 100), 0), 100);
     const featuredAmountLimit = 4;
     const randomizedInverseBoolValue = persistRandomizedValue.current;
@@ -143,7 +142,6 @@ export default function ProjectsSection() {
         navigate(`/projects/${encoded}`);
     }
 
-    console.log(dampening);
 
 
     const handleOnclick = (redirect: string, index: number) => {
@@ -183,12 +181,8 @@ export default function ProjectsSection() {
 
     }
 
-    console.log("focus value:" + focus + "resize:" + resizeRegion.current);
-
-
 
     const getFocusedProjectDetails = projectsDataState.projects?.find((x, i) => i == focus && x.project_is_featured)
-
 
 
     return (
@@ -280,7 +274,7 @@ export default function ProjectsSection() {
                             <div className={`h-0.5 w-8 ${focus == 1 ? "bg-text  w-16" : "bg-text/30"} rounded-full`} />
                             <div className={`h-0.5 w-8 ${focus == 2 ? "bg-text  w-16" : "bg-text/30"} rounded-full`} />
                             <div className={`h-0.5 w-8 ${focus == 3 ? "bg-text  w-16" : "bg-text/30"} rounded-full`} />
-                           
+
                         </div>
                         <p className="text-text font-semibold max-mobile:text-left text-center ">{getFocusedProjectDetails?.project_title}</p>
                         <div className="max-h  relative" >

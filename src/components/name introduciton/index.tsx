@@ -13,10 +13,13 @@ export default function NameIntroduction() {
 
 
     useEffect(() => {
-        setTimeout(() => {
+        const nameInitialize = setTimeout(() => {
             setInitialize(true);
         }, 1000);
 
+        return () => {
+            clearTimeout(nameInitialize);
+        }
     }, [])
 
 

@@ -9,7 +9,8 @@ export default function SkillsItemContainer(props: {
     isLoaded: boolean,
     data: Array<skillInfo>,
     onClick: () => void,
-    type: skillActiveStateType
+    type: skillActiveStateType,
+    indexPositioning: number
 }) {
 
     const [isLoaded, setIsLoaded] = useState(false);
@@ -36,8 +37,11 @@ export default function SkillsItemContainer(props: {
     return (
         <button
             onClick={props.onClick}
-            className={`${props.isActiveState ? "skill-card-container-selected" : "skill-card-container-disabled"} w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg  skill-card-container`}
+            className={`${props.isActiveState ? "skill-card-container-selected max-table:relative" : "skill-card-container-disabled   max-mobile:scale-90 "} bg-blue-500 w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg  skill-card-container`}
             {...cursorOnHover}
+            style={{
+                // transform: (props.isActiveState || !isMobile()) ? "none" : `translateX(calc(${props.indexPositioning}*100%))`
+            }}
         >
             <div className="h-6.25 w-full relative">
                 <p>{props.type.toUpperCase()}</p>

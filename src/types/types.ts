@@ -99,5 +99,7 @@ export interface polygonRotationStateType {
 export interface cursorStateType {
     tooltip?: string,
     type: "default" | "pointer" | "text",
-    
+
 }
+
+export type relativeSkillsPositioningMapType = Record<skillActiveStateType, number>

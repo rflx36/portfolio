@@ -15,3 +15,10 @@ export interface useWordRevealResultProps {
     start: () => void,
     reset: () => void,
 }
+
+export interface useAdaptiveScrollPosition {
+    x: number,
+    y: number
+}
+
+export type useAdaptiveScrollResultProps = useAdaptiveScrollPosition | boolean

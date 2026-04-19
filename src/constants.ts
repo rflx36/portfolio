@@ -1,4 +1,4 @@
-import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, cursorStateType, modalStateType, nameAnimStateType, polygonRotationStateType, projectDataType, skillActiveStateType, skillDataType } from "./types/types";
+import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, cursorStateType, modalStateType, nameAnimStateType, polygonRotationStateType, projectDataType, relativeSkillsPositioningMapType, skillActiveStateType, skillDataType } from "./types/types";
 
 
 
@@ -54,4 +54,12 @@ export const scrollDefaults: ScrollIntoViewOptions = {
 export const cursorStateDefaults: cursorStateType = {
     tooltip: undefined,
     type: "default"
+}
+
+
+export const activeRelativeSkillPositioningMap: relativeSkillsPositioningMapType = {
+    "design": 0,
+    "frontend": 1,
+    "backend": 2,
+    "other": 3
 }

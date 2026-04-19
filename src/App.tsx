@@ -12,6 +12,9 @@ import { useInView } from "react-intersection-observer"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
 import isMobile from "./utils/is_mobile"
+import useAdaptiveScroll from "./hooks/use_adaptive_scroll"
+// import useAdaptiveScroll from "./hooks/use_adaptive_scroll"
+
 
 
 function App() {
@@ -19,25 +22,38 @@ function App() {
   const navigate = useNavigate();
 
   const [projectsRef, projectsInView] = useInView({ threshold: 1 });
-  const [projectsRefMobile, projectsMobileInView] = useInView({ threshold: 1, triggerOnce: true });
   const [introductionLoaded, setIntroductionLoaded] = useState(false);
+  
+
+
+  const hasScrolled = useAdaptiveScroll("use once", 200);
 
   useEffect(() => {
+
+  
+
     if (location.state?.scrollTo) {
       const section = document.getElementById(location.state.scrollTo);
       if (section) {
-        section.scrollIntoView(scrollDefaults)
+        section.scrollIntoView(scrollDefaults);
       }
       navigate(location.pathname, { replace: true });
     }
 
-
-    setTimeout(() => {
+    const introTimeout = setTimeout(() => {
       setIntroductionLoaded(true);
-    }, 2000);
+    }, 2900);
 
-  }, [])
+    return () => {
+      clearTimeout(introTimeout)
+    }
+  }, []);
   console.log("Amount of rerenders");
+  const projectSectionRef = !isMobile() ? {
+    ref: projectsRef
+  } : {}
+  console.log(hasScrolled)
+
   return (
     <>
       {/* <CustomCursor/> */}
@@ -66,21 +82,22 @@ function App() {
         </div>
 
       </section>
-      {
-        introductionLoaded &&
 
-        <section ref={!isMobile() ? projectsRef : () => { }} >
-          {
-            (introductionLoaded || projectsMobileInView || !isMobile()) ?
-              <div className={`max-mobile:animate-[SlideUpFadeIn_0.5s_ease-in-out_forwards]`}>
 
-                <ProjectsSection />
-              </div>
-              :
-              <div className="w-full  h-56" ref={projectsRefMobile} />
-          }
-        </section>
-      }
+      <section {...projectSectionRef}>
+        {
+          (introductionLoaded || hasScrolled || !isMobile()) ?
+            <div className={`max-mobile:animate-[SlideUpFadeIn_0.5s_ease-in-out_forwards]`}>
+
+              <ProjectsSection />
+            </div>
+            :
+            <>
+              <div className="w-full  h-56" />
+            </>
+        }
+      </section>
+
       {/* <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
