@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import { type relativeSkillsPositioningMapType, type skillActiveStateType, type skillDataType } from "../../types/types"
+import {  type skillActiveStateType, type skillDataType } from "../../types/types"
 import { activeRelativeSkillPositioningMap, skillActiveStateDefaults, skillDataDefaults } from "../../constants"
 import "./skill_state_hovers.css"
 import SkillsItemContainer from "./skills_item_container";
 import { useInView } from "react-intersection-observer";
+import useResizeRegion from "../../hooks/use_resize_region";
 
 
 
@@ -13,6 +14,7 @@ export default function SkillsSection() {
     const [skillDataState, setSkillDataState] = useState<skillDataType>(skillDataDefaults);
 
     const { ref, inView } = useInView({ threshold: 0.8, triggerOnce: true })
+    const resizeRegion = useResizeRegion();
     const fetchSkillsData = async () => {
         const response = await fetch("/skills.json");
         const data = await response.json();
@@ -36,26 +38,26 @@ export default function SkillsSection() {
 
     const getRelativeSkillPositioningMap = () => {
         const activeIndex = activeRelativeSkillPositioningMap[skillsActiveState];
-
-        const relativeMap = (Object.keys(activeRelativeSkillPositioningMap) as skillActiveStateType[]).reduce(
-            (acc, key) => {
-                acc[key] = activeRelativeSkillPositioningMap[key] - activeIndex;
-                return acc;
-            },
-            {} as relativeSkillsPositioningMapType
-        )
-        return relativeMap;
+        return activeIndex;
+        // const relativeMap = (Object.keys(activeRelativeSkillPositioningMap) as skillActiveStateType[]).reduce(
+        //     (acc, key) => {
+        //         acc[key] = activeRelativeSkillPositioningMap[key] - activeIndex;
+        //         return acc;
+        //     },
+        //     {} as relativeSkillsPositioningMapType
+        // )
+        // return relativeMap;
     }
 
 
 
     return (
-        <section id="skills-section-id" className="min-h-max h-screen max-h-[700px] overflow-clip mb-32 bg-green-500 w-[calc(100%-2rem)] max-tablet:w-full mx-auto max-w-270 flex items-center flex-col-reverse " >
+        <section id="skills-section-id" className="min-h-max h-screen max-h-[700px] overflow-clip mb-32  w-[calc(100%-2rem)] max-tablet:w-full mx-auto max-w-270 flex max-mobile:items-start items-center flex-col-reverse " >
 
 
 
 
-            <div className="skill-state-container flex  max-mobile:h-full gap-0 bg-red-500   w-max max-mobile:w-full  justify-center "
+            <div className="skill-state-container flex  max-mobile:h-full gap-0   overflow-clip  w-max   justify-center "
                 ref={ref}
             >
 
@@ -65,7 +67,8 @@ export default function SkillsSection() {
                     data={skillDataState.design}
                     onClick={() => setSkillsActiveState("design")}
                     type="design"
-                    indexPositioning={getRelativeSkillPositioningMap()["design"]}
+                    indexPositioning={getRelativeSkillPositioningMap()}
+                    resizeRegion={resizeRegion}
                 />
                 <SkillsItemContainer
                     isActiveState={skillsActiveState == "frontend"}
@@ -73,8 +76,8 @@ export default function SkillsSection() {
                     data={skillDataState.frontend}
                     onClick={() => setSkillsActiveState("frontend")}
                     type="frontend"
-                    indexPositioning={getRelativeSkillPositioningMap()["frontend"]}
-
+                    indexPositioning={getRelativeSkillPositioningMap()}
+                    resizeRegion={resizeRegion}
                 />
 
                 <SkillsItemContainer
@@ -83,8 +86,8 @@ export default function SkillsSection() {
                     data={skillDataState.backend}
                     onClick={() => setSkillsActiveState("backend")}
                     type="backend"
-                    indexPositioning={getRelativeSkillPositioningMap()["backend"]}
-
+                    indexPositioning={getRelativeSkillPositioningMap()}
+                    resizeRegion={resizeRegion}
                 />
 
                 <SkillsItemContainer
@@ -93,8 +96,8 @@ export default function SkillsSection() {
                     data={skillDataState.other}
                     onClick={() => setSkillsActiveState("other")}
                     type="other"
-                    indexPositioning={getRelativeSkillPositioningMap()["other"]}
-
+                    indexPositioning={getRelativeSkillPositioningMap()}
+                    resizeRegion={resizeRegion}
                 />
 
 

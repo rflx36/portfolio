@@ -2,7 +2,7 @@
 import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
 import { useEffect, useState } from "react"
-// import SkillsSection from "./components/skills section"
+import SkillsSection from "./components/skills section"
 // import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
 import LandingContacts from "./components/contact section/landing contacts"
@@ -13,7 +13,6 @@ import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
 import isMobile from "./utils/is_mobile"
 import useAdaptiveScroll from "./hooks/use_adaptive_scroll"
-// import useAdaptiveScroll from "./hooks/use_adaptive_scroll"
 
 
 
@@ -48,11 +47,9 @@ function App() {
       clearTimeout(introTimeout)
     }
   }, []);
-  console.log("Amount of rerenders");
   const projectSectionRef = !isMobile() ? {
     ref: projectsRef
   } : {}
-  console.log(hasScrolled)
 
   return (
     <>
@@ -98,8 +95,8 @@ function App() {
         }
       </section>
 
-      {/* <SkillsSection />
-      <BackgroundSection />
+      <SkillsSection />
+      {/* <BackgroundSection />
       <ProcessSection />
       <ContactSection /> */}
 

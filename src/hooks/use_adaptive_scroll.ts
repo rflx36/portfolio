@@ -15,7 +15,7 @@ export default function useAdaptiveScroll(mode: "use once" | "realtime" = "realt
             if (mode == "use once") {
 
                 const currentPos = window.scrollY;
-
+                console.log(currentPos);
                 if (currentPos >= threshold) {
                     setIsScrolled(true);
                     window.removeEventListener('scroll', handleScroll)
@@ -23,7 +23,8 @@ export default function useAdaptiveScroll(mode: "use once" | "realtime" = "realt
                 }
 
                 if (scrollMount.current === null) {
-                    scrollMount.current = currentPos;
+                    scrollMount.current = 0;
+                    window.scrollTo(0, 0);
 
                 }
                 else if (scrollMount.current !== currentPos) {

@@ -45,8 +45,20 @@ export default function NameIntroduction() {
                             src="/assets/name_introduction_roland.lottie"
                             autoplay
                             dotLottieRefCallback={(dotLottie) => {
-                                dotLottie?.addEventListener('play', () => setnameRolandState(x => ({ ...x, loaded: true })));
-                                // dotLottie?.addEventListener('complete', () => setnameRolandState(x => ({ ...x, ended: true })));
+                                const handlePlay = () => {
+                                    setnameRolandState(x => ({ ...x, loaded: true }));
+                                }
+                                const handleComplete = () => {
+
+                                    dotLottie?.removeEventListener("play", handlePlay);
+                                    dotLottie?.removeEventListener("complete", handleComplete);
+                                }
+
+                                dotLottie?.addEventListener("play", handlePlay);
+                                dotLottie?.addEventListener("complete", handleComplete);
+
+
+                                // dotLottie?.addEventListener('complete', () => setnameRolandState(x => ({...x, ended: true })));
                             }}
                         />
                     </div>
@@ -62,8 +74,17 @@ export default function NameIntroduction() {
                             src="/assets/name_introduction_fonz.lottie"
                             autoplay
                             dotLottieRefCallback={(dotLottie) => {
-                                dotLottie?.addEventListener('play', () => setnameFonzState(x => ({ ...x, loaded: true })));
-                                // dotLottie?.addEventListener('complete', () => setnameFonzState(x => ({ ...x, ended: true })));
+                                const handlePlay = () => {
+                                    setnameFonzState(x => ({ ...x, loaded: true }));
+                                }
+                                const handleComplete = () => {
+
+                                    dotLottie?.removeEventListener("play", handlePlay);
+                                    dotLottie?.removeEventListener("complete", handleComplete);
+                                }
+
+                                dotLottie?.addEventListener("play", handlePlay);
+                                dotLottie?.addEventListener("complete", handleComplete);
                             }}
                         />
                     </div>}
@@ -78,7 +99,17 @@ export default function NameIntroduction() {
                             src="/assets/name_introduction_lamoste.lottie"
                             autoplay
                             dotLottieRefCallback={(dotLottie) => {
-                                dotLottie?.addEventListener('play', () => setnameLamosteState(x => ({ ...x, loaded: true })));
+                                const handlePlay = () => {
+                                    setnameLamosteState(x => ({ ...x, loaded: true }));
+                                }
+                                const handleComplete = () => {
+
+                                    dotLottie?.removeEventListener("play", handlePlay);
+                                    dotLottie?.removeEventListener("complete", handleComplete);
+                                }
+
+                                dotLottie?.addEventListener("play", handlePlay);
+                                dotLottie?.addEventListener("complete", handleComplete);
                                 // dotLottie?.addEventListener('complete', () => setnameLamosteState(x => ({ ...x, ended: true })));
                             }}
                         />

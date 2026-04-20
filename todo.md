@@ -47,6 +47,12 @@ Optimize:
 - add mounting on intersection observer on the project section - /
 
 
+
+Rework :
+- implement a different layout since initial layout is good design bat bad UX (probably a vertical and then focus a specific skill section depending which is more centralized on Y axis scroll)
+
+
+
 Final Todo:
 -Mobile View (min resolution: 320px - 430px)
 -Resume

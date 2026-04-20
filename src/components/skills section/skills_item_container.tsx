@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { useCursor } from "../../hooks/use_cursor"
-import type { skillActiveStateType, skillInfo } from "../../types/types"
+import type { resizeRegion, skillActiveStateType, skillInfo } from "../../types/types"
 import SkillsItem from "./skills_item"
 
 
@@ -10,7 +10,8 @@ export default function SkillsItemContainer(props: {
     data: Array<skillInfo>,
     onClick: () => void,
     type: skillActiveStateType,
-    indexPositioning: number
+    indexPositioning: number,
+    resizeRegion: resizeRegion,
 }) {
 
     const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +27,11 @@ export default function SkillsItemContainer(props: {
         skill.img_url.replace(".png", "_sequence.png"),
     ]);
 
+    // const width = useResizeRegion();
+
+    console.log("re renders for index " + props.type);
+    console.log("resize region")
+    // console.log(width);
     useEffect(() => {
         if (!props.isLoaded) return;
 
@@ -34,14 +40,17 @@ export default function SkillsItemContainer(props: {
         }
     }, [loadProgression, images.length, props.isLoaded]);
 
+
+
     return (
         <button
             onClick={props.onClick}
-            className={`${props.isActiveState ? "skill-card-container-selected max-table:relative" : "skill-card-container-disabled   max-mobile:scale-90 "} bg-blue-500 w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg  skill-card-container`}
-            {...cursorOnHover}
+            className={`${props.isActiveState ? "skill-card-container-selected" : "skill-card-container-disabled     "} max-mobile:px-2 max-mobile:w-[calc(100px+3rem)]   max-mobile:ease-bezier-in max-mobile:duration-300  w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg  skill-card-container`}
             style={{
-                // transform: (props.isActiveState || !isMobile()) ? "none" : `translateX(calc(${props.indexPositioning}*100%))`
+                transform: (props.resizeRegion == "mobile") ? `translateX(calc((${props.indexPositioning} * -100% + 50vw - 50%)))` : ""
             }}
+            {...cursorOnHover}
+
         >
             <div className="h-6.25 w-full relative">
                 <p>{props.type.toUpperCase()}</p>
@@ -72,7 +81,7 @@ export default function SkillsItemContainer(props: {
                     }
                 </div>
             }
-            <div className="grid grid-cols-2 gap-x-8 gap-y-9">
+            <div className={`grid grid-cols-2 gap-x-8 gap-y-9 ${props.isActiveState ? "max-mobile:scale-100" : "max-mobile:scale-75"} max-mobile:origin-top max-mobile:ease-bezier-in max-mobile:duration-500`}>
                 {
                     props.isLoaded && isLoaded ?
                         props.data.map((skill, index) =>

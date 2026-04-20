@@ -33,6 +33,8 @@ export default function ProjectsSection() {
     const persistRandomizedValue = useRef(Math.random() < 0.5);
     const [mobileProjectsRef, MobilesProjectsInView] = useInView({ threshold: 1, triggerOnce: true });
 
+    
+
     const handleHovers = () => {
         const projectsCard = document.getElementById("project-container-id");
         projectsCard?.addEventListener("mouseover", () => {
