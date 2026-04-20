@@ -11,6 +11,7 @@ export default function NameIntroduction() {
     const [nameFonzState, setnameFonzState] = useState<nameAnimStateType>(nameAnimStateDefaults);
     const [nameLamosteState, setnameLamosteState] = useState<nameAnimStateType>(nameAnimStateDefaults);
     const dotLottieRefs = useRef<Array<any>>([]);
+    const initialWidth = useRef(window.innerWidth);
 
 
     useEffect(() => {
@@ -18,37 +19,35 @@ export default function NameIntroduction() {
             setInitialize(true);
         }, 1000);
 
-        
 
 
-    
+
+
 
         return () => {
             clearTimeout(nameInitialize);
         }
     }, [])
 
-    useEffect(()=>{
-        if (dotLottieRefs.current.length < 3) {
+    useEffect(() => {
+        if (dotLottieRefs.current.length < 3 && initialWidth.current <= 430) {
             return;
         }
-
-        const delay = window.innerWidth <= 430 ? 100 : 5;
 
         const animationInitialize = setTimeout(() => {
             dotLottieRefs.current?.forEach(dotlottie => {
                 dotlottie.play();
             })
-        }, delay);
+        }, 10);
 
         return () => {
             clearTimeout(animationInitialize);
         }
-    },[dotLottieRefs.current.length])
+    }, [dotLottieRefs.current.length])
 
 
     const handleDotLottieRef = (index: number, dotLottie: any) => {
-        dotLottieRefs.current[index] = dotLottie;
+        dotLottieRefs.current.push(dotLottie);
 
 
         const handlePlay = () => {
@@ -98,7 +97,7 @@ export default function NameIntroduction() {
                     <div className={`w-full h-full mt-[1.1rem] -translate-x-2 select-none  pointer-events-none ${!nameRolandState.loaded ? " opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_roland.lottie"
-
+                            autoplay={(initialWidth.current > 430)}
                             dotLottieRefCallback={(dotLottie) => {
                                 handleDotLottieRef(0, dotLottie);
                                 // const handlePlay = () => {
@@ -128,7 +127,7 @@ export default function NameIntroduction() {
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.4rem]  select-none pointer-events-none ${!nameFonzState.loaded ? " opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_fonz.lottie"
-                            // autoplay
+                            autoplay={(initialWidth.current > 430)}
                             dotLottieRefCallback={(dotLottie) => {
                                 handleDotLottieRef(1, dotLottie);
 
@@ -155,7 +154,7 @@ export default function NameIntroduction() {
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.7rem]    select-none pointer-events-none ${!nameLamosteState.loaded ? "opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_lamoste.lottie"
-                            // autoplay
+                            autoplay={(initialWidth.current > 430)}
                             dotLottieRefCallback={(dotLottie) => {
                                 handleDotLottieRef(2, dotLottie);
 

@@ -1,7 +1,32 @@
+import { useEffect, useRef, useState } from "react";
 
 export default function SpecializationIntroduction() {
     
     const text_style = "text-text/75 text-lg font-semibold";
+    const initialWidth = useRef(window.innerWidth);
+    const [isInitialized , setIsInitalized] = useState(false);
+
+
+    useEffect(()=>{
+
+        if (initialWidth.current > 430){
+            setIsInitalized(true);
+            return;
+        }
+
+        const delay = setTimeout(() => {
+            setIsInitalized(true);
+        }, 1000);
+
+        return () => {
+            clearTimeout(delay);
+        }
+    },[])
+
+    if (!isInitialized){
+        return <div className="relative w-full  h-6"></div>
+    }
+
 
     return (
         <div className="w-max flex h-6 overflow-hidden relative">
