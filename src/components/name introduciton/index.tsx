@@ -1,5 +1,5 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react"
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { nameAnimStateDefaults } from "../../constants";
 import { type nameAnimStateType } from "../../types/types";
 
@@ -10,6 +10,7 @@ export default function NameIntroduction() {
     const [nameRolandState, setnameRolandState] = useState<nameAnimStateType>(nameAnimStateDefaults);
     const [nameFonzState, setnameFonzState] = useState<nameAnimStateType>(nameAnimStateDefaults);
     const [nameLamosteState, setnameLamosteState] = useState<nameAnimStateType>(nameAnimStateDefaults);
+    const dotLottieRefs = useRef<Array<any>>([]);
 
 
     useEffect(() => {
@@ -17,10 +18,64 @@ export default function NameIntroduction() {
             setInitialize(true);
         }, 1000);
 
+        
+
+
+    
+
         return () => {
             clearTimeout(nameInitialize);
         }
     }, [])
+
+    useEffect(()=>{
+        if (dotLottieRefs.current.length < 3) {
+            return;
+        }
+
+        const delay = window.innerWidth <= 430 ? 100 : 5;
+
+        const animationInitialize = setTimeout(() => {
+            dotLottieRefs.current?.forEach(dotlottie => {
+                dotlottie.play();
+            })
+        }, delay);
+
+        return () => {
+            clearTimeout(animationInitialize);
+        }
+    },[dotLottieRefs.current.length])
+
+
+    const handleDotLottieRef = (index: number, dotLottie: any) => {
+        dotLottieRefs.current[index] = dotLottie;
+
+
+        const handlePlay = () => {
+            switch (index) {
+                case 0:
+                    setnameRolandState(x => ({ ...x, loaded: true }));
+
+                    break;
+                case 1:
+                    setnameFonzState(x => ({ ...x, loaded: true }));
+                    break;
+                case 2:
+                    setnameLamosteState(x => ({ ...x, loaded: true }));
+                    break;
+            }
+        }
+
+        const handleComplete = () => {
+
+            dotLottie?.removeEventListener("play", handlePlay);
+            dotLottie?.removeEventListener("complete", handleComplete);
+        }
+
+        dotLottie?.addEventListener("play", handlePlay);
+        dotLottie?.addEventListener("complete", handleComplete);
+
+    }
 
 
     const base_text_style = `absolute -z-10 top-0 font-semibold delay-300 select-none  pointer-events-none ease-bezier-in opacity-0 duration-1500 ${initialize && "opacity-100"} text-text text-[4rem]`;
@@ -43,19 +98,20 @@ export default function NameIntroduction() {
                     <div className={`w-full h-full mt-[1.1rem] -translate-x-2 select-none  pointer-events-none ${!nameRolandState.loaded ? " opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_roland.lottie"
-                            autoplay
+
                             dotLottieRefCallback={(dotLottie) => {
-                                const handlePlay = () => {
-                                    setnameRolandState(x => ({ ...x, loaded: true }));
-                                }
-                                const handleComplete = () => {
+                                handleDotLottieRef(0, dotLottie);
+                                // const handlePlay = () => {
+                                //     setnameRolandState(x => ({ ...x, loaded: true }));
+                                // }
+                                // const handleComplete = () => {
 
-                                    dotLottie?.removeEventListener("play", handlePlay);
-                                    dotLottie?.removeEventListener("complete", handleComplete);
-                                }
+                                //     dotLottie?.removeEventListener("play", handlePlay);
+                                //     dotLottie?.removeEventListener("complete", handleComplete);
+                                // }
 
-                                dotLottie?.addEventListener("play", handlePlay);
-                                dotLottie?.addEventListener("complete", handleComplete);
+                                // dotLottie?.addEventListener("play", handlePlay);
+                                // dotLottie?.addEventListener("complete", handleComplete);
 
 
                                 // dotLottie?.addEventListener('complete', () => setnameRolandState(x => ({...x, ended: true })));
@@ -72,19 +128,21 @@ export default function NameIntroduction() {
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.4rem]  select-none pointer-events-none ${!nameFonzState.loaded ? " opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_fonz.lottie"
-                            autoplay
+                            // autoplay
                             dotLottieRefCallback={(dotLottie) => {
-                                const handlePlay = () => {
-                                    setnameFonzState(x => ({ ...x, loaded: true }));
-                                }
-                                const handleComplete = () => {
+                                handleDotLottieRef(1, dotLottie);
 
-                                    dotLottie?.removeEventListener("play", handlePlay);
-                                    dotLottie?.removeEventListener("complete", handleComplete);
-                                }
+                                // const handlePlay = () => {
+                                //     setnameFonzState(x => ({ ...x, loaded: true }));
+                                // }
+                                // const handleComplete = () => {
 
-                                dotLottie?.addEventListener("play", handlePlay);
-                                dotLottie?.addEventListener("complete", handleComplete);
+                                //     dotLottie?.removeEventListener("play", handlePlay);
+                                //     dotLottie?.removeEventListener("complete", handleComplete);
+                                // }
+
+                                // dotLottie?.addEventListener("play", handlePlay);
+                                // dotLottie?.addEventListener("complete", handleComplete);
                             }}
                         />
                     </div>}
@@ -97,19 +155,21 @@ export default function NameIntroduction() {
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.7rem]    select-none pointer-events-none ${!nameLamosteState.loaded ? "opacity-0 " : ""}`}>
                         <DotLottieReact
                             src="/assets/name_introduction_lamoste.lottie"
-                            autoplay
+                            // autoplay
                             dotLottieRefCallback={(dotLottie) => {
-                                const handlePlay = () => {
-                                    setnameLamosteState(x => ({ ...x, loaded: true }));
-                                }
-                                const handleComplete = () => {
+                                handleDotLottieRef(2, dotLottie);
 
-                                    dotLottie?.removeEventListener("play", handlePlay);
-                                    dotLottie?.removeEventListener("complete", handleComplete);
-                                }
+                                // const handlePlay = () => {
+                                //     setnameLamosteState(x => ({ ...x, loaded: true }));
+                                // }
+                                // const handleComplete = () => {
 
-                                dotLottie?.addEventListener("play", handlePlay);
-                                dotLottie?.addEventListener("complete", handleComplete);
+                                //     dotLottie?.removeEventListener("play", handlePlay);
+                                //     dotLottie?.removeEventListener("complete", handleComplete);
+                                // }
+
+                                // dotLottie?.addEventListener("play", handlePlay);
+                                // dotLottie?.addEventListener("complete", handleComplete);
                                 // dotLottie?.addEventListener('complete', () => setnameLamosteState(x => ({ ...x, ended: true })));
                             }}
                         />
