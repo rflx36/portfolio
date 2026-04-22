@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { type skillActiveStateType, type skillDataType } from "../../types/types"
-import { activeRelativeSkillPositioningMap, skillActiveStateDefaults, skillDataDefaults } from "../../constants"
+import { activeRelativeSkillPositioningMap, activeRelativeSkillPositioningMapReversed, skillActiveStateDefaults, skillDataDefaults } from "../../constants"
 import "./skill_state_hovers.css"
 import { useInView } from "react-intersection-observer";
 import useResizeRegion from "../../hooks/use_resize_region";
@@ -17,7 +17,7 @@ export default function SkillsSection() {
 
     // const Design = useInView({threshold:1});
     const skillContainerRefs = useRef<Array<HTMLElement | null>>([]);
-
+    const [visibleMap, setVisibleMap] = useState<Record<number, boolean>>({});
 
 
 
@@ -42,42 +42,6 @@ export default function SkillsSection() {
     useEffect(() => {
         fetchSkillsData();
 
-
-
-
-        let ticking = false;
-        const handleScroll = () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-
-                })
-            }
-
-            const centerY = window.innerHeight / 2;
-            let closestIndex = 0;
-            let closestDistance = Infinity;
-
-            skillContainerRefs.current.forEach((el, index) => {
-                if (!el) return;
-
-                const rect = el.getBoundingClientRect();
-                const elementCenter = rect.top + rect.height / 2;
-
-                const distance = Math.abs(centerY - elementCenter);
-
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    closestIndex = index;
-                }
-            });
-            console.log(closestIndex);
-            // setSkillsActiveState(activeRelativeSkillPositioningMap[closestIndex])
-        }
-
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        }
     }, []);
 
 
@@ -97,7 +61,27 @@ export default function SkillsSection() {
 
 
     console.log("re rendered");
+
     console.log("active:" + skillsActiveState);
+
+    const setVisible = (index: number, value: boolean) => {
+        setVisibleMap((prev) => ({
+            ...prev,
+            [index]: value,
+        }));
+    };
+
+    useEffect(() => {
+        const activeIndex = Object.keys(visibleMap)
+            .map(Number)
+            .reduce((last, idx) => {
+                if (visibleMap[idx]) return idx;
+                return last;
+            }, null as number | null);
+
+
+        setSkillsActiveState(activeRelativeSkillPositioningMapReversed[activeIndex || 1]);
+    }, [visibleMap])
 
     return (
         <section id="skills-section-id" className="min-h-max h-screen max-h-[700px] overflow-clip mb-32  w-[calc(100%-2rem)] max-tablet:w-full mx-auto max-w-270 flex max-mobile:h-max justify-start  max-mobile:items-start items-center flex-col-reverse " >
@@ -117,7 +101,7 @@ export default function SkillsSection() {
                     type="design"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
-                    ref={(element) => { (skillContainerRefs.current[0] = element) }}
+                    setVisible={value => { setVisible(0, value) }}
                 />
                 <SkillsItemContainer
                     isActiveState={skillsActiveState == "frontend"}
@@ -127,7 +111,8 @@ export default function SkillsSection() {
                     type="frontend"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
-                    ref={(element) => { (skillContainerRefs.current[1] = element) }}
+                    setVisible={value => { setVisible(1, value) }}
+
 
                 />
 
@@ -139,7 +124,8 @@ export default function SkillsSection() {
                     type="backend"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
-                    ref={(element) => { (skillContainerRefs.current[2] = element) }}
+                    setVisible={value => { setVisible(2, value) }}
+
 
                 />
 
@@ -151,7 +137,8 @@ export default function SkillsSection() {
                     type="other"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
-                    ref={(element) => { (skillContainerRefs.current[2] = element) }}
+                    setVisible={value => { setVisible(3, value) }}
+
 
                 />
 

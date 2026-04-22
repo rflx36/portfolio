@@ -1,12 +1,12 @@
-import { forwardRef, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useCursor } from "../../hooks/use_cursor"
 import type { resizeRegion, skillActiveStateType, skillInfo } from "../../types/types"
 import SkillsItem from "./skills_item"
 import "./skill_item_container.css"
+import { useInView } from "react-intersection-observer"
 
 
-
-interface SkillsItemContainerProps {
+export default function SkillsItemContainer(props: {
     isActiveState: boolean,
     isLoaded: boolean,
     data: Array<skillInfo>,
@@ -14,9 +14,8 @@ interface SkillsItemContainerProps {
     type: skillActiveStateType,
     indexPositioning: number,
     resizeRegion: resizeRegion,
-}
-
- const SkillsItemContainer = forwardRef<HTMLButtonElement, SkillsItemContainerProps>((props, ref) => {
+    setVisible: (value:boolean) => void,
+}) {
 
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -24,6 +23,10 @@ interface SkillsItemContainerProps {
     const random_skeleton_amount = useRef(Math.ceil(Math.random() * 8));
 
     const [loadProgression, setLoadProgression] = useState(0);
+    const { ref, inView } = useInView({
+        rootMargin: "-50% 0% -50% 0%",
+        threshold: 0,
+    })
 
     const images = props.data.flatMap((skill) => [
         skill.img_url,
@@ -33,8 +36,6 @@ interface SkillsItemContainerProps {
 
     // const width = useResizeRegion();
 
-    console.log("re renders for index " + props.type);
-    console.log("resize region")
     // console.log(width);
     useEffect(() => {
         if (!props.isLoaded) return;
@@ -44,6 +45,10 @@ interface SkillsItemContainerProps {
         }
     }, [loadProgression, images.length, props.isLoaded]);
 
+
+    useEffect(()=>{
+       props.setVisible(inView);
+    },[inView])
 
     const handleOnclick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
 
@@ -68,8 +73,8 @@ interface SkillsItemContainerProps {
                 transform: (props.resizeRegion == "tablet") ? `translateX(calc((${props.indexPositioning - 1} * -100%) + 50% ))` : ""
             }}
             {...cursorOnHover}
+            // aria-label=""
             ref={ref}
-        // aria-label=""
 
         >
             <div className=" h-6.25 w-full max-mobile:mb-2  skill-item-container-width max-mobile:text-left relative">
@@ -121,7 +126,4 @@ interface SkillsItemContainerProps {
 
         </button>
     )
-});
-
-
-export default SkillsItemContainer;
+};

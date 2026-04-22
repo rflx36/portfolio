@@ -103,3 +103,5 @@ export interface cursorStateType {
 }
 
 export type relativeSkillsPositioningMapType = Record<skillActiveStateType, number>
+
+export type relativeSkillsPositioningMapReverseType = Record<number,skillActiveStateType>
