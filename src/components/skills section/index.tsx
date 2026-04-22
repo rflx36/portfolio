@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
-import {  type skillActiveStateType, type skillDataType } from "../../types/types"
+import { useEffect, useRef, useState } from "react"
+import { type skillActiveStateType, type skillDataType } from "../../types/types"
 import { activeRelativeSkillPositioningMap, skillActiveStateDefaults, skillDataDefaults } from "../../constants"
 import "./skill_state_hovers.css"
-import SkillsItemContainer from "./skills_item_container";
 import { useInView } from "react-intersection-observer";
 import useResizeRegion from "../../hooks/use_resize_region";
+import SkillsItemContainer from "./skills_item_container";
 
 
 
@@ -13,7 +13,16 @@ export default function SkillsSection() {
     const [skillsActiveState, setSkillsActiveState] = useState<skillActiveStateType>(skillActiveStateDefaults);
     const [skillDataState, setSkillDataState] = useState<skillDataType>(skillDataDefaults);
 
-    const { ref, inView } = useInView({ threshold: 0.8, triggerOnce: true })
+    const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true })
+
+    // const Design = useInView({threshold:1});
+    const skillContainerRefs = useRef<Array<HTMLElement | null>>([]);
+
+
+
+
+
+
     const resizeRegion = useResizeRegion();
     const fetchSkillsData = async () => {
         const response = await fetch("/skills.json");
@@ -32,6 +41,43 @@ export default function SkillsSection() {
 
     useEffect(() => {
         fetchSkillsData();
+
+
+
+
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+
+                })
+            }
+
+            const centerY = window.innerHeight / 2;
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+            skillContainerRefs.current.forEach((el, index) => {
+                if (!el) return;
+
+                const rect = el.getBoundingClientRect();
+                const elementCenter = rect.top + rect.height / 2;
+
+                const distance = Math.abs(centerY - elementCenter);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+            console.log(closestIndex);
+            // setSkillsActiveState(activeRelativeSkillPositioningMap[closestIndex])
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
     }, []);
 
 
@@ -50,14 +96,16 @@ export default function SkillsSection() {
     }
 
 
+    console.log("re rendered");
+    console.log("active:" + skillsActiveState);
 
     return (
-        <section id="skills-section-id" className="min-h-max h-screen max-h-[700px] overflow-clip mb-32  w-[calc(100%-2rem)] max-tablet:w-full mx-auto max-w-270 flex max-mobile:items-start items-center flex-col-reverse " >
+        <section id="skills-section-id" className="min-h-max h-screen max-h-[700px] overflow-clip mb-32  w-[calc(100%-2rem)] max-tablet:w-full mx-auto max-w-270 flex max-mobile:h-max justify-start  max-mobile:items-start items-center flex-col-reverse " >
 
 
 
 
-            <div className="skill-state-container flex  max-mobile:h-full gap-0   overflow-clip  w-max   justify-center "
+            <div className={`skill-state-container w-max flex max-tablet:w-full min-w-max justify-center gap-0 overflow-clip ${skillDataState.isLoaded ? "h-max" : "h-full"} max-mobile:h-max max-mobile:flex-col  max-mobile:items-center  max-mobile:gap-8   `}
                 ref={ref}
             >
 
@@ -69,6 +117,7 @@ export default function SkillsSection() {
                     type="design"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
+                    ref={(element) => { (skillContainerRefs.current[0] = element) }}
                 />
                 <SkillsItemContainer
                     isActiveState={skillsActiveState == "frontend"}
@@ -78,6 +127,8 @@ export default function SkillsSection() {
                     type="frontend"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
+                    ref={(element) => { (skillContainerRefs.current[1] = element) }}
+
                 />
 
                 <SkillsItemContainer
@@ -88,6 +139,8 @@ export default function SkillsSection() {
                     type="backend"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
+                    ref={(element) => { (skillContainerRefs.current[2] = element) }}
+
                 />
 
                 <SkillsItemContainer
@@ -98,6 +151,8 @@ export default function SkillsSection() {
                     type="other"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
+                    ref={(element) => { (skillContainerRefs.current[2] = element) }}
+
                 />
 
 
@@ -152,12 +207,12 @@ export default function SkillsSection() {
                     }
                 </SkillsItemContainer> */}
             </div>
-            <div className="w-full h-[0.0625rem] translate-y-[calc(2.25rem)] relative">
+            <div className="w-full h-[0.0625rem] translate-y-[calc(2.25rem)] max-mobile:translate-y-0 relative">
                 <div className="bg-text/25 w-full h-full " />
                 <div className=" bg-linear-to-r from-bg/0 to-bg w-[25%] max-w-32 h-2 z-10 absolute right-0 top-0 bottom-0 -translate-y-1/2" />
                 <div className=" bg-linear-to-r from-bg to-bg/0 w-[25%] max-w-32 h-2 z-10 absolute left-0 top-0 bottom-0 -translate-y-1/2" />
             </div>
-            <div className="mb-8 h-11  flex gap-2  w-max justify-center overflow-hidden  ">
+            <div className="mb-8 h-11  flex gap-2  w-max bg-blue-500 max-mobile:w-full justify-center overflow-hidden  ">
                 {inView &&
                     ["My", "Technical", "Skills"].map((word, index) => {
                         return (

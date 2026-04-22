@@ -86,17 +86,17 @@ export default function NavigationBar() {
                     <div className="aspect-video h-auto w-full  absolute "></div>
                     <button onClick={() => handleNavigation("/projects")} className="focus:bg-accent-1 text-text"   {...cursorOnHover}>
                         {/* Add something like icon upon hover */}
-                        <h1 className="p-2 mx-1 max-tablet:mx-0 max-tablet:text-sm hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s]">Projects</h1>
+                        <h1 className="p-2 mx-1 max-mobile-tablet-threshold:mx-0 max-mobile-tablet-threshold:text-sm hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s]">Projects</h1>
 
                     </button>
                     <button onClick={() => handleNavigation("/", "skills-section-id")}   {...cursorOnHover}>
-                        <h1 className="p-2 mx-1 max-tablet:mx-0 max-tablet:text-sm  hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.7s]">Skills</h1>
+                        <h1 className="p-2 mx-1 max-mobile-tablet-threshold:mx-0 max-mobile-tablet-threshold:text-sm  hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.7s]">Skills</h1>
                     </button>
                     <button onClick={() => handleNavigation("/about")}   {...cursorOnHover}>
-                        <h1 className="p-2 mx-1 max-tablet:mx-0 max-tablet:text-sm  hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.8s]">About</h1>
+                        <h1 className="p-2 mx-1 max-mobile-tablet-threshold:mx-0 max-mobile-tablet-threshold:text-sm  hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.8s]">About</h1>
                     </button>
                     <button onClick={() => handleNavigation("/", "contact-section-id")}   {...cursorOnHover}>
-                        <h1 className="p-2 mx-1 max-tablet:mx-0 max-tablet:text-sm  hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.9s]">Contact</h1>
+                        <h1 className="p-2 mx-1 max-mobile-tablet-threshold:mx-0 max-mobile-tablet-threshold:text-sm  hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.9s]">Contact</h1>
                     </button>
                 </div>
                 <div className=" absolute right-0 pointer-events-auto top-0 z-50 hidden max-mobile:block">

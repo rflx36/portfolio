@@ -1,0 +1,22 @@
+
+
+
+
+@media (width >=320px){
+     .skill-item-container-width {
+          width: calc((4 * 50px) + (( var(--spacing) * 8) * 3));
+    }
+}
+
+@media (width >=394px ) {
+    .skill-item-container-width {
+        width: calc((5 * 50px) + (( var(--spacing) * 8) * 4));
+    }
+}
+
+@media (width > 430px) {
+    .skill-item-container-width{
+        width: auto;
+    }
+    
+}

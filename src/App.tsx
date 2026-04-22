@@ -2,7 +2,7 @@
 import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
 import { useEffect, useState } from "react"
-// import SkillsSection from "./components/skills section"
+import SkillsSection from "./components/skills section"
 // import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
 import LandingContacts from "./components/contact section/landing contacts"
@@ -55,7 +55,7 @@ function App() {
     <>
       {/* <CustomCursor/> */}
       {/* <StarField /> */}
-      <section id="home-section-id" className=" h-[900px] max-h-[calc(85vh)] max-mobile:max-h-[640px]  max-mobile:h-[calc(100vh-160px)]  max-tablet:min-h-[400px] max-mobile:min-h-[556px]! flex flex-col max-mobile:pt-24  max-mobile:justify-start justify-center  items-center relative">
+      <section id="home-section-id" className=" h-[900px] max-h-[calc(85vh)] max-mobile:max-h-[640px]  max-mobile:h-[calc(100vh-160px)]  max-mobile-tablet-threshold:min-h-[400px] max-mobile:min-h-[556px]! flex flex-col max-mobile:pt-24  max-mobile:justify-start justify-center  items-center relative">
         <NameIntroduction />
         <SpecializationIntroduction />
 
@@ -95,7 +95,7 @@ function App() {
         }
       </section>
 
-      {/* <SkillsSection /> */}
+      <SkillsSection />
       {/* <BackgroundSection />
       <ProcessSection />
       <ContactSection /> */}

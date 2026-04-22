@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from "react"
+import { forwardRef, useEffect, useRef, useState } from "react"
 import { useCursor } from "../../hooks/use_cursor"
 import type { resizeRegion, skillActiveStateType, skillInfo } from "../../types/types"
 import SkillsItem from "./skills_item"
+import "./skill_item_container.css"
 
 
-export default function SkillsItemContainer(props: {
+
+interface SkillsItemContainerProps {
     isActiveState: boolean,
     isLoaded: boolean,
     data: Array<skillInfo>,
@@ -12,7 +14,9 @@ export default function SkillsItemContainer(props: {
     type: skillActiveStateType,
     indexPositioning: number,
     resizeRegion: resizeRegion,
-}) {
+}
+
+ const SkillsItemContainer = forwardRef<HTMLButtonElement, SkillsItemContainerProps>((props, ref) => {
 
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -41,24 +45,40 @@ export default function SkillsItemContainer(props: {
     }, [loadProgression, images.length, props.isLoaded]);
 
 
+    const handleOnclick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
+
+
+
+        if (window.innerWidth <= 430) {
+
+            event.currentTarget.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            })
+        }
+        props.onClick();
+    }
+
 
     return (
         <button
-            onClick={props.onClick}
-            className={`${props.isActiveState ? "skill-card-container-selected" : "skill-card-container-disabled     "} max-mobile:px-2 max-mobile:w-[calc(100px+3rem)]   max-mobile:ease-bezier-in max-mobile:duration-300  w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg  skill-card-container`}
+            onClick={handleOnclick}
+            className={`${props.isActiveState ? "skill-card-container-selected  " : "skill-card-container-disabled   max-mobile:text-text/30! max-mobile:translate-y-4 "} pb-4 max-tablet:px-2 max-tablet:w-[calc(100px+3rem)]  max-tablet:ease-bezier-in max-tablet:duration-300  w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg max-mobile:w-full max-mobile:items-center  max-mobile:gap-2 skill-card-container skill-item-container-width`}
             style={{
-                transform: (props.resizeRegion == "mobile") ? `translateX(calc((${props.indexPositioning} * -100% + 50vw - 50%)))` : ""
+                transform: (props.resizeRegion == "tablet") ? `translateX(calc((${props.indexPositioning - 1} * -100%) + 50% ))` : ""
             }}
             {...cursorOnHover}
+            ref={ref}
+        // aria-label=""
 
         >
-            <div className="h-6.25 w-full relative">
+            <div className=" h-6.25 w-full max-mobile:mb-2  skill-item-container-width max-mobile:text-left relative">
                 <p>{props.type.toUpperCase()}</p>
 
                 {
                     props.isActiveState &&
 
-                    <div className="absolute bg-accent-1 -bottom-3 h-0.5 w-full" />
+                    <div className="max-mobile:hidden absolute bg-accent-1 -bottom-3 h-0.5 w-full" />
                 }
             </div>
 
@@ -81,7 +101,7 @@ export default function SkillsItemContainer(props: {
                     }
                 </div>
             }
-            <div className={`grid grid-cols-2 gap-x-8 gap-y-9 ${props.isActiveState ? "max-mobile:scale-100" : "max-mobile:scale-75"} max-mobile:origin-top max-mobile:ease-bezier-in max-mobile:duration-500`}>
+            <div className={`grid grid-cols-2  gap-x-8 gap-y-9 ${props.isActiveState ? "max-tablet:scale-100 " : "max-tablet:scale-75 max-mobile:scale-100"} max-mobile:transition-none skill-item-container-width  max-tablet:origin-top max-tablet:ease-bezier-in max-tablet:duration-500 max-mobile:flex max-mobile:flex-row max-mobile:justify-start max-mobile:items-start max-mobile:flex-wrap`}>
                 {
                     props.isLoaded && isLoaded ?
                         props.data.map((skill, index) =>
@@ -94,11 +114,14 @@ export default function SkillsItemContainer(props: {
                         )
                         :
                         Array.from({ length: random_skeleton_amount.current }).map((_, index) => (
-                            <div key={index} className="w-full h-[50px] bg-container-soft-shadow animate-pulse rounded-xl " />
+                            <div key={index} className=" w-[50px] h-[50px] bg-container-soft-shadow animate-pulse rounded-xl " />
                         ))
                 }
             </div>
 
         </button>
     )
-}
+});
+
+
+export default SkillsItemContainer;

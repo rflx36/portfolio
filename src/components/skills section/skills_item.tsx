@@ -27,7 +27,7 @@ export default function SkillsItem(props: {
                 } as React.CSSProperties}
                 role="img"
                 aria-labelledby={props.skill.name + "-description"}
-                className={`size-[50px] overflow-hidden [image-rendering:pixelated]  skill-image-container  ${props.styleState ? "bg-[image:var(--image-name-url)] " : "bg-[image:var(--image-disabled-url)] opacity-50"}`}
+                className={`size-[50px] overflow-hidden [image-rendering:pixelated]  skill-image-container  ${props.styleState ? "bg-[image:var(--image-name-url)]" : "bg-[image:var(--image-disabled-url)] opacity-50"}`}
             />
 
             <p

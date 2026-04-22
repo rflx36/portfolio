@@ -1,12 +1,10 @@
-.skill-state-hover:hover>.skill-state-default {
-    background-color: red;
-}
 
 
 
 .skill-card-container-selected {
     /* enabled animation of selected card */
     color: var(--color-text);
+    /* .skill-card-item .skill-image-container  */
 }
 
 .skill-card-container-disabled {
@@ -14,21 +12,15 @@
     color: color-mix(in srgb, var(--color-text) 50%, transparent);
 }
 
+
+
+
 .skill-state-container:hover>.skill-card-container {
     /* Set disabled animation of selected or hover of a card */
 
     color: color-mix(in srgb, var(--color-text) 50%, transparent);
 
-    .skill-card-item .skill-image-container {
-        --image-disabled-url: 'image-disabled';
-        background-image: var(--image-disabled-url);
-        opacity: 50%;
-    }
-
-    .skill-card-item p {
-        display: none;
-        
-    }
+    
 }
 
 .skill-card-container:hover {
@@ -47,16 +39,41 @@
 
     .skill-card-item p {
         display: block !important;
-        
+
     }
 }
 
 
 @keyframes image-transition {
-    from{
+    from {
         background-position: 0 0;
     }
-    to{
+
+    to {
         background-position: 0 100%;
     }
+}
+
+
+
+
+@media (width >820px) {
+
+    .skill-state-container:hover>.skill-card-container {
+        /* Set disabled animation of selected or hover of a card */
+
+        color: color-mix(in srgb, var(--color-text) 50%, transparent);
+
+        .skill-card-item .skill-image-container {
+            --image-disabled-url: 'image-disabled';
+            background-image: var(--image-disabled-url);
+            opacity: 50%;
+        }
+
+        .skill-card-item p {
+            display: none;
+
+        }
+    }
+
 }

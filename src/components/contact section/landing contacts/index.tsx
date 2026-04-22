@@ -26,7 +26,7 @@ export default function LandingContacts() {
 
     const cursorOnHoverEmail = useCursor({ tooltip: "Copy to clipboard", type: "pointer" })
     return (
-        <div className="flex max-mobile:flex-col max-mobile:flex max-mobile:mx-auto max-mobile:w-max max-[820px]:grid max-[820px]:grid-cols-2  w-[calc(100%-4rem)] mx-8  justify-evenly ">
+        <div className="flex  max-tablet:grid max-tablet:grid-cols-2  w-[calc(100%-4rem)] mx-8  justify-evenly max-mobile:flex-col max-mobile:flex max-mobile:mx-auto max-mobile:w-max">
             <div className="size-max  overflow-hidden">
                 <div className="  animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s] flex gap-3 p-2 font-semibold text-xs ease-bezier-in duration-50  items-center text-text/50 hover:text-accent-1">
                     <div className="w-3 h-auto grid place-content-center ">

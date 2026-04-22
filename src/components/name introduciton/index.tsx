@@ -1,5 +1,5 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react"
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { nameAnimStateDefaults } from "../../constants";
 import { type nameAnimStateType } from "../../types/types";
 
