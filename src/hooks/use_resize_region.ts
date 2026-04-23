@@ -36,6 +36,6 @@ export default function useResizeRegion() {
         }
     }, [])
 
-    console.log("resize region rerender");
+    // console.log("resize region rerender");
     return resizeRegion;
 }

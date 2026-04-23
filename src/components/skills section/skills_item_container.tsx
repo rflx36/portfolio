@@ -3,7 +3,6 @@ import { useCursor } from "../../hooks/use_cursor"
 import type { resizeRegion, skillActiveStateType, skillInfo } from "../../types/types"
 import SkillsItem from "./skills_item"
 import "./skill_item_container.css"
-import { useInView } from "react-intersection-observer"
 
 
 export default function SkillsItemContainer(props: {
@@ -14,7 +13,6 @@ export default function SkillsItemContainer(props: {
     type: skillActiveStateType,
     indexPositioning: number,
     resizeRegion: resizeRegion,
-    setVisible: (value:boolean) => void,
 }) {
 
     const [isLoaded, setIsLoaded] = useState(false);
@@ -23,11 +21,7 @@ export default function SkillsItemContainer(props: {
     const random_skeleton_amount = useRef(Math.ceil(Math.random() * 8));
 
     const [loadProgression, setLoadProgression] = useState(0);
-    const { ref, inView } = useInView({
-        rootMargin: "-50% 0% -50% 0%",
-        threshold: 0,
-    })
-
+    const buttonRef = useRef<HTMLButtonElement>(null);
     const images = props.data.flatMap((skill) => [
         skill.img_url,
         skill.img_url.replace(".png", "_disabled.png"),
@@ -46,16 +40,8 @@ export default function SkillsItemContainer(props: {
     }, [loadProgression, images.length, props.isLoaded]);
 
 
-    useEffect(()=>{
-       props.setVisible(inView);
-    },[inView])
-
     const handleOnclick = (event: React.SyntheticEvent<HTMLButtonElement>) => {
-
-
-
         if (window.innerWidth <= 430) {
-
             event.currentTarget.scrollIntoView({
                 behavior: "smooth",
                 block: "center"
@@ -64,17 +50,34 @@ export default function SkillsItemContainer(props: {
         props.onClick();
     }
 
+    // useEffect(() => {
+    //     if (buttonRef.current) {
+    //         // buttonRef.current.style.pointerEvents = "none";
+    //         buttonRef.current.style.backgroundColor = props.isActiveState ?"green":"blue";
+    //         // buttonRef.current
+    //         if (props.isActiveState){
+    //             buttonRef.current.onblur;
+    //         }
+    //         setTimeout(() => {
+    //             if (buttonRef.current) {
+    //                 buttonRef.current.style.backgroundColor = "none";
+    //                 // buttonRef.current.style.pointerEvents = "";
+    //             }
+    //         }, 100);
+    //     }
+    // }, [props.isActiveState])
 
     return (
         <button
             onClick={handleOnclick}
-            className={`${props.isActiveState ? "skill-card-container-selected  " : "skill-card-container-disabled   max-mobile:text-text/30! max-mobile:translate-y-4 "} pb-4 max-tablet:px-2 max-tablet:w-[calc(100px+3rem)]  max-tablet:ease-bezier-in max-tablet:duration-300  w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg max-mobile:w-full max-mobile:items-center  max-mobile:gap-2 skill-card-container skill-item-container-width`}
+            className={`${props.isActiveState ? "skill-card-container-selected   " : "skill-card-container-disabled   max-mobile:text-text/30! max-mobile:translate-y-4 "} pb-4 max-tablet:px-2 max-tablet:w-[calc(100px+3rem)]  max-tablet:ease-bezier-in max-tablet:duration-300  w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg max-mobile:w-full max-mobile:items-center  max-mobile:gap-2 skill-card-container skill-card-container-${props.type} skill-item-container-width`}
             style={{
                 transform: (props.resizeRegion == "tablet") ? `translateX(calc((${props.indexPositioning - 1} * -100%) + 50% ))` : ""
             }}
             {...cursorOnHover}
+            id={`skill-item-container-${props.type}-id`}
             // aria-label=""
-            ref={ref}
+            ref={buttonRef}
 
         >
             <div className=" h-6.25 w-full max-mobile:mb-2  skill-item-container-width max-mobile:text-left relative">

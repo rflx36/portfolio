@@ -1,4 +1,4 @@
-import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, cursorStateType, modalStateType, nameAnimStateType, polygonRotationStateType, projectDataType, relativeSkillsPositioningMapReverseType, relativeSkillsPositioningMapType, skillActiveStateType, skillDataType } from "./types/types";
+import type { animationLoadStateType, backgroundActiveStateType, backgroundDataType, cursorStateType, modalStateType, nameAnimStateType, polygonRotationStateType, projectDataType, relativeSkillsPositioningMapType, skillActiveStateType, skillDataType } from "./types/types";
 
 
 
@@ -62,11 +62,4 @@ export const activeRelativeSkillPositioningMap: relativeSkillsPositioningMapType
     "frontend": 1,
     "backend": 2,
     "other": 3
-}
-
-export const activeRelativeSkillPositioningMapReversed: relativeSkillsPositioningMapReverseType = {
-    0:"design",
-    1:"frontend",
-    2:"backend",
-    3:"other"
 }

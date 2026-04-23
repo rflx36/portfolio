@@ -15,6 +15,7 @@ export default function SkillsItem(props: {
     const imageUrl = props.skill.img_url;
     const animationDelay = isMobile() ? 0.1 : 0;
     
+
     return (
         <div className="flex justify-center h-max relative skill-card-item">
 
@@ -28,6 +29,7 @@ export default function SkillsItem(props: {
                 role="img"
                 aria-labelledby={props.skill.name + "-description"}
                 className={`size-[50px] overflow-hidden [image-rendering:pixelated]  skill-image-container  ${props.styleState ? "bg-[image:var(--image-name-url)]" : "bg-[image:var(--image-disabled-url)] opacity-50"}`}
+               
             />
 
             <p
