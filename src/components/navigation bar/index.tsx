@@ -5,7 +5,7 @@ import { useCursor } from "../../hooks/use_cursor";
 import { useEffect, useState } from "react";
 import "./mobile_navigation_bar.css"
 import ToggleNavigation from "../ui/toggle/navigation";
-import isMobile from "../../utils/is_mobile";
+import useResizeRegion from "../../hooks/use_resize_region";
 
 
 
@@ -19,6 +19,7 @@ export default function NavigationBar() {
     const [isDocked, setIsDocked] = useState(false);
     const [elementsInitialized, setElementsInitialized] = useState(false);
     const [isAtTop, setIsAtTop] = useState(true)
+    const resizeRegion = useResizeRegion();
 
     const handleNavigation = (path: string, section?: string) => {
         if (isDocked) {
@@ -51,6 +52,10 @@ export default function NavigationBar() {
         }, 50);
 
         const handleScroll = () => {
+            if (resizeRegion != "mobile"){
+                return;
+            }
+
             if (window.scrollY >= 350 || window.scrollY <= 250) {
                 return;
             }
@@ -58,7 +63,6 @@ export default function NavigationBar() {
             const scrollPastLimit = window.scrollY >= 300;
 
             setIsAtTop(!scrollPastLimit);
-
 
         }
 
@@ -69,6 +73,16 @@ export default function NavigationBar() {
         }
     }, [isDocked])
 
+    // console.log("scroll:"+ scroll);
+
+    const redirectToHomeEnabled = ((location.pathname == "/" && !isAtTop) || location.pathname != "/") || resizeRegion != "mobile";
+
+    const handleRedirectToHome = () => {
+        if (!redirectToHomeEnabled){
+            return;
+        }
+         handleNavigation("/", "home-section-id")
+    }
     return (
         <>
 
@@ -77,9 +91,9 @@ export default function NavigationBar() {
                 <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! select-none pointer-events-none" />
 
                 {
-                    (((location.pathname == "/" && !isAtTop) || location.pathname != "/") || !isMobile()) &&
-                    <button className="pointer-events-auto" onClick={() => handleNavigation("/", "home-section-id")}   {...cursorOnHover}>
-                        <h1 className={`p-2  origin-top-left mx-2 hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s] max-mobile:animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both]`}>RFLAMOSTE</h1>
+                    
+                    <button aria-disabled={!redirectToHomeEnabled} className={` relative ${redirectToHomeEnabled?"translate-y-0 pointer-events-auto":"-translate-y-full pointer-events-none"} ease-bezier-in duration-500`} onClick={handleRedirectToHome}   {...cursorOnHover}>
+                        <h1 className={`p-2  origin-top-left mx-2 z-60 font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  not-max-mobile:animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s] `}>RFLAMOSTE</h1>
                     </button>
                 }
                 <div className="mx-1 relative max-mobile:hidden pointer-events-auto">

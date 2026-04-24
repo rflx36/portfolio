@@ -96,8 +96,8 @@ function App() {
       </section>
 
       <SkillsSection />
-      {/* <BackgroundSection />
-      <ProcessSection />
+      {/* <BackgroundSection /> */}
+      {/* <ProcessSection />
       <ContactSection /> */}
 
 

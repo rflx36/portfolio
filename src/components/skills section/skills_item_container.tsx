@@ -66,7 +66,7 @@ export default function SkillsItemContainer(props: {
     //         }, 100);
     //     }
     // }, [props.isActiveState])
-
+    console.log("child resize region"+ props.resizeRegion);
     return (
         <button
             onClick={handleOnclick}

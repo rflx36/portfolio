@@ -99,7 +99,7 @@ label {
 @custom-variant max-laptop (@media (width <=85.375rem));
 @custom-variant max-tablet (@media (width <=51.25rem));
 @custom-variant max-mobile-tablet-threshold (@media (width <=40rem));
-@custom-variant max-mobile (@media (width <=27rem));
+@custom-variant max-mobile (@media (width <=26.875rem));
 
 
 @keyframes fadeIn {

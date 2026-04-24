@@ -13,12 +13,15 @@ export default function SkillsSection() {
     const [skillsActiveState, setSkillsActiveState] = useState<skillActiveStateType>(skillActiveStateDefaults);
     const [skillDataState, setSkillDataState] = useState<skillDataType>(skillDataDefaults);
 
-    const { ref, inView } = useInView({ threshold: (window.innerWidth > 430) ? 0.5 : 0.1 })
+    const { ref, inView } = useInView({ triggerOnce: (window.innerWidth > 430), threshold: (window.innerWidth > 430) ? 0.5 : 0.1 })
     const scrollUpdateTick = useRef<boolean>(false);
     const scrollLastValue = useRef<number>(0);
-
-
+    const scrollPauseUpdate = useRef<boolean>(false);
+    const scrollPauseTimeout = useRef<boolean>(false);
     const resizeRegion = useResizeRegion();
+
+
+
     const fetchSkillsData = async () => {
         const response = await fetch("/skills.json");
         const data = await response.json();
@@ -38,7 +41,9 @@ export default function SkillsSection() {
     // console.log("render:" + inView);
 
 
-    const updateActiveSkillValue = (value: skillActiveStateType) => {
+    const updateActiveSkillValue = (value: skillActiveStateType, viaClick: boolean) => {
+        scrollPauseUpdate.current = viaClick
+
         setSkillsActiveState(value);
         if (resizeRegion != "mobile") {
             return;
@@ -74,12 +79,29 @@ export default function SkillsSection() {
     }
 
     const updateActiveSkillContainer = () => {
+
         if (resizeRegion != "mobile") {
             return;
         }
 
         // console.log("scroll:"+ window.scrollY);
-      
+        if (scrollPauseUpdate.current) {
+
+            if (scrollPauseTimeout.current) {
+                return;
+            }
+
+            scrollPauseTimeout.current = true;
+
+            const scrollPause = setTimeout(() => {
+                scrollPauseTimeout.current = false;
+                scrollPauseUpdate.current = false;
+                clearTimeout(scrollPause);
+            }, 500);
+
+
+        }
+
 
         if (!scrollUpdateTick.current) {
             requestAnimationFrame(() => {
@@ -110,16 +132,17 @@ export default function SkillsSection() {
                             }
                         }
                     })
-                    updateActiveSkillValue(nearestSkill);
+                    updateActiveSkillValue(nearestSkill, false);
                 }
                 scrollUpdateTick.current = false;
             })
             scrollUpdateTick.current = true;
         }
+
     }
 
 
-
+    console.log("updated");
     useEffect(() => {
         fetchSkillsData();
     }, [])
@@ -150,7 +173,7 @@ export default function SkillsSection() {
 
     // console.log("active:" + skillsActiveState);
 
-
+    console.log("parent resize region:" + resizeRegion);
 
     return (
         <section id="skills-section-id" className="min-h-max h-screen max-h-[700px] overflow-clip mb-32  w-[calc(100%-2rem)] max-tablet:w-full mx-auto max-w-270 flex max-mobile:h-max justify-start  max-mobile:items-start items-center flex-col-reverse " >
@@ -158,7 +181,7 @@ export default function SkillsSection() {
 
 
 
-            <div className={`skill-state-container  w-max flex max-tablet:w-full min-w-max justify-center gap-0 overflow-clip ${skillDataState.isLoaded ? "h-max" : "h-full"} max-mobile:h-max max-mobile:flex-col  max-mobile:items-center  max-mobile:gap-8   `}
+            <div className={`skill-state-container  w-max flex max-tablet:w-full min-w-max justify-center gap-0 overflow-clip ${skillDataState.isLoaded ? "h-max" : "h-full"}  max-mobile:flex-col  max-mobile:items-center  max-mobile:gap-8   `}
                 ref={ref}
                 id="skill-state-container-id"
             >
@@ -167,7 +190,7 @@ export default function SkillsSection() {
                     isActiveState={skillsActiveState == "design"}
                     isLoaded={skillDataState.isLoaded}
                     data={skillDataState.design}
-                    onClick={() => updateActiveSkillValue("design")}
+                    onClick={() => updateActiveSkillValue("design", true)}
                     type="design"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
@@ -176,7 +199,7 @@ export default function SkillsSection() {
                     isActiveState={skillsActiveState == "frontend"}
                     isLoaded={skillDataState.isLoaded}
                     data={skillDataState.frontend}
-                    onClick={() => updateActiveSkillValue("frontend")}
+                    onClick={() => updateActiveSkillValue("frontend", true)}
                     type="frontend"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
@@ -188,7 +211,7 @@ export default function SkillsSection() {
                     isActiveState={skillsActiveState == "backend"}
                     isLoaded={skillDataState.isLoaded}
                     data={skillDataState.backend}
-                    onClick={() => updateActiveSkillValue("backend")}
+                    onClick={() => updateActiveSkillValue("backend", true)}
                     type="backend"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}
@@ -200,7 +223,7 @@ export default function SkillsSection() {
                     isActiveState={skillsActiveState == "other"}
                     isLoaded={skillDataState.isLoaded}
                     data={skillDataState.other}
-                    onClick={() => updateActiveSkillValue("other")}
+                    onClick={() => updateActiveSkillValue("other", true)}
                     type="other"
                     indexPositioning={getRelativeSkillPositioningMap()}
                     resizeRegion={resizeRegion}

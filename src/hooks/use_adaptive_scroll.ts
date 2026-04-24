@@ -1,14 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import type { useAdaptiveScrollPosition, useAdaptiveScrollResultProps } from "../types/hook_types";
 
-
-export default function useAdaptiveScroll(mode: "use once" | "realtime" = "realtime", threshold: number = 0): useAdaptiveScrollResultProps {
+/**
+ * a optimized scroll hook that returns
+ * @param mode use once to trigger when a threshold is met else returns a realtime scroll positions
+ * @param threshold use once threshold to trigger else realtime throttle threshold to update
+ * @returns boolean | Object:{ x:scrollXValue, y: scrollYValue } 
+ */
+export default function useAdaptiveScroll(mode: "use once" | "realtime" = "realtime", threshold: number = 10): useAdaptiveScrollResultProps {
     const [scrollPos, setScrollPos] = useState<useAdaptiveScrollPosition>({ x: window.scrollX, y: window.scrollY });
+    
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
-    const startTime = useRef<number | null>(null);
-    const isThrottling = useRef(false);
+    
     const timeoutId = useRef<number | null>(null);
     const scrollMount = useRef<number | null>(null);
+    const scrollLastValue = useRef<number>(0);
+
+
+    const scrollUpdateTick = useRef<boolean>(false);
 
     useEffect(() => {
         const handleScroll = (): void => {
@@ -64,44 +73,57 @@ export default function useAdaptiveScroll(mode: "use once" | "realtime" = "realt
             }
 
 
-
-
-            const now = Date.now();
-
-            if (startTime.current === null) {
-                startTime.current = now;
+            if (scrollUpdateTick.current) {
+                return;
             }
 
-            const elapsed = now - startTime.current;
-
-            if (elapsed < 2000) {
-                if (scrollMount.current !== null) {
-                    cancelAnimationFrame(scrollMount.current);
-                }
-
-                scrollMount.current = requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                const currentScroll = window.scrollY;
+                if (Math.abs(currentScroll - scrollLastValue.current) > threshold) {
+                    scrollLastValue.current = currentScroll;
                     setScrollPos({ x: window.scrollX, y: window.scrollY });
-                });
-            } else {
-                if (isThrottling.current) {
-                    return;
                 }
+                scrollUpdateTick.current = false;
+            })
+            scrollUpdateTick.current = true;
 
-                isThrottling.current = true;
-                setScrollPos({ x: window.scrollX, y: window.scrollY });
 
-                window.setTimeout(() => {
-                    isThrottling.current = false;
-                }, 1000);
-            }
+            // const now = Date.now();
 
-            if (timeoutId.current !== null) {
-                window.clearTimeout(timeoutId.current);
-            }
+            // if (startTime.current === null) {
+            //     startTime.current = now;
+            // }
 
-            timeoutId.current = window.setTimeout(() => {
-                startTime.current = null;
-            }, 150);
+            // const elapsed = now - startTime.current;
+
+            // if (elapsed < 2000) {
+            //     if (scrollMount.current !== null) {
+            //         cancelAnimationFrame(scrollMount.current);
+            //     }
+
+            //     scrollMount.current = requestAnimationFrame(() => {
+            //         setScrollPos({ x: window.scrollX, y: window.scrollY });
+            //     });
+            // } else {
+            //     if (isThrottling.current) {
+            //         return;
+            //     }
+
+            //     isThrottling.current = true;
+            //     setScrollPos({ x: window.scrollX, y: window.scrollY });
+
+            //     window.setTimeout(() => {
+            //         isThrottling.current = false;
+            //     }, 1000);
+            // }
+
+            // if (timeoutId.current !== null) {
+            //     window.clearTimeout(timeoutId.current);
+            // }
+
+            // timeoutId.current = window.setTimeout(() => {
+            //     startTime.current = null;
+            // }, 150);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
