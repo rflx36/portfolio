@@ -47,9 +47,9 @@ function App() {
       clearTimeout(introTimeout)
     }
   }, []);
-  const projectSectionRef = !isMobile() ? {
-    ref: projectsRef
-  } : {}
+  // const projectSectionRef = !isMobile() ? {
+  //   ref: projectsRef
+  // } : {}
 
   return (
     <>
@@ -81,7 +81,7 @@ function App() {
       </section>
 
 
-      <section {...projectSectionRef}>
+      <section ref={projectsRef}>
         {
           (introductionLoaded || hasScrolled || !isMobile()) ?
             <div className={`max-mobile:animate-[SlideUpFadeIn_0.5s_ease-in-out_forwards]`}>
@@ -97,8 +97,8 @@ function App() {
 
       <SkillsSection />
       <BackgroundSection />
-      {/* <ProcessSection />
-      <ContactSection /> */}
+      {/* <ProcessSection /> */}
+      {/* <ContactSection /> */}
 
 
 

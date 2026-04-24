@@ -176,7 +176,7 @@ export default function SkillsSection() {
     console.log("parent resize region:" + resizeRegion);
 
     return (
-        <section id="skills-section-id" className="min-h-max h-screen max-h-[700px] overflow-clip mb-32  w-[calc(100%-2rem)] max-tablet:w-full mx-auto max-w-270 flex max-mobile:h-max justify-start  max-mobile:items-start items-center flex-col-reverse " >
+        <section id="skills-section-id" className="min-h-max h-screen max-h-[700px] overflow-clip mb-32  w-[calc(100%-2rem)] max-tablet:w-full mx-auto max-w-270 flex max-mobile:h-max max-mobile:max-h-max justify-start  max-mobile:items-start items-center flex-col-reverse " >
 
 
 

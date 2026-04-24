@@ -46,7 +46,7 @@ export default function BackgroundSection() {
 
     const cursorOnHover = useCursor({ type: "pointer" })
     return (
-        <section className="w-full flex flex-col items-center min-h-max h-screen max-h-[700px]">
+        <section id="background-section-id" className="w-full flex flex-col items-center min-h-max h-screen max-h-[700px]">
 
             <h1 className="font-bold text-xl uppercase text-text mb-10"></h1>
             <div className="w-full flex gap-8 mt-5">

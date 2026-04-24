@@ -43,7 +43,7 @@ export default function BackgroundCard(
 
     return (
         <div className="w-full h-max flex justify-between">
-            <div className="flex gap-5">
+            <div className="flex gap-5 max-mobile:gap-2">
 
                 <div className="flex flex-col items-center">
                     <div className="bg-container-soft-shadow border-container-stroke border size-[50px] grid place-content-center rounded-full">

@@ -75,7 +75,7 @@ export default function ProcessSection() {
     return (
         <section className="w-full h-[800px] flex justify-center mx-auto max-w-[1329px]">
             <div className="relative ">
-                <div className="h-[200px] z-30 w-full  flex flex-col items-center">
+                <div className="h-[200px] z-30 w-max  flex flex-col items-center">
 
 
                     <div className="h-16 flex gap-4  w-max justify-center overflow-hidden  ">
@@ -113,8 +113,8 @@ export default function ProcessSection() {
                     </div>
 
                 </div>
-                <div className="  pointer-events-none select-none">
-                    <div className="relative z-10 size-max"
+                <div className="  pointer-events-none select-none grid place-content-center ">
+                    <div className="relative z-10 size-max "
                         ref={ref}>
                         <div className="relative size-max z-10 ease-bouncy-1 duration-1000"
                             style={{ transform: `rotate(${onHoverModifiers.rotation_on_hover.toString()}deg)` }}
