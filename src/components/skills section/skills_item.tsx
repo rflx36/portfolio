@@ -1,3 +1,4 @@
+import type React from "react";
 import isMobile from "../../utils/is_mobile";
 
 
@@ -14,7 +15,7 @@ export default function SkillsItem(props: {
 
     const imageUrl = props.skill.img_url;
     const animationDelay = isMobile() ? 0.1 : 0;
-    
+
 
     return (
         <div className="flex justify-center h-max relative skill-card-item">
@@ -29,9 +30,25 @@ export default function SkillsItem(props: {
                 role="img"
                 aria-labelledby={props.skill.name + "-description"}
                 className={`size-[50px] overflow-hidden [image-rendering:pixelated]  skill-image-container  ${props.styleState ? "bg-[image:var(--image-name-url)]" : "bg-[image:var(--image-disabled-url)] opacity-50"}`}
-               
-            />
 
+            />
+            {/* <img
+
+                // src={props.styleState ? imageUrl : disabledUrl}
+                alt={props.skill.name}
+                aria-labelledby={`${props.skill.name}-description`}
+                style={{
+                    '--image-name-sequence-url': `url(${imageUrl})`,
+                    animationDelay: `${(props.index / 25) + animationDelay}s`,
+                } as React.CSSProperties}
+                className={`
+        size-[50px] 
+        object-cover 
+        [image-rendering:pixelated] 
+        skill-image-container 
+        ${!props.styleState ? "opacity-50" : ""}
+    `}
+            /> */}
             <p
                 className={`${props.styleState ? "block" : "hidden"} ${props.skill.name.length >= 8 ? "text-xs" : "text-sm"}  absolute bottom-0 leading-3.5 translate-y-[calc(100%+0.25rem)] text-text/75 font-bold `}
                 style={{

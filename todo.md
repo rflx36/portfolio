@@ -46,13 +46,15 @@ Optimize:
 
 - add mounting on intersection observer on the project section - /
 
+- optimize on switch focus on skill  container button of setting classlist or changing skill icons in mobile resolution - / 
 
 
 Rework :
 - implement a different layout since initial layout is good design bat bad UX (probably a vertical and then focus a specific skill section depending which is more centralized on Y axis scroll) - /
 - scrap existign layout for the tablet size - /
-
 - on mobile view/mode force add delay to load lottie name intro anim - /
+
+
 
 
 Final Todo:

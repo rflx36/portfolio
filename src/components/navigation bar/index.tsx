@@ -71,10 +71,10 @@ export default function NavigationBar() {
             clearTimeout(InitializeElements);
             window.removeEventListener("scroll", handleScroll);
         }
-    }, [isDocked])
-
-    // console.log("scroll:"+ scroll);
-
+    }, [isDocked,resizeRegion])
+    
+    console.log("scroll:"+ window.scrollY);
+    console.log("resize"+resizeRegion);
     const redirectToHomeEnabled = ((location.pathname == "/" && !isAtTop) || location.pathname != "/") || resizeRegion != "mobile";
 
     const handleRedirectToHome = () => {
@@ -124,7 +124,16 @@ export default function NavigationBar() {
                         <div className="w-full h-1/3 flex items-center gap-2 pb-4 flex-col-reverse aspect-square  mx-auto">
                             <h1 className={`font-semibold mobile-nav-name ease-bezier-in delay-100 duration-1500 ${elementsInitialized ? "text-text" : "text-accent-1"}`}>Roland Fonz Lamoste</h1>
                             <button onClick={() => handleNavigation("/", "home-section-id")} className="size-[100px] bg-bg p-0.5 shadow-2xl rounded-full overflow-hidden animate-[scaleIn_0.3s_cubic-bezier(0.65,0.56,0.27,0.86)_backwards]">
-                                <img src="/assets/profile.png" className=" size-full rounded-full object-cover " />
+                                {/* <img src="/assets/profile.png" className=" size-full rounded-full object-cover " /> */}
+                                <img
+                                src={"/assets/profile.png"}
+                                onLoad={(x) =>{
+                                    const profile = x.currentTarget
+                                    profile.style.opacity = "100%";
+                                    profile.classList.remove("animate-pulse")
+                                }}
+                                className="size-full rounded-full object-cover animate-pulse bg-container-soft-shadow opacity-0 ease-in duration-100"
+                            />
                             </button>
                         </div>
                         <div className="grow flex flex-col justify-center gap-2 p-2 items-center">

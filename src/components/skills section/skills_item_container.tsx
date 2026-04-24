@@ -70,7 +70,7 @@ export default function SkillsItemContainer(props: {
     return (
         <button
             onClick={handleOnclick}
-            className={`${props.isActiveState ? "skill-card-container-selected   " : "skill-card-container-disabled   max-mobile:text-text/30! max-mobile:translate-y-4 "} pb-4 max-tablet:px-2 max-tablet:w-[calc(100px+3rem)]  max-tablet:ease-bezier-in max-tablet:duration-300  w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg max-mobile:w-full max-mobile:items-center  max-mobile:gap-2 skill-card-container skill-card-container-${props.type} skill-item-container-width`}
+            className={`${props.isActiveState ? "skill-card-container-selected   " : "skill-card-container-disabled   max-mobile:text-text/30! max-mobile:translate-y-4 "} pb-4 max-tablet:px-2 max-tablet:w-[calc(100px+3rem)]  max-tablet:ease-bezier-in max-tablet:duration-300  w-[calc(100px+6rem)] flex flex-col gap-12 font-bold px-8  text-lg max-mobile:w-full max-mobile:items-center  max-mobile:gap-2 skill-card-container  skill-item-container-width`}
             style={{
                 transform: (props.resizeRegion == "tablet") ? `translateX(calc((${props.indexPositioning - 1} * -100%) + 50% ))` : ""
             }}
@@ -91,8 +91,8 @@ export default function SkillsItemContainer(props: {
             </div>
 
             {
-                !isLoaded &&
-                <div className="absolute hidden">
+              
+                <div className="absolute opacity-0">
                     {
 
                         images.map((src, index) => (
@@ -104,6 +104,7 @@ export default function SkillsItemContainer(props: {
                                     console.error("Failed to load ", src)
                                     setLoadProgression((x) => x + 1)
                                 }}
+                                className="size-px "
                             />
                         ))
                     }

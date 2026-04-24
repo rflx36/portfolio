@@ -18,6 +18,7 @@
     color: color-mix(in srgb, var(--color-text) 50%, transparent);
 
 
+
 }
 
 @keyframes image-transition {
@@ -35,16 +36,13 @@
 
 
 
-@media (width <= 430px) {
+@media (width <=430px) {
 
-    .skill-card-container-design-active .skill-card-container-design,
-    .skill-card-container-frontend-active .skill-card-container-frontend,
-    .skill-card-container-backend-active .skill-card-container-backend,
-    .skill-card-container-other-active .skill-card-container-other {
+    .skill-card-container-selected{
 
 
         color: var(--color-text) !important;
-
+        
 
         & .skill-card-item .skill-image-container {
             --image-name-url: 'image';
@@ -111,4 +109,3 @@
     }
 
 }
-

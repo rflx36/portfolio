@@ -46,7 +46,7 @@ export default function BackgroundCard(
             <div className="flex gap-5 max-mobile:gap-2">
 
                 <div className="flex flex-col items-center">
-                    <div className="bg-container-soft-shadow border-container-stroke border size-[50px] grid place-content-center rounded-full">
+                    <div className="bg-container-soft-shadow border-container-stroke border size-[50px] max-mobile:size-[40px] grid place-content-center rounded-full">
 
                         <img
                             src={formattedData.image_url}
@@ -62,9 +62,9 @@ export default function BackgroundCard(
                         <div className="w-[0.0625rem] h-12 max-mobile:h-14 bg-container-stroke" />
                     }
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col max-mobile:gap-1">
                     <p
-                        className="text-text/75 font-bold text-base"
+                        className="text-text/75 font-bold max-mobile:leading-5 text-base"
                         style={{
                             animation: `SlideUpFadeIn 0.3s ease-out ${0 + (props.index / 25)}s backwards`,
                         }}
@@ -72,7 +72,7 @@ export default function BackgroundCard(
                         {formattedData.name}
                     </p>
                     <p
-                        className="text-text/50 font-semibold text-base max-mobile:text-sm max-mobile:text-text/30"
+                        className="text-text/50 font-semibold text-base max-mobile:text-xs max-mobile:text-text/30"
                         style={{
                             animation: `SlideUpFadeIn 0.3s ease-out ${0.05 + (props.index / 25)}s backwards`,
                         }}
@@ -81,11 +81,16 @@ export default function BackgroundCard(
                     </p>
                 </div>
             </div>
-            <div className="text-text/75 font-bold max-mobile:text-sm max-mobile:text-center text-base" style={{
+            <div className="text-text/75 font-bold max-mobile:text-xs max-mobile:text-center text-base" style={{
                 animation: `fadeScaleIn 0.3s ease-out ${0.1 + (props.index / 25)}s backwards`,
             }}>
-                <span>{`${formattedData.start_date}`}</span>
-                {" - "}
+                {  
+
+                    <span className="max-mobile:hidden">
+                        <span>{`${formattedData.start_date}`}</span>
+                        {" - "}
+                    </span>
+                }
                 <span><p>{formattedData.end_date}</p></span>
             </div>
         </div>
