@@ -39,22 +39,27 @@ export default function BackgroundCard(
             description: formattedType.description,
         }
     }
-    
+
 
     return (
         <div className="w-full h-max flex justify-between">
             <div className="flex gap-5">
 
                 <div className="flex flex-col items-center">
+                    <div className="bg-container-soft-shadow border-container-stroke border size-[50px] grid place-content-center rounded-full">
 
-                    <img
-                        src={formattedData.image_url}
-                        alt={formattedData.name.replace(".png", " logo").replace(".webp", " logo")}
-                        className={`size-[50px]  aspect-square bg-container-soft-shadow border-container-stroke border object-contain rounded-full`}
-                    />
+                        <img
+                            src={formattedData.image_url}
+                            alt={formattedData.name.replace(".png", " logo").replace(".webp", " logo")}
+                            className={`size-full  aspect-square object-contain rounded-full`}
+                            style={{
+                                animation: `scaleIn 0.3s ease-out ${0 + (props.index / 25)}s backwards`
+                            }}
+                        />
+                    </div>
                     {
                         !props.isLast &&
-                        <div className="w-[0.0625rem] h-12 bg-container-stroke" />
+                        <div className="w-[0.0625rem] h-12 max-mobile:h-14 bg-container-stroke" />
                     }
                 </div>
                 <div className="flex flex-col">
@@ -67,16 +72,22 @@ export default function BackgroundCard(
                         {formattedData.name}
                     </p>
                     <p
-                        className="text-text/50 font-semibold text-base"
+                        className="text-text/50 font-semibold text-base max-mobile:text-sm max-mobile:text-text/30"
                         style={{
-                            animation: `SlideUpFadeIn 0.3s ease-out ${0 + (props.index / 25)}s backwards`,
+                            animation: `SlideUpFadeIn 0.3s ease-out ${0.05 + (props.index / 25)}s backwards`,
                         }}
                     >
                         {formattedData.sub_information}
                     </p>
                 </div>
             </div>
-            <div className="text-text/75 font-bold text-base">{formattedData.start_date} - {formattedData.end_date}</div>
+            <div className="text-text/75 font-bold max-mobile:text-sm max-mobile:text-center text-base" style={{
+                animation: `fadeScaleIn 0.3s ease-out ${0.1 + (props.index / 25)}s backwards`,
+            }}>
+                <span>{`${formattedData.start_date}`}</span>
+                {" - "}
+                <span><p>{formattedData.end_date}</p></span>
+            </div>
         </div>
 
     )

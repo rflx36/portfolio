@@ -51,12 +51,14 @@ export default function BackgroundSection() {
             <h1 className="font-bold text-xl uppercase text-text mb-10"></h1>
             <div className="w-full flex gap-8 mt-5">
                 <div className=" w-[calc(100%-2rem)] mx-auto max-w-185 flex flex-col gap-8 ">
-                    <div className="flex mx-auto w-full max-w-100 gap-4 bg-container-soft-shadow/50 p-1 rounded-full overflow-hidden">
+                    <div className="flex mx-auto w-full max-w-100 gap-4 max-mobile:gap-1 bg-container-soft-shadow/50 p-1 rounded-full overflow-hidden">
                         <button
                             onClick={() => handleBackgroundActiveState("education")}
                             className={`${backgroundActiveState === "education" ? "bg-bg  text-text/75  border border-container-stroke/40 " : "  text-container-stroke focus:text-text/50  hover:text-text/50 "}  outline-text/50 font-bold  w-1/2 h-9 rounded-full`}
                             tabIndex={backgroundActiveState === "education" ? -1 : 0}
                             {...(backgroundActiveState != "education" ? cursorOnHover : {})}
+                            aria-disabled={backgroundActiveState === "education"}
+                            aria-label="Show educational background button"
                         >
                             Education
                         </button>
@@ -65,6 +67,8 @@ export default function BackgroundSection() {
                             className={`${backgroundActiveState === "work" ? "bg-bg    text-text/75 border border-container-stroke/40 " : "  text-container-stroke  focus:text-text/50  hover:text-text/50 "}  outline-text/50 font-bold  w-1/2 h-9 rounded-full`}
                             tabIndex={backgroundActiveState === "work" ? -1 : 0}
                             {...(backgroundActiveState != "work" && cursorOnHover)}
+                            aria-disabled={backgroundActiveState === "work"}
+                            aria-label="Show experience background button"
                         >
                             Experience
                         </button>
@@ -83,11 +87,11 @@ export default function BackgroundSection() {
 
                                         backgroundActiveState === "education" ? (
                                             backgroundDataState.education.map((item, index) => (
-                                                <BackgroundCard key={index} index={index} type="education" data={item} isLast={index === backgroundDataState.education.length - 1} />
+                                                <BackgroundCard key={"education-"+index} index={index} type="education" data={item} isLast={index === backgroundDataState.education.length - 1} />
                                             ))
                                         ) : (
                                             backgroundDataState.work.map((item, index) => (
-                                                <BackgroundCard key={index} index={index} type="work" data={item} isLast={index === backgroundDataState.work.length - 1} />
+                                                <BackgroundCard key={"work-"+index} index={index} type="work" data={item} isLast={index === backgroundDataState.work.length - 1} />
                                             ))
                                         )
                                     }
@@ -102,10 +106,10 @@ export default function BackgroundSection() {
                                     <button
                                         onClick={() => handleBackgroundDockState(!backgroundDockState)}
                                         {...cursorOnHover}
-                                        className="text-text/50 hover:text-text/75 hover:bg-container-bg rounded-full font-bold py-2 -translate-y-10  w-max px-8 mx-auto flex gap-1 items-center">
+                                        className="text-text/50 hover:text-text/75 hover:bg-container-bg rounded-full group font-bold py-2 -translate-y-10  w-max px-8 mx-auto flex gap-3 items-center">
                                         Show All
 
-                                        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg className="group-hover:translate-y-0.5 ease-out duration-150" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M1 1L6 5L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                                         </svg>
 

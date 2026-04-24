@@ -3,7 +3,7 @@ import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
 import { useEffect, useState } from "react"
 import SkillsSection from "./components/skills section"
-// import BackgroundSection from "./components/background section"
+import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
 import LandingContacts from "./components/contact section/landing contacts"
 // import ContactSection from "./components/contact section"
@@ -96,7 +96,7 @@ function App() {
       </section>
 
       <SkillsSection />
-      {/* <BackgroundSection /> */}
+      <BackgroundSection />
       {/* <ProcessSection />
       <ContactSection /> */}
 

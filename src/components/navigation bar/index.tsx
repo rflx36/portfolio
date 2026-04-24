@@ -86,9 +86,9 @@ export default function NavigationBar() {
     return (
         <>
 
-            <nav className=" p-2 w-full px-[calc(50vw-720px+3rem)] pointer-events-none  fixed flex mx-auto justify-between top-0 z-50">
+            <nav className=" p-2 w-full px-[calc(50vw-720px+3rem)] pointer-events-none touch-none   fixed flex mx-auto justify-between top-0 z-50">
 
-                <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! select-none pointer-events-none" />
+                <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! touch-none select-none pointer-events-none" />
 
                 {
                     
@@ -96,8 +96,8 @@ export default function NavigationBar() {
                         <h1 className={`p-2  origin-top-left mx-2 z-60 font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  not-max-mobile:animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s] `}>RFLAMOSTE</h1>
                     </button>
                 }
-                <div className="mx-1 relative max-mobile:hidden pointer-events-auto">
-                    <div className="aspect-video h-auto w-full  absolute "></div>
+                <div className="mx-1 relative max-mobile:hidden pointer-events-auto touch-auto">
+                    <div className="aspect-video h-auto w-full  absolute pointer-events-none touch-none"></div>
                     <button onClick={() => handleNavigation("/projects")} className="focus:bg-accent-1 text-text"   {...cursorOnHover}>
                         {/* Add something like icon upon hover */}
                         <h1 className="p-2 mx-1 max-mobile-tablet-threshold:mx-0 max-mobile-tablet-threshold:text-sm hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s]">Projects</h1>
