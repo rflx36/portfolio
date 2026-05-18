@@ -63,3 +63,4 @@ Final Todo:
 -About and Image portrait
 -Projects section
 -projects images
+-implement SEO

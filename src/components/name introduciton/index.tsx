@@ -81,7 +81,7 @@ export default function NameIntroduction() {
     // }
 
 
-    const base_text_style = `absolute -z-10 top-0 font-semibold delay-300 select-none  pointer-events-none ease-bezier-in opacity-0 duration-1500 ${initialize && "opacity-100"} text-text text-[4rem]`;
+    const base_text_style = `absolute -z-10 top-0 font-semibold delay-300 select-none  pointer-events-none ease-bezier-in opacity-0 duration-1500 ${initialize && "opacity-100"} text-text text-[4rem] w-full selection:bg-accent-2/25 selection:text-accent-1/75 `;
 
     return (
         <div className="h-max flex flex-wrap  max-mobile:justify-start  max-mobile:w-74 max-mobile:translate-x-4  justify-center mb-7">
@@ -94,7 +94,7 @@ export default function NameIntroduction() {
                     <h2 className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.19s]  ">I</h2>
                     <h2 className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.21s]  ">m</h2>
                 </div>
-                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75 ">Roland</h1>
+                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75  w-full">Roland</h1>
                 {
                     (!nameRolandState.ended && lottieInitialize) &&
 
@@ -126,7 +126,7 @@ export default function NameIntroduction() {
                 <h1 className={base_text_style}>Roland</h1>
             </div>
             <div className="w-40 h-16 relative ">
-                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75">Fonz</h1>
+                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75 w-full">Fonz</h1>
                 {
                     (!nameFonzState.ended && lottieInitialize) &&
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.4rem]  select-none pointer-events-none ${!nameFonzState.loaded ? " opacity-0 " : ""}`}>
@@ -154,7 +154,7 @@ export default function NameIntroduction() {
                 <h1 className={base_text_style}>Fonz</h1>
             </div>
             <div className="w-72 h-16 relative">
-                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75">Lamoste</h1>
+                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75 w-full">Lamoste</h1>
                 {
                     (!nameLamosteState.ended && lottieInitialize) &&
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.7rem]    select-none pointer-events-none ${!nameLamosteState.loaded ? "opacity-0 " : ""}`}>

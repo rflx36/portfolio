@@ -8,7 +8,7 @@ import ProjectsSection from "./components/projects section"
 import LandingContacts from "./components/contact section/landing contacts"
 // import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
-// import ProcessSection from "./components/process section"
+import ProcessSection from "./components/process section"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
 import isMobile from "./utils/is_mobile"
@@ -97,7 +97,7 @@ function App() {
 
       <SkillsSection />
       <BackgroundSection />
-      {/* <ProcessSection /> */}
+      <ProcessSection />
       {/* <ContactSection /> */}
 
 
