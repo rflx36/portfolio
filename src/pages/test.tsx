@@ -1,4 +1,5 @@
 import { useParams } from "react-router"
+import PathNodeVisualizer from "../components/ui/path node/visualizer";
 
 
 
@@ -12,6 +13,7 @@ export default function PageTest (){
         <div>
             <p>Test Page</p>
             <p>Value: { ah.value}</p>
+            <PathNodeVisualizer />
         </div>
     )
 }

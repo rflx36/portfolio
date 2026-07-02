@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 import ProcessSectionDefault from "./default"
 import ProcessSectionMobile from "./mobile"
 import clamp from "../../utils/clamp";
-import { LegPathInterpolator } from "./temp";
-import CornerPathNode from "../ui/corner path node";
+// import { LegPathInterpolator } from "./temp";
+// import CornerPathNode from "../ui/corner path node";
 import PathNode, { type PathNodeInterface } from "../ui/path node";
 
 
@@ -38,7 +38,7 @@ export default function ProcessSection() {
     }, [])
 
     const point_value: PathNodeInterface = {
-        pointPosition: { x: 130, y: 60 },
+        pointPosition: { x: clamp(polygonSize / 2, 0, 130), y: 60 },
         startingControlPoint: {
             controlPointX: {
                 type: "fixed" ,

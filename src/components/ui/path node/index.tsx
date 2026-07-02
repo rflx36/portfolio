@@ -87,7 +87,7 @@ export default function PathNode(props: {
             height={props.height}
             fill="none"
             viewBox={`0 0 ${props.width} ${props.height}`}
-            className="blur-xs [stroke-dasharray:20,50]"
+            // className="blur-xs [stroke-dasharray:20,50]"
         >
             <path
                 d={pathResult}

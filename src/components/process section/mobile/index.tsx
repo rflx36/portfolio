@@ -26,7 +26,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
     return (
 
         <div className="w-full grid place-content-center relative  h-[1000px]">
-            <div className="relative size-max">
+            <div className="relative size-max opacity-90">
                 <Polygon
                     sides={7}
                     size={props.polygonSize}
@@ -56,51 +56,11 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                     const offset = 90;
                     const angle = ((360 / 7) * i) - offset;
 
-
-                    const getInitialWidth = () => {
-                        switch (i) {
-                            case 1:
-                                return `60%`; 
-                            case 2:
-                                return `48%`;
-                            case 3:
-                                return `65%`;
-                            case 4:
-                                return `60%`;
-                            case 5:
-                                return `48%`;
-                            case 6:
-                                return `60%`;
-                            default:
-                                return `41%`;
-                        }
-                    }
-
-                    const getInitialMaxWidth = () => {
-                        switch (i) {
-                            case 1:
-                                return `350px`; 
-                            case 2:
-                                return `292px`;
-                            case 3:
-                                return `325px`;
-                            case 4:
-                                return `292px`;
-                            case 5:
-                                return `292px`;
-                            case 6:
-                                return `350px`;
-                            default:
-                                return `250px`;
-                        }
-                    }
-
                     return (
                         <div key={i}
-                            className="bg-mixed-soft-shadow-bg rounded-full absolute  inset-1/2   h-1.5 origin-top-left"
+                            className="bg-transparent rounded-full absolute  inset-1/2   h-1.5 origin-top-left"
                             style={{
-                                width: getInitialWidth(),
-                                maxWidth: getInitialMaxWidth(),
+                                width: `${props.polygonSize * 0.5}px`,
                                 transform: `rotate(${angle}deg) translateY(-0.188rem)`
                             }}
 

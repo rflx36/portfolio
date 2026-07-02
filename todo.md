@@ -60,7 +60,7 @@ Rework :
 Final Todo:
 -Mobile View (min resolution: 320px - 430px)
 -Resume
--About and Image portrait
+-About and Image portrait - / 
 -Projects section
 -projects images
 -implement SEO
