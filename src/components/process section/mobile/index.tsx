@@ -13,6 +13,8 @@ import ProcessMobileNode7 from "./process_node_7";
 
 export default function ProcessSectionMobile(props: { polygonSize: number }) {
 
+    
+
     const processNodes = [
         ProcessMobileNode1,
         ProcessMobileNode2,
@@ -58,9 +60,9 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
 
                     return (
                         <div key={i}
-                            className="bg-transparent rounded-full absolute  inset-1/2   h-1.5 origin-top-left"
+                            className="bg-red-500 rounded-full absolute  inset-1/2   h-1.5 origin-top-left"
                             style={{
-                                width: `${props.polygonSize * 0.5}px`,
+                                width: `${props.polygonSize * 0.45}px`,
                                 transform: `rotate(${angle}deg) translateY(-0.188rem)`
                             }}
 
@@ -87,6 +89,12 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                     )
                 })
             }
+            <div className="bg-green-500 h-2 absolute bottom-0 left-0 right-0 m-auto rounded-full" 
+            style={{
+                width: `${props.polygonSize + 90}px`,   
+            }}>
+
+            </div>
 
         </div>
     )

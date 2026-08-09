@@ -1,6 +1,8 @@
-import {  useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 // import CornerPathNode from "../../ui/corner path node";
 import clamp from "../../../utils/clamp";
+import type { PathNodeInterface } from "../../ui/path node";
+import PathNode from "../../ui/path node";
 // import PathNode from "../../ui/path node";
 
 
@@ -53,22 +55,45 @@ export default function ProcessMobileNode1() {
     }, [windowWidth])
 
 
+
+    // const testClamp = useMemo(()=>{
+    //     const value = windowWidth;
+    //     return value
+    // },[windowWidth])
+
+    const testClamp = windowWidth;
+
     console.log("clamp values:");
     console.log(clampValues);
 
 
 
-
-
+    
     return (
         <>
-            {/* <div className="size-[200px] bg-red-500"></div> */}
-
-            {/* 
+            <div className="size-0 bg-blue-500 ">
+                <p>{clampValues.pathClamp}</p>
+                <p>{clampValues.transformClamp}</p>
+                <p>{clampValues.adjustmentClamp}</p>
+                <p className="text-red-500">{testClamp}</p>
+                {/* 
         <PathNode
-            strokeColor="black"
-            strokeWidth={2}
-            width={} */}
+        strokeColor="black"
+        strokeWidth={2}
+        width={} */}
+                {/* <PathNode
+                    strokeColor="black"
+                    strokeWidth={2}
+                    width={clampValues.transformClamp}
+                    height={250}
+                    position="bottomRight"
+                    points={[point_value_1]}
+                /> */}
+                {/* <div className="size-[20px] bg-red-500"></div> */}
+
+               
+
+            </div>
         </>
     )
 }

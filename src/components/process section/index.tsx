@@ -31,7 +31,7 @@ export default function ProcessSection() {
         }
 
         window.addEventListener("resize", handleResize);
-
+        handleResize();
         return () => {
             window.removeEventListener("resize", handleResize);
         }
@@ -103,14 +103,14 @@ export default function ProcessSection() {
                 blendValue={-100}
             />
             <LegPathInterpolator /> */}
-            <PathNode
+            {/* <PathNode
                 strokeColor="black"
                 strokeWidth={2}
                 width={400}
                 height={130}
                 position="bottomLeft"
                 points={[point_value,point_Value2]}
-            />
+            /> */}
         </div>
     )
 }

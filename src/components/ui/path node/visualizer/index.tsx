@@ -303,11 +303,15 @@ export default function PathNodeVisualizer() {
     }, []);
 
     const handleCopy = useCallback(() => {
-        navigator.clipboard.writeText(JSON.stringify(points, null, 2)).then(() => {
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1800);
-        });
-    }, [points]);
+    const jsonString = JSON.stringify(points, null, 2);
+    // Remove quotes around property names (e.g. "key": -> key:)
+    const unquoted = jsonString.replace(/"([^"]+)":/g, '$1:');
+    
+    navigator.clipboard.writeText(unquoted).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1800);
+    });
+}, [points]);
 
     const selPt = selectedPoint !== null ? points[selectedPoint] : null;
 
