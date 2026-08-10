@@ -14,6 +14,7 @@ export default function ContactSection() {
 
     return (
         <section id="contact-section-id" className="w-full h-max  flex flex-col  justify-center items-center relative">
+
             <div className="h-max w-max overflow-hidden flex flex-col pb-6 justify-center items-center relative">
 
 
@@ -23,7 +24,7 @@ export default function ContactSection() {
                         inView &&
                         ["I'd", "be", "happy", "to", "connect"].map((word, index) => {
                             return (
-                                <h1 key={index} className={`text-[4rem] text-text ${onSubmitState ? "translate-y-52 opacity-0" : "translate-y-1"}  ease-in-out duration-250 font-semibold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                <h1 key={index} className={`text-[4rem] max-mobile:text-[2rem] text-text ${onSubmitState ? "translate-y-52 opacity-0" : "translate-y-1"}  ease-in-out duration-250 font-semibold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
                                     style={{
                                         animationDelay: `${((index * 0.05) + 1)}s`,
                                         transitionDelay: `${((index * 0.05) + 1.75)}s`
@@ -69,7 +70,7 @@ export default function ContactSection() {
                 }
 
                 <ContactForm onContactSubmit={() => { setOnSubmitState(true) }} />
-                
+
                 <ContactEnvelope
                     transition_initialized={onSubmitState}
                 />

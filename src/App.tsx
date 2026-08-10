@@ -98,7 +98,7 @@ function App() {
       <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
-      {/* <ContactSection /> */}
+      <ContactSection />
 
 
       {/* <PathNodeVisualizer /> */}

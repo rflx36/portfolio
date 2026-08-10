@@ -4,7 +4,6 @@ import ProcessSectionMobile from "./mobile"
 import clamp from "../../utils/clamp";
 // import { LegPathInterpolator } from "./temp";
 // import CornerPathNode from "../ui/corner path node";
-import PathNode, { type PathNodeInterface } from "../ui/path node";
 
 
 
@@ -26,8 +25,8 @@ export default function ProcessSection() {
             setResponsiveState(newSize);
             // const responsiveDivider = window.innerWidth < responsiveBarrier ? 0.5 : 0.4;
             const baseSize = window.innerWidth < responsiveBarrier ? window.innerWidth - 100 : window.innerWidth * 0.4;
-            setPolygonSize(clamp(baseSize, 200, 400));
-            console.log("clamp value:" + (clamp(baseSize, 200, 400)));
+            setPolygonSize(clamp(baseSize, 250, 400));
+            console.log("clamp value:" + (clamp(baseSize, 250, 400)));
         }
 
         window.addEventListener("resize", handleResize);
@@ -37,52 +36,6 @@ export default function ProcessSection() {
         }
     }, [])
 
-    const point_value: PathNodeInterface = {
-        pointPosition: { x: clamp(polygonSize / 2, 0, 130), y: 60 },
-        startingControlPoint: {
-            controlPointX: {
-                type: "fixed" ,
-                value: 69
-            },
-            controlPointY: {
-                type: "fixed",
-                value: 53
-            },
-        },
-        endingControlPoint:{
-            controlPointX: {
-                type: "additive",
-                value: 55,
-            },
-            controlPointY: {
-                type: "additive",
-                value: 55,
-            },
-        }
-    }
-    const point_Value2: PathNodeInterface = {
-        pointPosition: { x: 200, y: 100 },
-        startingControlPoint: {
-            controlPointX: {
-                type: "additive",
-                value: 50
-            },
-            controlPointY: {
-                type: "additive",
-                value: 50
-            }
-        },
-        endingControlPoint: {
-            controlPointX: {
-                type: "fixed",
-                value: 300,
-            },
-            controlPointY: {
-                type: "fixed",
-                value: 0,
-            }
-        }
-    }
 
     // const point_value2: PathNodeInterface = {
     //     pointPosition
@@ -90,7 +43,7 @@ export default function ProcessSection() {
 
     return (
         <div className="w-full  overflow-clip">
-            <p>Clamp Size Amount: {polygonSize}</p>
+            {/* <p>Clamp Size Amount: {polygonSize}</p> */}
             {
                 responsiveState === "WideView" ?
                     <ProcessSectionDefault polygonSize={polygonSize} />

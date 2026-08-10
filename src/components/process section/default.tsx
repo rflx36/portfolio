@@ -12,7 +12,7 @@ import { useInView } from "react-intersection-observer";
 
 
 
-export default function ProcessSectionDefault(props:{polygonSize: number}) {
+export default function ProcessSectionDefault(props: { polygonSize: number }) {
     const [implementations, setImplementations] = useState<processImplementationDetailsType[]>([]);
     const [onHoverModifiers, setOnHoverModifiers] = useState({
         rotation_on_hover: 0,
@@ -26,9 +26,22 @@ export default function ProcessSectionDefault(props:{polygonSize: number}) {
     const mouseLeave = useRef(false);
 
     const fetchProcessImplementationsData = async () => {
-        const response = await fetch("/process_implementations.json");
-        const data = await response.json();
-        setImplementations(data);
+        let retries = 0;
+        try {
+            const response = await fetch("/process_implementations.json");
+            const data = await response.json();
+            setImplementations(data);
+        }
+        catch (e) {
+            console.error("Error fetching process implementations data:", e);
+            if (retries > 3) {
+                return;
+            }
+            retries++;
+            console.log(`Retrying fetch... Attempt ${retries}`);
+            setTimeout(fetchProcessImplementationsData, 1000); // Retry after 1 second
+
+        }
     }
 
     const updateMousePosition = (e: MouseEvent) => {
@@ -80,7 +93,7 @@ export default function ProcessSectionDefault(props:{polygonSize: number}) {
     return (
         <section className="w-full  flex justify-center mx-auto max-w-[1329px]"
             style={{
-                height: `${400+ (props.polygonSize)}px`
+                height: `${400 + (props.polygonSize)}px`
             }}
         >
             <div className="relative flex flex-col items-center">

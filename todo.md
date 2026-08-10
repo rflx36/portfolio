@@ -55,6 +55,10 @@ Rework :
 - on mobile view/mode force add delay to load lottie name intro anim - /
 
 
+Todo for today:
+- implement simplified process section
+- code cleanup unused
+
 
 
 Final Todo:
