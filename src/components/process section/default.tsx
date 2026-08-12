@@ -97,10 +97,10 @@ export default function ProcessSectionDefault(props: { polygonSize: number }) {
             }}
         >
             <div className="relative flex flex-col items-center">
-                <div className="h-[200px] z-30 w-max  flex flex-col items-center">
+                <div className="h-[200px] z-30 w-max pointer-events-none select-none flex flex-col items-center">
 
 
-                    <div className="h-16 flex gap-4  w-max justify-center overflow-hidden  ">
+                    <div className="h-16 flex gap-4 pointer-events-auto select-auto w-max justify-center overflow-hidden  ">
                         {inView &&
                             ["How", "i", "work:"].map((word, index) => {
                                 return (
@@ -115,7 +115,7 @@ export default function ProcessSectionDefault(props: { polygonSize: number }) {
                             })
                         }
                     </div>
-                    <div className="relative ">
+                    <div className="relative  pointer-events-auto select-auto">
 
                         <div className="  absolute -translate-x-1/2 flex gap-1  justify-center overflow-hidden">
                             {inView &&

@@ -87,12 +87,14 @@ export default function NameIntroduction() {
         <div className="h-max flex flex-wrap  max-mobile:justify-start  max-mobile:w-74 max-mobile:translate-x-4  justify-center mb-7">
             <div className="w-56 h-16  relative" >
                 <div className="absolute z-10 left-0 h-5 w-max  overflow-hidden flex">
-                    <h2 className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.1s]   ">H</h2>
-                    <h2 className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.13s]  ">i</h2>
-                    <h2 className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.16s]  ">!</h2>
-                    <div className="size-1.5" />
-                    <h2 className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.19s]  ">I</h2>
-                    <h2 className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.21s]  ">m</h2>
+                    <h1 aria-label="Hi! I'm" className="flex items-center justify-center h-full">
+                        <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.1s]   ">H</span>
+                        <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.13s]  ">i</span>
+                        <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.16s]  ">!</span>
+                        <div className="size-1.5" />
+                        <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.19s]  ">I</span>
+                        <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.21s]  ">m</span>
+                    </h1>
                 </div>
                 <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75  w-full">Roland</h1>
                 {

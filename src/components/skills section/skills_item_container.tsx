@@ -105,6 +105,7 @@ export default function SkillsItemContainer(props: {
                                     setLoadProgression((x) => x + 1)
                                 }}
                                 className="size-px "
+                                alt={`preload image ${src.replace(".png", "")}`}
                             />
                         ))
                     }

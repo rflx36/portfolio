@@ -150,7 +150,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                         )
                     })
                 }
-                <div className="bg-green-500 h-2 absolute bottom-0 left-0 right-0 m-auto rounded-full"
+                <div className=" h-2 absolute bottom-0 left-0 right-0 m-auto rounded-full"
                     style={{
                         width: `${props.polygonSize + 90}px`,
                     }}>

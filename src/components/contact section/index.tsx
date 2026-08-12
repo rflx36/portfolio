@@ -12,6 +12,7 @@ export default function ContactSection() {
     const [onSubmitState, setOnSubmitState] = useState(false);
     const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
 
+
     return (
         <section id="contact-section-id" className="w-full h-max  flex flex-col  justify-center items-center relative">
 
@@ -24,7 +25,7 @@ export default function ContactSection() {
                         inView &&
                         ["I'd", "be", "happy", "to", "connect"].map((word, index) => {
                             return (
-                                <h1 key={index} className={`text-[4rem] max-mobile:text-[2rem] text-text ${onSubmitState ? "translate-y-52 opacity-0" : "translate-y-1"}  ease-in-out duration-250 font-semibold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                <h1 key={index} className={`text-[4rem] max-[768px]:text-[3rem] text-text ${onSubmitState ? "translate-y-52 opacity-0" : "translate-y-1"}  ease-in-out duration-250 font-semibold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
                                     style={{
                                         animationDelay: `${((index * 0.05) + 1)}s`,
                                         transitionDelay: `${((index * 0.05) + 1.75)}s`
@@ -45,27 +46,30 @@ export default function ContactSection() {
 
 
             <div className={
-                ` p-2.5 bg-container-soft-shadow/50 duration-1200 ease-in-out mb-6 relative overflow-hidden
+                `max-mobile-tablet-threshold:hidden  p-2.5 bg-container-soft-shadow/50 duration-1200 ease-in-out mb-6 relative overflow-hidden
                 ${onSubmitState ?
                     "w-[calc(100%-4rem)] mx-auto  rounded-3xl flex flex-col justify-center items-center  py-[calc(2.5%+1rem)]" :
-                    "w-[calc(660px)] rounded-lg "} 
+                    "w-[calc(660px)] rounded-lg  "} 
                  `}
                 ref={ref}
             >
                 {
                     onSubmitState &&
                     <div className="absolute z-30 w-max flex gap-4 items-center justify-center -translate-y-4 h-full">
-                        {
-                            ["Thank", "you", "for", "reaching", "out"].map((word, index) => (
-                                <h1 key={index} className="text-[4rem] text-text font-semibold  animate-[SlideDown3_0.45s_cubic-bezier(0.23,0.94,0.27,0.93)_backwards]"
-                                    style={{
-                                        animationDelay: `${((index * 0.05) + 1.9)}s`
-                                    }}
-                                >
-                                    {word}
-                                </h1>
-                            ))
-                        }
+                        <h1 aria-label="Thank you for reaching out" className="flex gap-4 items-center justify-center h-full">
+
+                            {
+                                ["Thank", "you", "for", "reaching", "out"].map((word, index) => (
+                                    <span aria-hidden="true" key={index} className="text-[4rem] max-[56rem]:text-[3.5rem] max-[52rem]:text-[2.75rem] text-text font-semibold  animate-[SlideDown3_0.45s_cubic-bezier(0.23,0.94,0.27,0.93)_backwards]"
+                                        style={{
+                                            animationDelay: `${((index * 0.05) + 1.9)}s`
+                                        }}
+                                    >
+                                        {word}
+                                    </span>
+                                ))
+                            }
+                        </h1>
                     </div>
                 }
 
