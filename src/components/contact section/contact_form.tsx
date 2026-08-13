@@ -24,7 +24,7 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
-        const isTest = true; // Set this to true to simulate form submission without actually sending data
+        const isTest = false; // Set this to true to simulate form submission without actually sending data
 
 
         if (isTest){

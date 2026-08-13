@@ -56,8 +56,8 @@ Rework :
 
 
 Todo for today:
-- optimized the position of  i'd be happy to connect left aligned same case for  thank you for reaching out
-
+- optimized the position of  i'd be happy to connect left aligned same case for  thank you for reaching out - /
+- optimize LCP (projects images into webp and max 572x284 rendered format) - /
 
 
 Final Todo:
