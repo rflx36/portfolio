@@ -56,8 +56,7 @@ Rework :
 
 
 Todo for today:
-- implement simplified process section
-- code cleanup unused
+- optimized the position of  i'd be happy to connect left aligned same case for  thank you for reaching out
 
 
 

@@ -69,15 +69,15 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
 
     const cursorOnHoverSubmit = useCursor({ type: "pointer" });
     const cursorOnHoverInput = useCursor({ type: "text" });
-    const inputStyle = ` ease-in duration-500 focus:outline-1 -outline-offset-1 place-holder-opacity-50 text-text font-medium outline-text/50 ${result === "Success" ? "bg-none" : "bg-container-soft-shadow/50"}`
+    const inputStyle = ` focus:outline-1 -outline-offset-1 place-holder-opacity-50 text-text font-medium outline-text/50 ${result === "Success" ? "bg-none  ease-in duration-500" : "bg-container-soft-shadow/50"}`
 
     return (
 
-        <form className={`h-[360px] flex flex-col gap-3 aspect-video w-auto border z-10 border-container-stroke bg-bg rounded-lg p-3 ${result === "Success" && "form-container"}`} onSubmit={onSubmit}>
+        <form className={`h-[360px] flex flex-col gap-3 aspect-video max-mobile-tablet-threshold:aspect-auto w-auto border z-10 border-container-stroke bg-bg rounded-lg p-3 ${result === "Success" && "form-container max-mobile-tablet-threshold:w-full"}`} onSubmit={onSubmit}>
             {/* <div  onClick={tempfunct} className="absolute bg-red-500 size-10">
                 Test
             </div> */}
-            <div className="flex gap-2.5">
+            <div className="flex  gap-2.5 max-mobile-tablet-threshold:flex-col">
                 <div className="flex flex-col flex-1 gap-1">
                     <label htmlFor="name" className={`ml-3 font-semibold text-sm text-text`}>Name</label>
                     <input
@@ -85,7 +85,7 @@ export default function ContactForm(props: { onContactSubmit: () => void }) {
                         id="name"
                         name="name"
                         placeholder="Your full name"
-                        className={`h-9 pl-3 rounded-md ${inputStyle}`}
+                        className={`h-9 pl-3 rounded-md  ${inputStyle}`}
                         required
                         disabled={isLoading || result === "Success"}
                         {...cursorOnHoverInput}

@@ -100,38 +100,38 @@ export default function ProcessSectionDefault(props: { polygonSize: number }) {
                 <div className="h-[200px] z-30 w-max pointer-events-none select-none flex flex-col items-center">
 
 
-                    <div className="h-16 flex gap-4 pointer-events-auto select-auto w-max justify-center overflow-hidden  ">
+                    <h1 aria-label="How I work:" className="h-16 flex gap-4 pointer-events-auto select-auto w-max justify-center overflow-hidden  ">
                         {inView &&
                             ["How", "i", "work:"].map((word, index) => {
                                 return (
-                                    <h1 key={index} className={`text-[3rem] text-text ease-in-out duration-250 font-bold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                    <span aria-hidden="true" key={index} className={`text-[3rem] text-text ease-in-out duration-250 font-bold animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
                                         style={{
                                             animationDelay: `${((index * 0.05))}s`,
                                         }}
                                     >
                                         {word}
-                                    </h1>
+                                    </span>
                                 )
                             })
                         }
-                    </div>
+                    </h1>
                     <div className="relative  pointer-events-auto select-auto">
 
-                        <div className="  absolute -translate-x-1/2 flex gap-1  justify-center overflow-hidden">
+                        <h2 aria-label="It's not just about writing code, I consider multiple processes simultaneously in my workflow" className="  absolute -translate-x-1/2 flex gap-1  justify-center overflow-hidden">
                             {inView &&
                                 ["It's", "not", "just", "about", "writing", "code,", "I", "consider", "multiple", "processes", "simultaneously", "in", "my", "workflow"].map((word, index) => {
                                     return (
-                                        <h1 key={index} className={`text-sm text-text/50 ease-in-out duration-250 font-regular animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                        <span aria-hidden="true" key={index} className={`text text-text/67 ease-in-out duration-250 font-regular animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
                                             style={{
                                                 animationDelay: `${((index * 0.025) + 0.2)}s`,
                                             }}
                                         >
                                             {word}
-                                        </h1>
+                                        </span>
                                     )
                                 })
                             }
-                        </div>
+                        </h2>
                     </div>
 
                 </div>

@@ -42,7 +42,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
 
     return (
         <>
-            <div className="relative  bottom-0 top-0 my-auto h-[150px] z-30 w-full flex flex-col justify-center items-center">
+            <div className="relative   bottom-0 top-0 my-auto h-[150px] z-30 w-full flex flex-col justify-center items-center">
 
                 <div className="h-12 flex gap-2   w-max justify-center overflow-hidden  ">
                     {inView &&
@@ -150,7 +150,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                         )
                     })
                 }
-                <div className=" h-2 absolute bottom-0 left-0 right-0 m-auto rounded-full"
+                <div className=" h-2 absolute bottom-0  left-0 right-0 m-auto rounded-full"
                     style={{
                         width: `${props.polygonSize + 90}px`,
                     }}>

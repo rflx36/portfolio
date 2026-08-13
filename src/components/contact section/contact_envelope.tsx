@@ -7,7 +7,7 @@ export default function ContactEnvelope(props: { transition_initialized: boolean
 
     return (
         // <div className="h-[320px] w-auto aspect-video mask-[url('/assets/ui/mask_envelope.svg')] mask-size-[100%_100%] mask-no-repeat [-webkit-mask-image:url('/assets/ui/mask_envelope.svg')] rounded-b-[2.25rem] overflow-hidden relative bg-bg border border-container-stroke ">
-        <div className={`h-max w-max absolute z-0  ${props.transition_initialized ? "rounded-t-[2.25rem] delay-1300 translate-y-0 duration-300 ease-in-out" : "translate-y-full opacity-0"}  pointer-events-none select-none`}>
+        <div className={`h-max max-mobile-tablet-threshold:scale-40 w-max absolute z-0  ${props.transition_initialized ? "rounded-t-[2.25rem] delay-1300 translate-y-0 duration-300 ease-in-out" : "translate-y-full opacity-0"}  pointer-events-none select-none`}>
 
             <div className=" w-full h-full absolute z-10 -translate-y-[200px]">
 
