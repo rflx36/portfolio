@@ -22,7 +22,7 @@ export default function ProjectsCardMobile(props: {
                     transform: `translateX(calc(${props.index - props.focus} * 100%))`
                 }}
             >
-                <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" loading="lazy" />
+                <img src={`/assets/projects/${props.projectImageUrl.replace(".png",".webp")}`} alt={props.projectTitle} className="object-cover" fetch-priority="high" />
             </div>
             
             <div className="-bottom-9 left-0 right-0 mx-auto w-full flex flex-col absolute translate-y-8">

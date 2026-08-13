@@ -6,18 +6,9 @@ import "./project_container_hovers.css";
 import { useNavigate } from "react-router";
 import ProjectsCardMobile from "./projects_card_mobile";
 import { useInView } from "react-intersection-observer";
+import getResizeRegion from "../../utils/get_resize_region";
 // import isMobile from "../../utils/is_mobile";
 
-
-const getResizeRegion = (width: number): resizeRegion => {
-    if (width <= 430) {
-        return "mobile";
-    }
-    if (width <= 820) {
-        return "tablet";
-    }
-    return "desktop";
-}
 
 
 export default function ProjectsSection() {

@@ -5,8 +5,7 @@ import { useCursor } from "../../hooks/use_cursor";
 import { useEffect, useState } from "react";
 import "./mobile_navigation_bar.css"
 import ToggleNavigation from "../ui/toggle/navigation";
-import useResizeRegion from "../../hooks/use_resize_region";
-
+import useResize from "../../hooks/use_resize";
 
 
 
@@ -19,7 +18,7 @@ export default function NavigationBar() {
     const [isDocked, setIsDocked] = useState(false);
     const [elementsInitialized, setElementsInitialized] = useState(false);
     const [isAtTop, setIsAtTop] = useState(true)
-    const resizeRegion = useResizeRegion();
+    const resizeRegion = useResize().resizeRegion;
 
     const handleNavigation = (path: string, section?: string) => {
         if (isDocked) {

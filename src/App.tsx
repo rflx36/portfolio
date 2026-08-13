@@ -6,14 +6,14 @@ import SkillsSection from "./components/skills section"
 import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
 import LandingContacts from "./components/contact section/landing contacts"
-// import ContactSection from "./components/contact section"
+import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
-// import ProcessSection from "./components/process section"
+import ProcessSection from "./components/process section"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
 import isMobile from "./utils/is_mobile"
 import useAdaptiveScroll from "./hooks/use_adaptive_scroll"
-
+// import PathNodeVisualizer from "./components/ui/path node/visualizer"
 
 
 function App() {
@@ -22,14 +22,14 @@ function App() {
 
   const [projectsRef, projectsInView] = useInView({ threshold: 1 });
   const [introductionLoaded, setIntroductionLoaded] = useState(false);
-  
+
 
 
   const hasScrolled = useAdaptiveScroll("use once", 200);
 
   useEffect(() => {
 
-  
+
 
     if (location.state?.scrollTo) {
       const section = document.getElementById(location.state.scrollTo);
@@ -97,10 +97,11 @@ function App() {
 
       <SkillsSection />
       <BackgroundSection />
-      {/* <ProcessSection /> */}
-      {/* <ContactSection /> */}
+      <ProcessSection />
+      <ContactSection />
 
 
+      {/* <PathNodeVisualizer /> */}
 
 
     </>

@@ -50,7 +50,7 @@ export default function ProjectsCard(props: {
                 {...btnCursor}
             // tabIndex={0}
             >
-                <img src={`/assets/projects/${props.projectImageUrl}`} alt={props.projectTitle} className="object-cover" loading="lazy" />
+                <img src={`/assets/projects/${props.projectImageUrl.replace(".png",".webp")}`} alt={props.projectTitle} className="object-cover" fetch-priority="high" />
 
             </button>
             {

@@ -55,11 +55,15 @@ Rework :
 - on mobile view/mode force add delay to load lottie name intro anim - /
 
 
+Todo for today:
+- optimized the position of  i'd be happy to connect left aligned same case for  thank you for reaching out - /
+- optimize LCP (projects images into webp and max 572x284 rendered format) - /
 
 
 Final Todo:
 -Mobile View (min resolution: 320px - 430px)
 -Resume
--About and Image portrait
+-About and Image portrait - / 
 -Projects section
 -projects images
+-implement SEO

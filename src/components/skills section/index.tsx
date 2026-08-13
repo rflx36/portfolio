@@ -3,9 +3,8 @@ import { type skillActiveStateType, type skillDataType } from "../../types/types
 import { activeRelativeSkillPositioningMap, skillActiveStateDefaults, skillDataDefaults } from "../../constants"
 import "./skill_state_hovers.css"
 import { useInView } from "react-intersection-observer";
-import useResizeRegion from "../../hooks/use_resize_region";
 import SkillsItemContainer from "./skills_item_container";
-
+import useResize from "../../hooks/use_resize";
 
 
 export default function SkillsSection() {
@@ -18,7 +17,7 @@ export default function SkillsSection() {
     const scrollLastValue = useRef<number>(0);
     const scrollPauseUpdate = useRef<boolean>(false);
     const scrollPauseTimeout = useRef<boolean>(false);
-    const resizeRegion = useResizeRegion();
+    const resizeRegion = useResize().resizeRegion;
 
 
 

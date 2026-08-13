@@ -7,7 +7,7 @@ export default function ContactEnvelope(props: { transition_initialized: boolean
 
     return (
         // <div className="h-[320px] w-auto aspect-video mask-[url('/assets/ui/mask_envelope.svg')] mask-size-[100%_100%] mask-no-repeat [-webkit-mask-image:url('/assets/ui/mask_envelope.svg')] rounded-b-[2.25rem] overflow-hidden relative bg-bg border border-container-stroke ">
-        <div className={`h-max w-max absolute z-0  ${props.transition_initialized ? "rounded-t-[2.25rem] delay-1300 translate-y-0 duration-300 ease-in-out" : "translate-y-full opacity-0"}  pointer-events-none select-none`}>
+        <div className={`h-max max-mobile-tablet-threshold:scale-60 max-[25rem]:scale-45! w-max absolute z-0  ${props.transition_initialized ? "rounded-t-[2.25rem] delay-1300 translate-y-0 duration-300 ease-in-out" : "translate-y-full opacity-0"}  pointer-events-none select-none`}>
 
             <div className=" w-full h-full absolute z-10 -translate-y-[200px]">
 
@@ -18,7 +18,7 @@ export default function ContactEnvelope(props: { transition_initialized: boolean
                         </svg>
                     </div>
                     <div className={`absolute inset-0 size-full  opacity-0 ${props.transition_initialized && "back"} z-20 `}>
-                        <svg width="761" height="392" viewBox="0 0 761 392" className="fill-bg stroke-text/25 -translate-x-24 -translate-y-20 pointer-events-none select-none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="761" height="392" viewBox="0 0 761 392" className="fill-bg stroke-text/25 max-mobile:stroke-text/75 -translate-x-24 -translate-y-20 pointer-events-none select-none" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_di_752_48)">
                                 <path d="M665 280H96L366.698 84.4857C374.978 78.5048 386.022 78.5048 394.302 84.4857L665 280Z" />
                                 <path d="M366.99 84.8906C375.096 79.036 385.904 79.036 394.01 84.8906L663.454 279.5H97.5459L366.99 84.8906Z" />
@@ -81,11 +81,11 @@ export default function ContactEnvelope(props: { transition_initialized: boolean
 
             <div className="absolute bg-container-soft-shadow w-full h-[200px] " />
 
-            <div className="h-[320px] w-[569px] rounded-b-3xl overflow-hidden relative  border-x border-b  border-container-stroke">
+            <div className="h-[320px] w-[569px] rounded-b-3xl overflow-hidden relative  border-x border-b  border-container-stroke max-mobile:border-text/75">
                 <div className="w-full h-full bg-bg  mask-[url('/assets/ui/mask_envelope.svg')] mask-size-[100%_100%] mask-no-repeat [-webkit-mask-image:url('/assets/ui/mask_envelope.svg')]" />
                 <div className="absolute -left-24 right-0 top-10 ">
 
-                    <svg width="761" height="392" viewBox="0 0 761 392" className="fill-bg stroke-text/25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="761" height="392" viewBox="0 0 761 392" className="fill-bg stroke-text/25 max-mobile:stroke-text/75" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_di_752_48)">
                             <path d="M665 280H96L366.698 84.4857C374.978 78.5048 386.022 78.5048 394.302 84.4857L665 280Z" />
                             <path d="M366.99 84.8906C375.096 79.036 385.904 79.036 394.01 84.8906L663.454 279.5H97.5459L366.99 84.8906Z" />
