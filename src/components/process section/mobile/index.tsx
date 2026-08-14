@@ -103,7 +103,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                             strokeWidth={1}
                             strokeColor="var(--color-container-stroke)"
                         />
-                        <h1 className="absolute w-[calc(100%-67px)] font-bold text-text uppercase min-[450px]:text-3xl  max:mobiletext-sm top-0 bottom-0 left-0 right-0 m-auto text-center self-center">
+                        <h1 className="absolute w-[calc(100%-67px)] font-bold text-text uppercase min-[450px]:text-3xl  max:mobiletext-sm top-0 bottom-0 left-0 right-0 m-auto text-center h-max">
                             Project Requirements
                         </h1>
                     </div>
