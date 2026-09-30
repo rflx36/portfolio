@@ -68,7 +68,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                                 return (
                                     <div key={index} className="size-max overflow-hidden">
 
-                                        <h3  className={`text-sm text-text/50  ease-in-out duration-250 font-regular animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
+                                        <h3 className={`text-sm text-text/50  ease-in-out duration-250 font-regular animate-[SlideUp_0.5s_cubic-bezier(0.29,0.98,0.29,0.99)_backwards]`}
                                             style={{
                                                 animationDelay: `${((index * 0.025) + 0.2)}s`,
                                             }}
@@ -136,12 +136,27 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                                             }}
                                         >
                                             {/* <div className="size-[15px] bg-blue-500 inset-0 absolute m-auto " /> */}
-                                            <div className="w-30  "  >
+                                            <div className="w-30 opacity-0 animate-[RotateFadeIn_0.5s_cubic-bezier(0.405,1.070,0.435,0.780)_forwards_1s] "
+                                            style={{
+                                                animationDelay: `${((i * 0.1) + 0.5)}s`,
+                                            }}>
 
                                                 <p className="font-bold text-text/50 text-center align-text-top">{`${implementation.text}`}</p>
 
                                             </div>
                                         </div>
+                                        <div className="absolute -translate-x-1/2 -translate-y-1/2 animate-[RotateFadeOut_0.5s_cubic-bezier(0.405,1.070,0.435,0.780)_forwards_1s] " 
+                                        style={{
+                                            transform: `rotate(-${deg/2}deg)`,
+                                            animationDelay: `${((i * 0.1) + 0.5)}s`,
+                                        }}
+                                        >
+                                            <svg width="40" className="fill-container-stroke"  height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20 0L20.8931 11.737C21.1928 15.6764 24.3236 18.8072 28.263 19.1069L40 20L28.263 20.8931C24.3236 21.1928 21.1928 24.3236 20.8931 28.263L20 40L19.1069 28.263C18.8072 24.3236 15.6764 21.1928 11.737 20.8931L0 20L11.737 19.1069C15.6764 18.8072 18.8072 15.6764 19.1069 11.737L20 0Z"  />
+                                            </svg>
+                                            
+                                        </div>
+
 
                                     </div>
                                 </div>

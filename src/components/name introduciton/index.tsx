@@ -87,7 +87,7 @@ export default function NameIntroduction() {
         <div className="h-max flex flex-wrap  max-mobile:justify-start  max-mobile:w-74 max-mobile:translate-x-4  justify-center mb-7">
             <div className="w-56 h-16  relative" >
                 <div className="absolute z-10 left-0 h-5 w-max  overflow-hidden flex">
-                    <h1 aria-label="Hi! I'm" className="flex items-center justify-center h-full">
+                    <h1 aria-label="Hi! Im" className="flex items-center justify-center h-full">
                         <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.1s]   ">H</span>
                         <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.13s]  ">i</span>
                         <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.16s]  ">!</span>
@@ -96,7 +96,7 @@ export default function NameIntroduction() {
                         <span aria-hidden="true" className="text-text font-semibold slide-up animate-[SlideUpFadeIn_0.3s_ease-out_backwards_0.21s]  ">m</span>
                     </h1>
                 </div>
-                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75  w-full">Roland</h1>
+                <h1 aria-hidden="true" className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75  w-full">Roland</h1>
                 {
                     (!nameRolandState.ended && lottieInitialize) &&
 
@@ -128,7 +128,7 @@ export default function NameIntroduction() {
                 <h1 className={base_text_style}>Roland</h1>
             </div>
             <div className="w-40 h-16 relative ">
-                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75 w-full">Fonz</h1>
+                <h1 aria-hidden="true" className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75 w-full">Fonz</h1>
                 {
                     (!nameFonzState.ended && lottieInitialize) &&
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.4rem]  select-none pointer-events-none ${!nameFonzState.loaded ? " opacity-0 " : ""}`}>
@@ -156,7 +156,7 @@ export default function NameIntroduction() {
                 <h1 className={base_text_style}>Fonz</h1>
             </div>
             <div className="w-72 h-16 relative">
-                <h1 className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75 w-full">Lamoste</h1>
+                <h1 aria-hidden="true" className="absolute z-10 top-0 font-semibold text-transparent text-[4rem] selection:bg-accent-2/25 selection:text-accent-1/75 w-full">Lamoste</h1>
                 {
                     (!nameLamosteState.ended && lottieInitialize) &&
                     <div className={`w-full h-full mt-[1.1rem]  -translate-x-[0.7rem]    select-none pointer-events-none ${!nameLamosteState.loaded ? "opacity-0 " : ""}`}>

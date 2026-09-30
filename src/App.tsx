@@ -1,20 +1,23 @@
 
+import { Suspense, useEffect, useState } from "react"
 import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
-import { useEffect, useState } from "react"
 import SkillsSection from "./components/skills section"
 import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
-import LandingContacts from "./components/contact section/landing contacts"
-import ContactSection from "./components/contact section"
+import LandingContacts from "./components/contact_section/landing contacts"
+// import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
 import ProcessSection from "./components/process section"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
 import isMobile from "./utils/is_mobile"
 import useAdaptiveScroll from "./hooks/use_adaptive_scroll"
+import lazyImport from "./lazy_import"
 // import PathNodeVisualizer from "./components/ui/path node/visualizer"
 
+
+const ContactSection = lazyImport("./components/contact_section");
 
 function App() {
   const location = useLocation();
@@ -98,7 +101,9 @@ function App() {
       <SkillsSection />
       <BackgroundSection />
       <ProcessSection />
-      <ContactSection />
+      <Suspense fallback={<h1>Contact Section is Loading...</h1>}>
+        <ContactSection />
+      </Suspense>
 
 
       {/* <PathNodeVisualizer /> */}

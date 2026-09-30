@@ -4,6 +4,7 @@ import ContactForm from "./contact_form";
 import ContactEnvelope from "./contact_envelope";
 import { useInView } from "react-intersection-observer";
 import useResize from "../../hooks/use_resize";
+import getResizeRegion from "../../utils/get_resize_region";
 
 
 
@@ -11,7 +12,7 @@ import useResize from "../../hooks/use_resize";
 
 export default function ContactSection() {
     const [onSubmitState, setOnSubmitState] = useState(false);
-    const { ref, inView } = useInView({ threshold: 1, triggerOnce: true })
+    const { ref, inView } = useInView({ threshold: getResizeRegion(window.innerWidth) == "mobile" ? 0.5 : 1, triggerOnce: true })
     const use_resize = useResize({ rerenderBarrier: [360, 578, 768] });
 
 
@@ -54,7 +55,7 @@ export default function ContactSection() {
 
             </div>
 
-            <div className="not-max-[426px]:hidden h-52 w-[calc(100%-4rem)] mx-auto overflow-hidden flex flex-col pb-6 relative">
+            <div className="not-max-[426px]:hidden h-44  w-[calc(100%-4rem)] mx-auto overflow-hidden flex flex-col pb-6 relative">
                 {
                     inView &&
                     (
@@ -142,7 +143,7 @@ export default function ContactSection() {
                         <h1 aria-label="Thank you for reaching out" className="text-[3rem] text-text font-semibold not-max-[500px]:hidden flex flex-col  justify-center h-full">
                             <span className="flex gap-2">
                                 {
-                                    ["Thank", "you","!"].map((word, index) => {
+                                    ["Thank", "you", "!"].map((word, index) => {
                                         return (
                                             <span key={index} aria-hidden="true" className=" animate-[SlideDown3_0.45s_cubic-bezier(0.23,0.94,0.27,0.93)_backwards]"
                                                 style={{

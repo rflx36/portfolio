@@ -44,37 +44,7 @@ export default function SkillsSection() {
         scrollPauseUpdate.current = viaClick
 
         setSkillsActiveState(value);
-        // if (resizeRegion != "mobile") {
-        //     return;
-        // }
-        // const container = document.getElementById("skill-state-container-id");
-        // switch (value) {
-        //     case "design":
-        //         container?.classList.remove("skill-card-container-frontend-active")
-        //         container?.classList.remove("skill-card-container-backend-active")
-        //         container?.classList.remove("skill-card-container-other-active")
-        //         break;
-        //     case "frontend":
-        //         container?.classList.remove("skill-card-container-design-active")
-        //         container?.classList.remove("skill-card-container-backend-active")
-        //         container?.classList.remove("skill-card-container-other-active")
-        //         break;
-        //     case "backend":
-        //         container?.classList.remove("skill-card-container-design-active")
-        //         container?.classList.remove("skill-card-container-frontend-active")
-        //         container?.classList.remove("skill-card-container-other-active")
-        //         break;
-        //     case "other":
-        //         container?.classList.remove("skill-card-container-design-active")
-        //         container?.classList.remove("skill-card-container-frontend-active")
-        //         container?.classList.remove("skill-card-container-backend-active")
-        //         break;
-
-        // }
-        // // container?.classList.remove(`skill-card-container-${skillsActiveState}-active`);
-        // container?.classList.add(`skill-card-container-${value}-active`);
-
-
+      
     }
 
     const updateActiveSkillContainer = () => {
