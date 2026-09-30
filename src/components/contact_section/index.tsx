@@ -15,6 +15,7 @@ export default function ContactSection() {
     const { ref, inView } = useInView({ threshold: getResizeRegion(window.innerWidth) == "mobile" ? 0.5 : 1, triggerOnce: true })
     const use_resize = useResize({ rerenderBarrier: [360, 578, 768] });
 
+    console.log("ContactSection Initialized------------------");
 
     return (
         <section id="contact-section-id" className="w-full h-max max-mobile:mt-24 flex flex-col  justify-center items-center relative">

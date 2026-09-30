@@ -2,13 +2,11 @@
 import { Suspense, useEffect, useState } from "react"
 import NameIntroduction from "./components/name introduciton"
 import SpecializationIntroduction from "./components/specialization introduction"
-import SkillsSection from "./components/skills section"
-import BackgroundSection from "./components/background section"
 import ProjectsSection from "./components/projects section"
 import LandingContacts from "./components/contact_section/landing contacts"
 // import ContactSection from "./components/contact section"
 import { useInView } from "react-intersection-observer"
-import ProcessSection from "./components/process section"
+// import ProcessSection from "./components/process section"
 import { useLocation, useNavigate } from "react-router"
 import { scrollDefaults } from "./constants"
 import isMobile from "./utils/is_mobile"
@@ -17,6 +15,9 @@ import lazyImport from "./lazy_import"
 // import PathNodeVisualizer from "./components/ui/path node/visualizer"
 
 
+const BackgroundSection = lazyImport("./components/background_section");
+const SkillsSection = lazyImport("./components/skills_section");
+const ProcessSection = lazyImport("./components/process_section");
 const ContactSection = lazyImport("./components/contact_section");
 
 function App() {
@@ -97,11 +98,16 @@ function App() {
             </>
         }
       </section>
-
-      <SkillsSection />
-      <BackgroundSection />
-      <ProcessSection />
-      <Suspense fallback={<h1>Contact Section is Loading...</h1>}>
+      <Suspense fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>
+        <SkillsSection />
+      </Suspense>
+      <Suspense fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>
+        <BackgroundSection />
+      </Suspense>
+      <Suspense fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>
+        <ProcessSection />
+      </Suspense> 
+      <Suspense fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>
         <ContactSection />
       </Suspense>
 

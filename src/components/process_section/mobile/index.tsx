@@ -108,7 +108,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                         </h1>
                     </div>
                 </div>
-                {
+                {inView &&
                     process_implementations.map((implementation, i) => {
 
                         const offset = 90;
