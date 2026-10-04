@@ -342,7 +342,7 @@ export default function ShadowRays({
 
   return (
     <div
-      className={`overflow-hidden absolute opacity-0 animate-[fadeIn_3s_cubic-bezier(0.130,0.835,0.130,0.830)_forwards] inset-0 z-10 ${className}`}
+      className={`overflow-hidden absolute select-none pointer-events-none opacity-0 h-[900px] max-h-[calc(85vh)] max-mobile-tablet-threshold:min-h-[400px] animate-[fadeIn_3s_cubic-bezier(0.130,0.835,0.130,0.830)_forwards] inset-0 z-10 ${className}`}
       style={{ backgroundColor: background, ...style }}
     >
       <canvas ref={canvasRef} aria-hidden className="pointer-events-none absolute inset-0 -z-10 h-full w-full" />

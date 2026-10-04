@@ -55,6 +55,7 @@ export interface backgroundWorkType {
 export interface projectInfo {
     project_title: string,
     project_img_url: string,
+    project_img_showcase_amount: number,
     project_video_url: string,
     project_description: string,
     project_description_minified: string,

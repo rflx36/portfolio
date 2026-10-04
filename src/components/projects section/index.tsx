@@ -23,7 +23,7 @@ export default function ProjectsSection() {
 
     const persistRandomizedValue = useRef(Math.random() < 0.5);
     const [mobileProjectsRef, MobilesProjectsInView] = useInView({ threshold: 1, triggerOnce: true });
-
+    const [projectRef, ProjectsInView] = useInView({ threshold: 1});
     
 
     const handleHovers = () => {
@@ -182,7 +182,7 @@ export default function ProjectsSection() {
         <>
             {/* <h1 className="font-sans font-semibold text-text text-lg w-full text-center">SELECTED PROJECTS</h1> */}
 
-            <div key={remountKey} className={`w-[calc(100%-4rem)]  max-mobile:w-[calc(100%-2rem)] bg-container-soft-shadow/75 max-mobile:py-2.5 max-mobile:rounded-2xl max-mobile:mt-2   mx-auto mt-6  py-[calc(2.5%+1rem)] ${resizeRegion.current == "desktop" && animationLoadState.postload ? "overflow-visible" : " overflow-hidden"}    max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
+            <div key={remountKey} className={` w-[calc(100%-4rem)]  max-mobile:w-[calc(100%-2rem)] bg-container-soft-shadow/75 max-mobile:py-2.5 max-mobile:rounded-2xl max-mobile:mt-2   mx-auto mt-6  py-[calc(2.5%+1rem)] ${resizeRegion.current == "desktop" && animationLoadState.postload ? "overflow-visible" : " overflow-hidden"}    max-h-[480px] h-max relative rounded-3xl flex flex-col justify-center items-center`} id="project-section">
                 {/* <div className={`aspect-268/133 w-[${widthContainerStringified}] max-w-[${maxWidthContainerStringified}]`} /> */}
 
                 <div className="aspect-268/133 relative"
@@ -217,24 +217,30 @@ export default function ProjectsSection() {
                                 if (resizeRegion.current == "mobile") {
                                     return (
                                         <ProjectsCardMobile
+                                            ref={projectRef}
                                             key={index}
                                             index={index}
                                             projectTitle={project.project_title}
                                             projectInformation={project.project_description}
                                             projectImageUrl={project.project_img_url}
+                                            projectImageShowcaseAmount={project.project_img_showcase_amount}
                                             projectDate={project.project_finished_date}
                                             projectStacks={project.project_tech_stack}
                                             focus={focus}
+                                            showcaseInitialized={MobilesProjectsInView}
+                                            isInView={ProjectsInView}
                                         />
                                     )
                                 }
                                 return (
                                     <ProjectsCard
+                                        ref={projectRef}
                                         key={index}
                                         index={index}
                                         projectTitle={project.project_title}
                                         projectInformation={project.project_description}
                                         projectImageUrl={project.project_img_url}
+                                        projectImageShowcaseAmount={project.project_img_showcase_amount}
                                         projectDate={project.project_finished_date}
                                         projectStacks={project.project_tech_stack}
                                         DisplayProperties={{
@@ -246,6 +252,7 @@ export default function ProjectsSection() {
                                         // onClick={() => OpenProjectsModal(project)}
                                         onClick={() => handleOnclick(project.project_title, index)}
                                         focus={focus}
+                                        isInView={ProjectsInView}
                                     />
                                 )
                             })
@@ -262,6 +269,7 @@ export default function ProjectsSection() {
                 {
                     resizeRegion.current != "desktop" &&
                     <div className="flex flex-col gap-4" ref={mobileProjectsRef}>
+                      
                         <div key={focus} className=" flex gap-2 justify-center opacity-0 project-mobile-controls-navigation">
                             <div className={`h-0.5 w-8 ${focus == 0 ? "bg-text w-16" : "bg-text/30"} rounded-full`} />
                             <div className={`h-0.5 w-8 ${focus == 1 ? "bg-text  w-16" : "bg-text/30"} rounded-full`} />

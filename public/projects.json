@@ -2,6 +2,7 @@
     {
         "project_title": "SmartSched - Automated Scheduling and Realtime Room Utilization",
         "project_img_url": "project_thumbnail_smartsched.png",
+        "project_img_showcase_amount": 3,
         "project_video_url": "",
         "project_description": "A multi-platform scheduling system with dedicated environments for generation and viewing. The desktop application is designed for generating optimized schedules, while the mobile app enables real-time viewing and notifications. At its core is a custom-developed constraint-based algorithm that dynamically resolves scheduling conflicts across time, room, and instructor constraints. developed as part of a final-year capstone, focusing on real-world scheduling constraints",
         "project_description_minified": "A multi-platform scheduling system using a custom constraint-based algorithm to optimize schedules and resolve real-world conflicts dynamically.",
@@ -24,6 +25,7 @@
     {
         "project_title": "HHR - Statlab",
         "project_img_url": "project_thumbnail_statlab.png",
+        "project_img_showcase_amount": 4,
         "project_video_url": "",
         "project_description": "An advanced stat optimization tool for HHR that simulates damage output and survivability across diverse PvE scenarios. It processes multiple variables including equipment, perks, enchantments, pets, and skill-element interactions to determine optimal builds and stat thresholds. With dynamic modifiers and real-time sliders, it adapts to different in-game conditions while providing detailed comparisons across enemies and configurations. Widely adopted within the HHR community, the platform reached over 30,000 monthly active users at its peak.",
         "project_description_minified": "An advanced HHR stat calculator that can test out every item and simulates damage and survivability, reached 30k Monthly Active Users at its peak.",
@@ -61,7 +63,7 @@
         "project_img_url": "project_thumbnail_rom.png",
         "project_video_url": "",
         "project_description": "A Windows Forms–based restaurant ordering management system designed to streamline customer and employee interactions. It features a custom client UI for ordering, a POS interface for staff, and an admin panel for inventory management. The system emphasizes intuitive workflows and clear information presentation to improve efficiency and reduce errors.",
-        "project_description_minified":"A Windows Forms–based restaurant ordering management system designed to streamline customer and employee interactions. Custom client UI, POS, and admin panel for inventory management.",
+        "project_description_minified": "A Windows Forms–based restaurant ordering management system designed to streamline customer and employee interactions. Custom client UI, POS, and admin panel for inventory management.",
         "project_finished_date": "Jun 2023",
         "project_tech_stack": [
             "Visual Basic",
