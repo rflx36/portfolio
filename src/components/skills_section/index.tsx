@@ -12,7 +12,7 @@ export default function SkillsSection() {
     const [skillsActiveState, setSkillsActiveState] = useState<skillActiveStateType>(skillActiveStateDefaults);
     const [skillDataState, setSkillDataState] = useState<skillDataType>(skillDataDefaults);
 
-    const { ref, inView } = useInView({ triggerOnce: (window.innerWidth > 430), threshold: (window.innerWidth > 430) ? 0.5 : 0.1 })
+    const { ref, inView } = useInView({ triggerOnce: true, threshold: (window.innerWidth > 430) ? 0.5 : 0.1 })
     const scrollUpdateTick = useRef<boolean>(false);
     const scrollLastValue = useRef<number>(0);
     const scrollPauseUpdate = useRef<boolean>(false);

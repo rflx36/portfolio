@@ -18,7 +18,7 @@ export default function ContactSection() {
     console.log("ContactSection Initialized------------------");
 
     return (
-        <section id="contact-section-id" className="w-full h-max max-mobile:mt-24 flex flex-col  justify-center items-center relative">
+        <section id="contact-section-id" className="w-full h-max max-mobile:mt-24 snap-center flex flex-col  justify-center items-center relative">
 
             <div className="max-[426px]:hidden h-max w-max overflow-hidden flex flex-col pb-6 justify-center items-center relative">
 

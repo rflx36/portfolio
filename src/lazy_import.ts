@@ -1,10 +1,11 @@
 import { lazy } from "react"
+import isMobile from "./utils/is_mobile"
 
 const modules = import.meta.glob("../**/index.tsx")
 
 type ImportPath = `./${string}`
 
-const DELAY_MS = 1000
+const DELAY_MS = isMobile() ? 1000 : 0;
 
 const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms))
 

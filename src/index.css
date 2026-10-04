@@ -50,6 +50,10 @@ body {
     cursor: none;
 }
 
+#root {
+    scroll-snap-type: y mandatory;
+}
+
 button,
 input,
 textarea,

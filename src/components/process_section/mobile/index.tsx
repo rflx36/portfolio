@@ -108,7 +108,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                         </h1>
                     </div>
                 </div>
-                {inView &&
+                {
                     process_implementations.map((implementation, i) => {
 
                         const offset = 90;
@@ -136,7 +136,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
                                             }}
                                         >
                                             {/* <div className="size-[15px] bg-blue-500 inset-0 absolute m-auto " /> */}
-                                            <div className="w-30 opacity-0 animate-[RotateFadeIn_0.5s_cubic-bezier(0.405,1.070,0.435,0.780)_forwards_1s] "
+                                            <div className={`w-30 opacity-0 ${inView ? 'animate-[RotateFadeIn_0.5s_cubic-bezier(0.405,1.070,0.435,0.780)_forwards_1s]' : ''}`}
                                             style={{
                                                 animationDelay: `${((i * 0.1) + 0.5)}s`,
                                             }}>
@@ -145,7 +145,7 @@ export default function ProcessSectionMobile(props: { polygonSize: number }) {
 
                                             </div>
                                         </div>
-                                        <div className="absolute -translate-x-1/2 -translate-y-1/2 animate-[RotateFadeOut_0.5s_cubic-bezier(0.405,1.070,0.435,0.780)_forwards_1s] " 
+                                        <div className={`absolute -translate-x-1/2 -translate-y-1/2 ${inView ? 'animate-[RotateFadeOut_0.5s_cubic-bezier(0.405,1.070,0.435,0.780)_forwards_1s]' : ''} `}
                                         style={{
                                             transform: `rotate(-${deg/2}deg)`,
                                             animationDelay: `${((i * 0.1) + 0.5)}s`,

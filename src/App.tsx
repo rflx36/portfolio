@@ -12,6 +12,7 @@ import { scrollDefaults } from "./constants"
 import isMobile from "./utils/is_mobile"
 import useAdaptiveScroll from "./hooks/use_adaptive_scroll"
 import lazyImport from "./lazy_import"
+import ShadowRays from "./components/ui/shadowrays"
 // import PathNodeVisualizer from "./components/ui/path node/visualizer"
 
 
@@ -36,10 +37,12 @@ function App() {
 
 
     if (location.state?.scrollTo) {
+
       const section = document.getElementById(location.state.scrollTo);
       if (section) {
         section.scrollIntoView(scrollDefaults);
       }
+
       navigate(location.pathname, { replace: true });
     }
 
@@ -47,7 +50,9 @@ function App() {
       setIntroductionLoaded(true);
     }, 2900);
 
+
     return () => {
+
       clearTimeout(introTimeout)
     }
   }, []);
@@ -59,7 +64,9 @@ function App() {
     <>
       {/* <CustomCursor/> */}
       {/* <StarField /> */}
+      {!isMobile() && <ShadowRays />}
       <section id="home-section-id" className=" h-[900px] max-h-[calc(85vh)] max-mobile:max-h-[640px]  max-mobile:h-[calc(100vh-160px)]  max-mobile-tablet-threshold:min-h-[400px] max-mobile:min-h-[556px]! flex flex-col max-mobile:pt-24  max-mobile:justify-start justify-center  items-center relative">
+        {/* <ShadowRays className="h-full absolute top-0 w-full -z-20" ></ShadowRays> */}
         <NameIntroduction />
         <SpecializationIntroduction />
 
@@ -106,7 +113,7 @@ function App() {
       </Suspense>
       <Suspense fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>
         <ProcessSection />
-      </Suspense> 
+      </Suspense>
       <Suspense fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>
         <ContactSection />
       </Suspense>

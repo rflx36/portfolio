@@ -58,7 +58,7 @@ Rework :
 Todo for today:
 - optimized the position of  i'd be happy to connect left aligned same case for  thank you for reaching out - /
 - optimize LCP (projects images into webp and max 572x284 rendered format) - /
-- implement dynamic imports
+- implement dynamic imports - /
 - fix the mobile navigation button requiring 2 clicks (proplly disable the scroll disable at initial load)
 - implement robots.tsx
 - implement document - meta discription
