@@ -65,6 +65,9 @@ Todo for today:
 - implement last 2 pages directory (about, projects)
 - implement footer
 
+
+- implement lazy loading of images on project section
+
 Final Todo:
 -Mobile View (min resolution: 320px - 430px)
 -Resume - / 

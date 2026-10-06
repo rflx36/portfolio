@@ -17,7 +17,7 @@ import { useInView } from "react-intersection-observer";
 export default function PageProjects() {
 
     const { project_title } = useParams();
-    const [viewType, setViewType] = useState<"about" | "case study">("about");
+    // const [viewType, setViewType] = useState<"about" | "case study">("about");
     const [projectsDataState, setProjectsDataState] = useState<projectDataType>(projectsDataDefaults);
     const [skillRef, skillsInView] = useInView({ threshold: 1 });
 
@@ -81,8 +81,7 @@ export default function PageProjects() {
 
             {/* <button onClick={() => setViewType("about")} /> */}
 
-            {
-                viewType == "about" ?
+            
                     <div className="flex flex-col gap-8 max-mobile:gap-4 w-full">
                         <div className="flex gap-8  max-mobile-tablet-threshold:gap-4 ">
                             <p className="w-[200px] max-tablet:w-[150px] text-left text-text font-bold text-lg max-[500px]:hidden">
@@ -170,7 +169,7 @@ export default function PageProjects() {
                     </div>
                     :
                     <></>
-            }
+            
         </section>
     )
 
