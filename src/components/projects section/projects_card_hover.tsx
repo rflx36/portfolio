@@ -8,7 +8,8 @@ export default function ProjectsCardHover(props: {
     imageList: Array<string>,
     title: string,
     isActive: boolean,
-    preload?: (src: string) => Promise<string>;
+    preload?: (src: string) => Promise<string>,
+    className?: string
 }) {
     const [index, setIndex] = useState(0);
     const [previousIndex, setPreviousIndex] = useState(0);
@@ -48,7 +49,7 @@ export default function ProjectsCardHover(props: {
 
     return (
         <div
-            className="w-full h-max"
+            className={` ${props?.className || "w-full h-max"}`}
         >
             {
                 props.imageList.map((src, i) => (

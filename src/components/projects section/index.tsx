@@ -229,24 +229,27 @@ export default function ProjectsSection() {
                                 </button>
 
                                 {/* Confirm chip */}
-                                <div className="absolute inset-0 grid place-content-center pointer-events-none ">
+                                <div className="absolute  size-full grid place-content-center pointer-events-none ">
                                     <button
                                         onClick={(e) => handleMobileOnClick("redirect", e, getFocusedProjectDetails?.project_title)}
                                         tabIndex={showConfirm ? 0 : -1}
                                         aria-hidden={!showConfirm}
-                                        className={`origin-center flex items-center gap-1.5 rounded-full border-4 border-black/10 
-                                            bg-bg backdrop-blur-md px-4 py-2 text-sm font-semibold text-text/75
+                                        className={`origin-center flex items-center gap-1.5 rounded-full border border-container-stroke
+                                            bg-bg  px-6 py-2 text-md font-bold text-text
                                             transition-[scale,opacity] duration-300
                                             active:brightness-125
+                                            shadow-lg
+                                            relative w-max left-0
+                                            
                                             ${showConfirm
                                                 ? "scale-100 opacity-100 pointer-events-auto ease-[cubic-bezier(0.34,1.56,0.64,1)]"
                                                 : "scale-0 opacity-0 pointer-events-none ease-in"}`}
                                     >
-                                        <span
+                                        <p
                                             className={`transition-opacity duration-200 ${showConfirm ? "opacity-100 delay-150" : "opacity-0 delay-0"}`}
                                         >
-                                            View project
-                                        </span>
+                                            View Project
+                                        </p>
                                         <svg
                                             viewBox="0 0 24 24"
                                             width="16"

@@ -21,16 +21,22 @@ export default function ProjectsCardMobile(props: {
     const imageList = [imageThumbnailUrl].concat(Array.from({ length: props?.projectImageShowcaseAmount || 0 }, (_, i) => `/assets/projects/${props.projectImageUrl.replace("project_thumbnail", "project_showcase").replace(".png", `_${i + 1}.webp`)}`));
 
     useEffect(() => {
+        let delay = 4300;
+        if (isShowcaseInitialized){
+            setIsShowcaseInitialized(false);
+            delay = 2000;
+        }
+
         const timeout = setTimeout(() => {
             if (props.showcaseInitialized) {
                 setIsShowcaseInitialized(true);
             }
-        }, 4300);
+        }, delay);
         
         return () => {
             clearTimeout(timeout);
         }
-    }, [props.showcaseInitialized]);
+    }, [props.showcaseInitialized,props.focus]);
 
     return (
         <div ref={props.ref} className=" absolute top-0 flex items-center justify-start w-full h-full">

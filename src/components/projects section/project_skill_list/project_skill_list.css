@@ -1,0 +1,57 @@
+.project-skill-card-container-selected {
+    /* enabled animation of selected card */
+    color: var(--color-text);
+    /* .skill-card-item .skill-image-container  */
+}
+
+.project-skill-card-container-disabled {
+    /* disabled animation of selected card */
+    color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+
+
+
+
+.project-skill-state-container:hover>.project-skill-card-container {
+    /* Set disabled animation of selected or hover of a card */
+
+    color: color-mix(in srgb, var(--color-text) 50%, transparent);
+
+
+
+}
+
+@keyframes image-transition {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100%;
+    }
+}
+
+
+
+
+
+
+.project-skill-card-container {
+    /* Set enabled animation of hover of a card */
+    color: var(--color-text) !important;
+
+    & .project-skill-card-item .project-skill-image-container {
+        --image-name-url: 'image';
+        --image-name-sequence-url: 'image-sequence';
+        background-image: var(--image-name-sequence-url) !important;
+        background-size: 100% 300%;
+        animation: image-transition 0.2s steps(2) forwards;
+        opacity: 100% !important;
+
+    }
+
+    & .project-skill-card-item p {
+        display: block !important;
+
+    }
+}

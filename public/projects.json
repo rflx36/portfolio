@@ -19,7 +19,7 @@
             "Arduino"
         ],
         "project_live_link": "",
-        "project_github_link": "",
+        "project_github_link": ["https://github.com/rflx36/SmartSched-Desktop","https://github.com/rflx36/SmartSched-Mobile","https://github.com/rflx36/SmartSched-Website"],
         "project_is_featured": true
     },
     {
@@ -37,7 +37,7 @@
             "CSS"
         ],
         "project_live_link": "https://hhr-bot.xyz/statslab",
-        "project_github_link": "",
+        "project_github_link": ["https://hhr-statslab-react-a5ea2of3m-rflxs-projects.vercel.app/","https://github.com/rflx36/HHR-Statslab-React","https://github.com/rflx36/HHR-statslab"],
         "project_is_featured": true
     },
     {
@@ -56,7 +56,7 @@
             "MySQL"
         ],
         "project_live_link": "",
-        "project_github_link": "",
+        "project_github_link": ["https://github.com/rflx36/Pet-Shop-Ecommerce"],
         "project_is_featured": true
     },
     {
@@ -73,7 +73,7 @@
             "MySQL"
         ],
         "project_live_link": "",
-        "project_github_link": "",
+        "project_github_link": ["https://github.com/rflx36/ROM-VB"],
         "project_is_featured": true
     },
     {
@@ -88,7 +88,7 @@
             "Javascript"
         ],
         "project_live_link": "",
-        "project_github_link": "",
+        "project_github_link": [""],
         "project_is_featured": false
     },
     {
@@ -99,7 +99,7 @@
         "project_finished_date": "",
         "project_tech_stack": [],
         "project_live_link": "",
-        "project_github_link": "",
+        "project_github_link": [""],
         "project_is_featured": false
     },
     {
@@ -114,7 +114,7 @@
             "Javascript"
         ],
         "project_live_link": "",
-        "project_github_link": "",
+        "project_github_link": [""],
         "project_is_featured": false
     },
     {
@@ -125,7 +125,7 @@
         "project_finished_date": "",
         "project_tech_stack": [],
         "project_live_link": "",
-        "project_github_link": "",
+        "project_github_link": [""],
         "project_is_featured": false
     }
 ]

@@ -62,7 +62,7 @@ export interface projectInfo {
     project_finished_date: string,
     project_tech_stack: string[],
     project_live_link: string,
-    project_github_link: string,
+    project_github_link: string[],
     project_is_featured: boolean
 }
 

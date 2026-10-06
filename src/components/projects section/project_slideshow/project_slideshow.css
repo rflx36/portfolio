@@ -1,0 +1,21 @@
+@keyframes slideshow-fill {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.slideshow-fill {
+    transform: scaleX(0);
+    animation-name: slideshow-fill;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slideshow-fill {
+        animation-duration: 5000ms !important;
+    }
+}
