@@ -64,7 +64,7 @@ export default function ProjectsCardHover(props: {
             }
             <span
                 style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
-                className={`pointer-events-none absolute top-4 right-4 flex h-7 w-7
+                className={`pointer-events-none absolute max-mobile:top-4 max-mobile:right-3 top-4 right-4 flex h-7 w-7
                       items-center justify-center rounded-full transition-opacity
                       duration-200 group-hover:duration-1000 ease-bezier-in group-hover:opacity-100
                       ${active ? "opacity-100" : "opacity-0"}

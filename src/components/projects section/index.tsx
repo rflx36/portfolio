@@ -14,17 +14,18 @@ import getResizeRegion from "../../utils/get_resize_region";
 export default function ProjectsSection() {
     const [projectsDataState, setProjectsDataState] = useState<projectDataType>(projectsDataDefaults);
     const [animationLoadState, setAnimationLoadState] = useState<animationLoadStateType>(animationLoadStateDefaults);
-    // const [resizeRegion, setResizeRegion] = useState<res izeRegion>("desktop")
+    // const [resizeRegion, setResizeRegion] = useState<resizeRegion>("desktop")
     const [focus, setFocus] = useState(-1);
     const [remountKey, setRemountKey] = useState(0);
+    const [showConfirm, setShowConfirm] = useState(false);
     const navigate = useNavigate();
     const screenWidth = useRef(window.innerWidth);
     const resizeRegion = useRef<resizeRegion>(getResizeRegion(window.innerWidth));
 
     const persistRandomizedValue = useRef(Math.random() < 0.5);
     const [mobileProjectsRef, MobilesProjectsInView] = useInView({ threshold: 1, triggerOnce: true });
-    const [projectRef, ProjectsInView] = useInView({ threshold: 1});
-    
+    const [projectRef, ProjectsInView] = useInView({ threshold: 1 });
+
 
     const handleHovers = () => {
         const projectsCard = document.getElementById("project-container-id");
@@ -103,6 +104,7 @@ export default function ProjectsSection() {
                 console.log(newRegion);
                 screenWidth.current = window.innerWidth;
                 setRemountKey((prevkey) => prevkey + 1);
+                setShowConfirm(false);
 
                 setFocusUpdate(newRegion)
 
@@ -120,6 +122,18 @@ export default function ProjectsSection() {
         }
 
     }, []);
+
+    // Hide the chip whenever the focused card changes
+    useEffect(() => {
+        setShowConfirm(false);
+    }, [focus]);
+
+    // Auto-dismiss the chip after a few seconds if untouched
+    useEffect(() => {
+        if (!showConfirm) return;
+        const t = setTimeout(() => setShowConfirm(false), 3500);
+        return () => clearTimeout(t);
+    }, [showConfirm]);
 
     const dampening = Math.min(Math.max((screenWidth.current / 1920 * 100), 0), 100);
     const featuredAmountLimit = 4;
@@ -153,7 +167,7 @@ export default function ProjectsSection() {
         }
     }
 
-    const handleMobileOnClick = (type: "prev" | "next" | "redirect", e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>, projectTitle?: string) => {
+    const handleMobileOnClick = (type: "prev" | "next" | "toggle" | "redirect", e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>, projectTitle?: string) => {
         e.currentTarget.blur();
 
         switch (type) {
@@ -163,7 +177,11 @@ export default function ProjectsSection() {
             case "next":
                 setFocus(current => current > 2 ? current : current + 1);
                 break;
+            case "toggle":
+                setShowConfirm(current => !current);
+                break;
             case "redirect":
+                setShowConfirm(false);
                 if (projectTitle) {
                     handleRedirect(projectTitle)
                 }
@@ -198,9 +216,56 @@ export default function ProjectsSection() {
                             <button onClick={(e) => handleMobileOnClick("prev", e)} className={`text-transparent w-16 -translate-x-1.5 h-[calc(100%-8px)] pointer-events-auto  ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
                                 Prev
                             </button>
-                            <button onClick={(e) => { handleMobileOnClick("redirect", e, getFocusedProjectDetails?.project_title) }} className={`text-transparent   grid place-content-center  flex-1 h-[calc(100%-8px)] pointer-events-auto ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
-                                Click to View more
-                            </button>
+
+                            {/* Center: tap area + confirm chip */}
+                            <div className="relative flex-1 h-[calc(100%-8px)] pointer-events-none">
+                                {/* Invisible tap target (the old "Click to View more") */}
+                                <button
+                                    onClick={(e) => handleMobileOnClick("toggle", e)}
+                                    aria-label="Show view project option"
+                                    className={`absolute inset-0 w-full h-full text-transparent pointer-events-auto ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25! rounded-xl`}
+                                >
+                                    Click to View more
+                                </button>
+
+                                {/* Confirm chip */}
+                                <div className="absolute inset-0 grid place-content-center pointer-events-none ">
+                                    <button
+                                        onClick={(e) => handleMobileOnClick("redirect", e, getFocusedProjectDetails?.project_title)}
+                                        tabIndex={showConfirm ? 0 : -1}
+                                        aria-hidden={!showConfirm}
+                                        className={`origin-center flex items-center gap-1.5 rounded-full border-4 border-black/10 
+                                            bg-bg backdrop-blur-md px-4 py-2 text-sm font-semibold text-text/75
+                                            transition-[scale,opacity] duration-300
+                                            active:brightness-125
+                                            ${showConfirm
+                                                ? "scale-100 opacity-100 pointer-events-auto ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                                                : "scale-0 opacity-0 pointer-events-none ease-in"}`}
+                                    >
+                                        <span
+                                            className={`transition-opacity duration-200 ${showConfirm ? "opacity-100 delay-150" : "opacity-0 delay-0"}`}
+                                        >
+                                            View project
+                                        </span>
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            width="16"
+                                            height="16"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            aria-hidden="true"
+                                            className={`transition-opacity duration-200 ${showConfirm ? "opacity-100 delay-150" : "opacity-0 delay-0"}`}
+                                        >
+                                            <path d="M7 17L17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
                             <button onClick={(e) => handleMobileOnClick("next", e)} className={`text-transparent w-16 translate-x-1.5 h-[calc(100%-8px)] pointer-events-auto  ease-out duration-300 focus:bg-black/25 focus:duration-0 active:duration-0 ${(MobilesProjectsInView) ? "project-mobile-controls" : ""} active:bg-black/25!  rounded-xl`}>
                                 Next
                             </button>
@@ -269,7 +334,7 @@ export default function ProjectsSection() {
                 {
                     resizeRegion.current != "desktop" &&
                     <div className="flex flex-col gap-4" ref={mobileProjectsRef}>
-                      
+
                         <div key={focus} className=" flex gap-2 justify-center opacity-0 project-mobile-controls-navigation">
                             <div className={`h-0.5 w-8 ${focus == 0 ? "bg-text w-16" : "bg-text/30"} rounded-full`} />
                             <div className={`h-0.5 w-8 ${focus == 1 ? "bg-text  w-16" : "bg-text/30"} rounded-full`} />
