@@ -184,7 +184,7 @@ export default function ImageSlideshowCard({
                 return (
                     <div
                         key={src + i}
-                        className={`absolute inset-0 transition-opacity duration-500 ease-bezier-in motion-reduce:transition-none ${
+                        className={`absolute inset-0 transition-opacity select-none pointer-events-none  duration-500 ease-bezier-in motion-reduce:transition-none ${
                             i === previousIndex ? "delay-100" : ""
                         } ${
                             i === index
@@ -197,7 +197,7 @@ export default function ImageSlideshowCard({
                             src={lowResSrc}
                             alt=""
                             aria-hidden="true"
-                            className={`absolute inset-0 h-full w-full object-cover blur-md scale-105 transition-opacity duration-500 ease-bezier-in ${
+                            className={`absolute inset-0  h-full w-full object-cover blur-md scale-105 transition-opacity duration-500 ease-bezier-in ${
                                 isLoaded
                                     ? "opacity-0"
                                     : "opacity-100"
@@ -210,7 +210,7 @@ export default function ImageSlideshowCard({
                         <img
                             src={src}
                             alt={title}
-                            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-bezier-in motion-reduce:transition-none ${
+                            className={`absolute inset-0  h-full w-full object-cover transition-opacity duration-500 ease-bezier-in motion-reduce:transition-none ${
                                 isLoaded
                                     ? "opacity-100"
                                     : "opacity-0"

@@ -65,8 +65,8 @@ Todo for today:
 - implement last 2 pages directory (about, projects)
 - implement footer
 
-
-- implement lazy loading of images on project section
+- finish unique design on About me page
+- on mobile resolution - profile gets centered like fb
 
 Final Todo:
 -Mobile View (min resolution: 320px - 430px)

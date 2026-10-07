@@ -57,7 +57,7 @@ export default function ProjectsCardHover(props: {
                         key={i}
                         src={src}
                         alt={props.title}
-                        className={`object cover absolute inset-0 h-full w-full transition-opacity duration-500 ease-bezier-in motion-reduce:transition-none ${i == previousIndex ? "delay-100" : ""}  ${i == index ? "opacity-100" : "opacity-0"}`}
+                        className={`object cover absolute select-none pointer-events-none  inset-0 h-full w-full transition-opacity duration-500 ease-bezier-in motion-reduce:transition-none ${i == previousIndex ? "delay-100" : ""}  ${i == index ? "opacity-100" : "opacity-0"}`}
                         fetchPriority={i == 0 ? "high" : "auto"}
                     />
                 ))
