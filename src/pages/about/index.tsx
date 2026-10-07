@@ -1,4 +1,3 @@
-"use client"
 
 import { useEffect, type ReactNode } from "react"
 import PixelBackground from "../../components/ui/pixel bg"
@@ -23,12 +22,7 @@ const hats = [
     "PhotoVideoEditing",
 ]
 
-const projects = [
-    "Dynamic constraint-based schedule generator",
-    "Multiplayer horror game",
-    "Quad-tree based map viewer",
-    "Game stat laboratory calculator",
-]
+
 
 function Avatar({ size }: { size: "sm" | "lg" }) {
     const isLarge = size === "lg"
