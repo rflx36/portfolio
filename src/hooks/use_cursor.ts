@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useCursorStore } from '../stores/cursor_store'
 import type { cursorStateType } from '../types/types'
 import isMobile from '../utils/is_mobile'
@@ -26,6 +27,13 @@ export function useCursor({ tooltip, type = "default" }: cursorStateType) {
     cursor.get.tooltip = undefined;
     cursor.set();
   }
+
+  useEffect(() => {
+    if (tooltip !== undefined) {
+      cursor.get.tooltip = tooltip
+      cursor.set();
+    }
+  }, [tooltip])
 
   return { onMouseEnter, onMouseLeave }
 }

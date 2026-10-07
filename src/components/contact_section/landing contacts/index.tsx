@@ -4,9 +4,21 @@ import { useCursor } from "../../../hooks/use_cursor";
 
 
 
+const EMAIL = "rolandfonzlamoste3608@gmail.com";
+
 export default function LandingContacts() {
     const [githubData, setGithubData] = useState()
+    const [copied, setCopied] = useState<boolean>(false)
 
+    const copyEmail = async (): Promise<void> => {
+        try {
+            await navigator.clipboard.writeText(EMAIL)
+            setCopied(true)
+            setTimeout(() => setCopied(false), 1800)
+        } catch {
+            window.location.href = `mailto:${EMAIL}`
+        }
+    }
 
 
     const fetchGithubData = async () => {
@@ -24,7 +36,7 @@ export default function LandingContacts() {
 
     const cursorOnHoverGithub = useCursor({ tooltip: `github`, type: "pointer" })
 
-    const cursorOnHoverEmail = useCursor({ tooltip: "Copy to clipboard", type: "pointer" })
+    const cursorOnHoverEmail = useCursor({ tooltip: copied ? "Copied Successfully ✔" : "Copy to clipboard", type: "pointer" })
     return (
         <div className="flex  max-tablet:grid max-tablet:grid-cols-2  w-[calc(100%-4rem)] mx-8  justify-evenly max-mobile:flex-col max-mobile:flex max-mobile:mx-auto max-mobile:w-max">
             <div className="size-max  overflow-hidden">
@@ -47,7 +59,9 @@ export default function LandingContacts() {
                         </svg>
                     </div>
 
-                    <p className="text-current">Download Resume</p>
+                    <a href="/RESUME_LAMOSTE_ROLAND_FONZ.pdf" download="RESUME_LAMOSTE_ROLAND_FONZ.pdf" className="text-current cursor-none ">
+                        Download Resume
+                    </a>
                 </button>
             </div>
             <div className="size-max  overflow-hidden">
@@ -65,7 +79,7 @@ export default function LandingContacts() {
             </div>
             <div className="size-max  overflow-hidden">
 
-                <button {...cursorOnHoverEmail} className=" outline-none focus:text-accent-1 animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.9s] flex gap-3 p-2  font-semibold text-xs ease-bezier-in duration-50 cursor-pointer items-center text-text/67 hover:text-accent-1">
+                <button {...cursorOnHoverEmail} onClick={copyEmail} className=" outline-none focus:text-accent-1 animate-[SlideUp_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.9s] flex gap-3 p-2  font-semibold text-xs ease-bezier-in duration-50 cursor-pointer items-center text-text/67 hover:text-accent-1">
                     <div className="w-3 h-auto grid place-content-center translate-x-px">
 
                         <svg className="fill-current" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -107,10 +107,9 @@ function Post({
                 </div>
             </div>
 
-
         </article>
     )
-}
+} 
 
 export default function PageAbout() {
     useEffect(() => {

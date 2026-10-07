@@ -35,16 +35,19 @@ function App() {
   useEffect(() => {
 
 
+    
+    const redirectTimeout = setTimeout(()=>{
 
-    if (location.state?.scrollTo) {
-
-      const section = document.getElementById(location.state.scrollTo);
-      if (section) {
-        section.scrollIntoView(scrollDefaults);
+      if (location.state?.scrollTo) {
+        
+        const section = document.getElementById(location.state.scrollTo);
+        if (section) {
+          section.scrollIntoView();
+        }
+        
+        navigate(location.pathname, { replace: true });
       }
-
-      navigate(location.pathname, { replace: true });
-    }
+    },1000)
 
     const introTimeout = setTimeout(() => {
       setIntroductionLoaded(true);
@@ -52,7 +55,7 @@ function App() {
 
 
     return () => {
-
+      clearTimeout(redirectTimeout);
       clearTimeout(introTimeout)
     }
   }, []);
@@ -92,7 +95,7 @@ function App() {
       </section>
 
 
-      <section ref={projectsRef}>
+      <section ref={projectsRef} id="project-featured-section-id">
         {
           (introductionLoaded || hasScrolled || !isMobile()) ?
             <div className={`max-mobile:animate-[SlideUpFadeIn_0.5s_ease-in-out_forwards]`}>
@@ -105,7 +108,7 @@ function App() {
             </>
         }
       </section>
-      <Suspense fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>
+      <Suspense  fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>
         <SkillsSection />
       </Suspense>
       <Suspense fallback={<div className="bg-container-soft-shadow animate-pulse mx-auto my-4 rounded-xl size-20 h-auto max-mobile:w-[calc(100%-4rem)] aspect-square" />}>

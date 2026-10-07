@@ -97,7 +97,7 @@ export default function NavigationBar() {
                 }
                 <div className="mx-1 relative max-mobile:hidden pointer-events-auto touch-auto">
                     <div className="aspect-video h-auto w-full  absolute pointer-events-none touch-none"></div>
-                    <button onClick={() => handleNavigation("/projects")} className="focus:bg-accent-1 text-text"   {...cursorOnHover}>
+                    <button onClick={() => handleNavigation("/","project-featured-section-id")} className="focus:bg-accent-1 text-text"   {...cursorOnHover}>
                         {/* Add something like icon upon hover */}
                         <h1 className="p-2 mx-1 max-mobile-tablet-threshold:mx-0 max-mobile-tablet-threshold:text-sm hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s]">Projects</h1>
 

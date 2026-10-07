@@ -75,3 +75,6 @@ Final Todo:
 -Projects section - /
 -projects images - /
 -implement SEO
+
+-Navbar hover design -> pixel effect
+-background seciton date /text-formatting

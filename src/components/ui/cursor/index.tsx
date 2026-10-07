@@ -69,7 +69,7 @@ export function CustomCursor() {
 
   }
 
-  if (isMobile()){
+  if (isMobile()) {
     return;
   }
 
@@ -84,7 +84,7 @@ export function CustomCursor() {
       {getCursorStyle()}
 
 
-      <div className={`absolute left-7 top-1 px-2.5 py-1 text-xs font-semibold bg-text text-bg  whitespace-nowrap shadow-lg origin-left  ease-smooth   ${cursor.get.tooltip != undefined ? "duration-150 scale-100 opacity-100 rounded-md" : " duration-150 scale-0 rounded-none -translate-x-7 opacity-0"}`}>
+      <div className={`absolute left-7 top-1 px-2.5 py-1 text-xs font-semibold bg-text  ${cursor.get.tooltip == "Copied Successfully ✔" ? "text-accent-3" : "text-bg"}  whitespace-nowrap shadow-lg origin-left  ease-smooth   ${cursor.get.tooltip != undefined ? "duration-150 scale-100 opacity-100 rounded-md" : " duration-150 scale-0 rounded-none -translate-x-7 opacity-0"}`}>
         {cursor.get?.tooltip}
         <span className="absolute -left-1 top-1/2 -translate-y-1/2 border-4 border-transparent border-r-gray-900" />
       </div>

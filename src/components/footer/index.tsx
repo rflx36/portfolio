@@ -56,7 +56,7 @@ interface FooterLinkProps {
     // link mode
     href?: string
     external?: boolean
-    download?: boolean
+    download?: string
     // button mode
     onClick?: () => void
 }
@@ -142,8 +142,8 @@ export default function Footer() {
                         <FooterLink
                             label={isMobile() ? "Download Resume" : "Resume"}
                             icon={<FileIcon />}
-                            href="/resume.pdf" /* update to your resume path */
-                            download
+                            href="/RESUME_LAMOSTE_ROLAND_FONZ.pdf" /* update to your resume path */
+                            download="RESUME_LAMOSTE_ROLAND_FONZ.pdf"
                             delay="2.9s"
                         />
                         <FooterLink
@@ -155,10 +155,10 @@ export default function Footer() {
                             delay="2.8s"
                         />
                         <FooterLink
-                            label={copied ? "Copied to clipboard" : EMAIL}
+                            label={ EMAIL}
                             icon={<MailIcon />}
                             onClick={copyEmail}
-                            tooltip="Copy to clipboard"
+                            tooltip={copied ? "Copied Successfully ✔" : "Copy to clipboard"}
                             delay="3s"
                         />
                     </ul>
