@@ -154,7 +154,7 @@ export default function NavigationBar() {
                                     <h1 className="text-2xl uppercase font-bold">Skills</h1>
                                 </div>
                             </button>
-                            <button className="relative text-text flex-1 w-full  mobile-nav-button" onClick={() => handleNavigation("/projects")}>
+                            <button className="relative text-text flex-1 w-full  mobile-nav-button" onClick={() => handleNavigation("/","project-featured-section-id")}>
 
                                 {/* <div className=" bg-accent-3 " style={{ animationDelay: "0.4s" }} /> */}
                                 {/* <div className=" bg-accent-2 " style={{ animationDelay: "0.5s" }} /> */}
@@ -163,7 +163,7 @@ export default function NavigationBar() {
                                     <h1 className="text-2xl uppercase font-bold">Projects</h1>
                                 </div>
                             </button>
-                            <button className="relative text-text flex-1 w-full mobile-nav-button" onClick={() => handleNavigation("/contact", "contact-section-id")}>
+                            <button className="relative text-text flex-1 w-full mobile-nav-button" onClick={() => handleNavigation("/", "contact-section-id")}>
 
                                 {/* <div className=" bg-accent-3 " style={{ animationDelay: "0.55s" }} /> */}
                                 {/* <div className=" bg-accent-2 " style={{ animationDelay: "0.65s" }} /> */}

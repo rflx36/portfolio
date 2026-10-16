@@ -7,10 +7,14 @@ import NavigationBar from './components/navigation bar/index.tsx';
 import Footer from './components/footer/index.tsx';
 import { CustomCursor } from './components/ui/cursor/index.tsx';
 import PageAbout from './pages/about/index.tsx';
+import { Analytics } from '@vercel/analytics/react';
+
+
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
         <NavigationBar />
+        <Analytics/>
         <CustomCursor />
         <Routes>
             <Route path='/' element={<App />} />
