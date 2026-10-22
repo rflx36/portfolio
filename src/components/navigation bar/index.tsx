@@ -51,7 +51,7 @@ export default function NavigationBar() {
         }, 50);
 
         const handleScroll = () => {
-            if (resizeRegion != "mobile"){
+            if (resizeRegion != "mobile") {
                 return;
             }
 
@@ -70,17 +70,17 @@ export default function NavigationBar() {
             clearTimeout(InitializeElements);
             window.removeEventListener("scroll", handleScroll);
         }
-    }, [isDocked,resizeRegion])
-    
-    console.log("scroll:"+ window.scrollY);
-    console.log("resize"+resizeRegion);
+    }, [isDocked, resizeRegion])
+
+    console.log("scroll:" + window.scrollY);
+    console.log("resize" + resizeRegion);
     const redirectToHomeEnabled = ((location.pathname == "/" && !isAtTop) || location.pathname != "/") || resizeRegion != "mobile";
 
     const handleRedirectToHome = () => {
-        if (!redirectToHomeEnabled){
+        if (!redirectToHomeEnabled) {
             return;
         }
-         handleNavigation("/", "home-section-id")
+        handleNavigation("/", "home-section-id")
     }
     return (
         <>
@@ -90,14 +90,14 @@ export default function NavigationBar() {
                 <ProgressiveBlur direction="top" intensity={32} offset={55} className="h-[calc(100%+3.5rem)]! touch-none select-none pointer-events-none" />
 
                 {
-                    
-                    <button aria-disabled={!redirectToHomeEnabled} className={` relative ${redirectToHomeEnabled?"translate-y-0 pointer-events-auto":"-translate-y-full pointer-events-none"} ease-bezier-in duration-500`} onClick={handleRedirectToHome}   {...cursorOnHover}>
+
+                    <button aria-disabled={!redirectToHomeEnabled} className={` relative ${redirectToHomeEnabled ? "translate-y-0 pointer-events-auto" : "-translate-y-full pointer-events-none"} ease-bezier-in duration-500`} onClick={handleRedirectToHome}   {...cursorOnHover}>
                         <h1 className={`p-2  origin-top-left mx-2 z-60 font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  not-max-mobile:animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.5s] `}>RFLAMOSTE</h1>
                     </button>
                 }
                 <div className="mx-1 relative max-mobile:hidden pointer-events-auto touch-auto">
                     <div className="aspect-video h-auto w-full  absolute pointer-events-none touch-none"></div>
-                    <button onClick={() => handleNavigation("/","project-featured-section-id")} className="focus:bg-accent-1 text-text"   {...cursorOnHover}>
+                    <button onClick={() => handleNavigation("/", "project-featured-section-id")}    {...cursorOnHover}>
                         {/* Add something like icon upon hover */}
                         <h1 className="p-2 mx-1 max-mobile-tablet-threshold:mx-0 max-mobile-tablet-threshold:text-sm hover:backdrop-blur-xs font-semibold text-text  rounded-xl hover:text-accent-1 hover:bg-accent-2/10  animate-[SlideDown_0.5s_cubic-bezier(0.75,0.63,0.13,0.83)_both_2.6s]">Projects</h1>
 
@@ -125,14 +125,14 @@ export default function NavigationBar() {
                             <button onClick={() => handleNavigation("/", "home-section-id")} className="size-[100px] bg-bg p-0.5 shadow-2xl rounded-full overflow-hidden animate-[scaleIn_0.3s_cubic-bezier(0.65,0.56,0.27,0.86)_backwards]">
                                 {/* <img src="/assets/profile.png" className=" size-full rounded-full object-cover " /> */}
                                 <img
-                                src={"/assets/profile.png"}
-                                onLoad={(x) =>{
-                                    const profile = x.currentTarget
-                                    profile.style.opacity = "100%";
-                                    profile.classList.remove("animate-pulse")
-                                }}
-                                className="size-full rounded-full object-cover animate-pulse bg-container-soft-shadow opacity-0 ease-in duration-100"
-                            />
+                                    src={"/assets/profile.png"}
+                                    onLoad={(x) => {
+                                        const profile = x.currentTarget
+                                        profile.style.opacity = "100%";
+                                        profile.classList.remove("animate-pulse")
+                                    }}
+                                    className="size-full rounded-full object-cover animate-pulse bg-container-soft-shadow opacity-0 ease-in duration-100"
+                                />
                             </button>
                         </div>
                         <div className="grow flex flex-col justify-center gap-2 p-2 items-center">
@@ -154,7 +154,7 @@ export default function NavigationBar() {
                                     <h1 className="text-2xl uppercase font-bold">Skills</h1>
                                 </div>
                             </button>
-                            <button className="relative text-text flex-1 w-full  mobile-nav-button" onClick={() => handleNavigation("/","project-featured-section-id")}>
+                            <button className="relative text-text flex-1 w-full  mobile-nav-button" onClick={() => handleNavigation("/", "project-featured-section-id")}>
 
                                 {/* <div className=" bg-accent-3 " style={{ animationDelay: "0.4s" }} /> */}
                                 {/* <div className=" bg-accent-2 " style={{ animationDelay: "0.5s" }} /> */}
